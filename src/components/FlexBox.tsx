@@ -1,5 +1,20 @@
-import { Box } from "@mui/material";
+import { Box, BoxProps } from "@mui/material";
+import { FC } from "react";
 
-export const FlexBox = ({ alignItems = "center", justifyContent = "center", ...props }: any) => (
-  <Box display="flex" alignItems={alignItems} justifyContent={justifyContent} {...props} />
+interface FlexBoxProps extends BoxProps {
+  alignItems?: string;
+  justifyContent?: string;
+}
+
+export const FlexBox: FC<FlexBoxProps> = ({
+  alignItems = "center",
+  justifyContent = "center",
+  ...props
+}: any) => (
+  <Box
+    display="flex"
+    alignItems={alignItems}
+    justifyContent={justifyContent}
+    {...props}
+  />
 );
