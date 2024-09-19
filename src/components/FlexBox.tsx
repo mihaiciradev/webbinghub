@@ -10,7 +10,7 @@ export const FlexBox: FC<FlexBoxProps> = ({
   alignItems = "center",
   justifyContent = "center",
   ...props
-}: any) => (
+}) => (
   <Box
     display="flex"
     alignItems={alignItems}
