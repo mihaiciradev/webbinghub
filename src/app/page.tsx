@@ -1,5 +1,5 @@
 import HeroSection from "@/app/HeroSection/HeroSection";
-import { FlexBox } from "@/components/FlexBox";
+// import { FlexBox } from "@/components/FlexBox";
 
 export default function Home() {
   return (
