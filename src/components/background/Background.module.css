@@ -1,0 +1,101 @@
+.backgroundContainer {
+    outline: 2px solid red;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    opacity: .3;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+
+.bg_design {
+    position: absolute;
+    top: 19vh;
+    left: 5vw;
+}
+
+.bg_alien {
+    position: absolute;
+    top: 12vh;
+    left: 28vw;
+}
+
+.bg_cake {
+    position: absolute;
+    top: 23vh;
+    left: 45vw;
+}
+
+.bg_horse {
+    position: absolute;
+    top: 25vh;
+    left: 75vw;
+}
+
+.bg_leaf {
+    position: absolute;
+    top: 8vh;
+    left: 89vw;
+}
+
+.bg_owl {
+    position: absolute;
+    top: 42vh;
+    left: 10vw;
+}
+
+.bg_ozn {
+    position: absolute;
+    top: 50vh;
+    left: 35vw;
+}
+
+.bg_palette {
+    position: absolute;
+    top: 40vh;
+    left: 55vw;
+}
+
+.bg_palms {
+    position: absolute;
+    top: 58vh;
+    left: 70vw;
+}
+
+.bg_pepper {
+    position: absolute;
+    top: 43vh;
+    left: 92vw;
+}
+
+.bg_pizza {
+    position: absolute;
+    top: 69vh;
+    left: 1vw;
+}
+
+.bg_plane {
+    position: absolute;
+    top: 88vh;
+    left: 17vw;
+}
+
+.bg_popcorn {
+    position: absolute;
+    top: 75vh;
+    left: 40vw;
+}
+
+.bg_rhino {
+    position: absolute;
+    top: 93vh;
+    left: 65vw;
+}
+
+.bg_robot {
+    position: absolute;
+    top: 87vh;
+    left: 89vw;
+}
