@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./compass.module.css";
+import styles from "./Compass.module.css";
 import { Box } from "@mui/material";
 
 export default function Compass() {
