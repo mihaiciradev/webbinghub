@@ -2,7 +2,6 @@ import { Box } from "@mui/material";
 import styles from "./HeroSection.module.css";
 import React from "react";
 import { FlexBox } from "../../components/FlexBox";
-import Image from "next/image";
 import HeroSectionArrow from "@/components/HeroSectionArrow/HeroSectionArrow";
 
 export default function HeroSection() {
