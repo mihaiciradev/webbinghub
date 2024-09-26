@@ -54,13 +54,13 @@
 
         & g {
             fill-opacity: 0;
-            /* animation: fill-in 1s 10s forwards; */
+            animation: fill-in 1s 10s forwards;
         }
 
         & path {
             stroke-dashoffset: 350;
             stroke-dasharray: 350;
-            /* animation: draw 15s 2s forwards; */
+            animation: draw 15s 2s forwards;
         }
     }
 }
