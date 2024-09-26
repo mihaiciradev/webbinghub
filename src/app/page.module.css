@@ -1,0 +1,5 @@
+.pageHeader {
+    color: var(--secondary);
+    font-family: var(--font-poppins), sans-serif;
+    text-shadow: 1px 1px 1px black;
+}

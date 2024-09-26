@@ -2,7 +2,7 @@
   --background: #E4D0A7;
   --primary: #E4D0A7;
 
-  --secondary: #956464;
+  --secondary: #333232;
 }
 
 html,
@@ -10,6 +10,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
+
 
 body {
   color: var(--foreground);
@@ -34,4 +35,30 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.underlinedLink {
+  font-family: var(--font-montserrat), sans-serif;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  padding: 0 5px;
+}
+
+.underlinedLink::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.underlinedLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }

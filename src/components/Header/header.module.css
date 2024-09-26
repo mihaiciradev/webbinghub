@@ -5,6 +5,16 @@
     width: 100%;
     top: 0;
     padding: 0 8rem;
+    transition: background 300ms,
+        height 300ms;
+
+    & svg {
+        outline: 2px solid red;
+    }
+
+    z-index: 100;
+    border-bottom: 1px solid var(--primary);
+
 }
 
 .headerButton {
@@ -20,6 +30,7 @@
     transition: opacity 200ms;
     opacity: 1;
     font-weight: 100;
+    transition: font-size 300ms;
 
     &:hover {
         opacity: .35;
@@ -27,5 +38,52 @@
 }
 
 .scrolled {
-    background: green;
+    background: var(--secondary);
+    height: 3.5rem;
+
+    .headerButton {
+        color: white;
+        border: 2px solid white;
+
+    }
+
+    .logosContainer {
+        & img:nth-of-type(1) {
+            opacity: 0;
+        }
+
+        & img:nth-of-type(2) {
+            opacity: 1
+        }
+    }
+
+    .headerButton {
+        font-size: .7rem;
+    }
+
+}
+
+.logosContainer {
+    position: relative;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & img:nth-of-type(1) {
+        height: 100%;
+        opacity: 1;
+        transition: opacity 300ms;
+    }
+
+    & img:nth-of-type(2) {
+        position: absolute;
+        width: 30%;
+        height: auto;
+        left: 0;
+        opacity: 0;
+        transition: opacity 300ms;
+
+    }
+
 }

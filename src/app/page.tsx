@@ -1,16 +1,13 @@
 import HeroSection from "@/app/HeroSection/HeroSection";
-// import { FlexBox } from "@/components/FlexBox";
+import SecondSection from "./SecondSection/SecondSection";
+import ThirdSection from "./ThirdSection/ThirdSection";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <HeroSection />
-      {/* <FlexBox sx={{ flexDirection: "column" }}>
-        <p>text</p>
-        <p>svg</p>
-        <p>text</p>
-        <p>svg</p>
-      </FlexBox> */}
-    </div>
+      <SecondSection />
+      <ThirdSection />
+    </>
   );
 }

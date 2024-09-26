@@ -54,13 +54,13 @@
 
         & g {
             fill-opacity: 0;
-            animation: fill-in 1s 10s forwards;
+            /* animation: fill-in 1s 10s forwards; */
         }
 
         & path {
             stroke-dashoffset: 350;
             stroke-dasharray: 350;
-            animation: draw 15s 2s forwards;
+            /* animation: draw 15s 2s forwards; */
         }
     }
 }
@@ -74,18 +74,5 @@
 @keyframes fill-in {
     to {
         fill-opacity: 1;
-    }
-}
-
-.blackArrow {
-    margin-top: 15rem;
-    opacity: 1;
-    transition: transform 0.6s, opacity 0.3s;
-
-    cursor: pointer;
-
-    &:hover {
-        transform: translateY(1rem);
-        opacity: .4;
     }
 }

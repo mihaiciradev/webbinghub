@@ -4,8 +4,11 @@ import { useState, useEffect, ReactNode } from "react";
 import styles from "./header.module.css";
 import Image from "next/image";
 import BlackLogo from "../../assets/header-black-logo.svg";
+import WhiteLogo from "../../assets/header-white-logo.svg";
+
 import { FlexBox } from "../FlexBox";
 import { useRouter } from "next/navigation";
+import { Box } from "@mui/material";
 
 interface HeaderButtonProps {
   children: ReactNode;
@@ -51,7 +54,11 @@ export default function Header() {
       className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}
       sx={{ justifyContent: "space-between" }}
     >
-      <Image src={BlackLogo} alt="Logo" />
+      <Box className={styles.logosContainer}>
+        <Image src={BlackLogo} alt="webbinghub black" />
+        <Image src={WhiteLogo} alt="webbinghub white" />
+      </Box>
+
       <FlexBox sx={{ gap: "1rem" }}>
         <HeaderButton path="/">home</HeaderButton>
         <HeaderButton path="/about">about</HeaderButton>
