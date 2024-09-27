@@ -33,7 +33,7 @@ export default function about() {
 
       <FlexBox className={styles.textsContainer}>
         <FlexBox>
-          <h2>We don't just build websites. We build your success.</h2>
+          <h2>We don&apos;t just build websites. We build your success.</h2>
           <p>
             At WebbingHub, our approach is <b>simple</b> — understand your
             business, tailor a solution, and deliver excellence. We ensure every
