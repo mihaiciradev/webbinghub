@@ -37,7 +37,8 @@ export default function about() {
           <p>
             At WebbingHub, our approach is <b>simple</b> — understand your
             business, tailor a solution, and deliver excellence. We ensure every
-            website is a reflection of your brand’s <b>values and vision</b>.
+            website is a reflection of your brand&apos;s{" "}
+            <b>values and vision</b>.
           </p>
           <FlexBox sx={{ gap: "3rem", marginLeft: "3rem" }}>
             <Image src={discuss} alt="discuss" />
@@ -50,11 +51,11 @@ export default function about() {
           <h2>Your Partner in Digital Growth.</h2>
           <p>
             We offer more than just a website. We offer a <b>partnership</b>{" "}
-            dedicated to your growth. Here’s what sets us apart: <br />
+            dedicated to your growth. Here&aposs what sets us apart: <br />
             &bull; <b>Tailored Solutions:</b> Custom-built websites to meet your
             unique needs.
             <br />
-            &bull; <b>Ongoing Support:</b> We’re here for you, even after
+            &bull; <b>Ongoing Support:</b> We&aposre here for you, even after
             launch.
           </p>
           <FlexBox sx={{ gap: "3rem", marginLeft: "3rem" }}>
