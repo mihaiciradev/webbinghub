@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect, ReactNode } from "react";
+import { useState, useEffect, ReactNode, useMemo } from "react";
 import styles from "./header.module.css";
 import Image from "next/image";
 import BlackLogo from "../../assets/header-black-logo.svg";
 import WhiteLogo from "../../assets/header-white-logo.svg";
 
 import { FlexBox } from "../FlexBox";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Box } from "@mui/material";
 
 interface HeaderButtonProps {
@@ -42,6 +42,8 @@ export default function Header() {
       setScrolled(scrollTop > 50);
     };
 
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -49,9 +51,17 @@ export default function Header() {
     };
   }, []);
 
+  const pathname = usePathname();
+
+  const isHomePage = useMemo(() => {
+    return pathname === "/";
+  }, [pathname]);
+
   return (
     <FlexBox
-      className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}
+      className={`${styles.header} ${
+        !isHomePage || scrolled ? styles.scrolled : ""
+      }`}
       sx={{ justifyContent: "space-between" }}
     >
       <Box className={styles.logosContainer}>

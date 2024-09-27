@@ -17,13 +17,13 @@ export default function Footer() {
           width: "30%",
         }}
       >
-        <Link href="/#" className="underlinedLink">
+        <Link href="/" className="underlinedLink">
           home
         </Link>
-        <Link href="/#" className="underlinedLink">
+        <Link href="/about" className="underlinedLink">
           about
         </Link>
-        <Link href="/#" className="underlinedLink">
+        <Link href="/contact" className="underlinedLink">
           contact
         </Link>
       </FlexBox>
@@ -36,13 +36,17 @@ export default function Footer() {
           width: "30%",
         }}
       >
-        <Link href="/#" className="underlinedLink">
+        <Link
+          href="https://www.linkedin.com/company/webbinghub"
+          className="underlinedLink"
+          target="_blank"
+        >
           LinkedIn
         </Link>
-        <Link href="/#" className="underlinedLink">
+        <Link href="mailto:support@webbinghub.io" className="underlinedLink">
           support@webbinghub.io
         </Link>
-        <Link href="/#" className="underlinedLink">
+        <Link href="tel:+40736394784" className="underlinedLink">
           +40 736 394 784
         </Link>
       </FlexBox>

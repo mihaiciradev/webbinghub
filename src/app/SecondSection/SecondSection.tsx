@@ -8,7 +8,7 @@ import rocket from "@/assets/rocket.svg";
 export default function SecondSection() {
   return (
     <FlexBox
-      sx={{ flexDirection: "column", gap: "5rem", paddingBottom: "6rem" }}
+      sx={{ flexDirection: "column", gap: "1rem", paddingBottom: "6rem" }}
       id="websites"
     >
       <FlexBox className={styles.pageHeader}>
@@ -24,7 +24,7 @@ export default function SecondSection() {
         <h1>launched and mantained.</h1>
       </FlexBox>
 
-      <Image src={rocket} alt="launch" />
+      <Image src={rocket} alt="launch" className={styles.rocket} />
     </FlexBox>
   );
 }

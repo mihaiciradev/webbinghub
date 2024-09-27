@@ -1,0 +1,55 @@
+.container {
+    margin-top: 5rem;
+    padding: 5rem;
+    color: var(--secondary);
+    flex-direction: column;
+    font-family: var(--font-montserrat), sans-serif;
+    gap: 6.5rem;
+
+    & h2 {
+        font-weight: bolder;
+        position: relative;
+
+        & img {
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateX(100%) translateY(-50%);
+        }
+    }
+
+    & p {
+        font-family: var(--font-geist-sans), sans-serif;
+        font-style: italic;
+    }
+
+    .description {
+        width: 70%;
+    }
+}
+
+
+.textsContainer {
+    flex-direction: column;
+    gap: 8rem;
+    align-self: flex-start;
+    border-left: 2px solid;
+    border-image: linear-gradient(to bottom, transparent, black, transparent) 1;
+    padding: 5rem 0 5rem 2rem;
+
+    &>div {
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: flex-start;
+
+        gap: 2rem;
+        width: 50rem;
+    }
+}
+
+.conceptToLaunch {
+    flex-direction: column;
+    gap: 2rem;
+    width: 60%;
+    text-align: center;
+}

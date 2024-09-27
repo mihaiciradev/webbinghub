@@ -28,7 +28,8 @@
 .logoContainer {
     flex-direction: column;
     margin-top: 10rem;
-    width: 40%;
+    width: 25%;
+
 
     & img {
         width: 100%;
