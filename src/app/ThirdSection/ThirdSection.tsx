@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./ThirdSection.module.css";
 import { FlexBox } from "@/components/FlexBox";
-import coworkers from "@/assets/coworkers.svg";
 import Image from "next/image";
 import cremLogo from "@/assets/crem_logo.svg";
 import slider from "@/assets/cirlce_slider.svg";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
+import Coworkers from "./Coworkers/Coworkers";
 
 export default function ThirdSection() {
   return (
@@ -13,7 +13,7 @@ export default function ThirdSection() {
       <Image src={slider} alt="slider" className={styles.slider} />
 
       <h1>Your vision. Our experties.</h1>
-      <Image src={coworkers} alt="team" />
+      <Coworkers />
       <p>
         Let’s <b>discuss</b> about your vision and needs - see if we are a
         match. Using the right tools by the right people, we can craft{" "}

@@ -11,13 +11,13 @@ import Link from "next/link";
 export default function Contact() {
   return (
     <FlexBox className={styles.container}>
-      <h2>Let's have a chat.</h2>
+      <h2>Let&apos;s have a chat.</h2>
       <Image src={chat} alt="let's chave a chat" />
 
       <p className={styles.description}>
-        Maybe you need a website, maybe you don’t. <br />
+        Maybe you need a website, maybe you don&apos;t. <br />
         Maybe it has to be a complex one, maybe not.
-        <br /> Let’s discuss and decide together what suits you best.
+        <br /> Let&apos;s discuss and decide together what suits you best.
       </p>
 
       <FlexBox sx={{ flexDirection: "column", gap: "2rem" }}>
