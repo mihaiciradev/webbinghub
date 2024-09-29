@@ -18,14 +18,12 @@
         }
     }
 
-    & p {
+    .description {
+        width: 70%;
         font-family: var(--font-geist-sans), sans-serif;
         font-style: italic;
     }
 
-    .description {
-        width: 70%;
-    }
 }
 
 

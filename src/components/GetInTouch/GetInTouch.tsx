@@ -7,7 +7,10 @@ export default function GetInTouch({ blackFont }: { blackFont?: boolean }) {
     <Link
       href="mailto:support@webbinghub.io"
       className={styles.getInTouch}
-      sx={{ color: blackFont ? "black" : "#E4D0A7" }}
+      sx={{
+        color: blackFont ? "black" : "#E4D0A7",
+        textDecoration: "none !important",
+      }}
     >
       get in touch
     </Link>
