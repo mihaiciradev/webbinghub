@@ -1,3 +1,7 @@
+.container {
+    width: 150%;
+}
+
 g.fade_element {
     opacity: 0;
     /* transform: rotateY(-50deg); */
@@ -16,11 +20,10 @@ g.fade_element.girl {
 
 g.fade_element.visible.boy {
     opacity: 1;
-    transform: translateX(135%) rotateY(0);
+    transform: translateX(145%) rotateY(0);
 }
 
 g.fade_element.visible.girl {
     opacity: 1;
-    transform: translateX(-135%) rotateY(0);
-
+    transform: translateX(-145%) rotateY(0);
 }

@@ -5,16 +5,33 @@ import footer_logo from "@/assets/footer_logo.svg";
 import Image from "next/image";
 import { FlexBox } from "../FlexBox";
 import Link from "next/link";
+import { useTheme } from "@mui/material";
 
 export default function Footer() {
+  const theme = useTheme();
+
   return (
-    <FlexBox className={styles.container}>
+    <FlexBox
+      className={styles.container}
+      sx={{
+        [theme.breakpoints.down("md")]: {
+          flexDirection: "column !important",
+          gap: "2rem",
+          width: "100%",
+          padding: "5rem 0 !important",
+        },
+      }}
+    >
       <FlexBox
         sx={{
           flexDirection: "column",
           alignItems: "flex-start",
           gap: "4px",
           width: "30%",
+          [theme.breakpoints.down("md")]: {
+            alignItems: "center !important",
+            width: "100%",
+          },
         }}
       >
         <Link href="/" className="underlinedLink">
@@ -34,6 +51,10 @@ export default function Footer() {
           alignItems: "flex-end",
           gap: "4px",
           width: "30%",
+          [theme.breakpoints.down("md")]: {
+            width: "100%",
+            alignItems: "center !important",
+          },
         }}
       >
         <Link

@@ -12,7 +12,7 @@ export default function Contact() {
   return (
     <FlexBox className={styles.container}>
       <h2>Let&apos;s have a chat.</h2>
-      <Image src={chat} alt="let's chave a chat" />
+      <Image src={chat} alt="have a chat" />
 
       <p className={styles.description}>
         Maybe you need a website, maybe you don&apos;t. <br />

@@ -5,10 +5,11 @@ import styles from "./header.module.css";
 import Image from "next/image";
 import BlackLogo from "../../assets/header-black-logo.svg";
 import WhiteLogo from "../../assets/header-white-logo.svg";
+import menu from "./menu.svg";
 
 import { FlexBox } from "../FlexBox";
 import { usePathname, useRouter } from "next/navigation";
-import { Box } from "@mui/material";
+import { Box, Button, useTheme } from "@mui/material";
 
 interface HeaderButtonProps {
   children: ReactNode;
@@ -57,23 +58,58 @@ export default function Header() {
     return pathname === "/";
   }, [pathname]);
 
+  const theme = useTheme();
+
   return (
     <FlexBox
       className={`${styles.header} ${
         !isHomePage || scrolled ? styles.scrolled : ""
       }`}
-      sx={{ justifyContent: "space-between" }}
+      sx={{
+        justifyContent: "space-between",
+        [theme.breakpoints.down("md")]: {
+          justifyContent: "center !important",
+        },
+      }}
     >
-      <Box className={styles.logosContainer}>
-        <Image src={BlackLogo} alt="webbinghub black" />
+      <Box
+        className={styles.logosContainer}
+        sx={{
+          [theme.breakpoints.down("md")]: {
+            justifySelf: "baseline !important",
+            "& img:nth-of-type(2)": {
+              left: "50% !important",
+              transform: "translateX(-50%)",
+            },
+          },
+        }}
+      >
+        <Image src={BlackLogo} alt="webbinghub black" priority />
         <Image src={WhiteLogo} alt="webbinghub white" />
       </Box>
-
-      <FlexBox sx={{ gap: "1rem" }}>
+      <FlexBox
+        sx={{
+          gap: "1rem",
+          [theme.breakpoints.down("md")]: {
+            display: "none !important",
+          },
+        }}
+      >
         <HeaderButton path="/">home</HeaderButton>
         <HeaderButton path="/about">about</HeaderButton>
         <HeaderButton path="/contact">contact</HeaderButton>
       </FlexBox>
+
+      <Button
+        className={styles.mobileMenu}
+        sx={{
+          [theme.breakpoints.down("md")]: {
+            display: scrolled ? "block !important" : "none !important",
+          },
+        }}
+      >
+        <Image src={menu} alt="menu" />
+      </Button>
     </FlexBox>
   );
 }

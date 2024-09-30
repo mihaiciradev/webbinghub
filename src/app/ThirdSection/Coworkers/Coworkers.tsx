@@ -41,6 +41,7 @@ export default function Coworkers() {
       viewBox="0 0 799 249"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={styles.container}
     >
       <g id="programmers-svg">
         <g id="computer-svg" clipPath="url(#clip0_225_511)">

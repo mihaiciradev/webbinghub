@@ -3,14 +3,10 @@
     justify-content: space-between;
     position: fixed;
     width: 100%;
-    top: 0;
     padding: 0 8rem;
     transition: background 300ms,
         height 300ms;
 
-    & svg {
-        outline: 2px solid red;
-    }
 
     z-index: 100;
     border-bottom: 1px solid var(--primary);
@@ -40,6 +36,8 @@
 .scrolled {
     background: var(--secondary);
     height: 3.5rem;
+    width: 101%;
+    top: -1px;
 
     .headerButton {
         color: white;
@@ -48,6 +46,7 @@
     }
 
     .logosContainer {
+
         & img:nth-of-type(1) {
             opacity: 0;
         }
@@ -66,6 +65,7 @@
 .logosContainer {
     position: relative;
     height: 70%;
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,6 +73,7 @@
     & img:nth-of-type(1) {
         height: 100%;
         opacity: 1;
+        width: auto;
         transition: opacity 300ms;
     }
 
@@ -83,7 +84,19 @@
         left: 0;
         opacity: 0;
         transition: opacity 300ms;
+    }
+}
 
+.mobileMenu {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    transition: opacity 300ms;
+    opacity: 1;
+    display: none;
+
+    &:hover {
+        opacity: .35;
     }
 
 }

@@ -15,7 +15,7 @@ export default function ThirdSection() {
       <h1>Your vision. Our experties.</h1>
       <Coworkers />
       <p>
-        Let’s <b>discuss</b> about your vision and needs - see if we are a
+        Let&apos;s <b>discuss</b> about your vision and needs - see if we are a
         match. Using the right tools by the right people, we can craft{" "}
         <b>QUALITY</b>.
       </p>

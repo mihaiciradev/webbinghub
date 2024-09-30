@@ -1,11 +1,13 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Compass.module.css";
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 
 export default function Compass() {
   const boxRef = useRef<HTMLDivElement>(null);
   const [animation, setAnimation] = useState(false);
+
+  const theme = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +31,22 @@ export default function Compass() {
   }, []);
 
   return (
-    <Box className={styles.compass} ref={boxRef}>
+    <Box
+      className={styles.compass}
+      ref={boxRef}
+      sx={{
+        "& > svg": {
+          width: "100%",
+        },
+        [theme.breakpoints.down("md")]: {
+          width: "100%",
+          height: "auto",
+          "& > svg": {
+            height: "20rem",
+          },
+        },
+      }}
+    >
       <svg
         width="887"
         height="556"

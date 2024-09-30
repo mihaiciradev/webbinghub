@@ -20,8 +20,7 @@ export default function SecondSection() {
       <Compass />
 
       <FlexBox className={styles.pageHeader}>
-        <h1>carefully projected, tailored,</h1>
-        <h1>launched and mantained.</h1>
+        <h1>carefully projected, tailored, launched and mantained.</h1>
       </FlexBox>
 
       <Image src={rocket} alt="launch" className={styles.rocket} />
