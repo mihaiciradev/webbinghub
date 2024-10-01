@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "precommit": "eslint .",
     "dev": "next dev -p 3010",
     "build": "next build",
     "start": "next start",

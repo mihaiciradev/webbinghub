@@ -5,7 +5,6 @@ import styles from "./header.module.css";
 import Image from "next/image";
 import BlackLogo from "../../assets/header-black-logo.svg";
 import WhiteLogo from "../../assets/header-white-logo.svg";
-import menu from "./menu.svg";
 
 import { FlexBox } from "../FlexBox";
 import { usePathname, useRouter } from "next/navigation";
