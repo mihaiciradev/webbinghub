@@ -104,6 +104,9 @@ export default function Header() {
       <Box
         sx={{
           display: "none",
+          position: "absolute",
+          top: "10px",
+          right: "5%",
           [theme.breakpoints.down("md")]: {
             display:
               !isHomePage || scrolled ? "block !important" : "none !important",

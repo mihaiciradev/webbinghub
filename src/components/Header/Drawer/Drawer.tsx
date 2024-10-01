@@ -58,13 +58,7 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <Box
-      sx={{
-        position: "absolute",
-        top: "10px",
-        right: "5%",
-      }}
-    >
+    <Box>
       <FlexBox onClick={toggleDrawer(true)} className={styles.mobileMenu}>
         <Image src={menu} alt="menu" />
       </FlexBox>

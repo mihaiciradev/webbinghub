@@ -4,7 +4,6 @@
     cursor: pointer;
     transition: opacity 300ms;
     opacity: 1;
-
     text-align: center;
 
     &:hover {
