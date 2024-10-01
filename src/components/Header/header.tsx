@@ -8,7 +8,7 @@ import WhiteLogo from "../../assets/header-white-logo.svg";
 
 import { FlexBox } from "../FlexBox";
 import { usePathname, useRouter } from "next/navigation";
-import { Box, Button, useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import TemporaryDrawer from "./Drawer/Drawer";
 
 interface HeaderButtonProps {
