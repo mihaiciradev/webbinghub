@@ -1,20 +1,11 @@
-import {
-  Box,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Divider,
-  Button,
-  Drawer,
-} from "@mui/material";
+import { Box, List, ListItem, ListItemButton, Drawer } from "@mui/material";
 import React from "react";
 import { useRouter } from "next/navigation";
 import menu from "../menu.svg";
 import Image from "next/image";
 import { FlexBox } from "@/components/FlexBox";
 import WhiteLogo from "@/assets/header-white-logo.svg";
-import styles from "./drawer.module.css";
+import styles from "./Drawer.module.css";
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
@@ -50,20 +41,15 @@ export default function TemporaryDrawer() {
 
       <List>
         <ListItem>
-          <ListItemButton onClick={handleLinkClick("/")}>
-            {/* <ListItemText primary="Home" /> */}
-            Home
-          </ListItemButton>
+          <ListItemButton onClick={handleLinkClick("/")}>Home</ListItemButton>
         </ListItem>
         <ListItem>
           <ListItemButton onClick={handleLinkClick("/about")}>
-            {/* <ListItemText primary="About" /> */}
             About
           </ListItemButton>
         </ListItem>
         <ListItem>
           <ListItemButton onClick={handleLinkClick("/contact")}>
-            {/* <ListItemText primary="Contact" /> */}
             Contact
           </ListItemButton>
         </ListItem>
