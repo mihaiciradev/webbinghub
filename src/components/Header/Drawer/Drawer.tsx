@@ -23,8 +23,8 @@ export default function TemporaryDrawer() {
   const DrawerList = (
     <Box
       sx={{
-        width: "100%",
-        height: "100%",
+        width: "100dvw !important",
+        height: "100dvh !important",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -36,6 +36,7 @@ export default function TemporaryDrawer() {
       }}
       role="presentation"
       onClick={toggleDrawer(false)}
+      className={styles.drawer}
     >
       <Image src={WhiteLogo} alt="webbinghub white" className={styles.logo} />
 
