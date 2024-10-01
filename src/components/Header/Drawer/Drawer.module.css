@@ -1,0 +1,22 @@
+.mobileMenu {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    transition: opacity 300ms;
+    opacity: 1;
+
+    text-align: center;
+
+    &:hover {
+        opacity: .35;
+    }
+
+
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    width: 100px;
+    height: auto;
+}

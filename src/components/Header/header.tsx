@@ -10,6 +10,7 @@ import menu from "./menu.svg";
 import { FlexBox } from "../FlexBox";
 import { usePathname, useRouter } from "next/navigation";
 import { Box, Button, useTheme } from "@mui/material";
+import TemporaryDrawer from "./Drawer/Drawer";
 
 interface HeaderButtonProps {
   children: ReactNode;
@@ -100,16 +101,17 @@ export default function Header() {
         <HeaderButton path="/contact">contact</HeaderButton>
       </FlexBox>
 
-      <Button
-        className={styles.mobileMenu}
+      <Box
         sx={{
+          display: "none",
           [theme.breakpoints.down("md")]: {
-            display: scrolled ? "block !important" : "none !important",
+            display:
+              !isHomePage || scrolled ? "block !important" : "none !important",
           },
         }}
       >
-        <Image src={menu} alt="menu" />
-      </Button>
+        <TemporaryDrawer />
+      </Box>
     </FlexBox>
   );
 }
