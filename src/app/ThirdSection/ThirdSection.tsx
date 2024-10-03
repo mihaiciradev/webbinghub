@@ -12,7 +12,7 @@ export default function ThirdSection() {
     <FlexBox className={styles.container}>
       <Image src={slider} alt="slider" className={styles.slider} />
 
-      <h1>Your vision. Our experties.</h1>
+      <h1>Your vision. Our expertise.</h1>
       <Coworkers />
       <p>
         Let&apos;s <b>discuss</b> about your vision and needs - see if we are a
