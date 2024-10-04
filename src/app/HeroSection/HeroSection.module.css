@@ -37,13 +37,26 @@
 .horizontalLine:nth-of-type(1) {
     align-self: flex-start;
     margin: .4rem 0 0 0;
+    /* transform-box: fill-box; */
+    transform-origin: left;
+    transform: rotateY(-90deg);
+    animation: lines 2.5s linear forwards
 }
 
 .horizontalLine:nth-of-type(3) {
+    transform-origin: right;
     align-self: flex-end;
+    transform: rotateY(90deg);
+
     margin: 0 0 .4rem 0;
+    animation: lines 2.5s linear forwards
 }
 
+@keyframes lines {
+    to {
+        transform: rotateY(0deg)
+    }
+}
 
 .websitesText {
     width: 100%;

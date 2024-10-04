@@ -6,6 +6,15 @@
     font-family: var(--font-montserrat), sans-serif;
     gap: 2.5rem;
 
+    &>img {
+        width: 100%;
+    }
+
+    @media (max-width: 900px) {
+        padding: 1rem;
+        gap: 8rem
+    }
+
     & h2 {
         font-weight: bolder;
         position: relative;
@@ -13,7 +22,7 @@
     }
 
     .description {
-        width: 30rem;
+        max-width: 30rem;
         font-family: var(--font-geist-sans), sans-serif;
         font-style: italic;
         text-align: center;

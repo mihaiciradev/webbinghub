@@ -6,6 +6,12 @@
     font-family: var(--font-montserrat), sans-serif;
     gap: 6.5rem;
 
+    @media (max-width: 900px) {
+        padding: 1rem;
+        gap: 8rem
+    }
+
+
     & h2 {
         font-weight: bolder;
         position: relative;
@@ -15,11 +21,18 @@
             right: -10px;
             top: 50%;
             transform: translateX(100%) translateY(-50%);
+
+            @media (max-width: 900px) {
+                transform: translateX(-50%);
+                left: 50%;
+                top: 130%;
+            }
+
         }
     }
 
     .description {
-        width: 70%;
+        max-width: 30rem;
         font-family: var(--font-geist-sans), sans-serif;
         font-style: italic;
     }
@@ -35,6 +48,12 @@
     border-image: linear-gradient(to bottom, transparent, black, transparent) 1;
     padding: 5rem 0 5rem 2rem;
 
+    width: 100%;
+
+    @media (max-width: 900px) {
+        padding: 0 0 0 1rem;
+    }
+
     &>div {
         flex-direction: column;
         align-items: flex-start;
@@ -42,6 +61,7 @@
 
         gap: 2rem;
         width: 50rem;
+        max-width: 100%;
     }
 }
 

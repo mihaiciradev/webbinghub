@@ -1,21 +1,22 @@
 .container {
-    width: 150%;
+    width: 100%;
 }
 
 g.fade_element {
     opacity: 0;
-    /* transform: rotateY(-50deg); */
     transition: opacity 1s ease-in, transform 1.5s ease-in-out;
 }
 
 g.fade_element.boy {
     transform: translateX(30%) rotateY(-65deg);
     transform-box: fill-box;
+    transform-origin: left;
 }
 
 g.fade_element.girl {
     transform: translateX(-30%) rotateY(65deg);
     transform-box: fill-box;
+    transform-origin: right;
 }
 
 g.fade_element.visible.boy {

@@ -9,11 +9,12 @@ import service from "./assets/service.svg";
 import settings from "./assets/settings.svg";
 import conceptToLaunch from "./assets/conceptToLaunch.svg";
 import profile from "./assets/profile.svg";
-
 import Image from "next/image";
+import { Typography } from "@mui/material";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
 
 export default function about() {
+
   return (
     <FlexBox className={styles.container}>
       <h2>
@@ -21,14 +22,14 @@ export default function about() {
         <Image src={profile} alt="webbinghub profile picture" />
       </h2>
 
-      <p className={styles.description}>
+      <Typography className={styles.description}>
         <b>Webbinghub</b> is the embodiment of passion and expertise, born from
         the seamless fusion of a <b>hobby</b> turned <b>profession</b>. At
         Webbinghub, we do what we know best—creating websites that{" "}
         <b>speak volumes</b>. Every project reflects our love for the craft,
         where creativity meets precision, delivering web experiences that are as{" "}
         <b>impactful</b> as they are <b>beautiful</b>.
-      </p>
+      </Typography>
       <Image src={code} alt="curious" className={styles.codeImg} />
 
       <FlexBox className={styles.textsContainer}>
