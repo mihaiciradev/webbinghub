@@ -3,7 +3,7 @@ import styles from "./HeroSection.module.css";
 import React from "react";
 import { FlexBox } from "../../components/FlexBox";
 import HeroSectionArrow from "@/components/HeroSectionArrow/HeroSectionArrow";
-import { WalkingSpider } from "./WalkingSpider";
+// import { WalkingSpider } from "./WalkingSpider";
 
 export default function HeroSection() {
   return (
