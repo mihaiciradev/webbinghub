@@ -1,0 +1,63 @@
+.container {
+    position: absolute;
+    width: 3rem;
+    left: 0%;
+    top: -35px;
+    height: max-content;
+    overflow: visible;
+    animation: move 6s 8s linear forwards;
+    transform: translateX(-15vw);
+}
+
+
+@keyframes move {
+
+    0%,
+    100% {
+        transform: translateX(-15vw);
+    }
+
+    40%,
+    60% {
+        transform: translateX(17vw);
+    }
+}
+
+.eye {
+    opacity: 0;
+    animation: blink 550ms 3s linear forwards
+}
+
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.leg1,
+.leg2,
+.leg3,
+.leg4 {
+    transform-box: fill-box;
+    transform-origin: top;
+    animation: legsMove 500ms linear infinite;
+}
+
+@keyframes legsMove {
+
+    0%,
+    100% {
+        transform: rotateZ(10deg);
+    }
+
+    50% {
+        transform: rotateZ(-10deg);
+    }
+}

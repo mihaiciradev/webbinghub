@@ -9,7 +9,7 @@ import WhiteLogo from "../../assets/header-white-logo.svg";
 import { FlexBox } from "../FlexBox";
 import { usePathname, useRouter } from "next/navigation";
 import { Box, useTheme } from "@mui/material";
-import TemporaryDrawer from "./Drawer/Drawer";
+import MobileHeader from "./MobileHeader/MobileHeader";
 
 interface HeaderButtonProps {
   children: ReactNode;
@@ -62,9 +62,8 @@ export default function Header() {
 
   return (
     <FlexBox
-      className={`${styles.header} ${
-        !isHomePage || scrolled ? styles.scrolled : ""
-      }`}
+      className={`${styles.header} ${!isHomePage || scrolled ? styles.scrolled : ""
+        }`}
       sx={{
         justifyContent: "space-between",
         [theme.breakpoints.down("md")]: {
@@ -112,7 +111,7 @@ export default function Header() {
           },
         }}
       >
-        <TemporaryDrawer />
+        <MobileHeader />
       </Box>
     </FlexBox>
   );

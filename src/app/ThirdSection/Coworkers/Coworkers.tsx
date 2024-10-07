@@ -8,7 +8,6 @@ export default function Coworkers() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log('trigger,')
             document
               .querySelectorAll(`.${styles.boy}, .${styles.girl}`)
               .forEach((el) => {
@@ -23,7 +22,7 @@ export default function Coworkers() {
           }
         });
       },
-      { threshold: 1 }
+      { threshold: 0.5 }
     );
 
     const pc = document.querySelector("g#computer-svg");

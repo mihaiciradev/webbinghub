@@ -5,9 +5,9 @@ import menu from "../menu.svg";
 import Image from "next/image";
 import { FlexBox } from "@/components/FlexBox";
 import WhiteLogo from "@/assets/header-white-logo.svg";
-import styles from "./Drawer.module.css";
+import styles from "./MobileHeader.module.css";
 
-export default function TemporaryDrawer() {
+export default function MobileHeader() {
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
 
