@@ -63,12 +63,22 @@ const poppins = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "WebbingHUB",
-  description: "Crafting websites that inspire",
+  title: "WebbingHUB | Crafting Websites That Inspire",
+  description: "Websites for any vision, any business & every user.",
+  keywords: "WebbingHub, website development, web design, digital solutions",
+  openGraph: {
+    title: 'WebbingHUB',
+    description: 'Websites for any vision, any business & every user.',
+    url: 'https://webbinghub.com',
+    type: 'website',
+  },
   icons: {
     icon: "/favicon.ico",
   },
+  manifest: "/manifest.json",
 };
+
+
 
 export default function RootLayout({
   children,
