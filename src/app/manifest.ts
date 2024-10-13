@@ -1,6 +1,8 @@
 // import { MetadataRoute } from 'next'
 
-export default function manifest(): any {
+import { MetadataRoute } from "next";
+
+export default function manifest(): MetadataRoute.Manifest {
     return {
         name: "WebbingHub",
         short_name: "WebbingHub",
@@ -26,13 +28,13 @@ export default function manifest(): any {
                 src: "/screenshot_desktop.png",
                 sizes: "2512x1202",
                 type: "image/png",
-                form_factor: "wide",
+                // form_factor: "wide",
             },
             {
                 src: "/screenshot_mobile.png",
                 sizes: "628x1140",
                 type: "image/png",
-                form_factor: "narrow",
+                // form_factor: "narrow",
             }
         ],
     }
