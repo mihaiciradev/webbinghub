@@ -7,9 +7,9 @@ import Background from "@/components/background/Background";
 import Footer from "@/components/Footer/Footer";
 import { Analytics } from "@vercel/analytics/react"
 
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -25,10 +25,7 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-
 
 let analytics;
 
@@ -75,7 +72,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-  manifest: "/manifest.json",
 };
 
 

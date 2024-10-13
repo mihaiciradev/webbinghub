@@ -4,7 +4,7 @@ export default function manifest(): any {
     return {
         name: "WebbingHub",
         short_name: "WebbingHub",
-        description: "Crafting websites that inspire.",
+        description: "Websites for any vision, any business & every user.",
         start_url: "/",
         background_color: "#E4D0A7",
         theme_color: "#333232",
