@@ -36,6 +36,7 @@ const HeaderButton: React.FC<HeaderButtonProps> = ({
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,6 +83,10 @@ export default function Header() {
               transform: "translateX(-50%)",
             },
           },
+          cursor: "pointer",
+        }}
+        onClick={() => {
+          router.push("/");
         }}
       >
         <Image src={BlackLogo} alt="webbinghub black" priority />
