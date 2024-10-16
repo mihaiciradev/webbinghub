@@ -51,9 +51,13 @@ export default function HeroSection() {
           </Box>
           <h4>that inspire</h4>
         </FlexBox>
-
         <Box className={styles.horizontalLine} />
       </FlexBox>
+
+      <h5 className={styles.description}>
+        Discover custom-built websites that elevate your business, enhance user
+        experience, and drive digital growth.
+      </h5>
 
       <HeroSectionArrow />
     </FlexBox>
