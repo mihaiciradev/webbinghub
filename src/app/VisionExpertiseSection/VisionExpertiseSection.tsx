@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./ThirdSection.module.css";
+import styles from "./VisionExpertiseSection.module.css";
 import { FlexBox } from "@/components/FlexBox";
 import Image from "next/image";
 import cremLogo from "@/assets/crem_logo.svg";
@@ -7,10 +7,10 @@ import slider from "@/assets/cirlce_slider.svg";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
 import Coworkers from "./Coworkers/Coworkers";
 
-export default function ThirdSection() {
+export default function VisionExpertiseSection() {
   return (
     <FlexBox className={styles.container}>
-      <Image src={slider} alt="slider" className={styles.slider} />
+      <Image src={slider} alt="webbing hub slider" className={styles.slider} />
 
       <h1>Your vision. Our expertise.</h1>
       <Coworkers />
@@ -20,7 +20,7 @@ export default function ThirdSection() {
         <b>QUALITY</b>.
       </p>
       <FlexBox className={styles.logoContainer}>
-        <Image src={cremLogo} alt="webbinghub" />
+        <Image src={cremLogo} alt="webbing hub websites logo" />
       </FlexBox>
       <GetInTouch />
     </FlexBox>

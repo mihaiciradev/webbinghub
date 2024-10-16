@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "./SecondSection.module.css";
+import styles from "./AnyIdeaSection.module.css";
 import { FlexBox } from "@/components/FlexBox";
 import Compass from "@/components/Compass/Compass";
 import Image from "next/image";
 import rocket from "@/assets/rocket.svg";
 
-export default function SecondSection() {
+export default function AnyIdeaSection() {
   return (
     <FlexBox
       sx={{ flexDirection: "column", gap: "1rem", paddingBottom: "6rem" }}
@@ -23,7 +23,12 @@ export default function SecondSection() {
         <h1>carefully projected, tailored, launched and mantained.</h1>
       </FlexBox>
 
-      <Image src={rocket} alt="launch" className={styles.rocket} />
+      <Image
+        src={rocket}
+        alt="webbing hub launch"
+        className={styles.rocket}
+        priority={false}
+      />
     </FlexBox>
   );
 }

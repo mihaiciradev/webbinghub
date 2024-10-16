@@ -4,11 +4,14 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "../components/Header/header";
 import Background from "@/components/background/Background";
-import Footer from "@/components/Footer/Footer";
 import { Analytics } from "@vercel/analytics/react";
-
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import dynamic from "next/dynamic";
+
+const Footer = dynamic(() => import("@/components/Footer/Footer"), {
+  ssr: false,
+});
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -59,9 +62,13 @@ const poppins = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "WebbingHUB | Crafting Websites That Inspire",
+  title: {
+    default: "WebbingHUB | Crafting Websites That Inspire",
+    template: "%s | WebbingHUB",
+  },
   description: "Websites for any vision, any business & every user.",
-  keywords: "WebbingHUB, website development, web design, digital solutions",
+  keywords:
+    "WebbingHUB, website development, web design, digital solutions, site, digital growth",
   openGraph: {
     title: "WebbingHUB",
     description: "Websites for any vision, any business & every user.",

@@ -1,13 +1,13 @@
 import HeroSection from "@/app/HeroSection/HeroSection";
-import SecondSection from "./SecondSection/SecondSection";
-import ThirdSection from "./ThirdSection/ThirdSection";
+import AnyIdeaSection from "./AnyIdeaSection/AnyIdeaSection";
+import VisionExpertiseSection from "./VisionExpertiseSection/VisionExpertiseSection";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <SecondSection />
-      <ThirdSection />
+      <AnyIdeaSection />
+      <VisionExpertiseSection />
     </>
   );
 }

@@ -12,6 +12,11 @@ import profile from "./assets/profile.svg";
 import Image from "next/image";
 import { Typography } from "@mui/material";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
+import { Metadata } from "next/types";
+
+export const metadata: Metadata = {
+  title: "Contact",
+};
 
 export default function about() {
   return (

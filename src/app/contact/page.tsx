@@ -7,6 +7,11 @@ import linkedin from "./assets/linkedin.svg";
 import phone from "./assets/phone.svg";
 import email from "./assets/email.svg";
 import Link from "next/link";
+import { Metadata } from "next/types";
+
+export const metadata: Metadata = {
+  title: "Contact",
+};
 
 export default function Contact() {
   return (
