@@ -85,6 +85,9 @@ export const metadata: Metadata = {
     description: "Websites for any vision, any business & every user.",
     images: "/metadata_social.png",
   },
+  alternates: {
+    canonical: "https://webbinghub.com",
+  },
 };
 
 export default function RootLayout({
