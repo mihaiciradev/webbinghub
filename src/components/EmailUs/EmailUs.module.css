@@ -1,0 +1,17 @@
+.container {
+  & * {
+    font-family: var(--font-montserrat), sans-serif;
+  }
+
+  & input {
+    text-align: center;
+    padding: 5px;
+  }
+
+  & button {
+    background: var(--primary);
+    border: none;
+    border-radius: 5px;
+    padding: 7px 15px;
+  }
+}

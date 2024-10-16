@@ -6,6 +6,7 @@ import cremLogo from "@/assets/crem_logo.svg";
 import slider from "@/assets/cirlce_slider.svg";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
 import Coworkers from "./Coworkers/Coworkers";
+import EmailUs from "@/components/EmailUs/EmailUs";
 
 export default function VisionExpertiseSection() {
   return (
@@ -23,6 +24,7 @@ export default function VisionExpertiseSection() {
         <Image src={cremLogo} alt="webbing hub websites logo" />
       </FlexBox>
       <GetInTouch />
+      <EmailUs />
     </FlexBox>
   );
 }
