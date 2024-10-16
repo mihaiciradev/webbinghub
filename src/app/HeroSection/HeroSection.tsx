@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import styles from "./HeroSection.module.css";
 import React from "react";
 import { FlexBox } from "../../components/FlexBox";
@@ -13,10 +13,26 @@ export default function HeroSection() {
         padding: "10rem 0",
       }}
     >
+      <Typography
+        variant="h1"
+        className={styles.description}
+        sx={{
+          order: "1",
+          fontSize: ".9rem !important",
+          textAlign: "center",
+          color: "black",
+          marginTop: "10rem",
+        }}
+      >
+        Discover custom-built websites that elevate your business, enhance user
+        experience, and drive digital growth.
+      </Typography>
+
       <FlexBox
         sx={{
           width: "100%",
           position: "relative",
+          order: "0",
         }}
       >
         {/* <WalkingSpider /> */}
@@ -53,11 +69,6 @@ export default function HeroSection() {
         </FlexBox>
         <Box className={styles.horizontalLine} />
       </FlexBox>
-
-      <h5 className={styles.description}>
-        Discover custom-built websites that elevate your business, enhance user
-        experience, and drive digital growth.
-      </h5>
 
       <HeroSectionArrow />
     </FlexBox>
