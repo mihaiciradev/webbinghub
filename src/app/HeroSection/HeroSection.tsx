@@ -16,7 +16,7 @@ export default function HeroSection() {
       <FlexBox
         sx={{
           width: "100%",
-          position: "relative"
+          position: "relative",
         }}
       >
         {/* <WalkingSpider /> */}

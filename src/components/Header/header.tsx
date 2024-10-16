@@ -62,8 +62,9 @@ export default function Header() {
 
   return (
     <FlexBox
-      className={`${styles.header} ${!isHomePage || scrolled ? styles.scrolled : ""
-        }`}
+      className={`${styles.header} ${
+        !isHomePage || scrolled ? styles.scrolled : ""
+      }`}
       sx={{
         justifyContent: "space-between",
         [theme.breakpoints.down("md")]: {

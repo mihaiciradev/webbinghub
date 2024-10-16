@@ -22,7 +22,7 @@ export default function Coworkers() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     const pc = document.querySelector("g#computer-svg");

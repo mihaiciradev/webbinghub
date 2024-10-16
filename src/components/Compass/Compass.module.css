@@ -2,36 +2,35 @@
 .circle02,
 .circle03,
 .circle04 {
-    stroke-dashoffset: 400;
-    stroke-dasharray: 450;
-    opacity: 0;
+  stroke-dashoffset: 400;
+  stroke-dasharray: 450;
+  opacity: 0;
 }
 
 .active {
-    animation: draw 10s forwards;
+  animation: draw 10s forwards;
 }
 
 .circle01.active,
 .circle04.active {
-    animation-delay: 0s;
+  animation-delay: 0s;
 }
 
 .circle02.active,
 .circle03.active {
-    animation-delay: 6.5s;
+  animation-delay: 6.5s;
 }
 
 .circle01.auxAnim,
 .circle02.auxAnim,
 .circle03.auxAnim,
 .circle04.auxAnim {
-    opacity: 0;
+  opacity: 0;
 }
 
-
 @keyframes draw {
-    to {
-        stroke-dashoffset: 0;
-        opacity: 1;
-    }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
 }

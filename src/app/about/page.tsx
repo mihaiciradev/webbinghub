@@ -14,7 +14,6 @@ import { Typography } from "@mui/material";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
 
 export default function about() {
-
   return (
     <FlexBox className={styles.container}>
       <h2>

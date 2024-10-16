@@ -1,42 +1,43 @@
 .container {
-    margin-top: 5rem;
-    padding: 5rem;
-    color: var(--secondary);
-    flex-direction: column;
-    font-family: var(--font-montserrat), sans-serif;
-    gap: 2.5rem;
+  margin-top: 5rem;
+  padding: 5rem;
+  color: var(--secondary);
+  flex-direction: column;
+  font-family: var(--font-montserrat), sans-serif;
+  gap: 2.5rem;
 
-    &>img {
-        width: 100%;
-    }
+  & > img {
+    width: 100%;
+  }
 
-    @media (max-width: 900px) {
-        padding: 1rem;
-        gap: 8rem
-    }
+  @media (max-width: 900px) {
+    padding: 1rem;
+    gap: 8rem;
+  }
 
-    & h2 {
-        font-weight: bolder;
-        position: relative;
+  & h2 {
+    font-weight: bolder;
+    position: relative;
+  }
 
-    }
-
-    .description {
-        max-width: 30rem;
-        font-family: var(--font-geist-sans), sans-serif;
-        font-style: italic;
-        text-align: center;
-    }
+  .description {
+    max-width: 30rem;
+    font-family: var(--font-geist-sans), sans-serif;
+    font-style: italic;
+    text-align: center;
+  }
 }
 
 .contact_btn {
-    flex-direction: column;
-    cursor: pointer;
-    transition: opacity .3s, transform .3s;
-    font-family: var(--font-geist-sans), sans-serif;
+  flex-direction: column;
+  cursor: pointer;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+  font-family: var(--font-geist-sans), sans-serif;
 
-    &:hover {
-        opacity: 0.8;
-        transform: scale(.9);
-    }
+  &:hover {
+    opacity: 0.8;
+    transform: scale(0.9);
+  }
 }

@@ -5,7 +5,7 @@ import "./globals.css";
 import Header from "../components/Header/header";
 import Background from "@/components/background/Background";
 import Footer from "@/components/Footer/Footer";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
@@ -29,11 +29,10 @@ const app = initializeApp(firebaseConfig);
 
 let analytics;
 
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   // Only initialize analytics in the browser
   analytics = getAnalytics(app);
 }
-
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -64,20 +63,20 @@ export const metadata: Metadata = {
   description: "Websites for any vision, any business & every user.",
   keywords: "WebbingHUB, website development, web design, digital solutions",
   openGraph: {
-    title: 'WebbingHUB',
-    description: 'Websites for any vision, any business & every user.',
-    url: 'https://webbinghub.com',
-    type: 'website',
-    images: "/metadata_social.png"
+    title: "WebbingHUB",
+    description: "Websites for any vision, any business & every user.",
+    url: "https://webbinghub.com",
+    type: "website",
+    images: "/metadata_social.png",
   },
   icons: {
     icon: "/favicon.ico",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'WebbingHUB',
-    description: 'Websites for any vision, any business & every user.',
-    images: '/metadata_social.png'
+    card: "summary_large_image",
+    title: "WebbingHUB",
+    description: "Websites for any vision, any business & every user.",
+    images: "/metadata_social.png",
   },
 };
 

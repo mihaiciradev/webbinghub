@@ -1,45 +1,44 @@
 .container {
-    background: var(--secondary);
-    color: var(--primary);
-    padding: 5rem 1rem;
-    flex-direction: column;
-    gap: 5rem;
-    position: relative;
+  background: var(--secondary);
+  color: var(--primary);
+  padding: 5rem 1rem;
+  flex-direction: column;
+  gap: 5rem;
+  position: relative;
 
-    & h1 {
-        font-family: var(--font-poppins), sans-serif;
-        text-align: center;
-    }
+  & h1 {
+    font-family: var(--font-poppins), sans-serif;
+    text-align: center;
+  }
 
-    & p {
-        max-width: 25rem;
-        font-family: var(--font-montserrat), sans-serif;
-        text-align: center;
-    }
+  & p {
+    max-width: 25rem;
+    font-family: var(--font-montserrat), sans-serif;
+    text-align: center;
+  }
 }
 
 .slider {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .logoContainer {
-    flex-direction: column;
-    width: 25%;
-    height: max-content;
+  flex-direction: column;
+  width: 25%;
+  height: max-content;
 
+  & img {
+    width: 100%;
+    height: auto;
+  }
 
-    & img {
-        width: 100%;
-        height: auto;
-    }
-
-    & p {
-        width: 25rem;
-        font-size: 1.2rem;
-        font-family: var(--font-montserrat), sans-serif;
-        text-align: center;
-    }
+  & p {
+    width: 25rem;
+    font-size: 1.2rem;
+    font-family: var(--font-montserrat), sans-serif;
+    text-align: center;
+  }
 }

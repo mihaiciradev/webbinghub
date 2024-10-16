@@ -1,6 +1,6 @@
 .container {
-    padding: 5rem 8rem;
-    font-family: var(--font-montserrat), sans-serif;
-    justify-content: space-between;
-    color: black;
+  padding: 5rem 8rem;
+  font-family: var(--font-montserrat), sans-serif;
+  justify-content: space-between;
+  color: black;
 }

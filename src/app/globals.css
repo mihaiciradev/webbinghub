@@ -1,6 +1,6 @@
 :root {
-  --background: #E4D0A7;
-  --primary: #E4D0A7;
+  --background: #e4d0a7;
+  --primary: #e4d0a7;
 
   --secondary: #333232;
 }
@@ -10,7 +10,6 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
-
 
 body {
   color: var(--foreground);
@@ -46,7 +45,7 @@ a {
 }
 
 .underlinedLink::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 1px;
