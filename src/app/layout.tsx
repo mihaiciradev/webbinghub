@@ -102,9 +102,9 @@ export default function RootLayout({
       >
         <Analytics />
         <Header />
-        <Background />
         {children}
         <Footer />
+        <Background />
       </body>
     </html>
   );
