@@ -1,5 +1,6 @@
 .container {
   transition: opacity 0.3s;
+
   & * {
     font-family: var(--font-montserrat), sans-serif;
   }
@@ -27,4 +28,13 @@
 .loading {
   pointer-events: none;
   opacity: 0.5;
+}
+
+.secondStyle {
+  margin-top: 5rem;
+
+  & button {
+    background: var(--secondary);
+    color: white;
+  }
 }

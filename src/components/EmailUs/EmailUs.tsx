@@ -3,7 +3,13 @@ import { useState } from "react";
 import styles from "./EmailUs.module.css";
 import { FlexBox } from "../FlexBox";
 
-export default function EmailUs() {
+export default function EmailUs({
+  label,
+  secondStyle,
+}: {
+  label: string;
+  secondStyle?: boolean;
+}) {
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
@@ -37,11 +43,11 @@ export default function EmailUs() {
       <form onSubmit={handleSubmit}>
         <FlexBox
           sx={{ flexDirection: "column", gap: ".5rem" }}
-          className={`${styles.container} ${loading ? styles.loading : ""}`}
+          className={`${styles.container} ${loading ? styles.loading : ""} ${
+            secondStyle ? styles.secondStyle : ""
+          }`}
         >
-          <label htmlFor="email">
-            {!message ? "or... let us contact you!" : message}
-          </label>
+          <label htmlFor="email">{!message ? label : message}</label>
           {!message && (
             <>
               <input

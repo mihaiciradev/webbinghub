@@ -7,6 +7,7 @@ import WebsitesTable from "./WebsitesTable";
 import { Metadata } from "next/types";
 import NeedAWebsite from "./assets/NeedAWebsite.svg";
 import Link from "next/link";
+import EmailUs from "@/components/EmailUs/EmailUs";
 
 export const metadata: Metadata = {
   title: "How hard is it to make a website?",
@@ -145,6 +146,11 @@ export default function CreateYourOwnWebsite() {
           professional, high-performing website that drives results. Contact us
           today to get started and take your online presence to the next level!
         </Typography>
+
+        <EmailUs
+          label="Send us your email and we'll get in touch."
+          secondStyle={true}
+        />
       </FlexBox>
     </>
   );

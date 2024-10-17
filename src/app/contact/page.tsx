@@ -8,6 +8,7 @@ import phone from "./assets/phone.svg";
 import email from "./assets/email.svg";
 import Link from "next/link";
 import { Metadata } from "next/types";
+import EmailUs from "@/components/EmailUs/EmailUs";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -50,6 +51,11 @@ export default function Contact() {
           </FlexBox>
         </Link>
       </FlexBox>
+
+      <EmailUs
+        label="Send us your email and we'll get in touch."
+        secondStyle={true}
+      />
     </FlexBox>
   );
 }

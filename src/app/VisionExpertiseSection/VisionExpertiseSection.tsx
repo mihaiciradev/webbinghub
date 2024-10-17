@@ -24,7 +24,7 @@ export default function VisionExpertiseSection() {
         <Image src={cremLogo} alt="webbing hub websites logo" />
       </FlexBox>
       <GetInTouch />
-      <EmailUs />
+      <EmailUs label="or... let us email you!" />
     </FlexBox>
   );
 }
