@@ -6,22 +6,57 @@
   margin-left: 10%;
   color: black;
 
-  & > h4 {
+  &>h4 {
     margin-top: 3rem;
   }
 
-  & > h5 {
+  &>h5 {
     margin-top: 5rem;
     text-align: left;
     align-self: flex-start;
   }
 
-  & > p {
+  &>p {
     align-self: flex-start;
   }
 
   @media (max-width: 900px) {
     width: 95%;
     margin-left: 2.5%;
+  }
+}
+
+
+.ad {
+  width: 100vw;
+  height: auto;
+  position: relative;
+  margin-top: 3rem;
+
+  &>img {
+    width: 100vw;
+    height: auto;
+  }
+
+  .ad_text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    gap: 1rem;
+
+    & h3,
+    & a {
+      font-family: var(--font-poppins), sans-serif;
+
+
+    }
+
+
+    & a {
+      text-decoration: underline;
+      font-style: italic;
+    }
   }
 }
