@@ -19,15 +19,6 @@ export async function POST(request: Request) {
   });
 
   try {
-    transporter.verify(function (error, _) {
-      if (error) {
-        console.error("SMTP connection error:", error);
-        console.log(process.env.SMTP_USER, process.env.SMTP_PASS);
-      } else {
-        console.log("SMTP server is ready to take messages");
-      }
-    });
-
     // Send email
     await transporter.sendMail({
       from: `"WebbingHUB Support" <support@webbinghub.io>`,
