@@ -43,6 +43,9 @@ export default function Footer() {
         <Link href="/contact" className="underlinedLink">
           contact
         </Link>
+        <Link href="/privacy-policy" className="underlinedLink">
+          privacy policy
+        </Link>
       </FlexBox>
       <Image src={footer_logo} alt="footer_logo" />
       <FlexBox

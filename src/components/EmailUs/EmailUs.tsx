@@ -57,6 +57,21 @@ export default function EmailUs({
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
+              <FlexBox sx={{ gap: ".5rem" }}>
+                <input type="checkbox" id="consent" required />
+                <label htmlFor="consent">
+                  I consent to WebbingHUB using my email address to contact me.
+                  <br />
+                  Privacy policy can be found{" "}
+                  <a
+                    href="/privacy-policy"
+                    style={{ color: "darkblue", textDecoration: "underline" }}
+                  >
+                    here
+                  </a>
+                  .
+                </label>
+              </FlexBox>
               <button type="submit">Send</button>
               {message && <p>{message}</p>}
             </>

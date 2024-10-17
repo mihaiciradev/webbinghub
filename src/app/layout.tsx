@@ -8,6 +8,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import Cookies from "@/components/Cookies/Cookies";
 
 const Footer = dynamic(() => import("@/components/Footer/Footer"), {
   ssr: false,
@@ -100,6 +102,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${montserrat.variable}`}
       >
+        <Cookies />
         <Analytics />
         <Header />
         {children}
