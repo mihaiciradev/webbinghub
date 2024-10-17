@@ -1,4 +1,5 @@
 .container {
+  transition: opacity 0.3s;
   & * {
     font-family: var(--font-montserrat), sans-serif;
   }
@@ -13,5 +14,17 @@
     border: none;
     border-radius: 5px;
     padding: 7px 15px;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
+}
+
+.loading {
+  pointer-events: none;
+  opacity: 0.5;
 }

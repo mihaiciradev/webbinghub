@@ -6,9 +6,11 @@ import { FlexBox } from "../FlexBox";
 export default function EmailUs() {
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     setMessage("");
 
     try {
@@ -17,6 +19,7 @@ export default function EmailUs() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
+      setLoading(false);
 
       if (response.ok) {
         setMessage("Email sent successfully!");
@@ -24,6 +27,7 @@ export default function EmailUs() {
         setMessage("Failed to send email.");
       }
     } catch (error) {
+      setLoading(false);
       setMessage("An error occurred.");
     }
   };
@@ -33,7 +37,7 @@ export default function EmailUs() {
       <form onSubmit={handleSubmit}>
         <FlexBox
           sx={{ flexDirection: "column", gap: ".5rem" }}
-          className={styles.container}
+          className={`${styles.container} ${loading ? styles.loading : ""}`}
         >
           <label htmlFor="email">
             {!message ? "or... let us contact you!" : message}
