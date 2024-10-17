@@ -19,7 +19,7 @@ export async function POST(request: Request) {
   });
 
   try {
-    transporter.verify(function (error, success) {
+    transporter.verify(function (error, _) {
       if (error) {
         console.error("SMTP connection error:", error);
         console.log(process.env.SMTP_USER, process.env.SMTP_PASS);
