@@ -1,3 +1,4 @@
+// react/no-unescaped-entities
 import { FlexBox } from "@/components/FlexBox";
 import styles from "./page.module.css";
 import Image from "next/image";
@@ -148,7 +149,7 @@ export default function CreateYourOwnWebsite() {
         </Typography>
 
         <EmailUs
-          label="Send us your email and we'll get in touch."
+          label="Send us your email and we'll get in touch." // eslint-disable-line react/no-unescaped-entities
           secondStyle={true}
         />
       </FlexBox>

@@ -53,7 +53,7 @@ export default function Contact() {
       </FlexBox>
 
       <EmailUs
-        label="Send us your email and we'll get in touch."
+        label="Send us your email and we'll get in touch." // eslint-disable-line react/no-unescaped-entities
         secondStyle={true}
       />
     </FlexBox>
