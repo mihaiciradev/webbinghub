@@ -12,6 +12,9 @@ import EmailUs from "@/components/EmailUs/EmailUs";
 
 export const metadata: Metadata = {
   title: "How hard is it to make a website?",
+  alternates: {
+    canonical: "https://webbinghub.com/blog/how-hard-is-it-to-make-a-website",
+  },
 };
 
 export default function CreateYourOwnWebsite() {
