@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
-import { getDatabase, onValue, ref, set } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 import { get } from "firebase/database";
 
 const firebaseConfig = {
