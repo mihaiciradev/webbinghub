@@ -21,7 +21,11 @@ export default function CreateYourOwnWebsite() {
   return (
     <>
       <FlexBox className={styles.container}>
-        <Image src={SEO} alt="SEO websites webbinghub" />
+        <Image
+          src={SEO}
+          alt="SEO websites webbinghub"
+          style={{ width: "40%", height: "auto" }}
+        />
 
         <Typography variant="h4" sx={{ textAlign: "center" }}>
           How hard is it to make a website?
