@@ -11,6 +11,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import Cookies from "@/components/Cookies/Cookies";
 import FirebaseAnalyticsInit from "@/components/Firebase/FirebaseAnalyticsInit";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const Footer = dynamic(() => import("@/components/Footer/Footer"), {
   ssr: false,
@@ -76,6 +77,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${montserrat.variable}`}
       >
+        <SpeedInsights />
         <FirebaseAnalyticsInit />
         <Cookies />
         <Analytics />
