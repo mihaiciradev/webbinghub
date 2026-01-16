@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import Cookies from "@/components/Cookies/Cookies";
 import FirebaseAnalyticsInit from "@/components/Firebase/FirebaseAnalyticsInit";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 
 const Footer = dynamic(() => import("@/components/Footer/Footer"), {
   ssr: false,
@@ -74,6 +75,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* google tag for ads */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17874820921"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-aw" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17874820921');
+          `}
+        </Script>
+      </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${montserrat.variable}`}
       >
