@@ -28,7 +28,7 @@ export default function Compass() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [animation]);
 
   return (
     <Box

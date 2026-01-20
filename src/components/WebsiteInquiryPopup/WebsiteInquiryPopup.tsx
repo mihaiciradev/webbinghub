@@ -32,8 +32,8 @@ export default function WebsiteInquiryPopup({
         </Typography>
 
         <Typography className={styles.subtitle}>
-          Not sure if now is the right time for a website? That's exactly why
-          we're here — to talk it through with zero pressure.
+          Not sure if now is the right time for a website? That&apos;s exactly
+          why we&apos;re here — to talk it through with zero pressure.
         </Typography>
 
         <Typography className={styles.benefits}>
@@ -49,8 +49,8 @@ export default function WebsiteInquiryPopup({
         </ul>
 
         <Typography className={styles.ctaText}>
-          Drop your email below — we'll get back to you within 24h to discuss
-          your goals.
+          Drop your email below — we&apos;ll get back to you within 24h to
+          discuss your goals.
         </Typography>
 
         <EmailUs label="Let’s talk — drop your email" secondStyle={true} />
