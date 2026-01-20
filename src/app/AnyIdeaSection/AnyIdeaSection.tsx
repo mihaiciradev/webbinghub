@@ -8,7 +8,7 @@ import rocket from "@/assets/rocket.svg";
 export default function AnyIdeaSection() {
   return (
     <FlexBox
-      sx={{ flexDirection: "column", gap: "1rem", paddingBottom: "6rem" }}
+      sx={{ flexDirection: "column", gap: "1rem", padding: "5rem 0" }}
       id="websites"
     >
       <FlexBox className={styles.pageHeader}>

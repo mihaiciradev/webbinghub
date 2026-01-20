@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function HeroSectionArrow() {
   const handleClick = () => {
-    const targetElement = document.getElementById("websites");
+    const targetElement = document.getElementById("own-it");
     if (targetElement) {
       const offset = 100;
       const elementPosition =

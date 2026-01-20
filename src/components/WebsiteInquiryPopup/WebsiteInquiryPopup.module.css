@@ -1,0 +1,119 @@
+.popupContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(320px, 90vw, 900px);
+    max-height: 88vh;
+    overflow-y: auto;
+    background: var(--background);
+    color: var(--secondary);
+    padding: 2rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+    text-align: center;
+    border: 1px solid rgba(228, 208, 167, 0.4);
+}
+
+.title {
+    font-weight: 800;
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    margin-bottom: 1rem;
+    color: var(--secondary);
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: clamp(1.05rem, 3.2vw, 1.25rem);
+    line-height: 1.4;
+    margin-bottom: 1.2rem;
+    color: var(--secondary);
+}
+
+.benefits {
+    font-weight: 600;
+    font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+    margin: 1.2rem 0 0.8rem;
+    color: var(--secondary);
+}
+
+.benefitsList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    text-align: left;
+    font-size: clamp(1rem, 3vw, 1.15rem);
+    line-height: 1.6;
+}
+
+.benefitsList li {
+    margin-bottom: 0.6rem;
+    position: relative;
+    padding-left: 1.6rem;
+}
+
+.benefitsList li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.ctaText {
+    font-size: clamp(1rem, 3.2vw, 1.2rem);
+    font-weight: 500;
+    margin: 1.2rem 0 1.5rem;
+    color: var(--secondary);
+}
+
+.closeButton {
+    margin-top: 1rem;
+    background: transparent;
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.closeButton:hover {
+    background: var(--secondary);
+    color: var(--background);
+}
+
+.popupContainer .container {
+    margin-top: 1rem;
+}
+
+.popupContainer label {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.popupContainer input[type="email"] {
+    padding: 0.8rem;
+    font-size: 1rem;
+}
+
+.popupContainer button[type="submit"] {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+    .popupContainer {
+        padding: 1.8rem 1.5rem;
+        width: clamp(300px, 92vw, 600px);
+    }
+
+    .title {
+        font-size: 1.9rem;
+    }
+
+    .benefitsList {
+        font-size: 1.05rem;
+    }
+}
