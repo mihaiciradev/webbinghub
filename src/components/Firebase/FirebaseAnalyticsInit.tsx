@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
-import { getDatabase, ref, push, set, runTransaction } from "firebase/database";
+import { getDatabase, ref, push, set } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
