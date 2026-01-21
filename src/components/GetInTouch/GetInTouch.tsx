@@ -5,7 +5,7 @@ import { Link } from "@mui/material";
 export default function GetInTouch({ blackFont }: { blackFont?: boolean }) {
   return (
     <Link
-      href="mailto:support@webbinghub.io"
+      href="mailto:sales@webbinghub.io"
       className={styles.getInTouch}
       sx={{
         color: blackFont ? "black" : "#E4D0A7",

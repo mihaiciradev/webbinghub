@@ -40,10 +40,10 @@ export default function Contact() {
           </FlexBox>
         </Link>
 
-        <Link href="mailto:support@webbinghub.io">
+        <Link href="mailto:sales@webbinghub.io">
           <FlexBox className={styles.contact_btn}>
             <Image src={email} alt="email" />
-            <p>support@webbinghub.io</p>
+            <p>sales@webbinghub.io</p>
           </FlexBox>
         </Link>
 

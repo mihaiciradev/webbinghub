@@ -67,8 +67,8 @@ export default function Footer() {
         >
           LinkedIn
         </Link>
-        <Link href="mailto:support@webbinghub.io" className="underlinedLink">
-          support@webbinghub.io
+        <Link href="mailto:sales@webbinghub.io" className="underlinedLink">
+          sales@webbinghub.io
         </Link>
         <Link href="tel:+40736394784" className="underlinedLink">
           +40 736 394 784
