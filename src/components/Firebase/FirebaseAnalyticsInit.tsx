@@ -18,6 +18,8 @@ const firebaseConfig = {
 
 export default function FirebaseAnalyticsInit() {
   useEffect(() => {
+    // if (window.location.host.includes("localhost")) return; // disable db in dev
+
     const app = initializeApp(firebaseConfig);
     isSupported().then((yes) => {
       if (yes) getAnalytics(app);
