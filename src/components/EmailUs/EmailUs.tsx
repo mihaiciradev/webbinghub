@@ -4,7 +4,7 @@ import styles from "./EmailUs.module.css";
 import { FlexBox } from "../FlexBox";
 
 const LS_KEY = "webbinghub_contact_email_send_count";
-const MAX_SENDS = 2;
+const MAX_SENDS = 1;
 
 export default function EmailUs({
   label,
