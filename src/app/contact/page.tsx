@@ -13,7 +13,7 @@ import EmailUs from "@/components/EmailUs/EmailUs";
 export const metadata: Metadata = {
   title: "Contact",
   alternates: {
-    canonical: "https://webbinghub.com/contact",
+    canonical: "https://webbinghub.io/contact",
   },
 };
 

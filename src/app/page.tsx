@@ -6,7 +6,7 @@ import OwnItSection from "./OwnItSection/OwnItSection";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://webbinghub.com",
+    canonical: "https://webbinghub.io",
   },
 };
 

@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "WebbingHUB",
     description: "Websites for any vision, any business & every user.",
-    url: "https://webbinghub.com",
+    url: "https://webbinghub.io",
     type: "website",
     images: "/metadata_social.png",
   },

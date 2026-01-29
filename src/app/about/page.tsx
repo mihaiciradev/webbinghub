@@ -17,7 +17,7 @@ import { Metadata } from "next/types";
 export const metadata: Metadata = {
   title: "Contact",
   alternates: {
-    canonical: "https://webbinghub.com/contact",
+    canonical: "https://webbinghub.io/contact",
   },
 };
 
