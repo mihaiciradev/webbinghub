@@ -15,9 +15,9 @@ import GetInTouch from "@/components/GetInTouch/GetInTouch";
 import { Metadata } from "next/types";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "About",
   alternates: {
-    canonical: "https://webbinghub.io/contact",
+    canonical: "https://webbinghub.io/about",
   },
 };
 
