@@ -1,22 +1,14 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+
+const baseUrl = "https://webbinghub.io";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
+
   return [
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
-      lastModified: new Date().toISOString(),
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/about`,
-      lastModified: new Date().toISOString(),
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/contact`,
-      lastModified: new Date().toISOString(),
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/how-hard-is-it-to-make-a-website`,
-      lastModified: new Date().toISOString(),
-    },
+    { url: `${baseUrl}/`, lastModified },
+    { url: `${baseUrl}/about`, lastModified },
+    { url: `${baseUrl}/contact`, lastModified },
+    { url: `${baseUrl}/blog/how-hard-is-it-to-make-a-website`, lastModified },
   ];
 }
