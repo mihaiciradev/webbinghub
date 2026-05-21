@@ -1,0 +1,97 @@
+.process {
+  padding: 8rem 4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  margin-bottom: 5rem;
+  align-items: end;
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold-l);
+}
+
+.heading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.heading em { font-style: italic; color: var(--gold); }
+
+.intro {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.9;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.step {
+  position: relative;
+  padding-top: 2rem;
+  border-top: 2px solid var(--line);
+  transition: border-color 0.3s;
+}
+.step:hover { border-color: var(--gold-l); }
+
+/* The number via data-num attr */
+.step::before {
+  content: attr(data-num);
+  position: absolute;
+  top: -14px;
+  left: 0;
+  background: var(--white);
+  padding-right: 0.8rem;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.stepTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+
+.stepDesc {
+  font-size: 0.86rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+
+@media (max-width: 960px) {
+  .process { padding: 5rem 1.5rem; }
+  .top { grid-template-columns: 1fr; gap: 2rem; }
+  .steps { grid-template-columns: 1fr; }
+}

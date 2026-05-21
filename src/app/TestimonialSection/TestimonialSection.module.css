@@ -1,0 +1,56 @@
+.testimonial {
+  padding: 8rem 4rem;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 8rem;
+  align-items: center;
+}
+
+.quote {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+.author {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--ink3);
+  letter-spacing: 0.06em;
+}
+
+.numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.numItem {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+.numItem:last-child { border-bottom: none; padding-bottom: 0; }
+
+.num {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.numLabel {
+  font-size: 0.78rem;
+  color: var(--ink3);
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 960px) {
+  .testimonial { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+}

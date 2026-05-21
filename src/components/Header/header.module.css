@@ -1,84 +1,78 @@
-.header {
-  height: 5rem;
-  justify-content: space-between;
+.nav {
   position: fixed;
-  width: 100%;
-  padding: 0 8rem;
-  transition:
-    background 300ms,
-    height 300ms;
-
+  top: 0; left: 0; right: 0;
   z-index: 100;
-  border-bottom: 1px solid var(--primary);
-}
-
-.headerButton {
-  background: none;
-  padding: 0.1rem 1rem;
-  border: none;
-  border-radius: 1rem;
-  border: 2px solid black;
-  font-family: var(--font-poppins), sans-serif;
-  color: black;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: opacity 200ms;
-  opacity: 1;
-  font-weight: 100;
-  transition: font-size 300ms;
-
-  &:hover {
-    opacity: 0.35;
-  }
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+  height: 68px;
+  transition: box-shadow 0.3s ease;
 }
 
 .scrolled {
-  background: var(--secondary);
-  height: 3.5rem;
-  width: 101%;
-  top: -1px;
-
-  .headerButton {
-    color: white;
-    border: 2px solid white;
-  }
-
-  .logosContainer {
-    & img:nth-of-type(1) {
-      opacity: 0;
-    }
-
-    & img:nth-of-type(2) {
-      opacity: 1;
-    }
-  }
-
-  .headerButton {
-    font-size: 0.7rem;
-  }
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06);
 }
 
-.logosContainer {
-  position: relative;
-  height: 70%;
-  width: auto;
+/* ─── Logo ──────────────────────────────────── */
+.logo {
   display: flex;
   align-items: center;
-  justify-content: center;
+  text-decoration: none;
+}
 
-  & img:nth-of-type(1) {
-    height: 100%;
-    opacity: 1;
-    width: auto;
-    transition: opacity 300ms;
-  }
+.logoImg {
+  height: 38px !important;
+  width: auto !important;
+}
 
-  & img:nth-of-type(2) {
-    position: absolute;
-    width: 30%;
-    height: auto;
-    left: 0;
-    opacity: 0;
-    transition: opacity 300ms;
-  }
+/* ─── Nav links ─────────────────────────────── */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.navLinks a {
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--ink2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navLinks a:hover {
+  color: var(--gold);
+}
+
+/* ─── CTA ───────────────────────────────────── */
+.navCta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.6rem;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.navCta:hover {
+  background: var(--gold);
+  transform: translateY(-1px);
+}
+
+/* ─── Mobile ────────────────────────────────── */
+@media (max-width: 960px) {
+  .nav { padding: 0 1.5rem; }
+  .navLinks { display: none; }
 }

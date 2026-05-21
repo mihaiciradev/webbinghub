@@ -1,79 +1,60 @@
 "use client";
-import React from "react";
-import styles from "./Footer.module.css";
-import footer_logo from "@/assets/footer_logo.svg";
 import Image from "next/image";
-import { FlexBox } from "../FlexBox";
 import Link from "next/link";
-import { useTheme } from "@mui/material";
+import styles from "./Footer.module.css";
+import fullLogoGold from "@/new/full_logo_gold.svg";
+import onlyTextGold from "@/new/only_text_gold.svg";
 
 export default function Footer() {
-  const theme = useTheme();
-
   return (
-    <FlexBox
-      className={styles.container}
-      sx={{
-        [theme.breakpoints.down("md")]: {
-          flexDirection: "column !important",
-          gap: "2rem",
-          width: "100%",
-          padding: "5rem 0 !important",
-        },
-      }}
-    >
-      <FlexBox
-        sx={{
-          flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "4px",
-          width: "30%",
-          [theme.breakpoints.down("md")]: {
-            alignItems: "center !important",
-            width: "100%",
-          },
-        }}
-      >
-        <Link href="/" className="underlinedLink">
-          home
-        </Link>
-        <Link href="/about" className="underlinedLink">
-          about
-        </Link>
-        <Link href="/contact" className="underlinedLink">
-          contact
-        </Link>
-        <Link href="/privacy-policy" className="underlinedLink">
-          privacy policy
-        </Link>
-      </FlexBox>
-      <Image src={footer_logo} alt="footer_logo" />
-      <FlexBox
-        sx={{
-          flexDirection: "column",
-          alignItems: "flex-end",
-          gap: "4px",
-          width: "30%",
-          [theme.breakpoints.down("md")]: {
-            width: "100%",
-            alignItems: "center !important",
-          },
-        }}
-      >
-        <Link
-          href="https://www.linkedin.com/company/webbinghub"
-          className="underlinedLink"
-          target="_blank"
-        >
-          LinkedIn
-        </Link>
-        <Link href="mailto:sales@webbinghub.io" className="underlinedLink">
-          sales@webbinghub.io
-        </Link>
-        <Link href="tel:+40736394784" className="underlinedLink">
-          +40 736 394 784
-        </Link>
-      </FlexBox>
-    </FlexBox>
+    <footer className={styles.footer}>
+      <div className={styles.grid}>
+        {/* Brand col */}
+        <div>
+          <div className={styles.logos}>
+            <Image src={fullLogoGold} alt="WebbingHUB mascot" className={styles.mascotLogo} />
+            <Image src={onlyTextGold} alt="WebbingHUB" className={styles.textLogo} />
+          </div>
+          <p className={styles.tagline}>Crafting websites that work.</p>
+          <p className={styles.contact}>
+            <a href="mailto:sales@webbinghub.io">sales@webbinghub.io</a>
+          </p>
+          <p className={styles.contact}>+40 736 394 784</p>
+        </div>
+
+        {/* Navigation col */}
+        <div>
+          <p className={styles.colTitle}>Navigation</p>
+          <ul className={styles.colLinks}>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/#services">Services</Link></li>
+            <li><Link href="/#process">How it works</Link></li>
+            <li><Link href="/about">About</Link></li>
+            <li><Link href="/blog">Blog</Link></li>
+            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+          </ul>
+        </div>
+
+        {/* Sub-brands col */}
+        <div>
+          <p className={styles.colTitle}>Sub-brands</p>
+          <ul className={styles.colLinks}>
+            <li>
+              <a href="https://travel.webbinghub.io" target="_blank" rel="noopener noreferrer">
+                TRAVEL by WebbingHUB
+              </a>
+            </li>
+            <li>
+              <span style={{ opacity: 0.4 }}>HORECA by WebbingHUB — soon</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className={styles.bottom}>
+        <span>© 2026 WebbingHUB. All rights reserved. · Timișoara, Romania</span>
+        <span>webbinghub.io</span>
+      </div>
+    </footer>
   );
 }

@@ -1,8 +1,12 @@
-import HeroSection from "@/app/HeroSection/HeroSection";
-import AnyIdeaSection from "./AnyIdeaSection/AnyIdeaSection";
-import VisionExpertiseSection from "./VisionExpertiseSection/VisionExpertiseSection";
 import { Metadata } from "next/types";
-import OwnItSection from "./OwnItSection/OwnItSection";
+import HeroSection from "@/app/HeroSection/HeroSection";
+import TrustBar from "@/app/TrustBar/TrustBar";
+import AboutSection from "@/app/AboutSection/AboutSection";
+import ServicesSection from "@/app/ServicesSection/ServicesSection";
+import ProcessSection from "@/app/ProcessSection/ProcessSection";
+import BrandsSection from "@/app/BrandsSection/BrandsSection";
+import TestimonialSection from "@/app/TestimonialSection/TestimonialSection";
+import CTASection from "@/app/CTASection/CTASection";
 
 export const metadata: Metadata = {
   alternates: {
@@ -14,9 +18,13 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <OwnItSection />
-      <AnyIdeaSection />
-      <VisionExpertiseSection />
+      <TrustBar />
+      <AboutSection />
+      <ServicesSection />
+      <ProcessSection />
+      <BrandsSection />
+      <TestimonialSection />
+      <CTASection />
     </>
   );
 }

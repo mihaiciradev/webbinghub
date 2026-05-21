@@ -1,0 +1,101 @@
+.services {
+  background: var(--paper);
+  padding: 8rem 4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.hd {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold-l);
+}
+
+.heading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.heading em { font-style: italic; color: var(--gold); }
+
+.note {
+  font-size: 0.86rem;
+  color: var(--ink3);
+  max-width: 260px;
+  text-align: right;
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 2.5rem;
+  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+}
+.card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  transform: translateY(-3px);
+  border-color: var(--gold-l);
+}
+
+.cardIcon {
+  width: 44px;
+  height: 44px;
+  background: var(--gold-bg);
+  border-radius: var(--r);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.cardTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+.cardDesc {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+
+@media (max-width: 960px) {
+  .services { padding: 5rem 1.5rem; }
+  .grid { grid-template-columns: 1fr; }
+  .hd { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .note { text-align: left; max-width: 100%; }
+}

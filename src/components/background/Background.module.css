@@ -1,99 +1,134 @@
 .backgroundContainer {
-  outline: 2px solid red;
   position: fixed;
   top: 0;
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.22;
   height: 100vh;
   width: 100vw;
+  pointer-events: none;
 }
+
+/* ─── Float keyframes ──────────────────────────── */
+
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-14px) rotate(3deg); }
+}
+
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(12px) rotate(-4deg); }
+}
+
+@keyframes floatC {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-9px) rotate(2deg); }
+  66%       { transform: translateY(9px) rotate(-2deg); }
+}
+
+/* ─── Background icons ─────────────────────────── */
 
 .bg_design {
   position: absolute;
   top: 19vh;
   left: 5vw;
+  animation: floatA 8s ease-in-out infinite;
 }
 
 .bg_alien {
   position: absolute;
   top: 12vh;
   left: 28vw;
+  animation: floatB 7s ease-in-out infinite 0.5s;
 }
 
 .bg_cake {
   position: absolute;
   top: 23vh;
   left: 45vw;
+  animation: floatA 9s ease-in-out infinite 1s;
 }
 
 .bg_horse {
   position: absolute;
   top: 25vh;
   left: 75vw;
+  animation: floatC 11s ease-in-out infinite 0.3s;
 }
 
 .bg_leaf {
   position: absolute;
   top: 8vh;
   left: 89vw;
+  animation: floatB 6s ease-in-out infinite 1.5s;
 }
 
 .bg_owl {
   position: absolute;
   top: 42vh;
   left: 10vw;
+  animation: floatA 10s ease-in-out infinite 0.8s;
 }
 
 .bg_ozn {
   position: absolute;
   top: 50vh;
   left: 35vw;
+  animation: floatC 8s ease-in-out infinite 2s;
 }
 
 .bg_palette {
   position: absolute;
   top: 40vh;
   left: 55vw;
+  animation: floatB 9s ease-in-out infinite 0.4s;
 }
 
 .bg_palms {
   position: absolute;
   top: 58vh;
   left: 70vw;
+  animation: floatA 7s ease-in-out infinite 1.2s;
 }
 
 .bg_pepper {
   position: absolute;
   top: 43vh;
   left: 92vw;
+  animation: floatC 10s ease-in-out infinite 0.6s;
 }
 
 .bg_pizza {
   position: absolute;
   top: 69vh;
   left: 1vw;
+  animation: floatB 8s ease-in-out infinite 1.8s;
 }
 
 .bg_plane {
   position: absolute;
   top: 88vh;
   left: 17vw;
+  animation: floatA 9s ease-in-out infinite 0.2s;
 }
 
 .bg_popcorn {
   position: absolute;
   top: 75vh;
   left: 40vw;
+  animation: floatC 7s ease-in-out infinite 1s;
 }
 
 .bg_rhino {
   position: absolute;
   top: 93vh;
   left: 65vw;
+  animation: floatB 11s ease-in-out infinite 0.7s;
 }
 
 .bg_robot {
   position: absolute;
   top: 87vh;
   left: 89vw;
+  animation: floatA 8s ease-in-out infinite 1.4s;
 }

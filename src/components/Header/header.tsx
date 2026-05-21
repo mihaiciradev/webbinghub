@@ -1,124 +1,42 @@
 "use client";
 
-import { useState, useEffect, ReactNode, useMemo } from "react";
-import styles from "./header.module.css";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
-import BlackLogo from "../../assets/header-black-logo.svg";
-import WhiteLogo from "../../assets/header-white-logo.svg";
-
-import { FlexBox } from "../FlexBox";
-import { usePathname, useRouter } from "next/navigation";
-import { Box, useTheme } from "@mui/material";
-import MobileHeader from "./MobileHeader/MobileHeader";
-
-interface HeaderButtonProps {
-  children: ReactNode;
-  path: string;
-}
-
-const HeaderButton: React.FC<HeaderButtonProps> = ({
-  children,
-  path,
-  ...props
-}) => {
-  const router = useRouter();
-
-  const handleClick = () => {
-    router.push(path);
-  };
-
-  return (
-    <button {...props} className={styles.headerButton} onClick={handleClick}>
-      {children}
-    </button>
-  );
-};
+import styles from "./header.module.css";
+import fullLogoGold from "@/new/full_logo_gold.svg";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setScrolled(scrollTop > 50);
-    };
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const pathname = usePathname();
-
-  const isHomePage = useMemo(() => {
-    return pathname === "/";
-  }, [pathname]);
-
-  const theme = useTheme();
-
   return (
-    <FlexBox
-      className={`${styles.header} ${
-        !isHomePage || scrolled ? styles.scrolled : ""
-      }`}
-      sx={{
-        justifyContent: "space-between",
-        [theme.breakpoints.down("md")]: {
-          justifyContent: "center !important",
-        },
-      }}
-    >
-      <Box
-        className={styles.logosContainer}
-        sx={{
-          [theme.breakpoints.down("md")]: {
-            justifySelf: "baseline !important",
-            "& img:nth-of-type(2)": {
-              left: "50% !important",
-              transform: "translateX(-50%)",
-            },
-          },
-          cursor: "pointer",
-        }}
-        onClick={() => {
-          router.push("/");
-        }}
-      >
-        <Image src={BlackLogo} alt="webbinghub black" priority />
-        <Image src={WhiteLogo} alt="webbinghub white" />
-      </Box>
-      <FlexBox
-        sx={{
-          gap: "1rem",
-          [theme.breakpoints.down("md")]: {
-            display: "none !important",
-          },
-        }}
-      >
-        <HeaderButton path="/">home</HeaderButton>
-        <HeaderButton path="/about">about</HeaderButton>
-        <HeaderButton path="/contact">contact</HeaderButton>
-      </FlexBox>
+    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
+      <Link href="/" className={styles.logo}>
+        <Image
+          src={fullLogoGold}
+          alt="WebbingHUB"
+          className={styles.logoImg}
+          priority
+        />
+      </Link>
 
-      <Box
-        sx={{
-          display: "none",
-          position: "absolute",
-          top: "10px",
-          right: "5%",
-          [theme.breakpoints.down("md")]: {
-            display:
-              !isHomePage || scrolled ? "block !important" : "none !important",
-          },
-        }}
-      >
-        <MobileHeader />
-      </Box>
-    </FlexBox>
+      <ul className={styles.navLinks}>
+        <li><Link href="/#services">Services</Link></li>
+        <li><Link href="/#process">How it works</Link></li>
+        <li><Link href="/about">About</Link></li>
+        <li><Link href="/blog">Blog</Link></li>
+      </ul>
+
+      <Link href="/#contact" className={styles.navCta}>
+        Get in touch
+      </Link>
+    </nav>
   );
 }

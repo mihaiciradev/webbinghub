@@ -1,0 +1,59 @@
+.about {
+  padding: 8rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 8rem;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold-l);
+}
+
+.heading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.heading em { font-style: italic; color: var(--gold); }
+
+.body p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.9;
+  margin-bottom: 1.4rem;
+}
+.body p:last-child { margin-bottom: 0; }
+
+.quote {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ink2);
+  border-left: 3px solid var(--gold-l);
+  padding-left: 1.2rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 960px) {
+  .about { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+}

@@ -1,0 +1,202 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
+import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
+
+/* ── Inline SVG (no network fetch needed) ───────── */
+const SVG_SRC = `<svg width="229" height="204" viewBox="0 0 229 204" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M99.4234 24.2561C99.4234 24.4104 101.197 25.7986 103.28 27.4183C105.439 29.0379 107.059 30.5033 106.905 30.7346C106.75 30.8889 103.588 31.3517 99.9632 31.7373C76.2086 34.4367 56.1561 50.2474 48.9063 71.9967C47.8265 75.3131 46.7468 79.6321 46.5154 81.6374L46.1298 85.3394L48.4435 80.5576C60.6293 54.952 82.1473 40.2211 109.064 38.9099C120.016 38.3701 127.651 39.6812 137.986 43.6917C145.004 46.4682 144.927 46.5453 137.215 47.9336C131.353 48.9362 118.165 53.101 117.548 54.1808C117.239 54.5664 122.638 54.8749 130.813 54.8749C138.372 54.8749 145.853 55.1063 147.472 55.4148L150.403 55.8775L147.087 59.271C136.444 70.2228 123.872 75.5445 107.136 76.1615L97.4952 76.5471L104.822 73.9248C114.54 70.4542 127.188 64.0528 123.332 64.5927C121.867 64.7469 114.077 65.2097 105.979 65.6724C78.9852 67.0607 68.2647 70.4542 58.7012 80.6347C55.0763 84.5681 49.2919 93.5147 49.2919 95.2886C49.2919 95.5199 50.0632 95.7513 51.0658 95.7513C52.1455 95.7513 54.8449 93.746 58.5469 90.1212C64.8712 84.1054 73.2008 79.3236 80.5277 77.6269C84.1526 76.7785 84.9238 76.8556 89.0114 78.4752C100.195 83.0256 104.359 83.7969 118.319 83.7198C130.505 83.7198 131.893 83.5655 137.986 81.5602C141.611 80.4034 146.547 78.321 149.092 77.0098L153.565 74.5418L156.496 78.0125C158.116 79.9406 161.895 84.5681 164.749 88.4244L170.07 95.3657L174.852 95.5971L179.634 95.8284V92.0493C179.634 84.0283 175.006 71.4568 168.296 61.4305C165.751 57.4971 165.674 57.2658 166.831 55.0291C168.528 51.7127 170.996 44.2316 171.536 40.2982L172.075 36.9818L167.217 41.9178C164.517 44.6943 160.815 47.7022 159.118 48.5506L155.879 50.1702L155.339 46.6225C154.568 41.4551 152.254 35.9792 148.321 30.0405C146.393 27.1869 144.542 24.6417 144.233 24.4875C143.925 24.2561 143.77 27.8039 144.002 32.2772L144.387 40.5296L140.531 37.7531C135.441 34.1282 127.266 29.8863 121.25 27.9581C114.694 25.7215 99.4234 23.1764 99.4234 24.2561Z" fill="#3E3C3A"/>
+<path d="M73.5092 89.5041C68.8046 91.7408 64.0999 95.8284 61.7862 99.7618C60.5521 101.844 60.2436 101.921 54.4592 101.921C49.1376 101.921 48.2121 102.153 46.5925 103.772C42.9676 107.397 46.4382 111.176 53.3795 111.176H57.0044V114.184C57.0044 115.881 57.2358 117.732 57.4671 118.349C57.7756 119.275 56.3103 119.506 48.752 119.814C39.0342 120.2 36.3348 120.971 32.0929 124.982C27.1569 129.532 26.5399 131.769 26.3085 147.502L26 161.848L28.0824 164.239C29.6249 166.09 30.7818 166.707 32.7099 166.707C39.1113 166.707 40.0368 164.624 40.0368 150.51C40.0368 134.931 40.4224 134.391 52.5311 134.314H60.8606L61.7862 137.939C62.2489 140.021 62.7117 141.795 62.7117 141.872C62.7888 142.026 61.4005 142.643 59.7809 143.183C55.6932 144.649 53.2252 146.5 50.4487 150.433L48.135 153.75L47.9036 169.869C47.6722 183.828 47.8265 186.374 48.9062 187.993C50.6801 190.693 53.5337 191.618 56.773 190.538C60.9378 189.227 61.6319 186.528 61.6319 172.877C61.6319 161.539 61.709 161.154 63.56 159.38C64.9483 157.914 66.2594 157.452 68.7274 157.452C71.8124 157.452 72.4294 157.837 77.2112 162.696C83.4584 169.02 91.6337 173.571 100.966 176.039C106.519 177.427 108.833 177.658 116.777 177.273C123.332 177.041 127.343 176.424 130.505 175.345C138.603 172.414 145.853 168.018 151.483 162.696C156.419 157.914 157.113 157.452 160.198 157.452C162.666 157.452 163.977 157.914 165.365 159.38C167.294 161.231 167.294 161.462 167.294 173.956C167.294 186.296 167.371 186.759 169.145 188.842C171.535 191.618 176.472 191.849 179.017 189.227C180.713 187.53 180.791 187.068 180.791 170.64V153.75L178.477 150.356C176.163 147.04 169.762 142.875 167.139 142.798C165.443 142.798 165.443 142.489 166.985 137.939L168.219 134.314H176.163C183.49 134.314 184.338 134.468 186.344 136.165L188.503 138.016L188.889 150.896C189.274 163.236 189.351 163.853 191.125 165.241C193.67 167.324 197.758 167.169 200.072 164.778C202 162.927 202 162.85 202 147.58V132.154L199.532 128.452C198.067 126.37 195.367 123.671 193.285 122.437C189.814 120.277 188.889 120.123 180.328 119.814L171.073 119.506L171.304 115.264L171.535 111.022L176.394 110.945C180.559 110.791 181.562 110.482 182.796 108.94C184.724 106.626 184.647 106.086 182.333 103.849C180.713 102.153 179.788 101.921 174.466 101.844H168.45L165.365 97.8337C161.741 93.2062 156.188 89.1956 151.637 87.9616C146.855 86.6505 137.523 87.4989 133.204 89.5041C131.276 90.4296 128.114 92.8205 126.263 94.6715C122.869 98.0651 122.792 98.1422 120.556 96.9082C117.548 95.3657 110.298 95.3657 107.984 96.9853C106.287 98.2193 106.133 98.1422 102.971 94.98C101.274 93.129 97.7266 90.661 95.1814 89.427C91.3252 87.6531 89.5513 87.2675 84.3839 87.2675C79.2165 87.2675 77.4426 87.6531 73.5092 89.5041ZM92.0964 96.0598C100.195 99.8389 103.974 105.778 104.051 114.878C104.051 121.588 102.971 124.596 98.6521 129.224C94.7958 133.388 89.8598 135.471 83.9982 135.394C76.5171 135.239 70.1157 131.152 66.5679 124.133C63.9457 119.043 63.4829 114.647 65.0254 109.48C66.8764 103.078 70.1157 99.1448 75.7458 96.4454C81.7616 93.5918 86.6976 93.5147 92.0964 96.0598ZM153.18 96.3683C157.267 98.5278 161.046 102.307 162.743 106.163C164.903 110.945 164.748 119.429 162.358 124.211C158.81 131.152 152.408 135.239 144.927 135.394C139.066 135.471 134.13 133.388 130.273 129.224C126.032 124.596 124.643 121.126 124.643 115.033C124.643 106.317 128.268 100.379 135.826 96.5225C140.068 94.363 141.225 94.1317 145.313 94.4402C147.858 94.5944 151.406 95.5199 153.18 96.3683ZM117.085 103.541C119.862 104.544 119.784 104.312 118.396 108.785C117.779 111.022 117.239 111.87 116.777 111.253C116.391 110.559 115.311 110.405 113.614 110.636C111.146 111.022 110.992 110.945 110.221 108.246C109.218 104.389 109.218 104.312 111.223 103.464C113.537 102.538 114.231 102.538 117.085 103.541ZM118.319 144.34C118.936 146.268 122.33 148.968 124.258 148.968C125.877 148.968 129.734 145.497 130.428 143.569C130.736 142.566 131.045 142.566 132.741 143.492C134.515 144.417 134.67 144.803 134.053 146.654C131.276 154.367 120.479 155.909 115.774 149.199C113.306 145.574 113.152 144.34 115.08 143.569C117.548 142.566 117.779 142.643 118.319 144.34Z" fill="#B8975A"/>
+<path d="M80.5277 104.389C77.5969 106.086 76.3629 108.4 76.2858 111.948C76.2858 116.961 78.6767 119.66 83.4584 120.2C87.7774 120.74 90.3997 119.275 92.2507 115.418C95.5671 108.477 87.0833 100.61 80.5277 104.389ZM85.0781 106.703C86.2349 108.554 84.8467 110.714 82.2244 111.022C79.7564 111.331 78.4453 109.248 79.4479 106.703C79.9878 105.315 80.6048 104.929 82.1473 105.161C83.3042 105.315 84.6153 106.009 85.0781 106.703Z" fill="#B8975A"/>
+<path d="M138.68 105.7C136.752 107.629 136.443 108.554 136.443 111.948C136.443 115.341 136.752 116.267 138.68 118.195C140.531 120.046 141.611 120.431 144.542 120.431C147.472 120.431 148.552 120.046 150.403 118.195C152.254 116.344 152.64 115.264 152.64 112.333C152.64 109.248 152.254 108.323 150.018 106.086C146.47 102.538 141.997 102.384 138.68 105.7ZM144.002 105.7C144.619 106.086 144.927 107.32 144.773 108.554C144.619 110.174 144.079 110.868 142.768 111.022C139.374 111.562 137.6 108.554 139.991 106.24C141.302 104.852 142.459 104.698 144.002 105.7Z" fill="#B8975A"/>
+</svg>`;
+
+export default function HeroLogo3D() {
+  const mountRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const mount = mountRef.current;
+    if (!mount) return;
+
+    const w = mount.clientWidth || 600;
+    const h = mount.clientHeight || 700;
+
+    /* ── Renderer ───────────────────────────────── */
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    renderer.setSize(w, h);
+    renderer.setClearColor(0x000000, 0);
+    renderer.shadowMap.enabled = false;
+    mount.appendChild(renderer.domElement);
+    renderer.domElement.style.display = "block";
+
+    /* ── Scene & Camera ─────────────────────────── */
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(48, w / h, 1, 2000);
+    camera.position.z = 320;
+
+    /* ── Lighting ───────────────────────────────── */
+    // Warm ambient
+    scene.add(new THREE.AmbientLight(0xfff5e0, 1.0));
+
+    // Key light — top-right-front, strong warm white
+    const key = new THREE.DirectionalLight(0xffffff, 3.5);
+    key.position.set(180, 140, 250);
+    scene.add(key);
+
+    // Fill light — left side, gold tint
+    const fill = new THREE.DirectionalLight(0xd4b47a, 1.5);
+    fill.position.set(-200, 60, 120);
+    scene.add(fill);
+
+    // Rim light — behind/below, cool accent
+    const rim = new THREE.DirectionalLight(0xffe8c0, 1.0);
+    rim.position.set(20, -180, -80);
+    scene.add(rim);
+
+    // Front point — warm glow
+    const point = new THREE.PointLight(0xfff0cc, 2.0, 700);
+    point.position.set(0, 0, 250);
+    scene.add(point);
+
+    /* ── Materials ──────────────────────────────── */
+    const goldMat = new THREE.MeshPhysicalMaterial({
+      color: new THREE.Color("#b8975a"),
+      metalness: 0.78,
+      roughness: 0.2,
+      reflectivity: 0.95,
+      clearcoat: 0.15,
+      clearcoatRoughness: 0.1,
+    });
+
+    const darkMat = new THREE.MeshPhysicalMaterial({
+      color: new THREE.Color("#3e3c3a"),
+      metalness: 0.45,
+      roughness: 0.5,
+      clearcoat: 0.05,
+    });
+
+    /* ── Parse SVG & build geometry ─────────────── */
+    const loader = new SVGLoader();
+    const parsed = loader.parse(SVG_SRC);
+
+    const inner = new THREE.Group(); // flipped for SVG→Three.js y-axis
+
+    const extrudeSettings = {
+      depth: 22,
+      bevelEnabled: true,
+      bevelThickness: 2.5,
+      bevelSize: 1.5,
+      bevelSegments: 4,
+    };
+
+    parsed.paths.forEach((path) => {
+      const fillStr = (path.userData?.style?.fill ?? "").toLowerCase().replace(/\s/g, "");
+      const isDark = fillStr.includes("3e3c3a");
+      const mat = isDark ? darkMat : goldMat;
+
+      const shapes = SVGLoader.createShapes(path);
+      shapes.forEach((shape) => {
+        const geo = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+        const mesh = new THREE.Mesh(geo, mat);
+        inner.add(mesh);
+      });
+    });
+
+    // ── Step 1: flip Y first (SVG y-down → Three.js y-up) ──────────
+    inner.scale.y = -1;
+
+    // ── Step 2: measure the flipped content in world space ──────────
+    const flippedBox = new THREE.Box3().setFromObject(inner);
+    const flippedCenter = flippedBox.getCenter(new THREE.Vector3());
+    const flippedSize   = flippedBox.getSize(new THREE.Vector3());
+
+    // ── Step 3: create a PIVOT at world origin; offset inner inside it
+    //            so that inner's content centre aligns with pivot's origin.
+    //            → all rotations on pivot spin around the logo's true centre ──
+    const pivot = new THREE.Group();
+    inner.position.set(
+      -flippedCenter.x,
+      -flippedCenter.y,
+      -flippedCenter.z,
+    );
+    pivot.add(inner);
+
+    // ── Step 4: scale pivot uniformly to fill canvas ────────────────
+    const fovRad     = (camera.fov * Math.PI) / 180;
+    const visH       = 2 * Math.tan(fovRad / 2) * camera.position.z;
+    const visW       = visH * (w / h);
+    const logoMaxDim = Math.max(flippedSize.x, flippedSize.y);
+    const targetVis  = Math.min(visH, visW) * 0.82;
+    const scaleFactor = targetVis / logoMaxDim;
+    pivot.scale.setScalar(scaleFactor);
+
+    // ── Step 5: start slightly tilted left so scroll "unfolds" it ───
+    const BASE_Y = -0.13; // ≈ -7.5° — just a hint of diagonal
+    const BASE_X =  0.06; //   slight upward tilt
+    pivot.rotation.y = BASE_Y;
+    pivot.rotation.x = BASE_X;
+
+    scene.add(pivot);
+
+    /* ── Scroll → rotation targets ──────────────── */
+    let targetRotY = BASE_Y;
+    let targetRotX = BASE_X;
+    let currentRotY = BASE_Y;
+    let currentRotX = BASE_X;
+
+    const onScroll = () => {
+      const sy = window.scrollY;
+      // scroll pushes from -7.5° toward +positive (never fully flat)
+      targetRotY = BASE_Y + sy * 0.0012;
+      targetRotX = BASE_X - sy * 0.0003;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    /* ── Resize ─────────────────────────────────── */
+    const onResize = () => {
+      const nw = mount.clientWidth;
+      const nh = mount.clientHeight;
+      renderer.setSize(nw, nh);
+      camera.aspect = nw / nh;
+      camera.updateProjectionMatrix();
+    };
+    window.addEventListener("resize", onResize);
+
+    /* ── Animation loop ─────────────────────────── */
+    let raf: number;
+    let t = 0;
+
+    const animate = () => {
+      raf = requestAnimationFrame(animate);
+      t += 0.007;
+
+      currentRotY += (targetRotY - currentRotY) * 0.055;
+      currentRotX += (targetRotX - currentRotX) * 0.055;
+
+      // Combine scroll position + gentle idle breathing
+      pivot.rotation.y = currentRotY + Math.sin(t * 0.55) * 0.04;
+      pivot.rotation.x = currentRotX + Math.sin(t * 0.38) * 0.022;
+
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    /* ── Cleanup ────────────────────────────────── */
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+      renderer.dispose();
+      goldMat.dispose();
+      darkMat.dispose();
+      scene.remove(pivot);
+      if (mount.contains(renderer.domElement)) {
+        mount.removeChild(renderer.domElement);
+      }
+    };
+  }, []);
+
+  return <div ref={mountRef} style={{ width: "100%", height: "100%", position: "absolute", inset: 0 }} />;
+}

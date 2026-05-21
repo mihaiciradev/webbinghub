@@ -1,93 +1,240 @@
-.heroSectionContainer {
+/* ─── Local keyframes (CSS modules can't use globals keyframes) ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Hero grid ──────────────────────────────── */
+.hero {
+  padding-top: 68px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+}
+
+/* ── LEFT — text ── */
+.heroLeft {
+  background: var(--paper);
+  padding: 7rem 4.5rem 6rem;
+  display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  /* margin-bottom: 10cm; */
-  height: "100vw";
-  max-height: "80rem";
+  justify-content: center;
+  border-right: 1px solid var(--line);
+  position: relative;
 }
 
-.description{
-  font-family: var(--font-montserrat), sans-serif;
+.heroLeft::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
 }
 
-.heroTextContainer {
-  width: 50rem;
-  color: black;
-  margin: 0 1rem;
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: large;
-  font-weight: 100;
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.1s forwards;
 }
 
-.heroTextContainer h4:nth-child(1) {
-  align-self: flex-start;
-  font-weight: 0;
+.title {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  font-weight: 500;
+  line-height: 1.12;
+  color: var(--ink);
+  margin-bottom: 1.8rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.25s forwards;
+}
+.title em { font-style: italic; color: var(--gold); }
+
+.body {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.85;
+  max-width: 440px;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.4s forwards;
 }
 
-.heroTextContainer h4:nth-child(3) {
-  align-self: flex-end;
-  font-weight: 0;
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.55s forwards;
 }
 
-.horizontalLine {
-  width: 100%;
-  height: 2px;
-  background-color: black;
-  margin: 1rem 0;
+.btnDark {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 2rem;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s, transform 0.15s;
+}
+.btnDark:hover { background: var(--gold); transform: translateY(-2px); }
+
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 2rem;
+  border: 1.5px solid var(--line);
+  color: var(--ink2);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s;
+}
+.btnOutline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+.badges {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.7s forwards;
+}
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: 0.74rem;
+  font-weight: 400;
+  color: var(--ink2);
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
 }
 
-.horizontalLine:nth-of-type(1) {
-  align-self: flex-start;
-  margin: 0.4rem 0 0 0;
-  /* transform-box: fill-box; */
-  transform-origin: left;
-  transform: rotateY(-90deg);
-  animation: lines 2.5s linear forwards;
+/* ── RIGHT — 3-D logo + tagline ── */
+.heroRight {
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 3rem 1.8rem;
+  position: relative;
+  overflow: hidden;
+  border-left: 1px solid var(--line);
+  opacity: 0;
+  animation: fadeIn 1s 0.4s forwards;
 }
 
-.horizontalLine:nth-of-type(3) {
-  transform-origin: right;
-  align-self: flex-end;
-  transform: rotateY(90deg);
-
-  margin: 0 0 0.4rem 0;
-  animation: lines 2.5s linear forwards;
+/* Right accent stripe — mirrors the left column's gold bar */
+.heroRight::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; right: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  pointer-events: none;
 }
 
-@keyframes lines {
-  to {
-    transform: rotateY(0deg);
+/* Warm radial glow — stages the logo like a spotlight */
+.heroRight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 44%,
+    var(--gold-bg) 0%,
+    transparent 68%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Large decorative "W" — brand anchor, visual mass */
+.decoW {
+  position: absolute;
+  bottom: -3.5rem;
+  right: -0.8rem;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(10rem, 18vw, 18rem);
+  font-weight: 600;
+  color: var(--paper2);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* 3-D canvas — smaller, centered */
+.logoWrap {
+  position: relative;
+  width: 72%;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+/* Shimmer while Three.js loads */
+.logoPlaceholder {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 46%, var(--paper2) 0%, var(--paper) 68%);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+/* Tagline — bigger, still refined */
+.tagline {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--gold-border);
+  width: 72%;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Responsive ─────────────────────────────── */
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .heroLeft { padding: 4rem 1.5rem 3rem; }
+  .heroRight {
+    padding: 3rem 1.5rem 4rem;
+    border-top: 1px solid var(--line);
   }
-}
-
-.websitesText {
-  width: 100%;
-
-  & > * {
-    width: 100%;
-    padding: 10px;
-
-    & g {
-      fill-opacity: 0;
-      animation: fill-in 1s 10s forwards;
-    }
-
-    & path {
-      stroke-dashoffset: 350;
-      stroke-dasharray: 350;
-      animation: draw 15s 2s forwards;
-    }
-  }
-}
-
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes fill-in {
-  to {
-    fill-opacity: 1;
-  }
+  .logoWrap { width: 200px; height: 200px; }
+  .tagline { font-size: 1.8rem; }
 }

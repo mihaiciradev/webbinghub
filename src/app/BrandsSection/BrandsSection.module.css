@@ -1,0 +1,142 @@
+.brands {
+  background: var(--paper);
+  padding: 8rem 4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.hd {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold-l);
+}
+
+.heading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.heading em { font-style: italic; color: var(--gold); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.card:hover { box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07); transform: translateY(-3px); }
+.cardMuted { opacity: 0.6; }
+
+.cardBar { height: 4px; background: var(--green); }
+.cardBarMuted { background: var(--line); }
+
+.cardBody { padding: 2.5rem; }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+.pillLive { background: #eaf3ee; color: var(--green); }
+.pillSoon { background: var(--paper2); color: var(--ink3); }
+.pillDot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+.cardName {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+  line-height: 1.1;
+}
+
+.cardByline {
+  font-size: 0.78rem;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.cardSub {
+  font-size: 0.82rem;
+  color: var(--ink3);
+  margin-bottom: 1.2rem;
+  font-style: italic;
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.cardDesc {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.8rem;
+}
+.tag {
+  font-size: 0.7rem;
+  color: var(--ink3);
+  border: 1px solid var(--line);
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+}
+
+.link {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 0.2s;
+}
+.link:hover { gap: 0.7rem; }
+
+@media (max-width: 960px) {
+  .brands { padding: 5rem 1.5rem; }
+  .grid { grid-template-columns: 1fr; }
+}
