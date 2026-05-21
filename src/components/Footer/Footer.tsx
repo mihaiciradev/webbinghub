@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Footer.module.css";
 import fullLogoGold from "@/new/full_logo_gold.svg";
-import onlyTextGold from "@/new/only_text_gold.svg";
 
 export default function Footer() {
   return (
@@ -12,8 +11,11 @@ export default function Footer() {
         {/* Brand col */}
         <div>
           <div className={styles.logos}>
-            <Image src={fullLogoGold} alt="WebbingHUB mascot" className={styles.mascotLogo} />
-            <Image src={onlyTextGold} alt="WebbingHUB" className={styles.textLogo} />
+            <Image
+              src={fullLogoGold}
+              alt="WebbingHUB"
+              className={styles.mascotLogo}
+            />
           </div>
           <p className={styles.tagline}>Crafting websites that work.</p>
           <p className={styles.contact}>
@@ -26,12 +28,24 @@ export default function Footer() {
         <div>
           <p className={styles.colTitle}>Navigation</p>
           <ul className={styles.colLinks}>
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/#services">Services</Link></li>
-            <li><Link href="/#process">How it works</Link></li>
-            <li><Link href="/about">About</Link></li>
-            <li><Link href="/blog">Blog</Link></li>
-            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+            <li>
+              <Link href="/">Home</Link>
+            </li>
+            <li>
+              <Link href="/#services">Services</Link>
+            </li>
+            <li>
+              <Link href="/#process">How it works</Link>
+            </li>
+            <li>
+              <Link href="/about">About</Link>
+            </li>
+            <li>
+              <Link href="/blog">Blog</Link>
+            </li>
+            <li>
+              <Link href="/privacy-policy">Privacy Policy</Link>
+            </li>
           </ul>
         </div>
 
@@ -40,7 +54,11 @@ export default function Footer() {
           <p className={styles.colTitle}>Sub-brands</p>
           <ul className={styles.colLinks}>
             <li>
-              <a href="https://travel.webbinghub.io" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://travel.webbinghub.io"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 TRAVEL by WebbingHUB
               </a>
             </li>
@@ -52,7 +70,9 @@ export default function Footer() {
       </div>
 
       <div className={styles.bottom}>
-        <span>© 2026 WebbingHUB. All rights reserved. · Timișoara, Romania</span>
+        <span>
+          © 2026 WebbingHUB. All rights reserved. · Timișoara, Romania
+        </span>
         <span>webbinghub.io</span>
       </div>
     </footer>
