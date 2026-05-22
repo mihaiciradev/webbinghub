@@ -1,42 +1,33 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import styles from "./page.module.css";
+import type { Locale } from "@/i18n/config";
+import { getTranslations } from "@/i18n/utils";
+import styles from "@/app/about/page.module.css";
 
 export const metadata: Metadata = {
   title: "About",
-  description:
-    "WebbingHUB is a web development agency built on passion and expertise. Meet the team behind the craft.",
-  alternates: { canonical: "https://webbinghub.io/about" },
-  openGraph: {
-    title: "About | WebbingHUB",
-    description: "A small team. A serious commitment.",
-    url: "https://webbinghub.io/about",
-  },
+  description: "WebbingHUB is a web development agency built on passion and expertise.",
 };
 
-export default function AboutPage() {
+export default function AboutPage({ params }: { params: { locale: Locale } }) {
+  const { locale } = params;
+  const t = getTranslations(locale).pages.about;
+
   return (
     <main className={styles.main}>
-
-      {/* ── Hero ─────────────────────────────────── */}
       <section className={styles.hero}>
-        <p className={styles.eyebrow}>About WebbingHUB</p>
+        <p className={styles.eyebrow}>{t.eyebrow}</p>
         <h1 className={styles.heroTitle}>
-          A small team.<br />
-          <em>A serious commitment.</em>
+          {t.heroTitle}<br /><em>{t.heroTitleEm}</em>
         </h1>
-        <p className={styles.heroSub}>
-          Born from a hobby turned profession — we build websites that speak
-          volumes, and we mean every pixel of it.
-        </p>
+        <p className={styles.heroSub}>{t.heroSub}</p>
       </section>
 
-      {/* ── Story ────────────────────────────────── */}
       <section className={styles.story}>
-        <div className={styles.storyLeft}>
-          <p className={styles.label}>Our story</p>
+        <div className="reveal">
+          <p className={styles.label}>{t.storyLabel}</p>
           <h2 className={styles.sectionTitle}>
-            Passion &amp; expertise,<br /><em>fused.</em>
+            {t.storyTitle}<br /><em>{t.storyTitleEm}</em>
           </h2>
         </div>
         <div className={`${styles.storyRight} reveal`}>
@@ -59,32 +50,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Values ───────────────────────────────── */}
       <section className={styles.values}>
         <div className={`${styles.valuesHeader} reveal`}>
           <p className={styles.label}>What drives us</p>
           <h2 className={styles.sectionTitle}>
-            We don&apos;t just build websites.<br />
-            <em>We build your success.</em>
+            We don&apos;t just build websites.<br /><em>We build your success.</em>
           </h2>
         </div>
         <div className={styles.valuesGrid}>
           {[
-            {
-              num: "01",
-              title: "Tailored solutions",
-              body: "Every website we build starts from a blank canvas. No themes, no shortcuts — just a custom solution designed around your business, your users, and your goals.",
-            },
-            {
-              num: "02",
-              title: "Ongoing support",
-              body: "We don't disappear after launch. We stay close — maintaining, improving, and growing your website as your business evolves.",
-            },
-            {
-              num: "03",
-              title: "Direct communication",
-              body: "You talk to the people doing the work. Always. That means faster decisions, fewer misunderstandings, and a website that genuinely reflects your vision.",
-            },
+            { num: "01", title: "Tailored solutions", body: "Every website we build starts from a blank canvas. No themes, no shortcuts — just a custom solution designed around your business, your users, and your goals." },
+            { num: "02", title: "Ongoing support", body: "We don't disappear after launch. We stay close — maintaining, improving, and growing your website as your business evolves." },
+            { num: "03", title: "Direct communication", body: "You talk to the people doing the work. Always. That means faster decisions, fewer misunderstandings, and a website that genuinely reflects your vision." },
           ].map(({ num, title, body }) => (
             <div key={num} className={`${styles.valueCard} reveal`}>
               <span className={styles.valueNum}>{num}</span>
@@ -95,7 +72,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Process ──────────────────────────────── */}
       <section className={styles.process}>
         <div className={`${styles.processHeader} reveal`}>
           <p className={styles.label}>How we work</p>
@@ -127,22 +103,17 @@ export default function AboutPage() {
         </ol>
       </section>
 
-      {/* ── CTA ──────────────────────────────────── */}
       <section className={styles.cta}>
         <div className={`${styles.ctaInner} reveal`}>
           <h2 className={styles.ctaTitle}>
-            Your partner in<br /><em>digital growth.</em>
+            {t.ctaTitle}<br /><em>{t.ctaTitleEm}</em>
           </h2>
-          <p className={styles.ctaSub}>
-            Ready to talk? No pressure, no pitch. Just an honest conversation
-            about your business and whether we&apos;re the right fit.
-          </p>
-          <Link href="/contact" className={styles.ctaBtn}>
-            Let&apos;s have a chat →
+          <p className={styles.ctaSub}>{t.ctaSub}</p>
+          <Link href={`/${locale}/contact`} className={styles.ctaBtn}>
+            {t.ctaBtn}
           </Link>
         </div>
       </section>
-
     </main>
   );
 }

@@ -5,7 +5,12 @@
       "Bash(npm run:*)",
       "Bash(npx tsc:*)",
       "Bash(git checkout *)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(claude mcp *)",
+      "Bash(where claude *)",
+      "Read(//c/Users/**)",
+      "mcp__magic__21st_magic_component_inspiration"
     ]
   }
 }

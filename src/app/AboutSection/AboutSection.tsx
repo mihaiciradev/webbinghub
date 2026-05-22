@@ -27,6 +27,20 @@ export default function AboutSection() {
           building your website. And when it launches, we stay close.
         </p>
       </div>
+      {/* Stat strip — Magic Stats pattern, across full width below copy */}
+      <div className={`${styles.statStrip} reveal`}>
+        {[
+          { num: "Zero", label: "Lock-In" },
+          { num: "6+",   label: "Years of Expertise" },
+          { num: "EU",   label: "Clients Across Europe" },
+          { num: "100%", label: "Owned by You" },
+        ].map(({ num, label }, i) => (
+          <div key={label} className={`${styles.statItem} ${i > 0 ? styles.statItemBorder : ""}`}>
+            <p className={styles.statNum}>{num}</p>
+            <p className={styles.statLabel}>{label}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

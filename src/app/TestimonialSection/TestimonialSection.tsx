@@ -3,7 +3,7 @@ import styles from "./TestimonialSection.module.css";
 export default function TestimonialSection() {
   return (
     <div className={`${styles.testimonial} reveal`}>
-      <div>
+      <div className={styles.quoteWrap}>
         <blockquote className={styles.quote}>
           &ldquo;They understood exactly what we needed — and delivered
           something better than we imagined. Our direct bookings increased
@@ -14,7 +14,7 @@ export default function TestimonialSection() {
 
       <div className={styles.numbers}>
         {[
-          { num: "50+", label: "Projects delivered" },
+          { num: "Zero", label: "Lock-in, ever" },
           { num: "6+",  label: "Years of experience" },
           { num: "EU",  label: "Clients across Europe" },
         ].map(({ num, label }) => (

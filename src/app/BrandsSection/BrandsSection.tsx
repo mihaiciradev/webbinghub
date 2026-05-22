@@ -33,7 +33,7 @@ export default function BrandsSection() {
                 <span key={t} className={styles.tag}>{t}</span>
               ))}
             </div>
-            <a href="https://travel.webbinghub.io" className={styles.link} target="_blank" rel="noopener noreferrer">
+            <a href="https://travel.webbinghub.io/" className={styles.link} target="_blank" rel="noopener noreferrer">
               Visit travel.webbinghub.io →
             </a>
           </div>

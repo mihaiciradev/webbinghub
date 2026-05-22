@@ -1,0 +1,184 @@
+.main {
+  padding-top: 68px;
+  font-family: var(--font-jost), sans-serif;
+}
+
+/* ─── Hero ───────────────────────────────────── */
+.hero {
+  background: var(--paper);
+  padding: 6rem 4rem 5rem;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.heroTitle em { font-style: italic; color: var(--gold); }
+
+.heroSub {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.85;
+  max-width: 560px;
+}
+
+/* ─── Posts ──────────────────────────────────── */
+.posts {
+  padding: 4rem 4rem 2rem;
+  max-width: 900px;
+}
+
+.postsLabel {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  margin-bottom: 2rem;
+}
+
+.postCard {
+  display: block;
+  text-decoration: none;
+  padding: 2.5rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  transition:
+    box-shadow 0.25s,
+    transform 0.2s,
+    border-color 0.25s,
+    background 0.2s;
+}
+.postCard:hover {
+  border-color: var(--gold-l);
+  background: var(--paper);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  transform: translateY(-3px);
+}
+
+.postMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.postDate, .postRead {
+  font-size: 0.78rem;
+  color: var(--ink3);
+  font-weight: 400;
+}
+.postDot { color: var(--ink4); font-size: 0.78rem; }
+
+.postTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+  transition: color 0.2s;
+}
+.postCard:hover .postTitle { color: var(--gold); }
+
+.postExcerpt {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  max-width: 680px;
+}
+
+.postFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.postTags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.tag {
+  font-size: 0.7rem;
+  color: var(--ink3);
+  border: 1px solid var(--line);
+  padding: 0.22rem 0.65rem;
+  border-radius: 100px;
+}
+
+.postArrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 1.1rem;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border-radius: 3px;
+  white-space: nowrap;
+  transition: background 0.2s, letter-spacing 0.2s;
+}
+.postCard:hover .postArrow {
+  background: var(--gold);
+  letter-spacing: 0.12em;
+}
+
+/* ─── CTA strip ──────────────────────────────── */
+.cta {
+  padding: 3rem 4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-top: 1px solid var(--line);
+  background: var(--gold-bg);
+  border-bottom: 1px solid var(--gold-border);
+}
+
+.ctaText {
+  font-size: 0.9rem;
+  color: var(--ink2);
+  font-weight: 300;
+}
+
+.ctaLink {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  transition: letter-spacing 0.2s;
+}
+.ctaLink:hover { letter-spacing: 0.12em; }
+
+/* ─── Responsive ─────────────────────────────── */
+@media (max-width: 960px) {
+  .hero { padding: 4rem 1.5rem 3rem; }
+  .posts { padding: 3rem 1.5rem 2rem; }
+  .cta { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+}

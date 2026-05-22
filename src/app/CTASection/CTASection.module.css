@@ -21,10 +21,10 @@
 .heading em { font-style: italic; color: var(--gold-l); }
 
 .sub {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.85;
 }
 
 .right {
@@ -77,17 +77,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 1.25rem 1rem;
   background: var(--gold);
   color: var(--ink);
-  font-size: 0.82rem;
+  font-size: 1rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-decoration: none;
   border-radius: 3px;
-  transition: background 0.2s;
+  box-shadow: 0 6px 24px rgba(184, 151, 90, 0.4);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
 }
-.btnGold:hover { background: var(--gold-l); }
+.btnGold:hover {
+  background: var(--gold-l);
+  box-shadow: 0 10px 32px rgba(184, 151, 90, 0.55);
+  transform: translateY(-2px);
+}
 
 @media (max-width: 960px) {
   .cta { padding: 5rem 1.5rem; }

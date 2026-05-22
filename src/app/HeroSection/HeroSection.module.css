@@ -19,13 +19,28 @@
 /* ── LEFT — text ── */
 .heroLeft {
   background: var(--paper);
-  padding: 7rem 4.5rem 6rem;
+  padding: 3rem 4.5rem 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-right: 1px solid var(--line);
   position: relative;
+  /* Subtle radial depth inspired by Magic's blob patterns */
+  overflow: hidden;
 }
+.heroLeft::after {
+  content: '';
+  position: absolute;
+  bottom: -6rem;
+  right: -6rem;
+  width: 28rem;
+  height: 28rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,151,90,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.heroLeft > * { position: relative; z-index: 1; }
 
 .heroLeft::before {
   content: '';
@@ -33,6 +48,63 @@
   top: 0; bottom: 0; left: 0;
   width: 3px;
   background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+}
+
+/* ── Announcement pill (Magic-inspired badge) ── */
+@keyframes pulseGreen {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.85); }
+}
+
+.announcement {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.9rem 0.4rem 0.7rem;
+  background: var(--white);
+  border: 1px solid var(--gold-border);
+  border-radius: 100px;
+  margin-bottom: 1.8rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--ink2);
+  letter-spacing: 0.02em;
+  opacity: 0;
+  animation: fadeUp 0.6s 0s forwards;
+}
+
+.announcementDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+  animation: pulseGreen 2s ease-in-out infinite;
+}
+
+.announcementLink {
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: letter-spacing 0.2s;
+  white-space: nowrap;
+}
+.announcementLink:hover { letter-spacing: 0.08em; }
+
+/* ── Title em with SVG underline ──────────────── */
+.titleEmWrap {
+  position: relative;
+  display: inline-block;
+}
+
+.titleUnderline {
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 12px;
+  pointer-events: none;
 }
 
 .eyebrow {
@@ -225,6 +297,25 @@
   width: 72%;
   position: relative;
   z-index: 1;
+}
+
+/* Stat below tagline */
+.heroStat {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--ink3);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.heroStat span {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-right: 0.2em;
 }
 
 /* ─── Responsive ─────────────────────────────── */

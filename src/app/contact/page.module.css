@@ -1,43 +1,141 @@
-.container {
-  margin-top: 5rem;
-  padding: 5rem;
-  color: var(--secondary);
-  flex-direction: column;
-  font-family: var(--font-montserrat), sans-serif;
-  gap: 2.5rem;
-
-  & > img {
-    width: 100%;
-  }
-
-  @media (max-width: 900px) {
-    padding: 1rem;
-    gap: 8rem;
-  }
-
-  & h2 {
-    font-weight: bolder;
-    position: relative;
-  }
-
-  .description {
-    max-width: 30rem;
-    font-family: var(--font-geist-sans), sans-serif;
-    font-style: italic;
-    text-align: center;
-  }
+.main {
+  padding-top: 68px;
+  min-height: calc(100vh - 68px);
+  font-family: var(--font-jost), sans-serif;
 }
 
-.contact_btn {
-  flex-direction: column;
-  cursor: pointer;
-  transition:
-    opacity 0.3s,
-    transform 0.3s;
-  font-family: var(--font-geist-sans), sans-serif;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 68px);
+}
 
-  &:hover {
-    opacity: 0.8;
-    transform: scale(0.9);
-  }
+/* ─── Left ───────────────────────────────────── */
+.left {
+  background: var(--paper);
+  padding: 6rem 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--line);
+  position: relative;
+}
+.left::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1.8rem;
+}
+.title em { font-style: italic; color: var(--gold); }
+
+.desc {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.85;
+  max-width: 420px;
+  margin-bottom: 3rem;
+}
+
+/* ─── Contact rows ───────────────────────────── */
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+  transition: padding-left 0.25s;
+}
+.contactRow:last-child { border-bottom: 1px solid var(--line); }
+.contactRow:hover { padding-left: 0.4rem; }
+
+.contactIcon {
+  width: 36px;
+  height: 36px;
+  background: var(--gold-bg);
+  border-radius: var(--r);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--gold-border);
+}
+
+.contactLabel {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  margin-bottom: 0.15rem;
+}
+
+.contactVal {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--ink);
+  transition: color 0.2s;
+}
+.contactRow:hover .contactVal { color: var(--gold); }
+
+/* ─── Right ──────────────────────────────────── */
+.right {
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 4rem;
+}
+
+.formBox {
+  width: 100%;
+  max-width: 420px;
+}
+
+.formTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+  margin-bottom: 2rem;
+}
+
+/* Override EmailUs styles for this context */
+.formBox :global(.container) {
+  align-items: flex-start;
+}
+
+/* ─── Responsive ─────────────────────────────── */
+@media (max-width: 960px) {
+  .grid { grid-template-columns: 1fr; min-height: auto; }
+  .left { padding: 4rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--line); }
+  .right { padding: 3rem 1.5rem 4rem; }
+  .formBox { max-width: 100%; }
 }

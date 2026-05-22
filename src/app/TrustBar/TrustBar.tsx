@@ -1,4 +1,5 @@
 import styles from "./TrustBar.module.css";
+import type { Translations } from "@/i18n/translations";
 
 const CHECK = (
   <svg viewBox="0 0 10 10" fill="none" width={10} height={10}>
@@ -6,19 +7,12 @@ const CHECK = (
   </svg>
 );
 
-const ITEMS = [
-  "Fixed pricing, no surprises",
-  "Support after launch",
-  "Built from scratch, not templates",
-  "Clear communication throughout",
-];
-
-export default function TrustBar() {
+export default function TrustBar({ t }: { t: Translations["trustBar"] }) {
   return (
     <div className={`${styles.bar} reveal`}>
-      <span className={styles.intro}>Why clients choose us</span>
+      <span className={styles.intro}>{t.intro}</span>
       <div className={`${styles.items} trust-items`}>
-        {ITEMS.map((text) => (
+        {t.items.map((text) => (
           <div key={text} className={`${styles.item} reveal`}>
             <span className={styles.check}>{CHECK}</span>
             {text}

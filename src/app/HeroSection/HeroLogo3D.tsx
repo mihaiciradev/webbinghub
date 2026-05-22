@@ -148,11 +148,48 @@ export default function HeroLogo3D() {
 
     const onScroll = () => {
       const sy = window.scrollY;
-      // scroll pushes from -7.5° toward +positive (never fully flat)
       targetRotY = BASE_Y + sy * 0.0012;
       targetRotX = BASE_X - sy * 0.0003;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+
+    /* ── Drag to rotate (desktop only) ─────────── */
+    const isTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
+    let isDragging = false;
+    let lastX = 0;
+    let lastY = 0;
+    let dragY = 0;
+    let dragX = 0;
+
+    const DRAG_SENS = 0.008;
+
+    const startDrag = (x: number, y: number) => {
+      isDragging = true;
+      lastX = x;
+      lastY = y;
+      renderer.domElement.style.cursor = "grabbing";
+    };
+
+    const moveDrag = (x: number, y: number) => {
+      if (!isDragging) return;
+      dragY += (x - lastX) * DRAG_SENS;
+      dragX += (y - lastY) * DRAG_SENS * 0.6; // X axis less sensitive
+      lastX = x;
+      lastY = y;
+    };
+
+    const endDrag = () => {
+      isDragging = false;
+      renderer.domElement.style.cursor = "grab";
+    };
+
+    if (!isTouch) {
+      renderer.domElement.addEventListener("mousedown", (e) => startDrag(e.clientX, e.clientY));
+      window.addEventListener("mousemove", (e) => moveDrag(e.clientX, e.clientY));
+      window.addEventListener("mouseup",   endDrag);
+      renderer.domElement.style.cursor = "grab";
+    }
 
     /* ── Resize ─────────────────────────────────── */
     const onResize = () => {
@@ -175,9 +212,12 @@ export default function HeroLogo3D() {
       currentRotY += (targetRotY - currentRotY) * 0.055;
       currentRotX += (targetRotX - currentRotX) * 0.055;
 
-      // Combine scroll position + gentle idle breathing
-      pivot.rotation.y = currentRotY + Math.sin(t * 0.55) * 0.04;
-      pivot.rotation.x = currentRotX + Math.sin(t * 0.38) * 0.022;
+      const baseY = currentRotY + dragY;
+      const baseX = currentRotX + dragX;
+
+      // Idle breathing pauses while dragging for crisp responsiveness
+      pivot.rotation.y = isDragging ? baseY : baseY + Math.sin(t * 0.55) * 0.04;
+      pivot.rotation.x = isDragging ? baseX : baseX + Math.sin(t * 0.38) * 0.022;
 
       renderer.render(scene, camera);
     };
@@ -187,6 +227,10 @@ export default function HeroLogo3D() {
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("scroll", onScroll);
+      if (!isTouch) {
+        window.removeEventListener("mousemove", (e) => moveDrag(e.clientX, e.clientY));
+        window.removeEventListener("mouseup",   endDrag);
+      }
       window.removeEventListener("resize", onResize);
       renderer.dispose();
       goldMat.dispose();
