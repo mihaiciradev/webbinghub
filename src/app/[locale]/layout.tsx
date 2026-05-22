@@ -27,11 +27,7 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: Locale };
-}): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   return {
     title: {
       default: "WebbingHUB | Crafting Websites That Inspire",

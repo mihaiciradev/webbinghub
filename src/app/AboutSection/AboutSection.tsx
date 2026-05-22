@@ -18,9 +18,9 @@ export default function AboutSection() {
           we build aren&apos;t just beautiful, they&apos;re useful.
         </p>
         <blockquote className={styles.quote}>
-          &ldquo;We work with clients from across Europe — from travel agencies
-          in Paris to service businesses in Romania — and we treat every project
-          as if it were our own.&rdquo;
+          Every project gets the same attention — whether it&apos;s a hotel
+          in Paris or a local business in Romania. No junior handoffs,
+          no cut corners.
         </blockquote>
         <p>
           When you work with WebbingHUB, you talk directly with the people
