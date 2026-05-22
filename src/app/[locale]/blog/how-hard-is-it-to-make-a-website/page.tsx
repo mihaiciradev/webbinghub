@@ -1,25 +1,76 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
+import { locales } from "@/i18n/config";
 import styles from "@/app/blog/how-hard-is-it-to-make-a-website/page.module.css";
 import EmailUs from "@/components/EmailUs/EmailUs";
 
-export const metadata: Metadata = {
-  title: "How hard is it to make a website?",
-  description: "Building a website can be simple or deeply complex. We break down what it actually takes — and when hiring professionals makes the difference.",
-  alternates: { canonical: "https://webbinghub.io/en/blog/how-hard-is-it-to-make-a-website" },
-  openGraph: { type: "article" },
-};
+const BASE = "https://webbinghub.io";
+const POST_PATH = "/blog/how-hard-is-it-to-make-a-website";
+const POST_URL = `${BASE}/en${POST_PATH}`;
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: Locale };
+}): Promise<Metadata> {
+  return {
+    title: "How Hard Is It to Make a Website? — WebbingHUB",
+    description:
+      "Building a website can be simple or deeply complex depending on your goals. We break down what it actually takes — from drag-and-drop builders to fully custom development — and when hiring professionals makes the real difference.",
+    alternates: {
+      canonical: `${BASE}/${locale}${POST_PATH}`,
+      languages: Object.fromEntries([
+        ...locales.map((l) => [l, `${BASE}/${l}${POST_PATH}`]),
+        ["x-default", POST_URL],
+      ]),
+    },
+    openGraph: {
+      title: "How Hard Is It to Make a Website?",
+      description: "A practical breakdown of what it takes — DIY builders vs custom development.",
+      url: `${BASE}/${locale}${POST_PATH}`,
+      type: "article",
+      publishedTime: "2024-11-01",
+      authors: ["WebbingHUB"],
+      images: [{ url: "/og-blog-website-difficulty.png", width: 1200, height: 630, alt: "How hard is it to make a website?" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "How Hard Is It to Make a Website?",
+      description: "A practical breakdown from WebbingHUB — DIY vs custom development.",
+      images: ["/og-blog-website-difficulty.png"],
+    },
+  };
+}
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
+  "@id": `${POST_URL}#article`,
   headline: "How hard is it to make a website?",
-  description: "Building a website can be simple or deeply complex. We break down what it actually takes — from drag-and-drop builders to fully custom development.",
-  datePublished: "2024-11-01",
-  author: { "@type": "Organization", name: "WebbingHUB", url: "https://webbinghub.io" },
-  publisher: { "@type": "Organization", name: "WebbingHUB", url: "https://webbinghub.io" },
-  mainEntityOfPage: { "@type": "WebPage", "@id": "https://webbinghub.io/en/blog/how-hard-is-it-to-make-a-website" },
+  description:
+    "Building a website can be simple or deeply complex. We break down what it actually takes — from drag-and-drop builders to fully custom development — and when hiring professionals makes the difference.",
+  datePublished: "2024-11-01T00:00:00Z",
+  dateModified: "2024-11-01T00:00:00Z",
+  wordCount: 650,
+  inLanguage: "en",
+  author: { "@id": `${BASE}/#organization` },
+  publisher: { "@id": `${BASE}/#organization` },
+  mainEntityOfPage: { "@type": "WebPage", "@id": POST_URL },
+  isPartOf: { "@id": `${BASE}/en/blog#blog` },
+  about: [
+    { "@type": "Thing", name: "Web Development" },
+    { "@type": "Thing", name: "Website Cost" },
+    { "@type": "Thing", name: "Custom Website" },
+  ],
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/en` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE}/en/blog` },
+      { "@type": "ListItem", position: 3, name: "How hard is it to make a website?", item: POST_URL },
+    ],
+  },
 };
 
 export default function BlogPostPage({ params }: { params: { locale: Locale } }) {

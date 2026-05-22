@@ -1,12 +1,53 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
+import { locales } from "@/i18n/config";
 import { getTranslations } from "@/i18n/utils";
 import styles from "@/app/blog/page.module.css";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description: "Insights and guides on web development from the WebbingHUB team.",
+const BASE = "https://webbinghub.io";
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: Locale };
+}): Promise<Metadata> {
+  return {
+    title: "Blog — Web Development Insights by WebbingHUB",
+    description:
+      "Honest, practical articles on web development, website costs, and digital growth — written by the WebbingHUB team for business owners across Europe.",
+    alternates: {
+      canonical: `${BASE}/${locale}/blog`,
+      languages: Object.fromEntries([
+        ...locales.map((l) => [l, `${BASE}/${l}/blog`]),
+        ["x-default", `${BASE}/en/blog`],
+      ]),
+    },
+    openGraph: {
+      title: "Blog — Web Development Insights by WebbingHUB",
+      description: "Practical articles on web development for business owners.",
+      url: `${BASE}/${locale}/blog`,
+      type: "website",
+      images: [{ url: "/og-blog.png", width: 1200, height: 630, alt: "WebbingHUB Blog" }],
+    },
+  };
+}
+
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": `${BASE}/en/blog#blog`,
+  name: "WebbingHUB Blog",
+  description: "Honest, practical articles on web development and digital growth.",
+  url: `${BASE}/en/blog`,
+  publisher: { "@id": `${BASE}/#organization` },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/en` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE}/en/blog` },
+    ],
+  },
 };
 
 export default function BlogPage({ params }: { params: { locale: Locale } }) {
@@ -26,6 +67,8 @@ export default function BlogPage({ params }: { params: { locale: Locale } }) {
   ];
 
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
     <main className={styles.main}>
       <section className={styles.hero}>
         <p className={styles.eyebrow}>{t.eyebrow}</p>
@@ -61,5 +104,6 @@ export default function BlogPage({ params }: { params: { locale: Locale } }) {
         <Link href={`/${locale}/contact`} className={styles.ctaLink}>{t.ctaLink}</Link>
       </section>
     </main>
+    </>
   );
 }

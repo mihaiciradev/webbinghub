@@ -27,32 +27,74 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: Locale };
+}): Promise<Metadata> {
+  const BASE = "https://webbinghub.io";
+
+  const descriptions: Record<Locale, string> = {
+    en: "Custom-built websites, internal tools & online stores for businesses across Europe. No templates — built from scratch, fully owned by you. Based in Romania.",
+    fr: "Sites web sur mesure, outils internes et boutiques en ligne pour les entreprises en Europe. Sans templates — construit de zéro, entièrement à vous.",
+    es: "Sitios web personalizados, herramientas internas y tiendas online para empresas en Europa. Sin plantillas — construido desde cero, 100% tuyo.",
+    de: "Maßgeschneiderte Websites, interne Tools & Onlineshops für Unternehmen in Europa. Keine Templates — von Grund auf gebaut, vollständig in Ihrem Besitz.",
+    ro: "Website-uri personalizate, instrumente interne și magazine online pentru afaceri din Europa. Fără șabloane — construit de la zero, al tău în totalitate.",
+  };
+
+  const titles: Record<Locale, string> = {
+    en: "WebbingHUB | Custom Web Development Agency",
+    fr: "WebbingHUB | Agence de Développement Web Sur Mesure",
+    es: "WebbingHUB | Agencia de Desarrollo Web Personalizado",
+    de: "WebbingHUB | Webentwicklungsagentur Maßgeschneidert",
+    ro: "WebbingHUB | Agenție de Dezvoltare Web Personalizată",
+  };
+
   return {
+    metadataBase: new URL(BASE),
     title: {
-      default: "WebbingHUB | Crafting Websites That Inspire",
+      default: titles[locale],
       template: "%s | WebbingHUB",
     },
-    description: "Websites for any vision, any business & every user.",
-    keywords: "WebbingHUB, website development, web design, digital solutions",
+    description: descriptions[locale],
+    keywords: [
+      "web development agency", "custom website", "website design Romania",
+      "web development Europe", "custom web development", "no templates",
+      "WebbingHUB", "website for business", "online store development",
+      "internal tools development", "travel website", "hotel website",
+    ],
+    authors: [{ name: "WebbingHUB", url: BASE }],
+    creator: "WebbingHUB",
+    publisher: "WebbingHUB",
+    robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     openGraph: {
-      title: "WebbingHUB",
-      description: "Websites for any vision, any business & every user.",
-      url: "https://webbinghub.io",
+      title: titles[locale],
+      description: descriptions[locale],
+      url: `${BASE}/${locale}`,
+      siteName: "WebbingHUB",
       type: "website",
-      images: "/metadata_social.png",
+      locale: locale === "en" ? "en_US" : locale === "fr" ? "fr_FR" : locale === "es" ? "es_ES" : locale === "de" ? "de_DE" : "ro_RO",
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WebbingHUB — Custom Web Development Agency" }],
     },
-    icons: { icon: "/favicon.ico" },
     twitter: {
       card: "summary_large_image",
-      title: "WebbingHUB",
-      description: "Websites for any vision, any business & every user.",
-      images: "/metadata_social.png",
+      title: titles[locale],
+      description: descriptions[locale],
+      creator: "@webbinghub",
+      site: "@webbinghub",
+      images: [{ url: "/og-image.png", alt: "WebbingHUB — Custom Web Development Agency" }],
+    },
+    icons: {
+      icon: "/favicon.ico",
+      apple: "/apple-touch-icon.png",
+      shortcut: "/favicon.ico",
     },
     alternates: {
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `https://webbinghub.io/${l}`])
-      ),
+      canonical: `${BASE}/${locale}`,
+      languages: Object.fromEntries([
+        ...locales.map((l) => [l, `${BASE}/${l}`]),
+        ["x-default", `${BASE}/en`],
+      ]),
     },
   };
 }
