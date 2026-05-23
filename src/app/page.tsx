@@ -1,22 +1,7 @@
-import HeroSection from "@/app/HeroSection/HeroSection";
-import AnyIdeaSection from "./AnyIdeaSection/AnyIdeaSection";
-import VisionExpertiseSection from "./VisionExpertiseSection/VisionExpertiseSection";
-import { Metadata } from "next/types";
-import OwnItSection from "./OwnItSection/OwnItSection";
+import { redirect } from "next/navigation";
+import { defaultLocale } from "@/i18n/config";
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://webbinghub.io/",
-  },
-};
-
-export default function Home() {
-  return (
-    <>
-      <HeroSection />
-      <OwnItSection />
-      <AnyIdeaSection />
-      <VisionExpertiseSection />
-    </>
-  );
+// Root → redirect to default locale
+export default function RootPage() {
+  redirect(`/${defaultLocale}`);
 }

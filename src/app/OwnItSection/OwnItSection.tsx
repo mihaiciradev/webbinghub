@@ -10,13 +10,14 @@ export default function OwnItSection() {
 
   return (
     <FlexBox
+      className={styles.section}
       sx={{
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         minHeight: "60vh",
         padding: "5rem 1.5rem 6rem",
-        background: "#111827",
+        background: "#0d1117",
         color: "#ffffff",
         position: "relative",
         overflow: "hidden",

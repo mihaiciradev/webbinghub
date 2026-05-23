@@ -1,10 +1,88 @@
-.pageHeader {
-  flex-direction: column;
-  color: black;
-  text-align: center;
-  max-width: 30rem;
+/* ─── Scroll reveal wrapper ─────────────────────── */
+
+.revealWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
+/* Initial hidden state for each h1 / h2 */
+.revealWrapper .pageHeader h1,
+.revealWrapper .pageHeaderBottom h2 {
+  opacity: 0;
+  transform: translateY(2.5rem);
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Stagger on reveal */
+.revealWrapper.visible .pageHeader h1:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.revealWrapper.visible .pageHeader h1:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}
+
+.revealWrapper.visible .pageHeader h1:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.revealWrapper.visible .pageHeaderBottom h2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+/* ─── Header groups ─────────────────────────────── */
+
+.pageHeader {
+  flex-direction: column;
+  color: #1a1a1a;
+  text-align: center;
+  max-width: 64rem;
+  gap: 0.15rem;
+}
+
+.pageHeader h1 {
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* alternating accent colour for visual rhythm */
+.pageHeader h1:nth-child(2) {
+  color: var(--accent);
+}
+
+.pageHeaderBottom {
+  flex-direction: column;
+  color: #444;
+  text-align: center;
+  max-width: 52rem;
+}
+
+.pageHeaderBottom h2 {
+  font-size: clamp(1.1rem, 2.8vw, 2rem);
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+}
+
+/* ─── Rocket ────────────────────────────────────── */
+
 .rocket {
-  margin-top: 5rem;
+  margin-top: 4rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.4s forwards;
 }

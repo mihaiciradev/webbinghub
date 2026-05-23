@@ -1,0 +1,115 @@
+.about {
+  padding: 5rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 8rem;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold-l);
+}
+
+.heading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.heading em { font-style: italic; color: var(--gold); }
+
+.body p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.9;
+  margin-bottom: 1.4rem;
+}
+.body p:last-child { margin-bottom: 0; }
+
+.quote {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--ink);
+  border-left: 3px solid var(--gold);
+  padding: 1rem 1.4rem;
+  margin: 2rem 0;
+  background: var(--gold-bg);
+  border-radius: 0 var(--r) var(--r) 0;
+  line-height: 1.6;
+  position: relative;
+}
+/* Decorative open-quote */
+.quote::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.6rem;
+  left: 0.8rem;
+  font-size: 3rem;
+  color: var(--gold-l);
+  line-height: 1;
+  font-style: normal;
+}
+
+/* ─── Stat strip ─────────────────────────────── */
+.statStrip {
+  grid-column: 1 / -1; /* span both columns */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  padding-top: 3rem;
+  margin-top: 1rem;
+}
+
+.statItem {
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.statItemBorder {
+  border-left: 1px solid var(--line);
+}
+
+.statNum {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-l) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+@media (max-width: 960px) {
+  .about { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+  .statStrip { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 0; }
+  .statItem { padding: 1rem; }
+}

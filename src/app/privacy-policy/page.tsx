@@ -124,7 +124,8 @@ export default function PrivacyPolicy() {
           at:
         </p>
         <address>
-          Email: <a href="mailto:sales@webbinghub.io">sales@webbinghub.io</a>
+          Email:{" "}
+          <a href="mailto:support@webbinghub.io">support@webbinghub.io</a>
         </address>
       </section>
     </div>

@@ -1,117 +1,138 @@
-.rocket {
-    margin-top: 5rem;
+/* ─── Section glow backdrop ────────────────────── */
+
+@keyframes glowOrbit {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  33%       { transform: translate(8%, 4%) scale(1.15); opacity: 0.8; }
+  66%       { transform: translate(-6%, -4%) scale(0.9); opacity: 0.55; }
 }
 
+@keyframes glowOrbit2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  50%       { transform: translate(-10%, 6%) scale(1.2); opacity: 0.6; }
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  background: radial-gradient(circle at 50% 50%, rgba(228, 208, 167, 0.07) 0%, transparent 60%);
+  animation: glowOrbit 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at 30% 70%, rgba(201, 169, 110, 0.05) 0%, transparent 55%);
+  animation: glowOrbit2 14s ease-in-out infinite 2s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Content ──────────────────────────────────── */
 
 .content {
-    width: 100%;
-    max-width: 1100px;
-    z-index: 2;
-    position: relative;
+  width: 100%;
+  max-width: 1100px;
+  z-index: 2;
+  position: relative;
 }
 
 .line {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 900;
-    line-height: 0.92;
-    letter-spacing: -0.02em;
-    margin: 0.4rem 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  margin: 0.4rem 0;
 }
 
 .getLine {
-    font-size: clamp(2rem, 6.5vw, 4rem);
-    color: var(--primary);
+  font-size: clamp(2rem, 6.5vw, 4rem);
+  color: var(--primary);
 }
 
 .own {
-    color: #ffffff;
-    font-size: clamp(4.2rem, 13vw, 8.5rem);
+  color: #ffffff;
+  font-size: clamp(4.2rem, 13vw, 8.5rem);
 }
 
 .it {
-    color: #e4d0a7;
-    font-size: clamp(4.2rem, 13vw, 8.5rem);
-    display: inline-block;
-    animation: gentlePulse 4s infinite ease-in-out;
+  color: #e4d0a7;
+  font-size: clamp(4.2rem, 13vw, 8.5rem);
+  display: inline-block;
+  animation: gentlePulse 4s infinite ease-in-out;
 }
 
 @keyframes gentlePulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.03);
-    }
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.03); }
 }
 
 .description {
-    font-size: clamp(1.1rem, 3.2vw, 1.45rem);
-    font-weight: 400;
-    max-width: 680px;
-    margin: 2rem auto 0;
-    color: #e5e7eb;
-    line-height: 1.55;
+  font-size: clamp(1.1rem, 3.2vw, 1.45rem);
+  font-weight: 400;
+  max-width: 680px;
+  margin: 2rem auto 0;
+  color: #cbd5e1;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+}
+
+/* ─── CTA Button ───────────────────────────────── */
+
+@keyframes ctaGlow {
+  0%, 100% { box-shadow: 0 10px 30px rgba(228, 208, 167, 0.35), 0 0 0 0 rgba(228, 208, 167, 0); }
+  50%       { box-shadow: 0 14px 45px rgba(228, 208, 167, 0.55), 0 0 0 6px rgba(228, 208, 167, 0.08); }
 }
 
 .cta {
-    margin-top: 2.5rem;
-    background: #e4d0a7;
-    color: #1f2937;
-    border: none;
-    padding: 1.1rem 3rem;
-    font-size: 1.15rem;
-    font-weight: 700;
-    border-radius: 9999px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 25px rgba(228, 208, 167, 0.4);
+  position: relative;
+  z-index: 2;
+  margin-top: 2.5rem;
+  background: #e4d0a7;
+  color: #0d1117;
+  border: none;
+  padding: 1.1rem 3.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  animation: ctaGlow 3.5s ease-in-out infinite;
 }
 
 .cta:hover {
-    background: #f0e6c4;
-    transform: translateY(-3px);
-    box-shadow: 0 16px 40px rgba(228, 208, 167, 0.55);
+  background: #f5e8c5;
+  transform: translateY(-4px) scale(1.02);
 }
+
+.cta:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* ─── Responsive ───────────────────────────────── */
 
 @media (max-width: 640px) {
+  .own,
+  .it {
+    font-size: clamp(3.5rem, 16vw, 6.5rem);
+    line-height: 0.9;
+  }
 
-    .own,
-    .it {
-        font-size: clamp(3.5rem, 16vw, 6.5rem);
-        line-height: 0.9;
-    }
+  .getLine {
+    font-size: clamp(1.8rem, 7.5vw, 3rem);
+  }
 
-    .getLine {
-        font-size: clamp(1.8rem, 7.5vw, 3rem);
-    }
+  .description {
+    font-size: 1.1rem;
+    padding: 0 0.8rem;
+  }
 
-    .description {
-        font-size: 1.1rem;
-        padding: 0 0.8rem;
-    }
-
-    .cta {
-        padding: 1rem 2.5rem;
-        font-size: 1.1rem;
-    }
+  .cta {
+    padding: 1rem 2.5rem;
+    font-size: 1.05rem;
+  }
 }
-
-/* === Force visibility fallback (remove after confirming it works) === */
-/* Uncomment the block below only if text is still invisible */
-/*
-.content,
-.line,
-.description,
-.cta {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-}
-
-.content * {
-  color: #ffffff !important;
-}
-*/

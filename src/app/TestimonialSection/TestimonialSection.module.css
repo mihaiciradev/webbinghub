@@ -1,0 +1,98 @@
+.testimonial {
+  padding: 8rem 4rem;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 8rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Giant decorative quotation mark — Magic Stats/quote pattern */
+.testimonial::before {
+  content: '\201C';
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 16rem;
+  font-weight: 600;
+  color: var(--gold-border);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.quoteWrap {
+  position: relative;
+  z-index: 1;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--gold);
+}
+
+.quote {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+.author {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--ink3);
+  letter-spacing: 0.06em;
+}
+
+.numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.numItem {
+  padding: 1.8rem 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding-left 0.25s;
+}
+.numItem:first-child { padding-top: 0; }
+.numItem:last-child { border-bottom: none; padding-bottom: 0; }
+.numItem:hover { padding-left: 0.4rem; }
+
+/* Gold gradient number — Magic Stats pattern */
+.num {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-l) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.numLabel {
+  font-size: 0.78rem;
+  color: var(--ink3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@media (max-width: 960px) {
+  .testimonial {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 5rem 1.5rem;
+  }
+  .testimonial::before { font-size: 8rem; top: 1rem; left: 1rem; }
+  .quoteWrap { padding-left: 1rem; }
+}

@@ -1,28 +1,50 @@
+/* ─── Design tokens ────────────────────────────── */
 :root {
+  /* legacy (kept for other pages) */
   --background: #e4d0a7;
-  --primary: #e4d0a7;
+  --primary:    #e4d0a7;
+  --secondary:  #333232;
+  --accent:     #c9a96e;
 
-  --secondary: #333232;
+  /* new design system */
+  --white:       #ffffff;
+  --paper:       #faf8f5;
+  --paper2:      #f3efe8;
+  --ink:         #1c1917;
+  --ink2:        #44403c;
+  --ink3:        #78716c;
+  --ink4:        #a8a29e;
+  --gold:        #b8975a;
+  --gold-l:      #d4b47a;
+  --gold-bg:     #fdf6ec;
+  --gold-border: #eddfc5;
+  --green:       #3d6b4f;
+  --line:        #e8e2d9;
+  --r:           6px;
+
+  /* font vars — populated by next/font */
+  --font-cormorant: '';
+  --font-jost:      '';
 }
 
-html,
-body {
+/* ─── Base ─────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
   max-width: 100vw;
   overflow-x: hidden;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-jost), 'Jost', sans-serif;
+  background: var(--white);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
 a {
@@ -30,12 +52,29 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* ─── Scroll reveal ────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* ─── Keyframes ────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Legacy underline link (other pages) ──────── */
 .underlinedLink {
   font-family: var(--font-montserrat), sans-serif;
   position: relative;
@@ -43,7 +82,6 @@ a {
   text-decoration: none;
   padding: 0 5px;
 }
-
 .underlinedLink::after {
   content: "";
   position: absolute;
@@ -56,7 +94,6 @@ a {
   transform-origin: right;
   transition: transform 0.3s ease-in-out;
 }
-
 .underlinedLink:hover::after {
   transform: scaleX(1);
   transform-origin: left;

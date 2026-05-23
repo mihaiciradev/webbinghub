@@ -1,20 +1,44 @@
 .container {
   background: var(--secondary);
   color: var(--primary);
-  padding: 5rem 1rem;
+  padding: 6rem 2rem;
   flex-direction: column;
   gap: 5rem;
   position: relative;
 
+  /* Subtle radial glow in the background */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -30%;
+    background: radial-gradient(circle at 50% 50%, rgba(228, 208, 167, 0.04) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
   & h1 {
     font-family: var(--font-poppins), sans-serif;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
     text-align: center;
+    color: var(--primary);
   }
 
   & p {
-    max-width: 25rem;
+    max-width: 30rem;
     font-family: var(--font-montserrat), sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     text-align: center;
+    line-height: 1.75;
+    color: rgba(228, 208, 167, 0.85);
+    letter-spacing: 0.02em;
+  }
+
+  & p b {
+    color: var(--primary);
+    font-weight: 600;
   }
 }
 
@@ -33,6 +57,12 @@
   & img {
     width: 100%;
     height: auto;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+  }
+
+  & img:hover {
+    opacity: 1;
   }
 
   & p {
@@ -40,5 +70,11 @@
     font-size: 1.2rem;
     font-family: var(--font-montserrat), sans-serif;
     text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .logoContainer {
+    width: 55%;
   }
 }

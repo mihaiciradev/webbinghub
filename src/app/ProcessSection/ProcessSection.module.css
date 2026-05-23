@@ -1,0 +1,122 @@
+.process {
+  padding: 5rem 4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  margin-bottom: 3rem;
+  align-items: end;
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold-l);
+}
+
+.heading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.heading em { font-style: italic; color: var(--gold); }
+
+.intro {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.9;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+
+/* Connecting line across all steps — Magic timeline-02 pattern */
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold) 0%, var(--gold-l) 50%, var(--line) 100%);
+  pointer-events: none;
+}
+
+.step {
+  position: relative;
+  padding-top: 2.5rem;
+  transition: padding-left 0.25s;
+}
+.step:hover { padding-left: 0.35rem; }
+
+/* Gold dot on the connecting line */
+.step::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
+/* The number via data-num attr */
+.step::before {
+  content: attr(data-num);
+  position: absolute;
+  top: 0.6rem;
+  left: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.stepTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+
+.stepDesc {
+  font-size: 0.86rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+
+@media (max-width: 960px) {
+  .process { padding: 5rem 1.5rem; }
+  .top { grid-template-columns: 1fr; gap: 2rem; }
+  .steps { grid-template-columns: 1fr; }
+}

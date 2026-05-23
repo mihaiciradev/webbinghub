@@ -1,13 +1,17 @@
 import { MetadataRoute } from "next";
 
+const BASE = "https://webbinghub.io";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/api/", "/_next/", "/static/"],
       },
     ],
-    sitemap: `${process.env.NEXT_PUBLIC_BASE_URL}/sitemap.xml`,
+    sitemap: `${BASE}/sitemap.xml`,
+    host: BASE,
   };
 }
