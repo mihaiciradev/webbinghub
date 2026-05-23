@@ -10,23 +10,24 @@ export default function Compass() {
   const theme = useTheme();
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (boxRef.current) {
-        const boxBottom = boxRef.current.getBoundingClientRect().bottom;
-        const windowHeight = window.innerHeight;
-
-        if (boxBottom <= windowHeight && boxBottom >= 0) {
-          if (!animation) setAnimation(true);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animation) {
+          setAnimation(true);
         }
-      }
-    };
+      },
+      { threshold: 0 }
+    );
 
-    window.addEventListener("scroll", handleScroll);
-
-    handleScroll();
+    const currentBox = boxRef.current;
+    if (currentBox) {
+      observer.observe(currentBox);
+    }
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (currentBox) {
+        observer.unobserve(currentBox);
+      }
     };
   }, [animation]);
 
