@@ -12,7 +12,9 @@
       "Read(//c/Users/**)",
       "mcp__magic__21st_magic_component_inspiration",
       "mcp__1d8e720a-a0a9-4c11-8017-c92d05c8481c__generate_image",
-      "mcp__1d8e720a-a0a9-4c11-8017-c92d05c8481c__job_display"
+      "mcp__1d8e720a-a0a9-4c11-8017-c92d05c8481c__job_display",
+      "Bash(curl -s http://localhost:3010/en)",
+      "Bash(git add *)"
     ]
   }
 }
