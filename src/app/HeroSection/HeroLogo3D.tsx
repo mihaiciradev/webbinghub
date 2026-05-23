@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
+import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 
 /* ── Inline SVG (no network fetch needed) ───────── */
 const SVG_SRC = `<svg width="229" height="204" viewBox="0 0 229 204" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,53 +29,61 @@ export default function HeroLogo3D() {
     renderer.setSize(w, h);
     renderer.setClearColor(0x000000, 0);
     renderer.shadowMap.enabled = false;
+    // ACES filmic tone mapping — makes gold look rich, not washed out
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 0.48;
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
     mount.appendChild(renderer.domElement);
     renderer.domElement.style.display = "block";
 
     /* ── Scene & Camera ─────────────────────────── */
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(48, w / h, 1, 2000);
-    camera.position.z = 320;
+    // Pull camera back + narrower FOV = less perspective distortion
+    const camera = new THREE.PerspectiveCamera(38, w / h, 1, 2000);
+    camera.position.z = 380;
+
+    /* ── Environment map (critical for MeshPhysical metallic look) ── */
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    pmrem.compileEquirectangularShader();
+    const envTexture = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    scene.environment = envTexture;
+    // No scene.background — keep canvas transparent
 
     /* ── Lighting ───────────────────────────────── */
-    // Warm ambient
-    scene.add(new THREE.AmbientLight(0xfff5e0, 1.0));
+    // Hemisphere — sky warm cream, ground muted dark — replaces flat ambient
+    const hemi = new THREE.HemisphereLight(0xfff8ee, 0xd4c9b0, 0.14);
+    scene.add(hemi);
 
-    // Key light — top-right-front, strong warm white
-    const key = new THREE.DirectionalLight(0xffffff, 3.5);
-    key.position.set(180, 140, 250);
+    // Key — top-right
+    const key = new THREE.DirectionalLight(0xffffff, 0.75);
+    key.position.set(150, 180, 220);
     scene.add(key);
 
-    // Fill light — left side, gold tint
-    const fill = new THREE.DirectionalLight(0xd4b47a, 1.5);
-    fill.position.set(-200, 60, 120);
+    // Fill — left/below, very soft gold tint
+    const fill = new THREE.DirectionalLight(0xd4b47a, 0.14);
+    fill.position.set(-180, -60, 100);
     scene.add(fill);
 
-    // Rim light — behind/below, cool accent
-    const rim = new THREE.DirectionalLight(0xffe8c0, 1.0);
-    rim.position.set(20, -180, -80);
+    // Rim — edge definition from behind
+    const rim = new THREE.DirectionalLight(0xffe0a0, 0.32);
+    rim.position.set(-80, 120, -200);
     scene.add(rim);
-
-    // Front point — warm glow
-    const point = new THREE.PointLight(0xfff0cc, 2.0, 700);
-    point.position.set(0, 0, 250);
-    scene.add(point);
 
     /* ── Materials ──────────────────────────────── */
     const goldMat = new THREE.MeshPhysicalMaterial({
       color: new THREE.Color("#b8975a"),
-      metalness: 0.78,
-      roughness: 0.2,
-      reflectivity: 0.95,
-      clearcoat: 0.15,
-      clearcoatRoughness: 0.1,
+      metalness: 0.65,       // reduced → more colour, less mirror
+      roughness: 0.18,       // low → sharp highlights
+      clearcoat: 0.4,        // lacquered finish layer
+      clearcoatRoughness: 0.08,
+      envMapIntensity: 0.38,
     });
 
     const darkMat = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color("#3e3c3a"),
-      metalness: 0.45,
-      roughness: 0.5,
-      clearcoat: 0.05,
+      color: new THREE.Color("#28261f"),  // slightly warmer/darker for contrast
+      metalness: 0.08,
+      roughness: 0.72,       // matte — contrasts nicely with gold
+      envMapIntensity: 0.22,
     });
 
     /* ── Parse SVG & build geometry ─────────────── */
@@ -84,11 +93,11 @@ export default function HeroLogo3D() {
     const inner = new THREE.Group(); // flipped for SVG→Three.js y-axis
 
     const extrudeSettings = {
-      depth: 22,
+      depth: 18,            // slightly shallower — proportionally better
       bevelEnabled: true,
-      bevelThickness: 2.5,
-      bevelSize: 1.5,
-      bevelSegments: 4,
+      bevelThickness: 3,
+      bevelSize: 2,
+      bevelSegments: 8,     // more segments = smooth rounded edges, less faceted
     };
 
     parsed.paths.forEach((path) => {
@@ -235,6 +244,8 @@ export default function HeroLogo3D() {
       renderer.dispose();
       goldMat.dispose();
       darkMat.dispose();
+      envTexture.dispose();
+      pmrem.dispose();
       scene.remove(pivot);
       if (mount.contains(renderer.domElement)) {
         mount.removeChild(renderer.domElement);
