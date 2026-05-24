@@ -118,6 +118,45 @@ export default function LocaleLayout({
           gtag('js', new Date());
           gtag('config', 'AW-17874820921');
         `}</Script>
+        <Script id="local-business-schema" type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://webbinghub.io#business",
+            "name": "WebbingHUB",
+            "description": "Custom website development agency serving businesses across Europe",
+            "url": "https://webbinghub.io",
+            "image": "https://webbinghub.io/full_logo_gold.svg",
+            "areaServed": [
+              {
+                "@type": "Country",
+                "name": "Romania"
+              },
+              {
+                "@type": "City",
+                "name": "Timisoara"
+              },
+              {
+                "@type": "Country",
+                "name": "Europe"
+              }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "RO",
+              "addressLocality": "Timisoara",
+              "addressRegion": "Timiș"
+            },
+            "priceRange": "$$",
+            "serviceType": [
+              "Website Development",
+              "Custom Websites",
+              "E-commerce Development",
+              "Web Design",
+              "Internal Tools"
+            ]
+          }
+        `}</Script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${montserrat.variable} ${cormorant.variable} ${jost.variable}`}>
         <SpeedInsights />
