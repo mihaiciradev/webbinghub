@@ -14,19 +14,18 @@ export async function generateMetadata({
   params: { locale: Locale };
 }): Promise<Metadata> {
   return {
-    title: "Website Development for Romanian Businesses | WebbingHUB",
+    title: "Website-uri Personalizate pentru România | WebbingHUB",
     description:
-      "Custom website development for businesses across Romania. We build websites, online stores & internal tools. No templates. Fully owned by you.",
+      "Website-uri personalizate pentru afaceri din România. Magazin online, aplicații interne. Fără template-uri. 100% proprietatea ta.",
     keywords: [
       "website Romania",
       "websites Romania",
       "web development Romania",
-      "custom website Romania",
-      "website design Romania",
-      "web agency Romania",
-      "online store Romania",
-      "Romanian web developer",
-      "website developer Romania",
+      "website personalizat Romania",
+      "design website Romania",
+      "magazin online Romania",
+      "web developer Romania",
+      "web design Romania",
     ],
     alternates: {
       canonical: `${BASE}/${locale}/websites-romania`,
@@ -36,9 +35,9 @@ export async function generateMetadata({
       ]),
     },
     openGraph: {
-      title: "Website Development for Romanian Businesses",
+      title: "Website-uri Personalizate pentru România",
       description:
-        "Custom website development across Romania. No templates, fully owned by you.",
+        "Website-uri personalizate pentru afaceri din România. Fără template-uri.",
       url: `${BASE}/${locale}/websites-romania`,
       type: "website",
       images: [
@@ -46,7 +45,7 @@ export async function generateMetadata({
           url: "/og-image.png",
           width: 1200,
           height: 630,
-          alt: "WebbingHUB - Website Development Romania",
+          alt: "WebbingHUB - Web Design România",
         },
       ],
     },
@@ -60,7 +59,7 @@ export default function RomaniaPage({ params: { locale } }: { params: { locale: 
     "@id": `${BASE}/en/websites-romania#business`,
     name: "WebbingHUB",
     image: `${BASE}/full_logo_gold.svg`,
-    description: "Custom website development agency serving businesses across Romania",
+    description: "Agenție de dezvoltare website-uri personalizate în România",
     url: `${BASE}/${locale}/websites-romania`,
     telephone: "+40",
     areaServed: {
@@ -94,7 +93,7 @@ export default function RomaniaPage({ params: { locale } }: { params: { locale: 
       {
         "@type": "ListItem",
         position: 2,
-        name: "Websites Romania",
+        name: "Website-uri România",
         item: `${BASE}/${locale}/websites-romania`,
       },
     ],
@@ -112,62 +111,62 @@ export default function RomaniaPage({ params: { locale } }: { params: { locale: 
       <main className={styles.contactPage}>
         <section style={{ padding: "60px 20px", maxWidth: "900px", margin: "0 auto" }}>
           <h1 style={{ marginBottom: "20px", fontSize: "2.5rem" }}>
-            Custom Website Development Across Romania
+            Website-uri Personalizate pentru Afaceri din România
           </h1>
 
           <p style={{ fontSize: "1.1rem", lineHeight: "1.8", marginBottom: "30px" }}>
-            WebbingHUB builds custom websites for businesses across Romania. From Bucharest to Timisoara,
-            Transylvania to the coast — we develop websites that are 100% owned by you, with no templates
-            or licensing limits.
+            La WebbingHUB construim website-uri personalizate pentru afaceri din toată România.
+            De la București la Timișoara, de la Cluj la Constanța &mdash; ovreunde ești, putem ajuta.
+            Fără template-uri, fără limitări de proprietate. Un site care aparține 100% ție.
           </p>
 
           <h2 style={{ fontSize: "1.5rem", marginTop: "40px", marginBottom: "15px" }}>
-            Website Development Services for Romania
+            Servicii Website pentru Afaceri din România
           </h2>
           <ul style={{ fontSize: "1.05rem", lineHeight: "1.8", marginBottom: "30px" }}>
-            <li>💻 <strong>Custom website development</strong> — Built from scratch, tailored to your business</li>
-            <li>🛒 <strong>Online stores &amp; e-commerce</strong> — Sell products across Romania and Europe</li>
-            <li>⚙️ <strong>Internal tools &amp; dashboards</strong> — Automate your business processes</li>
-            <li>📱 <strong>Mobile-responsive websites</strong> — Perfect on phones, tablets, and desktops</li>
-            <li>🔧 <strong>Complete ownership</strong> — Your code, your data, your website</li>
+            <li>💻 <strong>Website personalizat</strong> &mdash; Construit de la zero, adaptat la nevoile tale</li>
+            <li>🛒 <strong>Magazin online &amp; e-commerce</strong> &mdash; Vinde pe internet în toată România și Europa</li>
+            <li>⚙️ <strong>Aplicații interne &amp; dashboard-uri</strong> &mdash; Automatizează procesele businessului tău</li>
+            <li>📱 <strong>Design responsive</strong> &mdash; Perfect pe telefoane, tablete și calculatoare</li>
+            <li>🔧 <strong>Proprietate deplină</strong> &mdash; Codul tău, datele tale, website-ul tău</li>
           </ul>
 
           <h2 style={{ fontSize: "1.5rem", marginTop: "40px", marginBottom: "15px" }}>
-            Why WebbingHUB for Romanian Businesses?
+            De Ce WebbingHUB pentru Website-ul tău din România
           </h2>
           <p style={{ fontSize: "1.05rem", lineHeight: "1.8", marginBottom: "30px" }}>
-            We&apos;re based in Romania and understand the local market, regulatory environment, and business
-            culture. We&apos;ve built websites for travel companies, hotels, e-commerce businesses, and SaaS
-            companies across Romania and Europe. We speak Romanian, English, French, Spanish, and German &mdash;
-            and we can serve your business wherever you are.
+            Suntem din România și înțelegem piața locală, legislația, și cum funcționează businessurile românești.
+            Am construit website-uri pentru hoteluri, magazine online, agenții de turism, și companii SaaS din România și din toată Europa.
+            Vorbim limba ta și cunoaștem cu adevărat provocările cu care se confruntă afacerile din țara asta.
           </p>
 
           <h2 style={{ fontSize: "1.5rem", marginTop: "40px", marginBottom: "15px" }}>
-            Custom Website Solutions for Different Industries
+            Website-uri Personalizate pentru Diferite Industrii
           </h2>
           <ul style={{ fontSize: "1.05rem", lineHeight: "1.8", marginBottom: "30px" }}>
-            <li>🏨 Hotels and accommodation businesses</li>
-            <li>✈️ Travel and tourism agencies</li>
-            <li>🛍️ Retail and e-commerce businesses</li>
-            <li>🏢 B2B and corporate websites</li>
-            <li>📊 SaaS and software products</li>
-            <li>🏭 Manufacturing and industrial businesses</li>
-            <li>💼 Service-based companies</li>
+            <li>🏨 Hotel-uri și pensiuni</li>
+            <li>✈️ Agenții de turism și turism</li>
+            <li>🛍️ Magazine retail și e-commerce</li>
+            <li>🏢 Website-uri corporate B2B</li>
+            <li>📊 Produse SaaS și software</li>
+            <li>🏭 Companii industriale și de producție</li>
+            <li>💼 Companii de servicii și consultanță</li>
           </ul>
 
           <h2 style={{ fontSize: "1.5rem", marginTop: "40px", marginBottom: "15px" }}>
-            Let&apos;s Build Your Website
+            Gata de un Website Personalizat?
           </h2>
           <p style={{ fontSize: "1.05rem", lineHeight: "1.8", marginBottom: "40px" }}>
-            Whether you&apos;re in Bucharest, Cluj, Timisoara, or anywhere in Romania, we&apos;re here to help.
-            No pressure, no sales pitch &mdash; just an honest conversation about your website needs.
+            Indiferent dacă ești din București, Cluj, Timișoara sau din orice alt colț al României,
+            suntem aici să ajutăm. Fără presiuni, fără pitch-uri forțate &mdash; doar o conversație sinceră
+            despre ce ai nevoie și cum putem contribui la creșterea businessului tău.
           </p>
 
-          <EmailUs label="Let&apos;s Build Your Website" />
+          <EmailUs label="Vreau un Website Personalizat" />
 
           <p style={{ fontSize: "0.95rem", color: "#666", marginTop: "40px", textAlign: "center" }}>
             <Link href={`/${locale}/contact`} style={{ color: "#0066cc", textDecoration: "none" }}>
-              ← Back to contact
+              ← Înapoi la contact
             </Link>
           </p>
         </section>
