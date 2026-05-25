@@ -5,6 +5,7 @@ import styles from "./Footer.module.css";
 import fullLogoGold from "@/new/full_logo_gold.svg";
 import type { Locale } from "@/i18n/config";
 import type { Translations } from "@/i18n/translations";
+import { trackContactConversion } from "@/lib/gtag";
 
 interface FooterProps {
   locale: Locale;
@@ -21,7 +22,7 @@ export default function Footer({ locale, t }: FooterProps) {
             <Image src={fullLogoGold} alt="WebbingHUB" className={styles.mascotLogo} />
           </div>
           <p className={styles.tagline}>{t.tagline}</p>
-          <p className={styles.contact}><a href="mailto:sales@webbinghub.io">sales@webbinghub.io</a></p>
+          <p className={styles.contact}><a href="mailto:sales@webbinghub.io" onClick={trackContactConversion}>sales@webbinghub.io</a></p>
           <p className={styles.contact}>+40 736 394 784</p>
         </div>
 
