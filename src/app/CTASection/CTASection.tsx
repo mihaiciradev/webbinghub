@@ -1,4 +1,7 @@
+"use client";
+
 import styles from "./CTASection.module.css";
+import { trackContactConversion } from "@/lib/gtag";
 
 export default function CTASection() {
   return (
@@ -16,7 +19,7 @@ export default function CTASection() {
         </div>
 
         <div className={`${styles.right} reveal`}>
-          <a href="mailto:sales@webbinghub.io" className={styles.row}>
+          <a href="mailto:sales@webbinghub.io" onClick={trackContactConversion} className={styles.row}>
             <div className={styles.rowIcon}>✉️</div>
             <div>
               <p className={styles.rowLabel}>Email us</p>
@@ -32,7 +35,7 @@ export default function CTASection() {
             </div>
           </div>
 
-          <a href="mailto:sales@webbinghub.io" className={styles.btnGold}>
+          <a href="mailto:sales@webbinghub.io" onClick={trackContactConversion} className={styles.btnGold}>
             Start a conversation →
           </a>
         </div>

@@ -111,8 +111,8 @@ export default function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-17874820921" strategy="lazyOnload" />
-        <Script id="gtag-aw" strategy="lazyOnload">{`
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-17874820921" strategy="afterInteractive" />
+        <Script id="gtag-aw" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
