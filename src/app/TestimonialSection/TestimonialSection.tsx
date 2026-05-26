@@ -5,11 +5,11 @@ export default function TestimonialSection() {
     <div className={`${styles.testimonial} reveal`}>
       <div className={styles.quoteWrap}>
         <blockquote className={styles.quote}>
-          &ldquo;They understood exactly what we needed — and delivered
-          something better than we imagined. Our direct bookings increased
-          significantly within the first month after launch.&rdquo;
+          &ldquo;No templates, no compromises. We own our site, control our data,
+          and compete on our own terms. That makes a real difference when you&rsquo;re
+          trying to stand out.&rdquo;
         </blockquote>
-        <p className={styles.author}>Travel Agency Client — Paris, France</p>
+        <p className={styles.author}>Business Owners & Teams Across Europe</p>
       </div>
 
       <div className={styles.numbers}>

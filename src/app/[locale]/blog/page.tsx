@@ -56,12 +56,21 @@ export default function BlogPage({ params }: { params: { locale: Locale } }) {
 
   const POSTS = [
     {
+      slug: "maximize-website-visibility-google-search-console",
+      title: "Maximize Your Website's Visibility: Google Search Console Guide",
+      dateDisplay: "May 2026",
+      dateTime: "2026-05-26",
+      readTime: "8 min read",
+      excerpt: "Learn how Google Search Console transforms search performance. Understand impressions, clicks, CTR, and turn traffic into business growth. A practical guide for website owners.",
+      tags: ["SEO", "Google Search Console", "Website Visibility"],
+    },
+    {
       slug: "how-hard-is-it-to-make-a-website",
-      title: "How hard is it to make a website?",
+      title: "How hard is it to make a website? A Practical Breakdown",
       dateDisplay: "November 2024",
       dateTime: "2024-11-01",
-      readTime: "6 min read",
-      excerpt: "Building a website can be simple or deeply complex. We break down what it actually takes — from drag-and-drop builders to fully custom development — and when hiring professionals makes the difference.",
+      readTime: "8 min read",
+      excerpt: "How difficult is building a website? Entirely depends on what you need it to do. We break down the real factors that determine complexity — from scope to performance to customization.",
       tags: ["Web development", "Guide", "For business owners"],
     },
   ];

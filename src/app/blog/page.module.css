@@ -176,9 +176,342 @@
 }
 .ctaLink:hover { letter-spacing: 0.12em; }
 
+/* ─── Article Post Page ───────────────────────── */
+.article {
+  padding-top: 68px;
+  background: white;
+}
+
+.articleHeader {
+  background: var(--paper);
+  padding: 5rem 4rem;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.articleHeader::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+}
+
+.breadcrumb {
+  font-size: 0.78rem;
+  color: var(--ink3);
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover { color: var(--gold-l); }
+.breadcrumb span { color: var(--ink4); }
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.8;
+  max-width: 700px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--ink3);
+  margin-top: 1.5rem;
+}
+
+.separator { color: var(--ink4); opacity: 0.5; }
+
+.content {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 4rem 4rem;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+/* Allow CTA to break out of content width constraint */
+.content > .inlineCta {
+  margin-left: -4rem;
+  margin-right: -4rem;
+  padding-left: 4rem !important;
+  padding-right: 4rem !important;
+  width: calc(100% + 8rem);
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+  color: var(--ink2);
+  font-weight: 300;
+}
+
+.content p strong,
+.content p em {
+  color: var(--ink);
+  font-weight: 400;
+}
+
+.content section {
+  margin-bottom: 3rem;
+}
+
+.content h2 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 2.5rem 0 1.2rem;
+  line-height: 1.2;
+}
+
+.content h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.content h3 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 1.8rem 0 0.8rem;
+  line-height: 1.2;
+}
+
+.content ul {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.content li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.2rem;
+  position: relative;
+  color: var(--ink2);
+  font-weight: 300;
+}
+
+.content li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.content code {
+  background: var(--paper);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.highlight {
+  background: white;
+  border-left: 4px solid var(--gold);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  color: var(--ink);
+  font-weight: 300;
+}
+
+.highlight strong {
+  color: var(--ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.warning {
+  background: #fff3e0;
+  border-left: 4px solid #ff9800;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+  color: var(--ink);
+}
+
+.warning h3 {
+  color: #e65100;
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.warning p {
+  color: var(--ink);
+  font-weight: 300;
+  margin-bottom: 0.6rem;
+}
+
+.inlineCta {
+  background: linear-gradient(135deg, #3d6b4f 0%, #2e5239 100%);
+  color: white;
+  padding: 3rem 4rem;
+  border-radius: 8px;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.inlineCta p {
+  margin: 0 0 1rem 0;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.inlineCta p:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.inlineCtaTitle {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: white !important;
+  margin-bottom: 0.5rem !important;
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.inlineCtaSub {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.ctaButton {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 1.1rem 2.5rem;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 15px rgba(184, 151, 90, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.ctaButton:hover {
+  background: var(--gold-l);
+  box-shadow: 0 6px 20px rgba(184, 151, 90, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Old CTA for blog listing */
+.cta {
+  background: linear-gradient(135deg, #3d6b4f 0%, #2e5239 100%);
+  color: white;
+  padding: 2.5rem;
+  border-radius: 8px;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.cta p {
+  margin-bottom: 1rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.cta p strong {
+  color: white;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.footerNote {
+  background: var(--paper);
+  padding: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-top: 3rem;
+  font-size: 0.95rem;
+  color: var(--ink2);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.footerNote strong {
+  color: var(--ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.footerNote a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.footerNote a:hover { color: var(--gold-l); }
+
 /* ─── Responsive ─────────────────────────────── */
 @media (max-width: 960px) {
   .hero { padding: 4rem 1.5rem 3rem; }
   .posts { padding: 3rem 1.5rem 2rem; }
   .cta { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+
+  .articleHeader { padding: 3rem 1.5rem; }
+  .content { padding: 3rem 1.5rem; }
+  .content > .inlineCta {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    width: calc(100% + 3rem);
+  }
+  .inlineCta {
+    padding: 2.5rem 1.5rem !important;
+  }
+  .inlineCtaTitle {
+    font-size: 1.1rem;
+  }
+  .title { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+  .content h2 { font-size: 1.6rem; margin: 2rem 0 1rem; }
+  .content h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; }
 }
