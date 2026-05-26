@@ -6,7 +6,7 @@ export default function TestimonialSection() {
       <div className={styles.quoteWrap}>
         <blockquote className={styles.quote}>
           &ldquo;No templates, no compromises. We own our site, control our data,
-          and compete on our own terms. That makes a real difference when you're
+          and compete on our own terms. That makes a real difference when you&rsquo;re
           trying to stand out.&rdquo;
         </blockquote>
         <p className={styles.author}>Business Owners & Teams Across Europe</p>

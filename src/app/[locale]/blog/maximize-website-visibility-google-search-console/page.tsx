@@ -187,7 +187,7 @@ export default function BlogArticle({ params }: { params: { locale: Locale } }) 
 
         <div className={styles.content}>
           <p>
-            Your website is live. You've invested time and resources into it.
+            Your website is live. You&rsquo;ve invested time and resources into it.
             But here's the question every business owner asks:{" "}
             <em>"Is it actually bringing in traffic from Google?"</em>
           </p>
@@ -196,7 +196,7 @@ export default function BlogArticle({ params }: { params: { locale: Locale } }) 
             The answer lies in a free tool most business owners ignore:{" "}
             <strong>Google Search Console</strong>. This tool is your direct
             line to Google, showing you exactly how your website appears in
-            search results and what's actually driving people to click.
+            search results and what&rsquo;s actually driving people to click.
           </p>
 
           <section>
@@ -204,7 +204,7 @@ export default function BlogArticle({ params }: { params: { locale: Locale } }) 
 
             <p>
               Think of Google Search Console as your website's dashboard for
-              search performance. Without it, you're flying blind. You don't
+              search performance. Without it, you&rsquo;re flying blind. You don&rsquo;t
               know:
             </p>
 
@@ -224,7 +224,7 @@ export default function BlogArticle({ params }: { params: { locale: Locale } }) 
               </li>
             </ul>
 
-            <p>Without this data, you're essentially guessing what works.</p>
+            <p>Without this data, you&rsquo;re essentially guessing what works.</p>
           </section>
 
           <section>
@@ -245,7 +245,7 @@ export default function BlogArticle({ params }: { params: { locale: Locale } }) 
 
             <p>
               <strong>Why it matters:</strong> High impressions but low clicks
-              usually means your title and description need work, or you're
+              usually means your title and description need work, or you&rsquo;re
               ranking for the wrong keywords.
             </p>
 
@@ -277,9 +277,9 @@ export default function BlogArticle({ params }: { params: { locale: Locale } }) 
             <div className={styles.highlight}>
               <strong>Real Example:</strong> A restaurant website appears in
               1,000 Google searches per month for "Italian restaurant in [city]"
-              (1,000 impressions) but only gets 40 clicks. That's a 4% CTR —
+              (1,000 impressions) but only gets 40 clicks. That&rsquo;s a 4% CTR —
               which means 96% of people searching chose a competitor instead.
-              This tells you your search listing isn't attractive enough, even
+              This tells you your search listing isn&rsquo;t attractive enough, even
               though you rank.
             </div>
           </section>
@@ -290,7 +290,7 @@ export default function BlogArticle({ params }: { params: { locale: Locale } }) 
             <h3>Step 1: Add Your Website to Search Console</h3>
             <p>
               Go to <strong>search.google.com/search-console</strong>, sign in
-              with your Google account, and add your website as a property. You'll
+              with your Google account, and add your website as a property. You&rsquo;ll
               choose between:
             </p>
             <ul>
@@ -349,25 +349,25 @@ export default function BlogArticle({ params }: { params: { locale: Locale } }) 
             <h2>What to Do With This Data</h2>
 
             <p>
-              Numbers alone don't drive business. Here's what{" "}
+              Numbers alone don't drive business. Here&rsquo;s what{" "}
               <strong>actionable insights</strong> look like:
             </p>
 
             <p>
-              <strong>Scenario 1:</strong> You're getting 500 impressions for a
+              <strong>Scenario 1:</strong> You&rsquo;re getting 500 impressions for a
               keyword but only 5 clicks (1% CTR). <em>Action:</em> Rewrite your
               page title and meta description to be more compelling.
             </p>
 
             <p>
               <strong>Scenario 2:</strong> A page you thought was important
-              isn't appearing in any search results. <em>Action:</em> Google
-              couldn't index it. Check the Coverage report to see the error, fix
+              isn&rsquo;t appearing in any search results. <em>Action:</em> Google
+              couldn&rsquo;t index it. Check the Coverage report to see the error, fix
               it, and resubmit.
             </p>
 
             <p>
-              <strong>Scenario 3:</strong> You're ranking #8 for a high-value
+              <strong>Scenario 3:</strong> You&rsquo;re ranking #8 for a high-value
               keyword. <em>Action:</em> Improve that page's content to move it
               to the top 3. Small ranking increases often drive big traffic
               increases.
@@ -380,10 +380,10 @@ export default function BlogArticle({ params }: { params: { locale: Locale } }) 
             <div className={styles.warning}>
               <h3>The Hidden Bottleneck</h3>
               <p>
-                Here's what we see constantly: businesses set up Search Console,
+                Here&rsquo;s what we see constantly: businesses set up Search Console,
                 check it once, see the data, and then... nothing. They either
-                don't know what to do with the insights, or they try fixes that
-                don't work.
+                don&rsquo;t know what to do with the insights, or they try fixes that
+                don&rsquo;t work.
               </p>
               <p>
                 The real problem?{" "}
@@ -425,7 +425,7 @@ export default function BlogArticle({ params }: { params: { locale: Locale } }) 
 
             <p>
               Most DIY or low-cost websites fail on one or more of these — which
-              means Search Console data shows the problem, but you can't fix it
+              means Search Console data shows the problem, but you can&rsquo;t fix it
               without rebuilding parts of the site.
             </p>
           </section>
@@ -435,8 +435,8 @@ export default function BlogArticle({ params }: { params: { locale: Locale } }) 
 
             <p>
               If you already have a website, Search Console is absolutely worth
-              setting up. Start collecting data today. In 30 days you'll see
-              patterns; in 90 days you'll have clarity on what's working.
+              setting up. Start collecting data today. In 30 days you&rsquo;ll see
+              patterns; in 90 days you&rsquo;ll have clarity on what&rsquo;s working.
             </p>
 
             <p>

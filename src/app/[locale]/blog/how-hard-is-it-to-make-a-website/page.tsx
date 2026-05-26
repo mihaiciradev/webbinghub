@@ -153,21 +153,21 @@ export default function BlogPostPage({ params }: { params: { locale: Locale } })
 
           <div className={styles.body}>
             <p>
-              You're thinking about building a website. Or maybe you already have one that's not working. Either way, you want to know: <em>How hard is this actually going to be?</em>
+              You&rsquo;re thinking about building a website. Or maybe you already have one that&rsquo;s not working. Either way, you want to know: <em>How hard is this actually going to be?</em>
             </p>
 
             <p>
-              The honest answer? It depends entirely on what you need it to do. A one-page landing page is genuinely simple. A full e-commerce platform with inventory management, customer analytics, and integrations? That's complex. Most websites fall somewhere in between.
+              The honest answer? It depends entirely on what you need it to do. A one-page landing page is genuinely simple. A full e-commerce platform with inventory management, customer analytics, and integrations? That&rsquo;s complex. Most websites fall somewhere in between.
             </p>
 
             <p>
-              Let's break down what actually determines difficulty — so you can make an informed decision about your own situation.
+              Let&rsquo;s break down what actually determines difficulty — so you can make an informed decision about your own situation.
             </p>
 
             <h2>The Real Factors That Determine Website Difficulty</h2>
 
             <p>
-              Difficulty isn't just about technical skills. It's about scope, performance needs, customization, and ongoing maintenance. Here are the factors that actually matter:
+              Difficulty isn&rsquo;t just about technical skills. It&rsquo;s about scope, performance needs, customization, and ongoing maintenance. Here are the factors that actually matter:
             </p>
 
             <h3>1. Scope: What Does Your Website Need to Do?</h3>
@@ -177,7 +177,7 @@ export default function BlogPostPage({ params }: { params: { locale: Locale } })
             </p>
 
             <p>
-              An e-commerce site with product catalog, shopping cart, payment processing, inventory management, and customer accounts? That's exponentially more complex. Suddenly you're managing databases, payment gateways, security standards, and business logic.
+              An e-commerce site with product catalog, shopping cart, payment processing, inventory management, and customer accounts? That's exponentially more complex. Suddenly you&rsquo;re managing databases, payment gateways, security standards, and business logic.
             </p>
 
             <p>
@@ -191,7 +191,7 @@ export default function BlogPostPage({ params }: { params: { locale: Locale } })
             </p>
 
             <p>
-              Building for performance means optimizing images, managing caching, choosing fast hosting, writing efficient code. It's doable but requires skill and attention. Using a website builder often means accepting whatever performance they give you.
+              Building for performance means optimizing images, managing caching, choosing fast hosting, writing efficient code. It&rsquo;s doable but requires skill and attention. Using a website builder often means accepting whatever performance they give you.
             </p>
 
             <h3>3. Customization Needs</h3>
@@ -201,7 +201,7 @@ export default function BlogPostPage({ params }: { params: { locale: Locale } })
             </p>
 
             <p>
-              Website builders (Wix, Squarespace, Webflow) give you templates you customize within constraints. That's fast but limiting. If your industry has specific visual needs or your workflow is unconventional, you'll hit those limits quickly.
+              Website builders (Wix, Squarespace, Webflow) give you templates you customize within constraints. That&rsquo;s fast but limiting. If your industry has specific visual needs or your workflow is unconventional, you&rsquo;ll hit those limits quickly.
             </p>
 
             <p>
@@ -219,7 +219,7 @@ export default function BlogPostPage({ params }: { params: { locale: Locale } })
             </p>
 
             <p>
-              <strong>Example:</strong> A web builder can embed a form that sends to Mailchimp in 10 minutes. But if you need your website inventory to automatically sync with your warehouse system and update product availability in real-time? That's custom backend development.
+              <strong>Example:</strong> A web builder can embed a form that sends to Mailchimp in 10 minutes. But if you need your website inventory to automatically sync with your warehouse system and update product availability in real-time? That&rsquo;s custom backend development.
             </p>
 
             <h3>5. Ongoing Maintenance & Growth</h3>
@@ -237,7 +237,7 @@ export default function BlogPostPage({ params }: { params: { locale: Locale } })
             </ul>
 
             <p>
-              Website builders handle a lot of this automatically (updates, hosting, scaling). Custom development means you're responsible for more of it.
+              Website builders handle a lot of this automatically (updates, hosting, scaling). Custom development means you&rsquo;re responsible for more of it.
             </p>
 
             <h2>The Real Trade-Offs: Website Builder vs Custom Development</h2>
@@ -272,7 +272,7 @@ export default function BlogPostPage({ params }: { params: { locale: Locale } })
               <li>❌ Takes longer to build (weeks to months)</li>
               <li>❌ Higher upfront cost</li>
               <li>❌ You need a technical team or hire developers</li>
-              <li>❌ You're responsible for updates, security, maintenance</li>
+              <li>❌ You&rsquo;re responsible for updates, security, maintenance</li>
             </ul>
 
             <h2>What Actually Determines If a Project Goes Badly?</h2>
@@ -282,8 +282,8 @@ export default function BlogPostPage({ params }: { params: { locale: Locale } })
                 <strong>Here's what we see most often:</strong> Businesses build a website without being clear on what they actually need. Then:
               </p>
               <ul>
-                <li>They pick a builder because it's cheap, then outgrow it in 18 months</li>
-                <li>They hire a developer who builds something unmaintainable or doesn't match their workflow</li>
+                <li>They pick a builder because it&rsquo;s cheap, then outgrow it in 18 months</li>
+                <li>They hire a developer who builds something unmaintainable or doesn&rsquo;t match their workflow</li>
                 <li>They launch without thinking about ongoing updates and security</li>
                 <li>They optimize for how it looks, not how it performs or converts</li>
                 <li>They choose a solution (tech stack, platform, approach) that locks them in</li>
@@ -307,7 +307,7 @@ export default function BlogPostPage({ params }: { params: { locale: Locale } })
             </p>
 
             <p>
-              <strong>4. What's your timeline?</strong> If you need it live in 2 weeks, builders win. If you have 3 months, custom development is feasible.
+              <strong>4. What&rsquo;s your timeline?</strong> If you need it live in 2 weeks, builders win. If you have 3 months, custom development is feasible.
             </p>
 
             <p>
@@ -319,19 +319,19 @@ export default function BlogPostPage({ params }: { params: { locale: Locale } })
             </p>
 
             <p>
-              <strong>7. How important is owning your own code?</strong> With builders, you're renting a platform. With custom development, it's yours.
+              <strong>7. How important is owning your own code?</strong> With builders, you&rsquo;re renting a platform. With custom development, it&rsquo;s yours.
             </p>
 
             <h2>The Real Cost of Getting It Wrong</h2>
 
             <p>
-              Picking the wrong approach isn't just annoying — it has real business costs:
+              Picking the wrong approach isn&rsquo;t just annoying — it has real business costs:
             </p>
 
             <ul>
               <li>Build on the wrong platform and spend 6 months later rebuilding because you outgrew it</li>
               <li>Launch without performance optimization and lose 15–20% of potential conversions to abandonment</li>
-              <li>Hire a cheap developer who builds something unmaintainable and you're stuck</li>
+              <li>Hire a cheap developer who builds something unmaintainable and you&rsquo;re stuck</li>
               <li>Skip security updates and get hacked (happens constantly)</li>
               <li>Launch without proper SEO setup and stay invisible to Google</li>
             </ul>
@@ -339,7 +339,7 @@ export default function BlogPostPage({ params }: { params: { locale: Locale } })
             <h2>The Path Forward</h2>
 
             <p>
-              Here's the honest reality: <strong>Small, simple websites are genuinely easy to build yourself.</strong> Use a website builder. You'll save money and launch fast.
+              Here's the honest reality: <strong>Small, simple websites are genuinely easy to build yourself.</strong> Use a website builder. You&rsquo;ll save money and launch fast.
             </p>
 
             <p>
@@ -347,7 +347,7 @@ export default function BlogPostPage({ params }: { params: { locale: Locale } })
             </p>
 
             <p>
-              The difficulty of building a website isn't really a binary question. It's: "What am I trying to accomplish, and what's the smartest way to get there?" Sometimes it's a $50/month builder. Sometimes it's a 4-month custom project with a team. Most of the time it's something in between.
+              The difficulty of building a website isn&rsquo;t really a binary question. It&rsquo;s: &ldquo;What am I trying to accomplish, and what's the smartest way to get there?" Sometimes it's a $50/month builder. Sometimes it's a 4-month custom project with a team. Most of the time it's something in between.
             </p>
 
             <p>
@@ -356,8 +356,8 @@ export default function BlogPostPage({ params }: { params: { locale: Locale } })
 
             <div className={styles.inlineCta}>
               <p className={styles.inlineCtaTitle}>Still unsure which approach is right for you?</p>
-              <p className={styles.inlineCtaSub}>If you're thinking about building a website and want honest advice on the best approach for your specific situation — no pressure to hire us, just clarity on what makes sense.</p>
-              <Link href={`/${locale}/contact`} className={styles.ctaButton}>Let's talk →</Link>
+              <p className={styles.inlineCtaSub}>If you&rsquo;re thinking about building a website and want honest advice on the best approach for your specific situation — no pressure to hire us, just clarity on what makes sense.</p>
+              <Link href={`/${locale}/contact`} className={styles.ctaButton}>Let&rsquo;s talk →</Link>
             </div>
           </div>
         </article>
