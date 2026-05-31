@@ -9,9 +9,20 @@ export default function Cookies() {
       enableDeclineButton
       onAccept={() => {}}
       onDecline={() => {}}
+      disableStyles
+      containerClasses="wh-cookie"
+      contentClasses="wh-cookie-content"
+      buttonWrapperClasses="wh-cookie-actions"
+      buttonClasses="wh-cookie-btn wh-cookie-accept"
+      declineButtonClasses="wh-cookie-btn wh-cookie-decline"
+      ariaAcceptLabel="Accept analytics cookies"
+      ariaDeclineLabel="Decline analytics cookies"
     >
-      This website uses cookies to enhance the user experience. By accepting,
-      you agree to the use of analytics cookies.
+      <span className="wh-cookie-title">We use cookies</span>
+      <span className="wh-cookie-text">
+        This site uses analytics cookies to understand how it&apos;s used and to
+        improve your experience. You can accept or decline.
+      </span>
     </CookieConsent>
   );
 }
