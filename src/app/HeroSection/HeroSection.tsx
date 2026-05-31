@@ -21,20 +21,6 @@ export default function HeroSection({ locale, t }: HeroSectionProps) {
       {/* ── LEFT — text content ───────────────────── */}
       <div className={styles.heroLeft}>
 
-        {/* Announcement pill — inspired by Magic's badge pattern */}
-        <div className={styles.announcement}>
-          <span className={styles.announcementDot} />
-          <span>TRAVEL by WebbingHUB is live</span>
-          <a
-            href="https://travel.webbinghub.io/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.announcementLink}
-          >
-            Explore →
-          </a>
-        </div>
-
         <p className={styles.eyebrow}>{t.eyebrow}</p>
 
         <h1 className={styles.title}>
