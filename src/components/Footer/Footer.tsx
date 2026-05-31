@@ -44,7 +44,7 @@ export default function Footer({ locale, t }: FooterProps) {
           <p className={styles.colTitle}>{t.subBrandsTitle}</p>
           <ul className={styles.colLinks}>
             <li><a href="https://travel.webbinghub.io/" target="_blank" rel="noopener noreferrer">TRAVEL by WebbingHUB</a></li>
-            <li><span style={{ opacity: 0.4 }}>HORECA by WebbingHUB — soon</span></li>
+            <li><a href="https://apetit.webbinghub.io" target="_blank" rel="noopener noreferrer">APETIT by WebbingHUB</a></li>
           </ul>
         </div>
       </div>

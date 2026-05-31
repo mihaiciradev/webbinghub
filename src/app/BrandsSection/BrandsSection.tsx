@@ -39,26 +39,29 @@ export default function BrandsSection() {
           </div>
         </div>
 
-        {/* HORECA card */}
-        <div className={`${styles.card} ${styles.cardMuted} reveal`}>
-          <div className={`${styles.cardBar} ${styles.cardBarMuted}`} />
+        {/* APETIT card */}
+        <div className={`${styles.card} reveal`}>
+          <div className={styles.cardBar} />
           <div className={styles.cardBody}>
-            <span className={`${styles.pill} ${styles.pillSoon}`}>
-              <span className={styles.pillDot} /> Coming soon
+            <span className={`${styles.pill} ${styles.pillLive}`}>
+              <span className={styles.pillDot} /> Live now
             </span>
-            <p className={styles.cardName}>HORECA</p>
+            <p className={styles.cardName}>APETIT</p>
             <p className={styles.cardByline}>by WebbingHUB</p>
             <p className={styles.cardSub}>for restaurants &amp; hospitality</p>
             <p className={styles.cardDesc}>
-              Dedicated digital tools for restaurants, bars, and hospitality venues.
-              QR menus, reservation systems, delivery integrations, and guest-facing
-              experiences designed for the pace of hospitality.
+              Effortless digital experiences for hospitality. QR menus, instant
+              reservations, real-time ordering, and guest management—designed for
+              restaurants, cafés, and hotels.
             </p>
             <div className={styles.tags}>
-              {["QR menus", "Reservations", "Delivery", "Guest experience"].map((t) => (
+              {["QR menus", "Reservations", "Real-time ordering", "Guest management"].map((t) => (
                 <span key={t} className={styles.tag}>{t}</span>
               ))}
             </div>
+            <a href="https://apetit.webbinghub.io" className={styles.link} target="_blank" rel="noopener noreferrer">
+              Visit apetit.webbinghub.io →
+            </a>
           </div>
         </div>
       </div>
