@@ -15,7 +15,7 @@ export async function generateMetadata({
   return {
     title: "About WebbingHUB — A Small Team, A Serious Commitment",
     description:
-      "WebbingHUB is a web development agency run by people who genuinely care. We build custom websites from scratch for businesses across Europe — no templates, no handoffs, no lock-in.",
+      "WebbingHUB builds custom websites from scratch for businesses across Europe. You talk to the people who write the code. No templates, no handoffs, no lock-in.",
     alternates: {
       canonical: `${BASE}/${locale}/about`,
       languages: Object.fromEntries([
@@ -25,7 +25,7 @@ export async function generateMetadata({
     },
     openGraph: {
       title: "About WebbingHUB — A Small Team, A Serious Commitment",
-      description: "Meet the people behind the craft. We build websites that speak volumes.",
+      description: "Meet the people who build your site. We write every line ourselves.",
       url: `${BASE}/${locale}/about`,
       images: [{ url: "/og-about.png", width: 1200, height: 630, alt: "About WebbingHUB" }],
     },
@@ -37,7 +37,7 @@ const aboutSchema = {
   "@type": "AboutPage",
   "@id": `${BASE}/en/about#webpage`,
   name: "About WebbingHUB",
-  description: "WebbingHUB is a web development agency run by people who genuinely care about quality. Custom websites, no templates.",
+  description: "WebbingHUB builds custom websites from scratch. You talk to the people who write the code. No templates.",
   url: `${BASE}/en/about`,
   isPartOf: { "@id": `${BASE}/#website` },
   about: { "@id": `${BASE}/#organization` },
@@ -75,20 +75,18 @@ export default function AboutPage({ params }: { params: { locale: Locale } }) {
         </div>
         <div className={`${styles.storyRight} reveal`}>
           <p>
-            <strong>WebbingHUB</strong> is the embodiment of passion and
-            expertise, born from the seamless fusion of a hobby turned
-            profession. We do what we know best — creating websites that{" "}
-            <strong>speak volumes</strong>.
+            <strong>WebbingHUB</strong> started as a hobby and became our work.
+            We build custom websites, and we know how to do it{" "}
+            <strong>well</strong>.
           </p>
           <blockquote className={styles.quote}>
-            &ldquo;Every project reflects our love for the craft, where
-            creativity meets precision, delivering web experiences that are as
-            impactful as they are beautiful.&rdquo;
+            &ldquo;We write every line of code ourselves. You get a site built
+            for your business, not a theme with your logo dropped on top.&rdquo;
           </blockquote>
           <p>
-            When you work with WebbingHUB, you talk directly with the people
-            building your website. No account managers, no handoffs — just
-            honest work done properly.
+            You talk to the people who build your website, not an account
+            manager who passes your notes along. We do honest work and we do it
+            properly.
           </p>
         </div>
       </section>
@@ -97,14 +95,14 @@ export default function AboutPage({ params }: { params: { locale: Locale } }) {
         <div className={`${styles.valuesHeader} reveal`}>
           <p className={styles.label}>What drives us</p>
           <h2 className={styles.sectionTitle}>
-            We don&apos;t just build websites.<br /><em>We build your success.</em>
+            Websites that earn their keep.<br /><em>Built around your business.</em>
           </h2>
         </div>
         <div className={styles.valuesGrid}>
           {[
-            { num: "01", title: "Tailored solutions", body: "Every website we build starts from a blank canvas. No themes, no shortcuts — just a custom solution designed around your business, your users, and your goals." },
-            { num: "02", title: "Ongoing support", body: "We don't disappear after launch. We stay close — maintaining, improving, and growing your website as your business evolves." },
-            { num: "03", title: "Direct communication", body: "You talk to the people doing the work. Always. That means faster decisions, fewer misunderstandings, and a website that genuinely reflects your vision." },
+            { num: "01", title: "Tailored solutions", body: "We start every website from an empty editor. No theme, no shortcut. We design it around your business and the people who use it." },
+            { num: "02", title: "Ongoing support", body: "We stay on after launch to maintain and improve the site as your business grows." },
+            { num: "03", title: "Direct communication", body: "You talk to the people doing the work, which means quicker decisions and a site that matches what you asked for." },
           ].map(({ num, title, body }) => (
             <div key={num} className={`${styles.valueCard} reveal`}>
               <span className={styles.valueNum}>{num}</span>
@@ -122,18 +120,17 @@ export default function AboutPage({ params }: { params: { locale: Locale } }) {
             From concept to launch —<br /><em>and beyond.</em>
           </h2>
           <p className={styles.processIntro}>
-            We believe in a collaborative process that keeps you informed and in
-            control at every stage. No surprises — just clear milestones and
-            honest communication.
+            You stay informed and in control at every stage. Clear milestones,
+            no surprises.
           </p>
         </div>
         <ol className={styles.processList}>
           {[
-            { step: "Discover", desc: "We start by listening. Understanding your business, your users, and your goals before suggesting anything." },
-            { step: "Plan", desc: "A scoped proposal with deliverables, timeline, and a fixed price. Agreed before a single line of code is written." },
-            { step: "Build", desc: "Designed and developed from scratch. You stay informed throughout — not just at the end." },
-            { step: "Launch", desc: "We deploy, test, and hand over a website that's ready to perform on day one." },
-            { step: "Support", desc: "Maintenance, updates, and improvements as your business grows. We're here for the long run." },
+            { step: "Discover", desc: "We listen first and learn your business and goals before we suggest anything." },
+            { step: "Plan", desc: "You get a proposal with the deliverables, timeline, and fixed price, agreed before we write any code." },
+            { step: "Build", desc: "We design and build from scratch, and you see progress throughout, not only at the end." },
+            { step: "Launch", desc: "We deploy, test, and hand over a site that works on day one." },
+            { step: "Support", desc: "We maintain, update, and improve the site as your business grows." },
           ].map(({ step, desc }, i) => (
             <li key={step} className={`${styles.processItem} reveal`}>
               <span className={styles.processNum}>0{i + 1}</span>

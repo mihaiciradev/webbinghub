@@ -17,7 +17,7 @@ export async function generateMetadata({
   return {
     title: "Contact WebbingHUB — Let's Have a Chat",
     description:
-      "Ready to talk about your website? No pressure, no pitch. Get in touch with WebbingHUB — web development agency based in Romania, serving clients across Europe.",
+      "No pressure, no pitch. Talk to WebbingHUB, a web development agency based in Romania, serving clients across Europe.",
     alternates: {
       canonical: `${BASE}/${locale}/contact`,
       languages: Object.fromEntries([
@@ -27,7 +27,7 @@ export async function generateMetadata({
     },
     openGraph: {
       title: "Contact WebbingHUB — Let's Have a Chat",
-      description: "No pressure, no pitch. Just an honest conversation about your website.",
+      description: "No pressure, no pitch. An honest conversation about your website.",
       url: `${BASE}/${locale}/contact`,
       images: [{ url: "/og-contact.png", width: 1200, height: 630, alt: "Contact WebbingHUB" }],
     },

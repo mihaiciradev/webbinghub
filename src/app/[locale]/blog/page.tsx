@@ -15,7 +15,7 @@ export async function generateMetadata({
   return {
     title: "Blog — Web Development Insights by WebbingHUB",
     description:
-      "Honest, practical articles on web development, website costs, and digital growth — written by the WebbingHUB team for business owners across Europe.",
+      "Practical articles on web development, website costs, and growth, written by the WebbingHUB team for business owners across Europe.",
     alternates: {
       canonical: `${BASE}/${locale}/blog`,
       languages: Object.fromEntries([
@@ -38,7 +38,7 @@ const blogSchema = {
   "@type": "Blog",
   "@id": `${BASE}/en/blog#blog`,
   name: "WebbingHUB Blog",
-  description: "Honest, practical articles on web development and digital growth.",
+  description: "Practical articles on web development and growth.",
   url: `${BASE}/en/blog`,
   publisher: { "@id": `${BASE}/#organization` },
   breadcrumb: {
@@ -61,7 +61,7 @@ export default function BlogPage({ params }: { params: { locale: Locale } }) {
       dateDisplay: "May 2026",
       dateTime: "2026-05-26",
       readTime: "8 min read",
-      excerpt: "Learn how Google Search Console transforms search performance. Understand impressions, clicks, CTR, and turn traffic into business growth. A practical guide for website owners.",
+      excerpt: "Google Search Console shows how your site performs in search. We explain impressions, clicks, and CTR, and how to turn that traffic into customers.",
       tags: ["SEO", "Google Search Console", "Website Visibility"],
     },
     {
@@ -70,7 +70,7 @@ export default function BlogPage({ params }: { params: { locale: Locale } }) {
       dateDisplay: "November 2024",
       dateTime: "2024-11-01",
       readTime: "8 min read",
-      excerpt: "How difficult is building a website? Entirely depends on what you need it to do. We break down the real factors that determine complexity — from scope to performance to customization.",
+      excerpt: "Building a website is as hard as what you need it to do. We explain the factors that set the complexity: scope, performance, and customization.",
       tags: ["Web development", "Guide", "For business owners"],
     },
   ];
