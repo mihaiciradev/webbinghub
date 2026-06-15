@@ -23,7 +23,8 @@ export default function Footer({ locale, t }: FooterProps) {
           </div>
           <p className={styles.tagline}>{t.tagline}</p>
           <p className={styles.contact}><a href="mailto:sales@webbinghub.io" onClick={trackContactConversion}>sales@webbinghub.io</a></p>
-          <p className={styles.contact}>+40 736 394 784</p>
+          <p className={styles.contact}><a href="tel:+40736394784" onClick={trackContactConversion}>+40 736 394 784</a></p>
+          <p className={styles.contact}><a href="https://wa.me/40736394784" onClick={trackContactConversion} target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
         </div>
 
         {/* Navigation col */}

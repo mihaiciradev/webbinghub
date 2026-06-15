@@ -83,6 +83,7 @@ export default function ContactPage({ params }: { params: { locale: Locale } }) 
             <ContactLinks
               emailLabel={t.emailLabel}
               phoneLabel={t.phoneLabel}
+              whatsappLabel={t.whatsappLabel}
               styles={{
                 contactRow: styles.contactRow,
                 contactIcon: styles.contactIcon,

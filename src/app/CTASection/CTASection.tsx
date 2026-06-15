@@ -27,13 +27,21 @@ export default function CTASection() {
             </div>
           </a>
 
-          <div className={styles.row} style={{ cursor: "default" }}>
+          <a href="tel:+40736394784" onClick={trackContactConversion} className={styles.row}>
             <div className={styles.rowIcon}>📞</div>
             <div>
               <p className={styles.rowLabel}>Call us</p>
               <p className={styles.rowVal}>+40 736 394 784</p>
             </div>
-          </div>
+          </a>
+
+          <a href="https://wa.me/40736394784" onClick={trackContactConversion} target="_blank" rel="noopener noreferrer" className={styles.row}>
+            <div className={styles.rowIcon}>💬</div>
+            <div>
+              <p className={styles.rowLabel}>Message us</p>
+              <p className={styles.rowVal}>WhatsApp</p>
+            </div>
+          </a>
 
           <a href="mailto:sales@webbinghub.io" onClick={trackContactConversion} className={styles.btnGold}>
             Start a conversation →

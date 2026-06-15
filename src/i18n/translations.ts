@@ -48,6 +48,7 @@ export type Translations = {
       linkedin: string;
       emailLabel: string;
       phoneLabel: string;
+      whatsappLabel: string;
     };
     blog: {
       eyebrow: string;
@@ -120,6 +121,7 @@ const en: Translations = {
       linkedin:  'WebbingHUB on LinkedIn',
       emailLabel: 'Email',
       phoneLabel: 'Phone',
+      whatsappLabel: 'WhatsApp',
     },
     blog: {
       eyebrow:   'From the team',
@@ -192,6 +194,7 @@ const fr: Translations = {
       linkedin:   'WebbingHUB sur LinkedIn',
       emailLabel: 'Email',
       phoneLabel: 'Téléphone',
+      whatsappLabel: 'WhatsApp',
     },
     blog: {
       eyebrow:     "De l'équipe",
@@ -264,6 +267,7 @@ const es: Translations = {
       linkedin:   'WebbingHUB en LinkedIn',
       emailLabel: 'Email',
       phoneLabel: 'Teléfono',
+      whatsappLabel: 'WhatsApp',
     },
     blog: {
       eyebrow:     'Del equipo',
@@ -336,6 +340,7 @@ const de: Translations = {
       linkedin:   'WebbingHUB auf LinkedIn',
       emailLabel: 'E-Mail',
       phoneLabel: 'Telefon',
+      whatsappLabel: 'WhatsApp',
     },
     blog: {
       eyebrow:     'Vom Team',
@@ -408,6 +413,7 @@ const ro: Translations = {
       linkedin:   'WebbingHUB pe LinkedIn',
       emailLabel: 'Email',
       phoneLabel: 'Telefon',
+      whatsappLabel: 'WhatsApp',
     },
     blog: {
       eyebrow:     'De la echipă',

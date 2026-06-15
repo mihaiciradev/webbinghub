@@ -6,13 +6,14 @@ import { trackContactConversion } from "@/lib/gtag";
 interface ContactLinksProps {
   emailLabel: string;
   phoneLabel: string;
+  whatsappLabel?: string;
   styles: {
     contactRow: string;
     contactIcon: string;
   };
 }
 
-export default function ContactLinks({ emailLabel, phoneLabel, styles: s }: ContactLinksProps) {
+export default function ContactLinks({ emailLabel, phoneLabel, whatsappLabel, styles: s }: ContactLinksProps) {
   return (
     <>
       <Link href="mailto:sales@webbinghub.io" onClick={trackContactConversion} className={s.contactRow}>
@@ -38,6 +39,23 @@ export default function ContactLinks({ emailLabel, phoneLabel, styles: s }: Cont
           <p style={{ marginTop: "0.25rem", opacity: 0.7 }}>+40 736 394 784</p>
         </div>
       </Link>
+
+      {whatsappLabel && (
+        <Link href="https://wa.me/40736394784" onClick={trackContactConversion} target="_blank" rel="noopener noreferrer" className={s.contactRow}>
+          <span className={s.contactIcon}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b8975a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              <circle cx="9" cy="10" r="1"/>
+              <circle cx="12" cy="10" r="1"/>
+              <circle cx="15" cy="10" r="1"/>
+            </svg>
+          </span>
+          <div>
+            <p style={{ marginBottom: "0.25rem", fontWeight: 500 }}>{whatsappLabel}</p>
+            <p style={{ marginTop: "0.25rem", opacity: 0.7 }}>+40 736 394 784</p>
+          </div>
+        </Link>
+      )}
     </>
   );
 }
