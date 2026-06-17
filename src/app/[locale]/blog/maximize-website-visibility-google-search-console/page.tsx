@@ -468,7 +468,7 @@ export default function BlogArticle({
                 so your website actually becomes a channel that brings in leads
                 and sales.
               </p>
-              <a href="mailto:sales@webbinghub.io" className={styles.ctaButton}>
+              <a href="mailto:hello@webbinghub.io" className={styles.ctaButton}>
                 Let's discuss your website →
               </a>
             </div>
@@ -513,7 +513,7 @@ export default function BlogArticle({
               visibility and user experience — from the architecture to the
               content. We don't just launch and hope. We build right, monitor
               results, and help you grow.{" "}
-              <a href="mailto:sales@webbinghub.io">Get in touch</a> to see how
+              <a href="mailto:hello@webbinghub.io">Get in touch</a> to see how
               we can help your website become a real business asset.
             </p>
           </div>

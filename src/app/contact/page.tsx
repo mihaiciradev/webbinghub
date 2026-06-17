@@ -51,7 +51,7 @@ export default function ContactPage() {
               </div>
             </Link>
 
-            <Link href="mailto:sales@webbinghub.io" className={styles.contactRow}>
+            <Link href="mailto:hello@webbinghub.io" className={styles.contactRow}>
               <span className={styles.contactIcon}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b8975a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -60,7 +60,7 @@ export default function ContactPage() {
               </span>
               <div>
                 <p className={styles.contactLabel}>Email</p>
-                <p className={styles.contactVal}>sales@webbinghub.io</p>
+                <p className={styles.contactVal}>hello@webbinghub.io</p>
               </div>
             </Link>
 

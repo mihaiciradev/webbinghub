@@ -6,7 +6,7 @@ import { trackContactConversion } from "@/lib/gtag";
 export default function GetInTouch({ blackFont }: { blackFont?: boolean }) {
   return (
     <Link
-      href="mailto:sales@webbinghub.io"
+      href="mailto:hello@webbinghub.io"
       onClick={trackContactConversion}
       className={styles.getInTouch}
       sx={{

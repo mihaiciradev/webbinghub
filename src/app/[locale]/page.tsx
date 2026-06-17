@@ -56,7 +56,7 @@ const organizationSchema = {
   contactPoint: [
     {
       "@type": "ContactPoint",
-      email: "sales@webbinghub.io",
+      email: "hello@webbinghub.io",
       telephone: "+40736394784",
       contactType: "sales",
       areaServed: "EU",

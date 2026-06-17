@@ -50,6 +50,103 @@
   text-decoration: none;
 }
 
+/* ── Footer email form ─────────────────────────── */
+.emailForm {
+  margin-top: 1.1rem;
+  max-width: 320px;
+}
+
+.emailLabel {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.55rem;
+}
+
+.emailRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.emailInput {
+  flex: 1;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.82rem;
+  font-family: var(--font-jost), sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  transition: border-color 0.2s;
+}
+
+.emailInput::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.emailInput:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.emailBtn {
+  flex-shrink: 0;
+  background: var(--gold);
+  color: #111110;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-jost), sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.emailBtn:hover:not(:disabled) {
+  background: var(--gold-light, #d4b47a);
+  transform: translateY(-1px);
+}
+
+.emailBtn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.emailConsent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+  font-size: 0.68rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+}
+
+.emailConsent input {
+  margin-top: 0.15rem;
+  accent-color: var(--gold);
+  flex-shrink: 0;
+}
+
+.emailConsent a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.emailConsent a:hover {
+  text-decoration: underline;
+}
+
+.emailNote {
+  margin-top: 1.1rem;
+  max-width: 320px;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .colTitle {
   font-size: 0.65rem;
   font-weight: 500;

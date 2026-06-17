@@ -9,20 +9,20 @@ export async function POST(request: Request) {
   }
 
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465, // Use 465 for SSL or 587 for TLS (with secure: false)
-    secure: true,
+    host: "smtp.protonmail.ch",
+    port: 587, // Proton SMTP submission — STARTTLS
+    secure: false, // false for 587 (STARTTLS); set true only if using port 465
     auth: {
       user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      pass: process.env.SMTP_PASS, // Proton SMTP token (not the account password)
     },
   });
 
   try {
     // Send email
     await transporter.sendMail({
-      from: `"WebbingHUB Support" <support@webbinghub.io>`,
-      to: "support@webbinghub.io",
+      from: `"WebbingHUB" <hello@webbinghub.io>`,
+      to: "hello@webbinghub.io",
       subject: "New Contact Request",
       text: `New contact request from ${email}`,
       html: `<p>New contact request from <b>${email}</b></p>`,

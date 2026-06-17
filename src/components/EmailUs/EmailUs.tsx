@@ -3,8 +3,26 @@ import React, { useEffect, useState } from "react";
 import styles from "./EmailUs.module.css";
 import { FlexBox } from "../FlexBox";
 
-const LS_KEY = "webbinghub_contact_email_send_count";
-const MAX_SENDS = 1;
+const LS_KEY = "webbinghub_contact_email_sends";
+const MAX_SENDS = 3; // per rolling window
+const WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
+
+// Read recent send timestamps from localStorage, dropping any outside the window.
+function getRecentSends(): number[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = window.localStorage.getItem(LS_KEY);
+    if (!raw) return [];
+    const parsed: unknown = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    const cutoff = Date.now() - WINDOW_MS;
+    return parsed.filter(
+      (t): t is number => typeof t === "number" && t > cutoff,
+    );
+  } catch {
+    return [];
+  }
+}
 
 export default function EmailUs({
   label,
@@ -21,20 +39,19 @@ export default function EmailUs({
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const raw = window.localStorage.getItem(LS_KEY);
-    const parsed = raw ? Number(raw) : 0;
-
-    if (Number.isFinite(parsed) && parsed >= 0) setSendCount(parsed);
-    else window.localStorage.setItem(LS_KEY, "0");
+    const recent = getRecentSends();
+    setSendCount(recent.length);
+    // Persist the pruned list so expired entries are cleaned up.
+    window.localStorage.setItem(LS_KEY, JSON.stringify(recent));
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (loading) return;
 
-    if (sendCount >= MAX_SENDS) {
+    if (getRecentSends().length >= MAX_SENDS) {
       setMessage(
-        "You’ve reached the email sending limit. If you wish to contact us, we will be happy to attend you at support@webbinghub.io.",
+        "You’ve reached the email sending limit. If you wish to contact us, we will be happy to attend you at hello@webbinghub.io.",
       );
       return;
     }
@@ -50,9 +67,9 @@ export default function EmailUs({
       });
 
       if (response.ok) {
-        const nextCount = sendCount + 1;
-        setSendCount(nextCount);
-        window.localStorage.setItem(LS_KEY, String(nextCount));
+        const next = [...getRecentSends(), Date.now()];
+        setSendCount(next.length);
+        window.localStorage.setItem(LS_KEY, JSON.stringify(next));
 
         setEmail("");
         setMessage("Email sent successfully!");
@@ -83,7 +100,7 @@ export default function EmailUs({
             <>
               You’ve reached the email sending limit. <br />
               If you wish to contact us, we will be happy to attend you at
-              support@webbinghub.io.
+              hello@webbinghub.io.
             </>
           ) : (
             label

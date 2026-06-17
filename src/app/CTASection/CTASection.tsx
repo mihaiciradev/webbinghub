@@ -19,11 +19,11 @@ export default function CTASection() {
         </div>
 
         <div className={`${styles.right} reveal`}>
-          <a href="mailto:sales@webbinghub.io" onClick={trackContactConversion} className={styles.row}>
+          <a href="mailto:hello@webbinghub.io" onClick={trackContactConversion} className={styles.row}>
             <div className={styles.rowIcon}>✉️</div>
             <div>
               <p className={styles.rowLabel}>Email us</p>
-              <p className={styles.rowVal}>sales@webbinghub.io</p>
+              <p className={styles.rowVal}>hello@webbinghub.io</p>
             </div>
           </a>
 
@@ -43,7 +43,7 @@ export default function CTASection() {
             </div>
           </a>
 
-          <a href="mailto:sales@webbinghub.io" onClick={trackContactConversion} className={styles.btnGold}>
+          <a href="mailto:hello@webbinghub.io" onClick={trackContactConversion} className={styles.btnGold}>
             Start a conversation →
           </a>
         </div>

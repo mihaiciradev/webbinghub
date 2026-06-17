@@ -6,6 +6,7 @@ import fullLogoGold from "@/new/full_logo_gold.svg";
 import type { Locale } from "@/i18n/config";
 import type { Translations } from "@/i18n/translations";
 import { trackContactConversion } from "@/lib/gtag";
+import FooterEmail from "./FooterEmail";
 
 interface FooterProps {
   locale: Locale;
@@ -22,9 +23,11 @@ export default function Footer({ locale, t }: FooterProps) {
             <Image src={fullLogoGold} alt="WebbingHUB" className={styles.mascotLogo} />
           </div>
           <p className={styles.tagline}>{t.tagline}</p>
-          <p className={styles.contact}><a href="mailto:sales@webbinghub.io" onClick={trackContactConversion}>sales@webbinghub.io</a></p>
+          <p className={styles.contact}><a href="mailto:hello@webbinghub.io" onClick={trackContactConversion}>hello@webbinghub.io</a></p>
           <p className={styles.contact}><a href="tel:+40736394784" onClick={trackContactConversion}>+40 736 394 784</a></p>
           <p className={styles.contact}><a href="https://wa.me/40736394784" onClick={trackContactConversion} target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+
+          <FooterEmail label="Prefer we reach out? Leave your email." />
         </div>
 
         {/* Navigation col */}

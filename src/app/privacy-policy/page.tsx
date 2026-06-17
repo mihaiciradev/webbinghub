@@ -94,7 +94,7 @@ export default function PrivacyPolicy() {
         </ul>
         <p>
           If you would like to exercise these rights, please contact us at{" "}
-          <a href="mailto:sales@webbinghub.io">sales@webbinghub.io</a>.
+          <a href="mailto:hello@webbinghub.io">hello@webbinghub.io</a>.
         </p>
       </section>
 
@@ -125,7 +125,7 @@ export default function PrivacyPolicy() {
         </p>
         <address>
           Email:{" "}
-          <a href="mailto:support@webbinghub.io">support@webbinghub.io</a>
+          <a href="mailto:hello@webbinghub.io">hello@webbinghub.io</a>
         </address>
       </section>
     </div>
