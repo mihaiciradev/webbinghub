@@ -372,7 +372,7 @@ const ro: Translations = {
     eyebrow:    'Agenție de dezvoltare web',
     titleLine1: 'Website-ul tău ar trebui să muncească',
     titleEm:    'la fel de mult ca tine.',
-    body:       'Construim website-uri personalizate și instrumente digitale care ajută afacerea ta să crească online. Fără șabloane, fără ghiciri — doar soluția potrivită pentru obiectivele tale, realizată corect și susținută mult după lansare.',
+    body:       'Site de prezentare, magazin online sau o aplicație web la comandă: construim de la zero ce are nevoie afacerea ta, fără șabloane și fără abonamente care te țin captiv. Site-ul rămâne al tău, cu tot cu cod, și îl susținem mult după lansare.',
     cta1:       'Începe o conversație →',
     cta2:       'Ce construim',
     badge1:     'Bazați în România',

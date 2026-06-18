@@ -12,6 +12,7 @@ const PAGES = [
   { path: "/blog/how-hard-is-it-to-make-a-website",                       priority: 0.7, freq: "monthly" },
   { path: "/blog/maximize-website-visibility-google-search-console",       priority: 0.8, freq: "monthly" },
   { path: "/websites-timisoara",                                           priority: 0.85, freq: "monthly" },
+  { path: "/websites-bucuresti",                                           priority: 0.85, freq: "monthly" },
   { path: "/websites-romania",                                             priority: 0.85, freq: "monthly" },
   { path: "/privacy-policy",                                               priority: 0.2, freq: "yearly"  },
 ] as const;

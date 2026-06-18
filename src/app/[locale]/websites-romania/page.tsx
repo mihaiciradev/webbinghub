@@ -3,8 +3,9 @@ import type { Locale } from "@/i18n/config";
 import { locales } from "@/i18n/config";
 import Link from "next/link";
 import Script from "next/script";
-import styles from "@/app/contact/page.module.css";
+import styles from "./page.module.css";
 import EmailUs from "@/components/EmailUs/EmailUs";
+import TrackedCTA from "@/components/TrackedCTA/TrackedCTA";
 
 const BASE = "https://webbinghub.io";
 
@@ -14,18 +15,18 @@ export async function generateMetadata({
   params: { locale: Locale };
 }): Promise<Metadata> {
   return {
-    title: "Website-uri Personalizate pentru România | WebbingHUB",
+    title: "Creare site web în România — Agenție web design | WebbingHUB",
     description:
-      "Website-uri personalizate pentru afaceri din România. Magazin online, aplicații interne. Fără template-uri. 100% proprietatea ta.",
+      "Creare site de prezentare, magazin online și aplicații web personalizate pentru afaceri din România. Dezvoltare site web de la zero, fără șabloane. Cod și date 100% ale tale.",
     keywords: [
-      "website Romania",
-      "websites Romania",
-      "web development Romania",
-      "website personalizat Romania",
-      "design website Romania",
-      "magazin online Romania",
-      "web developer Romania",
+      "creare site web",
+      "creare site de prezentare",
+      "realizare site web",
+      "dezvoltare site web",
+      "agentie web design",
+      "magazin online",
       "web design Romania",
+      "creare magazin online",
     ],
     alternates: {
       canonical: `${BASE}/${locale}/websites-romania`,
@@ -108,65 +109,130 @@ export default function RomaniaPage({ params: { locale } }: { params: { locale: 
         {JSON.stringify(breadcrumbSchema)}
       </Script>
 
-      <main className={styles.contactPage}>
-        <section style={{ padding: "60px 20px", maxWidth: "900px", margin: "0 auto" }}>
-          <h1 style={{ marginBottom: "20px", fontSize: "2.5rem" }}>
-            Website-uri Personalizate pentru Afaceri din România
+      <main className={styles.page}>
+        <section className={styles.hero}>
+          <p className={styles.eyebrow}>Agenție web design · România</p>
+          <h1 className={styles.title}>
+            Creare site web pentru <em>afaceri din România</em>
           </h1>
-
-          <p style={{ fontSize: "1.1rem", lineHeight: "1.8", marginBottom: "30px" }}>
-            La WebbingHUB construim website-uri personalizate pentru afaceri din toată România.
-            De la București la Timișoara, de la Cluj la Constanța &mdash; ovreunde ești, putem ajuta.
-            Fără template-uri, fără limitări de proprietate. Un site care aparține 100% ție.
+          <p className={styles.lead}>
+            Construim site-uri de prezentare, magazine online și aplicații web
+            de la zero — adaptate exact la cum lucrează afacerea ta. Fără
+            șabloane, fără abonamente care te țin captiv. Codul și datele rămân
+            ale tale.
           </p>
+          <div className={styles.ctaRow}>
+            <TrackedCTA
+              href="mailto:hello@webbinghub.io"
+              className={styles.ctaButton}
+            >
+              Cere o ofertă
+            </TrackedCTA>
+            <span className={styles.ctaAlt}>
+              sau sună-ne la{" "}
+              <TrackedCTA href="tel:+40736394784">+40 736 394 784</TrackedCTA>
+            </span>
+          </div>
+        </section>
 
-          <h2 style={{ fontSize: "1.5rem", marginTop: "40px", marginBottom: "15px" }}>
-            Servicii Website pentru Afaceri din România
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>
+            Ce <em>construim</em>
           </h2>
-          <ul style={{ fontSize: "1.05rem", lineHeight: "1.8", marginBottom: "30px" }}>
-            <li>💻 <strong>Website personalizat</strong> &mdash; Construit de la zero, adaptat la nevoile tale</li>
-            <li>🛒 <strong>Magazin online &amp; e-commerce</strong> &mdash; Vinde pe internet în toată România și Europa</li>
-            <li>⚙️ <strong>Aplicații interne &amp; dashboard-uri</strong> &mdash; Automatizează procesele businessului tău</li>
-            <li>📱 <strong>Design responsive</strong> &mdash; Perfect pe telefoane, tablete și calculatoare</li>
-            <li>🔧 <strong>Proprietate deplină</strong> &mdash; Codul tău, datele tale, website-ul tău</li>
-          </ul>
+          <div className={styles.cards}>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Site de prezentare</p>
+              <p className={styles.cardText}>
+                Pagini clare care explică ce faci și conving vizitatorul să te
+                contacteze. Rapide, optimizate pentru Google și ușor de
+                actualizat.
+              </p>
+            </div>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Magazin online &amp; e-commerce</p>
+              <p className={styles.cardText}>
+                Creare magazin online cu plăți, gestiune produse și livrare —
+                pregătit pentru vânzări în România și în toată Europa.
+              </p>
+            </div>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Dezvoltare site web la comandă</p>
+              <p className={styles.cardText}>
+                Funcționalități pe care platformele gata făcute nu le pot
+                oferi: integrări, rezervări, conturi de utilizator, fluxuri
+                proprii.
+              </p>
+            </div>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Aplicații interne &amp; dashboard-uri</p>
+              <p className={styles.cardText}>
+                Instrumente care îți automatizează munca repetitivă și îți
+                strâng datele într-un singur loc, accesibil de oriunde.
+              </p>
+            </div>
+          </div>
+        </section>
 
-          <h2 style={{ fontSize: "1.5rem", marginTop: "40px", marginBottom: "15px" }}>
-            De Ce WebbingHUB pentru Website-ul tău din România
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>
+            De ce o agenție, nu un <em>website builder</em>
           </h2>
-          <p style={{ fontSize: "1.05rem", lineHeight: "1.8", marginBottom: "30px" }}>
-            Suntem din România și înțelegem piața locală, legislația, și cum funcționează businessurile românești.
-            Am construit website-uri pentru hoteluri, magazine online, agenții de turism, și companii SaaS din România și din toată Europa.
-            Vorbim limba ta și cunoaștem cu adevărat provocările cu care se confruntă afacerile din țara asta.
+          <p className={styles.prose}>
+            Cu un builder plătești lunar și rămâi blocat în limitele lui:
+            template-uri pe care le recunoști pe alte zeci de site-uri, viteză
+            pe care n-o controlezi și un site pe care nu-l poți muta. Noi
+            construim de la zero, deci primești exact ce-ți trebuie — și rămâne
+            al tău, cu tot cu cod.
           </p>
-
-          <h2 style={{ fontSize: "1.5rem", marginTop: "40px", marginBottom: "15px" }}>
-            Website-uri Personalizate pentru Diferite Industrii
-          </h2>
-          <ul style={{ fontSize: "1.05rem", lineHeight: "1.8", marginBottom: "30px" }}>
-            <li>🏨 Hotel-uri și pensiuni</li>
-            <li>✈️ Agenții de turism și turism</li>
-            <li>🛍️ Magazine retail și e-commerce</li>
-            <li>🏢 Website-uri corporate B2B</li>
-            <li>📊 Produse SaaS și software</li>
-            <li>🏭 Companii industriale și de producție</li>
-            <li>💼 Companii de servicii și consultanță</li>
-          </ul>
-
-          <h2 style={{ fontSize: "1.5rem", marginTop: "40px", marginBottom: "15px" }}>
-            Gata de un Website Personalizat?
-          </h2>
-          <p style={{ fontSize: "1.05rem", lineHeight: "1.8", marginBottom: "40px" }}>
-            Indiferent dacă ești din București, Cluj, Timișoara sau din orice alt colț al României,
-            suntem aici să ajutăm. Fără presiuni, fără pitch-uri forțate &mdash; doar o conversație sinceră
-            despre ce ai nevoie și cum putem contribui la creșterea businessului tău.
+          <p className={styles.prose}>
+            Suntem din România și lucrăm cu afaceri locale de peste 6 ani: am
+            făcut site-uri pentru hoteluri, agenții de turism, magazine și
+            companii de servicii. Vorbim limba ta și înțelegem piața în care
+            vinzi.
           </p>
+        </section>
 
-          <EmailUs label="Vreau un Website Personalizat" />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>
+            Lucrăm cu afaceri din <em>toată țara</em>
+          </h2>
+          <p className={styles.prose}>
+            Colaborăm 100% online, deci locul nu contează. Clienți avem din:
+          </p>
+          <div className={styles.cities}>
+            {[
+              "București",
+              "Cluj-Napoca",
+              "Timișoara",
+              "Iași",
+              "Constanța",
+              "Brașov",
+              "Oradea",
+            ].map((city) => (
+              <span key={city} className={styles.cityTag}>
+                {city}
+              </span>
+            ))}
+          </div>
+        </section>
 
-          <p style={{ fontSize: "0.95rem", color: "#666", marginTop: "40px", textAlign: "center" }}>
-            <Link href={`/${locale}/contact`} style={{ color: "#0066cc", textDecoration: "none" }}>
-              ← Înapoi la contact
+        <section className={styles.formSection} id="contact">
+          <div className={styles.formBox}>
+            <p className={styles.formTitle}>Hai să-ți facem o ofertă</p>
+            <p className={styles.formSub}>
+              Lasă-ne emailul și îți răspundem în 24h. Fără discurs de vânzări —
+              vorbim despre ce ai nevoie și dacă te putem ajuta.
+            </p>
+            <EmailUs label="Adresa ta de email" />
+          </div>
+
+          <p style={{ marginTop: "1.5rem" }}>
+            <Link
+              href={`/${locale}/contact`}
+              className={styles.ctaAlt}
+              style={{ color: "var(--gold, #b8975a)" }}
+            >
+              Vezi toate datele de contact →
             </Link>
           </p>
         </section>
