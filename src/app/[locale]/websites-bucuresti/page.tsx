@@ -65,7 +65,7 @@ export default function BucurestiPage({
     image: `${BASE}/full_logo_gold.svg`,
     description: "Agenție de creare site web și web design în București",
     url: `${BASE}/${locale}/websites-bucuresti`,
-    telephone: "+40736394784",
+    telephone: "+40776394784",
     areaServed: {
       "@type": "City",
       name: "București",
@@ -133,7 +133,7 @@ export default function BucurestiPage({
             </TrackedCTA>
             <span className={styles.ctaAlt}>
               sau sună-ne la{" "}
-              <TrackedCTA href="tel:+40736394784">+40 736 394 784</TrackedCTA>
+              <TrackedCTA href="tel:+40776394784">+40 776 394 784</TrackedCTA>
             </span>
           </div>
         </section>
@@ -152,7 +152,9 @@ export default function BucurestiPage({
               </p>
             </div>
             <div className={styles.card}>
-              <p className={styles.cardTitle}>Magazin online &amp; e-commerce</p>
+              <p className={styles.cardTitle}>
+                Magazin online &amp; e-commerce
+              </p>
               <p className={styles.cardText}>
                 Creare magazin online cu plăți, gestiune produse și livrare —
                 pregătit pentru vânzări în București și în toată țara.
@@ -161,13 +163,14 @@ export default function BucurestiPage({
             <div className={styles.card}>
               <p className={styles.cardTitle}>Dezvoltare site web la comandă</p>
               <p className={styles.cardText}>
-                Funcționalități pe care platformele gata făcute nu le pot
-                oferi: integrări, rezervări, conturi de utilizator, fluxuri
-                proprii.
+                Funcționalități pe care platformele gata făcute nu le pot oferi:
+                integrări, rezervări, conturi de utilizator, fluxuri proprii.
               </p>
             </div>
             <div className={styles.card}>
-              <p className={styles.cardTitle}>Aplicații interne &amp; dashboard-uri</p>
+              <p className={styles.cardTitle}>
+                Aplicații interne &amp; dashboard-uri
+              </p>
               <p className={styles.cardText}>
                 Instrumente care îți automatizează munca repetitivă și îți
                 strâng datele într-un singur loc, accesibil de oriunde.

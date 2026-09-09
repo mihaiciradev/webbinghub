@@ -20,12 +20,36 @@ export default function Footer({ locale, t }: FooterProps) {
         {/* Brand col */}
         <div>
           <div className={styles.logos}>
-            <Image src={fullLogoGold} alt="WebbingHUB" className={styles.mascotLogo} />
+            <Image
+              src={fullLogoGold}
+              alt="WebbingHUB"
+              className={styles.mascotLogo}
+            />
           </div>
           <p className={styles.tagline}>{t.tagline}</p>
-          <p className={styles.contact}><a href="mailto:hello@webbinghub.io" onClick={trackContactConversion}>hello@webbinghub.io</a></p>
-          <p className={styles.contact}><a href="tel:+40736394784" onClick={trackContactConversion}>+40 736 394 784</a></p>
-          <p className={styles.contact}><a href="https://wa.me/40736394784" onClick={trackContactConversion} target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+          <p className={styles.contact}>
+            <a
+              href="mailto:hello@webbinghub.io"
+              onClick={trackContactConversion}
+            >
+              hello@webbinghub.io
+            </a>
+          </p>
+          <p className={styles.contact}>
+            <a href="tel:+40776394784" onClick={trackContactConversion}>
+              +40 776 394 784
+            </a>
+          </p>
+          <p className={styles.contact}>
+            <a
+              href="https://wa.me/40776394784"
+              onClick={trackContactConversion}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+          </p>
 
           <FooterEmail label="Prefer we reach out? Leave your email." />
         </div>
@@ -34,12 +58,24 @@ export default function Footer({ locale, t }: FooterProps) {
         <div>
           <p className={styles.colTitle}>{t.navTitle}</p>
           <ul className={styles.colLinks}>
-            <li><Link href={`/${locale}`}>Home</Link></li>
-            <li><Link href={`/${locale}/#services`}>Services</Link></li>
-            <li><Link href={`/${locale}/#process`}>How it works</Link></li>
-            <li><Link href={`/${locale}/about`}>About</Link></li>
-            <li><Link href={`/${locale}/blog`}>Blog</Link></li>
-            <li><Link href={`/${locale}/privacy-policy`}>Privacy Policy</Link></li>
+            <li>
+              <Link href={`/${locale}`}>Home</Link>
+            </li>
+            <li>
+              <Link href={`/${locale}/#services`}>Services</Link>
+            </li>
+            <li>
+              <Link href={`/${locale}/#process`}>How it works</Link>
+            </li>
+            <li>
+              <Link href={`/${locale}/about`}>About</Link>
+            </li>
+            <li>
+              <Link href={`/${locale}/blog`}>Blog</Link>
+            </li>
+            <li>
+              <Link href={`/${locale}/privacy-policy`}>Privacy Policy</Link>
+            </li>
           </ul>
         </div>
 
@@ -47,8 +83,24 @@ export default function Footer({ locale, t }: FooterProps) {
         <div>
           <p className={styles.colTitle}>{t.subBrandsTitle}</p>
           <ul className={styles.colLinks}>
-            <li><a href="https://travel.webbinghub.io/" target="_blank" rel="noopener noreferrer">TRAVEL by WebbingHUB</a></li>
-            <li><a href="https://apetit.webbinghub.io" target="_blank" rel="noopener noreferrer">APETIT by WebbingHUB</a></li>
+            <li>
+              <a
+                href="https://travel.webbinghub.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                TRAVEL by WebbingHUB
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://apetit.webbinghub.io"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                APETIT by WebbingHUB
+              </a>
+            </li>
           </ul>
         </div>
       </div>

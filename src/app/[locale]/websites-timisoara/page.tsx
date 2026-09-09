@@ -52,7 +52,11 @@ export async function generateMetadata({
   };
 }
 
-export default function TimisoaraPage({ params: { locale } }: { params: { locale: Locale } }) {
+export default function TimisoaraPage({
+  params: { locale },
+}: {
+  params: { locale: Locale };
+}) {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -66,7 +70,7 @@ export default function TimisoaraPage({ params: { locale } }: { params: { locale
       {
         "@type": "City",
         name: "Timisoara",
-        "sameAs": "https://en.wikipedia.org/wiki/Timi%C8%99oara",
+        sameAs: "https://en.wikipedia.org/wiki/Timi%C8%99oara",
       },
       {
         "@type": "State",
@@ -138,7 +142,7 @@ export default function TimisoaraPage({ params: { locale } }: { params: { locale
             </TrackedCTA>
             <span className={styles.ctaAlt}>
               sau sună-ne la{" "}
-              <TrackedCTA href="tel:+40736394784">+40 736 394 784</TrackedCTA>
+              <TrackedCTA href="tel:+40776394784">+40 776 394 784</TrackedCTA>
             </span>
           </div>
         </section>
@@ -157,7 +161,9 @@ export default function TimisoaraPage({ params: { locale } }: { params: { locale
               </p>
             </div>
             <div className={styles.card}>
-              <p className={styles.cardTitle}>Magazin online &amp; e-commerce</p>
+              <p className={styles.cardTitle}>
+                Magazin online &amp; e-commerce
+              </p>
               <p className={styles.cardText}>
                 Creare magazin online cu plăți, gestiune produse și livrare —
                 pregătit pentru vânzări în Timișoara și în toată țara.
@@ -166,13 +172,14 @@ export default function TimisoaraPage({ params: { locale } }: { params: { locale
             <div className={styles.card}>
               <p className={styles.cardTitle}>Dezvoltare site web la comandă</p>
               <p className={styles.cardText}>
-                Funcționalități pe care platformele gata făcute nu le pot
-                oferi: integrări, rezervări, conturi de utilizator, fluxuri
-                proprii.
+                Funcționalități pe care platformele gata făcute nu le pot oferi:
+                integrări, rezervări, conturi de utilizator, fluxuri proprii.
               </p>
             </div>
             <div className={styles.card}>
-              <p className={styles.cardTitle}>Aplicații interne &amp; dashboard-uri</p>
+              <p className={styles.cardTitle}>
+                Aplicații interne &amp; dashboard-uri
+              </p>
               <p className={styles.cardText}>
                 Instrumente care îți automatizează munca repetitivă și îți
                 strâng datele într-un singur loc, accesibil de oriunde.

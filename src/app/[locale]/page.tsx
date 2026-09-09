@@ -57,7 +57,7 @@ const organizationSchema = {
     {
       "@type": "ContactPoint",
       email: "hello@webbinghub.io",
-      telephone: "+40736394784",
+      telephone: "+40776394784",
       contactType: "sales",
       areaServed: "EU",
       availableLanguage: ["English", "Romanian", "French"],
@@ -71,10 +71,40 @@ const organizationSchema = {
     "@type": "OfferCatalog",
     name: "Web Development Services",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Websites", description: "Bespoke websites designed and built from scratch." } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Internal Tools & Portals", description: "Custom dashboards and management systems." } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Online Stores", description: "E-commerce stores built for performance and conversion." } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Integrations & Automations", description: "API integrations, WhatsApp, booking engines, payment providers." } },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Custom Websites",
+          description: "Bespoke websites designed and built from scratch.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Internal Tools & Portals",
+          description: "Custom dashboards and management systems.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Online Stores",
+          description:
+            "E-commerce stores built for performance and conversion.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Integrations & Automations",
+          description:
+            "API integrations, WhatsApp, booking engines, payment providers.",
+        },
+      },
     ],
   },
 };
@@ -89,7 +119,10 @@ const websiteSchema = {
   inLanguage: ["en", "fr", "es", "de", "ro"],
   potentialAction: {
     "@type": "SearchAction",
-    target: { "@type": "EntryPoint", urlTemplate: `${BASE}/en/blog?q={search_term_string}` },
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${BASE}/en/blog?q={search_term_string}`,
+    },
     "query-input": "required name=search_term_string",
   },
 };
@@ -147,9 +180,18 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <HeroSection locale={locale} t={t.hero} />
       <TrustBar t={t.trustBar} />
       <AboutSection />
