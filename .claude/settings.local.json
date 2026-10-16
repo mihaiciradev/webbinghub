@@ -16,7 +16,10 @@
       "Bash(curl -s http://localhost:3010/en)",
       "Bash(git add *)",
       "Bash(pkill -f \"next dev\")",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "PowerShell(Get-ChildItem -Recurse src -File | Select-Object -ExpandProperty FullName | ForEach-Object { $_.Replace\\(\\(Get-Location\\).Path + '\\\\', ''\\) })",
+      "PowerShell(npx tsc --noEmit)",
+      "PowerShell(npx next lint --dir src/components/TravelPopup --dir src/config)"
     ]
   }
 }

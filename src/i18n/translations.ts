@@ -66,6 +66,15 @@ export type Translations = {
     subBrandsTitle: string;
     copy: string;
   };
+  travelPopup: {
+    eyebrow: string;
+    title: string;
+    titleEm: string;
+    body: string;
+    yes: string;
+    no: string;
+    close: string;
+  };
 };
 
 const en: Translations = {
@@ -138,6 +147,15 @@ const en: Translations = {
     navTitle:      'Navigation',
     subBrandsTitle: 'Sub-brands',
     copy:          'All rights reserved.',
+  },
+  travelPopup: {
+    eyebrow: 'Welcome to WebbingHUB',
+    title:   'Are you in the',
+    titleEm: 'travel industry?',
+    body:    'Hotels, guesthouses, travel agencies and tour operators: we have a dedicated space built just for you.',
+    yes:     'Yes, take me to WebbingHUB Travel →',
+    no:      "No, I'm interested in WebbingHUB itself",
+    close:   'Close',
   },
 };
 
@@ -212,6 +230,15 @@ const fr: Translations = {
     subBrandsTitle: 'Sous-marques',
     copy:           'Tous droits réservés.',
   },
+  travelPopup: {
+    eyebrow: 'Bienvenue chez WebbingHUB',
+    title:   'Travaillez-vous dans le',
+    titleEm: 'secteur du voyage ?',
+    body:    "Hôtels, maisons d'hôtes, agences de voyage et tour-opérateurs : nous avons un espace dédié, pensé pour vous.",
+    yes:     'Oui, voir WebbingHUB Travel →',
+    no:      "Non, c'est WebbingHUB qui m'intéresse",
+    close:   'Fermer',
+  },
 };
 
 const es: Translations = {
@@ -284,6 +311,15 @@ const es: Translations = {
     navTitle:       'Navegación',
     subBrandsTitle: 'Submarcas',
     copy:           'Todos los derechos reservados.',
+  },
+  travelPopup: {
+    eyebrow: 'Bienvenido a WebbingHUB',
+    title:   '¿Trabajas en el',
+    titleEm: 'sector turístico?',
+    body:    'Hoteles, casas rurales, agencias de viajes y turoperadores: tenemos un espacio dedicado, creado para ti.',
+    yes:     'Sí, llévame a WebbingHUB Travel →',
+    no:      'No, me interesa WebbingHUB',
+    close:   'Cerrar',
   },
 };
 
@@ -358,6 +394,15 @@ const de: Translations = {
     subBrandsTitle: 'Submarken',
     copy:           'Alle Rechte vorbehalten.',
   },
+  travelPopup: {
+    eyebrow: 'Willkommen bei WebbingHUB',
+    title:   'Sind Sie in der',
+    titleEm: 'Reisebranche tätig?',
+    body:    'Hotels, Pensionen, Reisebüros und Reiseveranstalter: Wir haben einen eigenen Bereich speziell für Sie.',
+    yes:     'Ja, zu WebbingHUB Travel →',
+    no:      'Nein, mich interessiert WebbingHUB selbst',
+    close:   'Schließen',
+  },
 };
 
 const ro: Translations = {
@@ -430,6 +475,15 @@ const ro: Translations = {
     navTitle:       'Navigație',
     subBrandsTitle: 'Sub-branduri',
     copy:           'Toate drepturile rezervate.',
+  },
+  travelPopup: {
+    eyebrow: 'Bine ai venit la WebbingHUB',
+    title:   'Activezi în',
+    titleEm: 'industria turismului?',
+    body:    'Hoteluri, pensiuni, agenții de turism și tour operatori: avem un spațiu dedicat, construit special pentru tine.',
+    yes:     'Da, du-mă la WebbingHUB Travel →',
+    no:      'Nu, mă interesează WebbingHUB',
+    close:   'Închide',
   },
 };
 
