@@ -5,6 +5,7 @@ import "../globals.css";
 import Header from "@/components/Header/header";
 import dynamic from "next/dynamic";
 import Cookies from "@/components/Cookies/Cookies";
+import AdsTag from "@/components/AdsTag/AdsTag";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
@@ -113,13 +114,6 @@ export default function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-17874820921" strategy="afterInteractive" />
-        <Script id="gtag-aw" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'AW-17874820921');
-        `}</Script>
         <Script id="local-business-schema" type="application/ld+json">{`
           {
             "@context": "https://schema.org",
@@ -163,6 +157,7 @@ export default function LocaleLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${montserrat.variable} ${cormorant.variable} ${jost.variable}`}>
         <SpeedInsights />
         <Cookies />
+        <AdsTag />
         <Analytics />
         <ScrollReveal />
         <Header locale={locale} t={t.nav} />

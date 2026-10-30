@@ -1,5 +1,6 @@
 "use client";
 import CookieConsent from "react-cookie-consent";
+import { CONSENT_ACCEPTED_EVENT } from "@/components/AdsTag/AdsTag";
 
 export default function Cookies() {
   return (
@@ -7,7 +8,7 @@ export default function Cookies() {
       buttonText="Accept"
       declineButtonText="Decline"
       enableDeclineButton
-      onAccept={() => {}}
+      onAccept={() => window.dispatchEvent(new Event(CONSENT_ACCEPTED_EVENT))}
       onDecline={() => {}}
       disableStyles
       containerClasses="wh-cookie"
