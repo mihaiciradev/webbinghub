@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
 import { locales } from "@/i18n/config";
-import { getTranslations } from "@/i18n/utils";
+import { getTranslations, pageAlternates } from "@/i18n/utils";
 import HeroSection from "@/app/HeroSection/HeroSection";
 import TrustBar from "@/app/TrustBar/TrustBar";
 import AboutSection from "@/app/AboutSection/AboutSection";
@@ -19,13 +19,7 @@ export async function generateMetadata({
   params: { locale: Locale };
 }): Promise<Metadata> {
   return {
-    alternates: {
-      canonical: `${BASE}/${locale}`,
-      languages: Object.fromEntries([
-        ...locales.map((l) => [l, `${BASE}/${l}`]),
-        ["x-default", `${BASE}/en`],
-      ]),
-    },
+    alternates: pageAlternates(locale, ""),
   };
 }
 
@@ -116,7 +110,7 @@ const websiteSchema = {
   name: "WebbingHUB",
   url: BASE,
   publisher: { "@id": `${BASE}/#organization` },
-  inLanguage: ["en", "fr", "es", "de", "ro"],
+  inLanguage: [...locales],
   potentialAction: {
     "@type": "SearchAction",
     target: {
@@ -194,12 +188,12 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
       />
       <HeroSection locale={locale} t={t.hero} />
       <TrustBar t={t.trustBar} />
-      <AboutSection />
-      <ServicesSection />
-      <ProcessSection />
-      <BrandsSection />
-      <TestimonialSection />
-      <CTASection />
+      <AboutSection t={t.home.about} />
+      <ServicesSection t={t.home.services} />
+      <ProcessSection t={t.home.process} />
+      <BrandsSection t={t.home.brands} />
+      <TestimonialSection t={t.home.testimonial} />
+      <CTASection t={t.home.cta} />
     </>
   );
 }

@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
-import { locales } from "@/i18n/config";
-import { getTranslations } from "@/i18n/utils";
+import { getTranslations, localizedHref, pageAlternates } from "@/i18n/utils";
 import styles from "@/app/blog/page.module.css";
 
 const BASE = "https://webbinghub.io";
@@ -12,20 +11,14 @@ export async function generateMetadata({
 }: {
   params: { locale: Locale };
 }): Promise<Metadata> {
+  const { meta } = getTranslations(locale).pages.blog;
   return {
-    title: "Blog — Web Development Insights by WebbingHUB",
-    description:
-      "Practical articles on web development, website costs, and growth, written by the WebbingHUB team for business owners across Europe.",
-    alternates: {
-      canonical: `${BASE}/${locale}/blog`,
-      languages: Object.fromEntries([
-        ...locales.map((l) => [l, `${BASE}/${l}/blog`]),
-        ["x-default", `${BASE}/en/blog`],
-      ]),
-    },
+    title: meta.title,
+    description: meta.description,
+    alternates: pageAlternates(locale, "/blog"),
     openGraph: {
-      title: "Blog — Web Development Insights by WebbingHUB",
-      description: "Practical articles on web development for business owners.",
+      title: meta.title,
+      description: meta.ogDescription,
       url: `${BASE}/${locale}/blog`,
       type: "website",
       images: [{ url: "/og-blog.png", width: 1200, height: 630, alt: "WebbingHUB Blog" }],
@@ -50,30 +43,23 @@ const blogSchema = {
   },
 };
 
+// Posts are written in English; titles stay in the article's language
+const POSTS = [
+  {
+    slug: "maximize-website-visibility-google-search-console",
+    title: "Maximize Your Website's Visibility: Google Search Console Guide",
+    dateTime: "2026-05-26",
+  },
+  {
+    slug: "how-hard-is-it-to-make-a-website",
+    title: "How hard is it to make a website? A Practical Breakdown",
+    dateTime: "2024-11-01",
+  },
+];
+
 export default function BlogPage({ params }: { params: { locale: Locale } }) {
   const { locale } = params;
   const t = getTranslations(locale).pages.blog;
-
-  const POSTS = [
-    {
-      slug: "maximize-website-visibility-google-search-console",
-      title: "Maximize Your Website's Visibility: Google Search Console Guide",
-      dateDisplay: "May 2026",
-      dateTime: "2026-05-26",
-      readTime: "8 min read",
-      excerpt: "Google Search Console shows how your site performs in search. We explain impressions, clicks, and CTR, and how to turn that traffic into customers.",
-      tags: ["SEO", "Google Search Console", "Website Visibility"],
-    },
-    {
-      slug: "how-hard-is-it-to-make-a-website",
-      title: "How hard is it to make a website? A Practical Breakdown",
-      dateDisplay: "November 2024",
-      dateTime: "2024-11-01",
-      readTime: "8 min read",
-      excerpt: "Building a website is as hard as what you need it to do. We explain the factors that set the complexity: scope, performance, and customization.",
-      tags: ["Web development", "Guide", "For business owners"],
-    },
-  ];
 
   return (
     <>
@@ -88,24 +74,38 @@ export default function BlogPage({ params }: { params: { locale: Locale } }) {
       </section>
 
       <section className={styles.posts}>
-        <p className={styles.postsLabel}>{POSTS.length} article{POSTS.length !== 1 ? "s" : ""}</p>
-        {POSTS.map((post) => (
-          <Link key={post.slug} href={`/${locale}/blog/${post.slug}`} className={styles.postCard}>
-            <div className={styles.postMeta}>
-              <span className={styles.postDate}>{post.dateDisplay}</span>
-              <span className={styles.postDot}>·</span>
-              <span className={styles.postRead}>{post.readTime}</span>
-            </div>
-            <h2 className={styles.postTitle}>{post.title}</h2>
-            <p className={styles.postExcerpt}>{post.excerpt}</p>
-            <div className={styles.postFooter}>
-              <div className={styles.postTags}>
-                {post.tags.map((tag) => <span key={tag} className={styles.tag}>{tag}</span>)}
+        <p className={styles.postsLabel}>{t.articleCount(POSTS.length)}</p>
+        {POSTS.map((post) => {
+          const card = t.posts[post.slug];
+          return (
+            <Link
+              key={post.slug}
+              href={localizedHref(locale, `/blog/${post.slug}`)}
+              hrefLang="en"
+              className={styles.postCard}
+            >
+              <div className={styles.postMeta}>
+                <time className={styles.postDate} dateTime={post.dateTime}>{card.date}</time>
+                <span className={styles.postDot}>·</span>
+                <span className={styles.postRead}>{card.readTime}</span>
+                {t.inEnglish && (
+                  <>
+                    <span className={styles.postDot}>·</span>
+                    <span className={styles.postRead}>{t.inEnglish}</span>
+                  </>
+                )}
               </div>
-              <span className={styles.postArrow}>{t.readMore}</span>
-            </div>
-          </Link>
-        ))}
+              <h2 className={styles.postTitle} lang="en">{post.title}</h2>
+              <p className={styles.postExcerpt}>{card.excerpt}</p>
+              <div className={styles.postFooter}>
+                <div className={styles.postTags}>
+                  {card.tags.map((tag) => <span key={tag} className={styles.tag}>{tag}</span>)}
+                </div>
+                <span className={styles.postArrow}>{t.readMore}</span>
+              </div>
+            </Link>
+          );
+        })}
       </section>
 
       <section className={styles.cta}>

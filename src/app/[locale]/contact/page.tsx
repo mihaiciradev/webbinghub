@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
-import { locales } from "@/i18n/config";
-import { getTranslations } from "@/i18n/utils";
+import { getTranslations, pageAlternates } from "@/i18n/utils";
 import styles from "@/app/contact/page.module.css";
 import EmailUs from "@/components/EmailUs/EmailUs";
 import ContactLinks from "@/components/ContactLinks/ContactLinks";
@@ -14,20 +13,14 @@ export async function generateMetadata({
 }: {
   params: { locale: Locale };
 }): Promise<Metadata> {
+  const { meta } = getTranslations(locale).pages.contact;
   return {
-    title: "Contact WebbingHUB — Let's Have a Chat",
-    description:
-      "No pressure, no pitch. Talk to WebbingHUB, a web development agency based in Romania, serving clients across Europe.",
-    alternates: {
-      canonical: `${BASE}/${locale}/contact`,
-      languages: Object.fromEntries([
-        ...locales.map((l) => [l, `${BASE}/${l}/contact`]),
-        ["x-default", `${BASE}/en/contact`],
-      ]),
-    },
+    title: meta.title,
+    description: meta.description,
+    alternates: pageAlternates(locale, "/contact"),
     openGraph: {
-      title: "Contact WebbingHUB — Let's Have a Chat",
-      description: "No pressure, no pitch. An honest conversation about your website.",
+      title: meta.title,
+      description: meta.ogDescription,
       url: `${BASE}/${locale}/contact`,
       images: [{ url: "/og-contact.png", width: 1200, height: 630, alt: "Contact WebbingHUB" }],
     },
@@ -95,7 +88,7 @@ export default function ContactPage({ params }: { params: { locale: Locale } }) 
         <div className={styles.right}>
           <div className={styles.formBox}>
             <p className={styles.formTitle}>{t.formTitle}</p>
-            <EmailUs label="Your email address" />
+            <EmailUs label={t.formLabel} />
           </div>
         </div>
       </div>

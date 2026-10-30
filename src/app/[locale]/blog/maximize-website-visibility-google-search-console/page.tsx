@@ -1,14 +1,10 @@
 import { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
-import { locales } from "@/i18n/config";
+import { pageAlternates } from "@/i18n/utils";
 import styles from "@/app/blog/page.module.css";
 
 const BASE = "https://webbinghub.io";
 const ARTICLE_SLUG = "maximize-website-visibility-google-search-console";
-
-export async function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
 
 export const metadata: Metadata = {
   title:
@@ -39,13 +35,7 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  alternates: {
-    canonical: `${BASE}/en/blog/${ARTICLE_SLUG}`,
-    languages: Object.fromEntries([
-      ...locales.map((l) => [l, `${BASE}/${l}/blog/${ARTICLE_SLUG}`]),
-      ["x-default", `${BASE}/en/blog/${ARTICLE_SLUG}`],
-    ]),
-  },
+  alternates: pageAlternates("en", `/blog/${ARTICLE_SLUG}`),
   openGraph: {
     type: "article",
     locale: "en_US",

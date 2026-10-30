@@ -1,12 +1,13 @@
 "use client";
 import CookieConsent from "react-cookie-consent";
 import { CONSENT_ACCEPTED_EVENT } from "@/components/AdsTag/AdsTag";
+import type { Translations } from "@/i18n/translations";
 
-export default function Cookies() {
+export default function Cookies({ t }: { t: Translations["cookies"] }) {
   return (
     <CookieConsent
-      buttonText="Accept"
-      declineButtonText="Decline"
+      buttonText={t.accept}
+      declineButtonText={t.decline}
       enableDeclineButton
       onAccept={() => window.dispatchEvent(new Event(CONSENT_ACCEPTED_EVENT))}
       onDecline={() => {}}
@@ -16,14 +17,11 @@ export default function Cookies() {
       buttonWrapperClasses="wh-cookie-actions"
       buttonClasses="wh-cookie-btn wh-cookie-accept"
       declineButtonClasses="wh-cookie-btn wh-cookie-decline"
-      ariaAcceptLabel="Accept analytics cookies"
-      ariaDeclineLabel="Decline analytics cookies"
+      ariaAcceptLabel={t.ariaAccept}
+      ariaDeclineLabel={t.ariaDecline}
     >
-      <span className="wh-cookie-title">We use cookies</span>
-      <span className="wh-cookie-text">
-        This site uses analytics cookies to understand how it&apos;s used and to
-        improve your experience. You can accept or decline.
-      </span>
+      <span className="wh-cookie-title">{t.title}</span>
+      <span className="wh-cookie-text">{t.text}</span>
     </CookieConsent>
   );
 }

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
-import { locales } from "@/i18n/config";
+import { pageAlternates } from "@/i18n/utils";
 import styles from "@/app/blog/how-hard-is-it-to-make-a-website/page.module.css";
 
 const BASE = "https://webbinghub.io";
@@ -39,17 +39,11 @@ export async function generateMetadata({
         "max-video-preview": -1,
       },
     },
-    alternates: {
-      canonical: `${BASE}/${locale}${POST_PATH}`,
-      languages: Object.fromEntries([
-        ...locales.map((l) => [l, `${BASE}/${l}${POST_PATH}`]),
-        ["x-default", POST_URL],
-      ]),
-    },
+    alternates: pageAlternates(locale, POST_PATH),
     openGraph: {
       type: "article",
       locale: "en_US",
-      url: `${BASE}/${locale}${POST_PATH}`,
+      url: POST_URL,
       siteName: "WebbingHUB",
       title: "How Hard Is It to Make a Website? A Practical Breakdown",
       description:

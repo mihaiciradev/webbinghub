@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
-import { locales } from "@/i18n/config";
+import { pageAlternates } from "@/i18n/utils";
 import Link from "next/link";
 import Script from "next/script";
 import styles from "./page.module.css";
@@ -28,13 +28,7 @@ export async function generateMetadata({
       "web design Romania",
       "creare magazin online",
     ],
-    alternates: {
-      canonical: `${BASE}/${locale}/websites-romania`,
-      languages: Object.fromEntries([
-        ...locales.map((l) => [l, `${BASE}/${l}/websites-romania`]),
-        ["x-default", `${BASE}/en/websites-romania`],
-      ]),
-    },
+    alternates: pageAlternates(locale, "/websites-romania"),
     openGraph: {
       title: "Website-uri Personalizate pentru România",
       description:
@@ -61,7 +55,7 @@ export default function RomaniaPage({
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${BASE}/en/websites-romania#business`,
+    "@id": `${BASE}/ro/websites-romania#business`,
     name: "WebbingHUB",
     image: `${BASE}/full_logo_gold.svg`,
     description: "Agenție de dezvoltare website-uri personalizate în România",

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { locales, defaultLocale } from '@/i18n/config';
+import { locales, defaultLocale, retiredLocales, singleLocalePages, type Locale } from '@/i18n/config';
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -14,16 +14,21 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Check if the path already starts with a known locale
-  const hasLocale = locales.some(
-    (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
-  );
+  const [, first = '', ...rest] = pathname.split('/');
+  const hasLocale = (locales as readonly string[]).includes(first);
+  const isRetired = (retiredLocales as readonly string[]).includes(first);
 
-  if (hasLocale) return NextResponse.next();
+  // Path without any locale prefix ("" for home)
+  const path = hasLocale || isRetired ? (rest.length ? `/${rest.join('/')}` : '') : pathname === '/' ? '' : pathname;
 
-  // No locale → permanent redirect to default
+  // Where this page lives: its only language, else the requested one, else default
+  const target: Locale = singleLocalePages[path] ?? (hasLocale ? (first as Locale) : defaultLocale);
+
+  if (hasLocale && first === target) return NextResponse.next();
+
+  // Missing, retired or wrong locale → permanent redirect
   const url = request.nextUrl.clone();
-  url.pathname = `/${defaultLocale}${pathname}`;
+  url.pathname = `/${target}${path}`;
   return NextResponse.redirect(url, 308);
 }
 

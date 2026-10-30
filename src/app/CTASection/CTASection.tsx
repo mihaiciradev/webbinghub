@@ -2,22 +2,19 @@
 
 import styles from "./CTASection.module.css";
 import { trackContactConversion } from "@/lib/gtag";
+import type { Translations } from "@/i18n/translations";
 
-export default function CTASection() {
+export default function CTASection({ t }: { t: Translations["home"]["cta"] }) {
   return (
     <section className={styles.cta} id="contact">
       <div className={styles.inner}>
         <div className="reveal">
           <h2 className={styles.heading}>
-            Let&apos;s talk about
+            {t.heading1}
             <br />
-            what you <em>actually need.</em>
+            {t.heading2} <em>{t.headingEm}</em>
           </h2>
-          <p className={styles.sub}>
-            No pressure, no pitch. Just an honest conversation about your
-            business and whether we&apos;re the right fit to help you build what
-            you need online.
-          </p>
+          <p className={styles.sub}>{t.sub}</p>
         </div>
 
         <div className={`${styles.right} reveal`}>
@@ -28,7 +25,7 @@ export default function CTASection() {
           >
             <div className={styles.rowIcon}>✉️</div>
             <div>
-              <p className={styles.rowLabel}>Email us</p>
+              <p className={styles.rowLabel}>{t.email}</p>
               <p className={styles.rowVal}>hello@webbinghub.io</p>
             </div>
           </a>
@@ -40,7 +37,7 @@ export default function CTASection() {
           >
             <div className={styles.rowIcon}>📞</div>
             <div>
-              <p className={styles.rowLabel}>Call us</p>
+              <p className={styles.rowLabel}>{t.call}</p>
               <p className={styles.rowVal}>+40 776 394 784</p>
             </div>
           </a>
@@ -54,7 +51,7 @@ export default function CTASection() {
           >
             <div className={styles.rowIcon}>💬</div>
             <div>
-              <p className={styles.rowLabel}>Message us</p>
+              <p className={styles.rowLabel}>{t.message}</p>
               <p className={styles.rowVal}>WhatsApp</p>
             </div>
           </a>
@@ -64,7 +61,7 @@ export default function CTASection() {
             onClick={trackContactConversion}
             className={styles.btnGold}
           >
-            Start a conversation →
+            {t.button}
           </a>
         </div>
       </div>

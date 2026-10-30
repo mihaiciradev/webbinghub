@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
-import { locales } from "@/i18n/config";
-
-const BASE = "https://webbinghub.io";
+import { locales, singleLocalePages } from "@/i18n/config";
+import { BASE_URL as BASE, pageAlternates } from "@/i18n/utils";
 
 // Static pages with their SEO priority and change frequency
 const PAGES = [
@@ -14,7 +13,6 @@ const PAGES = [
   { path: "/websites-timisoara",                                           priority: 0.85, freq: "monthly" },
   { path: "/websites-bucuresti",                                           priority: 0.85, freq: "monthly" },
   { path: "/websites-romania",                                             priority: 0.85, freq: "monthly" },
-  { path: "/privacy-policy",                                               priority: 0.2, freq: "yearly"  },
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -23,22 +21,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const { path, priority, freq } of PAGES) {
-    // Build one entry per locale, with all alternate language versions
-    for (const locale of locales) {
-      const url = `${BASE}/${locale}${path}`;
-
+    // One entry per language the page actually exists in
+    const pageLocales = singleLocalePages[path] ? [singleLocalePages[path]] : locales;
+    for (const locale of pageLocales) {
       entries.push({
-        url,
+        url: `${BASE}/${locale}${path}`,
         lastModified: now,
         changeFrequency: freq as MetadataRoute.Sitemap[number]["changeFrequency"],
         priority,
-        // hreflang alternates so Google knows about all locale versions
-        alternates: {
-          languages: Object.fromEntries([
-            ...locales.map((l) => [l, `${BASE}/${l}${path}`]),
-            ["x-default", `${BASE}/en${path}`],
-          ]),
-        },
+        alternates: { languages: pageAlternates(locale, path).languages },
       });
     }
   }

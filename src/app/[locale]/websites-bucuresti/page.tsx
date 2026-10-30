@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
-import { locales } from "@/i18n/config";
+import { pageAlternates } from "@/i18n/utils";
 import Link from "next/link";
 import Script from "next/script";
 import styles from "@/app/[locale]/websites-romania/page.module.css";
@@ -27,13 +27,7 @@ export async function generateMetadata({
       "magazin online bucuresti",
       "dezvoltare site web bucuresti",
     ],
-    alternates: {
-      canonical: `${BASE}/${locale}/websites-bucuresti`,
-      languages: Object.fromEntries([
-        ...locales.map((l) => [l, `${BASE}/${l}/websites-bucuresti`]),
-        ["x-default", `${BASE}/en/websites-bucuresti`],
-      ]),
-    },
+    alternates: pageAlternates(locale, "/websites-bucuresti"),
     openGraph: {
       title: "Creare site web București — Agenție web design",
       description:
@@ -60,7 +54,7 @@ export default function BucurestiPage({
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${BASE}/en/websites-bucuresti#business`,
+    "@id": `${BASE}/ro/websites-bucuresti#business`,
     name: "WebbingHUB",
     image: `${BASE}/full_logo_gold.svg`,
     description: "Agenție de creare site web și web design în București",

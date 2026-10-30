@@ -6,6 +6,7 @@ import fullLogoGold from "@/new/full_logo_gold.svg";
 import type { Locale } from "@/i18n/config";
 import type { Translations } from "@/i18n/translations";
 import { trackContactConversion } from "@/lib/gtag";
+import { localizedHref } from "@/i18n/utils";
 import FooterEmail from "./FooterEmail";
 
 interface FooterProps {
@@ -51,7 +52,7 @@ export default function Footer({ locale, t }: FooterProps) {
             </a>
           </p>
 
-          <FooterEmail label="Prefer we reach out? Leave your email." />
+          <FooterEmail label={t.emailPrompt} />
         </div>
 
         {/* Navigation col */}
@@ -59,22 +60,22 @@ export default function Footer({ locale, t }: FooterProps) {
           <p className={styles.colTitle}>{t.navTitle}</p>
           <ul className={styles.colLinks}>
             <li>
-              <Link href={`/${locale}`}>Home</Link>
+              <Link href={`/${locale}`}>{t.home}</Link>
             </li>
             <li>
-              <Link href={`/${locale}/#services`}>Services</Link>
+              <Link href={`/${locale}/#services`}>{t.services}</Link>
             </li>
             <li>
-              <Link href={`/${locale}/#process`}>How it works</Link>
+              <Link href={`/${locale}/#process`}>{t.howItWorks}</Link>
             </li>
             <li>
-              <Link href={`/${locale}/about`}>About</Link>
+              <Link href={`/${locale}/about`}>{t.about}</Link>
             </li>
             <li>
-              <Link href={`/${locale}/blog`}>Blog</Link>
+              <Link href={`/${locale}/blog`}>{t.blog}</Link>
             </li>
             <li>
-              <Link href={`/${locale}/privacy-policy`}>Privacy Policy</Link>
+              <Link href={localizedHref(locale, "/privacy-policy")}>{t.privacy}</Link>
             </li>
           </ul>
         </div>
@@ -106,7 +107,7 @@ export default function Footer({ locale, t }: FooterProps) {
       </div>
 
       <div className={styles.bottom}>
-        <span>© 2026 WebbingHUB. {t.copy} · Timișoara, Romania</span>
+        <span>© 2026 WebbingHUB. {t.copy} · {t.location}</span>
         <span>webbinghub.io</span>
       </div>
     </footer>

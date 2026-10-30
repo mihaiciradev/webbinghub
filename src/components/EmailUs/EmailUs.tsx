@@ -1,7 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "./EmailUs.module.css";
+import { useParams } from "next/navigation";
 import { FlexBox } from "../FlexBox";
+import { getTranslations, localizedHref } from "@/i18n/utils";
+import type { Locale } from "@/i18n/config";
 
 const LS_KEY = "webbinghub_contact_email_sends";
 const MAX_SENDS = 3; // per rolling window
@@ -31,6 +34,8 @@ export default function EmailUs({
   label: string;
   secondStyle?: boolean;
 }) {
+  const locale = useParams<{ locale?: Locale }>()?.locale ?? "en";
+  const t = getTranslations(locale).emailForm;
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
@@ -50,9 +55,7 @@ export default function EmailUs({
     if (loading) return;
 
     if (getRecentSends().length >= MAX_SENDS) {
-      setMessage(
-        "You’ve reached the email sending limit. If you wish to contact us, we will be happy to attend you at hello@webbinghub.io.",
-      );
+      setMessage(t.limit);
       return;
     }
 
@@ -72,12 +75,12 @@ export default function EmailUs({
         window.localStorage.setItem(LS_KEY, JSON.stringify(next));
 
         setEmail("");
-        setMessage("Email sent successfully!");
+        setMessage(t.success);
       } else {
-        setMessage("Failed to send email.");
+        setMessage(t.error);
       }
     } catch {
-      setMessage("An error occurred.");
+      setMessage(t.error);
     } finally {
       setLoading(false);
     }
@@ -97,11 +100,7 @@ export default function EmailUs({
           {message ? (
             message
           ) : isBlocked ? (
-            <>
-              You’ve reached the email sending limit. <br />
-              If you wish to contact us, we will be happy to attend you at
-              hello@webbinghub.io.
-            </>
+            t.limit
           ) : (
             label
           )}
@@ -121,21 +120,19 @@ export default function EmailUs({
             <FlexBox sx={{ gap: ".5rem" }}>
               <input type="checkbox" id="consent" required disabled={loading} />
               <label htmlFor="consent">
-                I consent to WebbingHUB using my email address to contact me.
-                <br />
-                Privacy policy can be found{" "}
+                {t.consent}{" "}
                 <a
-                  href="/privacy-policy"
+                  href={localizedHref(locale, "/privacy-policy")}
                   style={{ color: "darkblue", textDecoration: "underline" }}
                 >
-                  here
+                  {t.privacy}
                 </a>
                 .
               </label>
             </FlexBox>
 
             <button type="submit" disabled={loading}>
-              Send
+              {t.send}
             </button>
           </>
         )}

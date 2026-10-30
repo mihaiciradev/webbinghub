@@ -25,6 +25,9 @@ const poppins = localFont({ src: "../fonts/Poppins.woff", variable: "--font-popp
 const cormorant = Cormorant({ subsets: ["latin"], variable: "--font-cormorant", weight: ["400", "500", "600"], style: ["normal", "italic"], display: "swap" });
 const jost = Jost({ subsets: ["latin"], variable: "--font-jost", weight: ["300", "400", "500", "600"], display: "swap" });
 
+// Only the locales we serve; anything else is a 404 (middleware redirects old ones)
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -38,17 +41,11 @@ export async function generateMetadata({
 
   const descriptions: Record<Locale, string> = {
     en: "Custom-built websites, internal tools & online stores for businesses across Europe. No templates — built from scratch, fully owned by you. Based in Romania.",
-    fr: "Sites web sur mesure, outils internes et boutiques en ligne pour les entreprises en Europe. Sans templates — construit de zéro, entièrement à vous.",
-    es: "Sitios web personalizados, herramientas internas y tiendas online para empresas en Europa. Sin plantillas — construido desde cero, 100% tuyo.",
-    de: "Maßgeschneiderte Websites, interne Tools & Onlineshops für Unternehmen in Europa. Keine Templates — von Grund auf gebaut, vollständig in Ihrem Besitz.",
     ro: "Website-uri personalizate, instrumente interne și magazine online pentru afaceri din Europa. Fără șabloane — construit de la zero, al tău în totalitate.",
   };
 
   const titles: Record<Locale, string> = {
     en: "WebbingHUB | Custom Web Development Agency",
-    fr: "WebbingHUB | Agence de Développement Web Sur Mesure",
-    es: "WebbingHUB | Agencia de Desarrollo Web Personalizado",
-    de: "WebbingHUB | Webentwicklungsagentur Maßgeschneidert",
     ro: "WebbingHUB | Agenție de Dezvoltare Web Personalizată",
   };
 
@@ -75,7 +72,7 @@ export async function generateMetadata({
       url: `${BASE}/${locale}`,
       siteName: "WebbingHUB",
       type: "website",
-      locale: locale === "en" ? "en_US" : locale === "fr" ? "fr_FR" : locale === "es" ? "es_ES" : locale === "de" ? "de_DE" : "ro_RO",
+      locale: locale === "ro" ? "ro_RO" : "en_US",
       images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WebbingHUB — Custom Web Development Agency" }],
     },
     twitter: {
@@ -90,13 +87,6 @@ export async function generateMetadata({
       icon: "/favicon.ico",
       apple: "/apple-touch-icon.png",
       shortcut: "/favicon.ico",
-    },
-    alternates: {
-      canonical: `${BASE}/${locale}`,
-      languages: Object.fromEntries([
-        ...locales.map((l) => [l, `${BASE}/${l}`]),
-        ["x-default", `${BASE}/en`],
-      ]),
     },
   };
 }
@@ -156,7 +146,7 @@ export default function LocaleLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${montserrat.variable} ${cormorant.variable} ${jost.variable}`}>
         <SpeedInsights />
-        <Cookies />
+        <Cookies t={t.cookies} />
         <AdsTag />
         <Analytics />
         <ScrollReveal />

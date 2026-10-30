@@ -1,4 +1,5 @@
 import styles from "./ServicesSection.module.css";
+import type { Translations } from "@/i18n/translations";
 
 const GlobeIcon = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b8975a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -27,54 +28,27 @@ const LinkIcon = () => (
   </svg>
 );
 
-const SERVICES = [
-  {
-    num: "001",
-    icon: <GlobeIcon />,
-    title: "Custom Websites",
-    desc: "A website that truly represents your business — designed from scratch, fast on any device, and built to turn visitors into clients. No themes, no drag-and-drop shortcuts.",
-  },
-  {
-    num: "002",
-    icon: <ToolIcon />,
-    title: "Internal Tools & Portals",
-    desc: "Custom dashboards and management systems that help your team work more efficiently — managing bookings, clients, or operations, we build the tool that fits the job.",
-  },
-  {
-    num: "003",
-    icon: <StoreIcon />,
-    title: "Online Stores",
-    desc: "A store built for performance and sales — not just appearance. From product pages to checkout, every step is designed with conversion in mind.",
-  },
-  {
-    num: "004",
-    icon: <LinkIcon />,
-    title: "Integrations & Automations",
-    desc: "WhatsApp, booking engines, QR menus, payment providers, third-party APIs — we connect your website to the tools your business already runs on.",
-  },
-];
+const ICONS = [<GlobeIcon key="globe" />, <ToolIcon key="tool" />, <StoreIcon key="store" />, <LinkIcon key="link" />];
 
-export default function ServicesSection() {
+export default function ServicesSection({ t }: { t: Translations["home"]["services"] }) {
   return (
     <section className={styles.services} id="services">
       <div className={`${styles.hd} reveal`}>
         <div>
-          <p className={styles.label}>What we build</p>
+          <p className={styles.label}>{t.label}</p>
           <h2 className={styles.heading}>
-            Services designed<br />for <em>real businesses.</em>
+            {t.heading1}<br />{t.heading2} <em>{t.headingEm}</em>
           </h2>
         </div>
-        <p className={styles.note}>
-          Every engagement is tailored. We don&apos;t sell packages — we solve problems.
-        </p>
+        <p className={styles.note}>{t.note}</p>
       </div>
 
       <div className={`${styles.grid} services-grid`}>
-        {SERVICES.map(({ num, icon, title, desc }) => (
+        {t.items.map(({ title, desc }, i) => (
           <div key={title} className={`${styles.card} reveal`}>
             <div className={styles.cardTop}>
-              <span className={styles.cardNum}>( {num} )</span>
-              <div className={styles.cardIcon} aria-hidden="true">{icon}</div>
+              <span className={styles.cardNum}>( {String(i + 1).padStart(3, "0")} )</span>
+              <div className={styles.cardIcon} aria-hidden="true">{ICONS[i]}</div>
             </div>
             <h3 className={styles.cardTitle}>{title}</h3>
             <p className={styles.cardDesc}>{desc}</p>

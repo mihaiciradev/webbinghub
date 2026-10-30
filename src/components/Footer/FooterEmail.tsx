@@ -1,6 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import styles from "./Footer.module.css";
+import { getTranslations, localizedHref } from "@/i18n/utils";
+import type { Locale } from "@/i18n/config";
 
 const LS_KEY = "webbinghub_contact_email_sends";
 const MAX_SENDS = 3; // per rolling window (shared with EmailUs)
@@ -24,6 +27,8 @@ function getRecentSends(): number[] {
 }
 
 export default function FooterEmail({ label }: { label: string }) {
+  const locale = useParams<{ locale: Locale }>().locale;
+  const t = getTranslations(locale).emailForm;
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
@@ -41,9 +46,7 @@ export default function FooterEmail({ label }: { label: string }) {
     if (loading) return;
 
     if (getRecentSends().length >= MAX_SENDS) {
-      setMessage(
-        "You’ve reached the sending limit. Reach us anytime at hello@webbinghub.io.",
-      );
+      setMessage(t.limit);
       return;
     }
 
@@ -62,12 +65,12 @@ export default function FooterEmail({ label }: { label: string }) {
         setSendCount(next.length);
         window.localStorage.setItem(LS_KEY, JSON.stringify(next));
         setEmail("");
-        setMessage("Thanks — we’ll reply within 24h.");
+        setMessage(t.success);
       } else {
-        setMessage("Something went wrong. Please try again.");
+        setMessage(t.error);
       }
     } catch {
-      setMessage("Something went wrong. Please try again.");
+      setMessage(t.error);
     } finally {
       setLoading(false);
     }
@@ -78,8 +81,7 @@ export default function FooterEmail({ label }: { label: string }) {
   if (message || isBlocked) {
     return (
       <p className={styles.emailNote}>
-        {message ||
-          "You’ve reached the sending limit. Reach us anytime at hello@webbinghub.io."}
+        {message || t.limit}
       </p>
     );
   }
@@ -90,7 +92,7 @@ export default function FooterEmail({ label }: { label: string }) {
       <div className={styles.emailRow}>
         <input
           type="email"
-          aria-label="Your email address"
+          aria-label={t.emailAria}
           placeholder="you@company.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -99,14 +101,14 @@ export default function FooterEmail({ label }: { label: string }) {
           className={styles.emailInput}
         />
         <button type="submit" disabled={loading} className={styles.emailBtn}>
-          {loading ? "…" : "Send"}
+          {loading ? "…" : t.send}
         </button>
       </div>
       <label className={styles.emailConsent}>
         <input type="checkbox" required disabled={loading} />
         <span>
-          I consent to WebbingHUB using my email to contact me.{" "}
-          <a href="/privacy-policy">Privacy policy</a>.
+          {t.consent}{" "}
+          <a href={localizedHref(locale, "/privacy-policy")}>{t.privacy}</a>.
         </span>
       </label>
     </form>

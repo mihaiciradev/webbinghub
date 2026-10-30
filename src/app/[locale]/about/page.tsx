@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
-import { locales } from "@/i18n/config";
-import { getTranslations } from "@/i18n/utils";
+import { getTranslations, pageAlternates } from "@/i18n/utils";
 import styles from "@/app/about/page.module.css";
 
 const BASE = "https://webbinghub.io";
@@ -12,20 +11,14 @@ export async function generateMetadata({
 }: {
   params: { locale: Locale };
 }): Promise<Metadata> {
+  const { meta } = getTranslations(locale).pages.about;
   return {
-    title: "About WebbingHUB — A Small Team, A Serious Commitment",
-    description:
-      "WebbingHUB builds custom websites from scratch for businesses across Europe. You talk to the people who write the code. No templates, no handoffs, no lock-in.",
-    alternates: {
-      canonical: `${BASE}/${locale}/about`,
-      languages: Object.fromEntries([
-        ...locales.map((l) => [l, `${BASE}/${l}/about`]),
-        ["x-default", `${BASE}/en/about`],
-      ]),
-    },
+    title: meta.title,
+    description: meta.description,
+    alternates: pageAlternates(locale, "/about"),
     openGraph: {
-      title: "About WebbingHUB — A Small Team, A Serious Commitment",
-      description: "Meet the people who build your site. We write every line ourselves.",
+      title: meta.title,
+      description: meta.ogDescription,
       url: `${BASE}/${locale}/about`,
       images: [{ url: "/og-about.png", width: 1200, height: 630, alt: "About WebbingHUB" }],
     },
@@ -75,39 +68,26 @@ export default function AboutPage({ params }: { params: { locale: Locale } }) {
         </div>
         <div className={`${styles.storyRight} reveal`}>
           <p>
-            <strong>WebbingHUB</strong> started as a hobby and became our work.
-            We build custom websites, and we know how to do it{" "}
-            <strong>well</strong>.
+            <strong>WebbingHUB</strong> {t.storyP1}
           </p>
-          <blockquote className={styles.quote}>
-            &ldquo;We write every line of code ourselves. You get a site built
-            for your business, not a theme with your logo dropped on top.&rdquo;
-          </blockquote>
-          <p>
-            You talk to the people who build your website, not an account
-            manager who passes your notes along. We do honest work and we do it
-            properly.
-          </p>
+          <blockquote className={styles.quote}>{t.storyQuote}</blockquote>
+          <p>{t.storyP2}</p>
         </div>
       </section>
 
       <section className={styles.values}>
         <div className={`${styles.valuesHeader} reveal`}>
-          <p className={styles.label}>What drives us</p>
+          <p className={styles.label}>{t.valuesLabel}</p>
           <h2 className={styles.sectionTitle}>
-            Websites that earn their keep.<br /><em>Built around your business.</em>
+            {t.valuesTitle}<br /><em>{t.valuesTitleEm}</em>
           </h2>
         </div>
         <div className={styles.valuesGrid}>
-          {[
-            { num: "01", title: "Tailored solutions", body: "We start every website from an empty editor. No theme, no shortcut. We design it around your business and the people who use it." },
-            { num: "02", title: "Ongoing support", body: "We stay on after launch to maintain and improve the site as your business grows." },
-            { num: "03", title: "Direct communication", body: "You talk to the people doing the work, which means quicker decisions and a site that matches what you asked for." },
-          ].map(({ num, title, body }) => (
-            <div key={num} className={`${styles.valueCard} reveal`}>
-              <span className={styles.valueNum}>{num}</span>
+          {t.values.map(({ title, desc }, i) => (
+            <div key={title} className={`${styles.valueCard} reveal`}>
+              <span className={styles.valueNum}>0{i + 1}</span>
               <h3 className={styles.valueTitle}>{title}</h3>
-              <p className={styles.valueBody}>{body}</p>
+              <p className={styles.valueBody}>{desc}</p>
             </div>
           ))}
         </div>
@@ -115,27 +95,18 @@ export default function AboutPage({ params }: { params: { locale: Locale } }) {
 
       <section className={styles.process}>
         <div className={`${styles.processHeader} reveal`}>
-          <p className={styles.label}>How we work</p>
+          <p className={styles.label}>{t.processLabel}</p>
           <h2 className={styles.sectionTitle}>
-            From concept to launch —<br /><em>and beyond.</em>
+            {t.processTitle}<br /><em>{t.processTitleEm}</em>
           </h2>
-          <p className={styles.processIntro}>
-            You stay informed and in control at every stage. Clear milestones,
-            no surprises.
-          </p>
+          <p className={styles.processIntro}>{t.processIntro}</p>
         </div>
         <ol className={styles.processList}>
-          {[
-            { step: "Discover", desc: "We listen first and learn your business and goals before we suggest anything." },
-            { step: "Plan", desc: "You get a proposal with the deliverables, timeline, and fixed price, agreed before we write any code." },
-            { step: "Build", desc: "We design and build from scratch, and you see progress throughout, not only at the end." },
-            { step: "Launch", desc: "We deploy, test, and hand over a site that works on day one." },
-            { step: "Support", desc: "We maintain, update, and improve the site as your business grows." },
-          ].map(({ step, desc }, i) => (
-            <li key={step} className={`${styles.processItem} reveal`}>
+          {t.process.map(({ title, desc }, i) => (
+            <li key={title} className={`${styles.processItem} reveal`}>
               <span className={styles.processNum}>0{i + 1}</span>
               <div>
-                <h3 className={styles.processStep}>{step}</h3>
+                <h3 className={styles.processStep}>{title}</h3>
                 <p className={styles.processDesc}>{desc}</p>
               </div>
             </li>

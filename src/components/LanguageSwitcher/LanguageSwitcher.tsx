@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { locales, localeNames, type Locale } from "@/i18n/config";
+import { locales, localeNames, singleLocalePages, type Locale } from "@/i18n/config";
 import styles from "./LanguageSwitcher.module.css";
 
 export default function LanguageSwitcher({
@@ -30,8 +30,12 @@ export default function LanguageSwitcher({
 
   const switchLocale = (locale: Locale) => {
     // Replace current locale prefix with new one
-    const withoutLocale = pathname.replace(/^\/[a-z]{2}(\/|$)/, "/");
-    router.push(`/${locale}${withoutLocale === "/" ? "" : withoutLocale}`);
+    let path = pathname.replace(/^\/[a-z]{2}(\/|$)/, "/").replace(/\/$/, "");
+    // Page not available in that language (e.g. an English-only post) → nearest parent that is
+    while (path && singleLocalePages[path] && singleLocalePages[path] !== locale) {
+      path = path.slice(0, path.lastIndexOf("/"));
+    }
+    router.push(`/${locale}${path}`);
     setOpen(false);
   };
 
