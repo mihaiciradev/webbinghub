@@ -159,7 +159,7 @@ a {
 
 .wh-cookie-accept {
   background: var(--gold);
-  color: var(--white);
+  color: var(--ink);
 }
 .wh-cookie-accept:hover { background: #a6864c; }
 

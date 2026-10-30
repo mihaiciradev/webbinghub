@@ -41,7 +41,7 @@
 
 .contact {
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.55);
   margin-bottom: 0.3rem;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .emailInput::placeholder {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .emailInput:focus {
@@ -120,7 +120,7 @@
   margin-top: 0.65rem;
   font-size: 0.68rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.55);
   cursor: pointer;
 }
 
@@ -152,7 +152,7 @@
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 1rem;
 }
 
@@ -165,7 +165,7 @@
 
 .colLinks a {
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -179,7 +179,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 @media (max-width: 960px) {

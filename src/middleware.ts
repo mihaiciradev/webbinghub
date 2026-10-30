@@ -21,10 +21,10 @@ export function middleware(request: NextRequest) {
 
   if (hasLocale) return NextResponse.next();
 
-  // No locale → redirect to default
+  // No locale → permanent redirect to default
   const url = request.nextUrl.clone();
   url.pathname = `/${defaultLocale}${pathname}`;
-  return NextResponse.redirect(url);
+  return NextResponse.redirect(url, 308);
 }
 
 export const config = {

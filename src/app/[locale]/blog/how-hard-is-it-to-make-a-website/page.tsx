@@ -14,10 +14,9 @@ export async function generateMetadata({
   params: { locale: Locale };
 }): Promise<Metadata> {
   return {
-    title:
-      "How Hard Is It to Make a Website? A Practical Breakdown for Business Owners | WebbingHUB",
+    title: "How Hard Is It to Make a Website? A Practical Breakdown",
     description:
-      "How difficult is building a website? Depends entirely on what you need it to do. We break down real factors that determine complexity — from scope to performance to customization — and help you understand your actual options.",
+      "How hard is building a website? It depends on what it needs to do. We break down scope, performance and customization so you can weigh your real options.",
     keywords: [
       "how to make a website",
       "website difficulty",

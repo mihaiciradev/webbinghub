@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 
 export const metadata: Metadata = {
   title:
-    "Maximize Your Website's Visibility: Google Search Console Guide | WebbingHUB",
+    "Maximize Your Website's Visibility: Google Search Console Guide",
   description:
     "Learn how Google Search Console transforms search performance. Understand impressions, clicks, CTR, and turn traffic into business growth. A practical guide for website owners.",
   keywords: [

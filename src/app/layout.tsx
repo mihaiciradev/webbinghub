@@ -4,10 +4,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: {
-    default: "WebbingHUB | Crafting Websites That Inspire",
-    template: "%s | WebbingHUB",
-  },
+  // No title template here: [locale]/layout.tsx owns it, otherwise the brand is appended twice
+  title: "WebbingHUB | Crafting Websites That Inspire",
   description: "Websites for any vision, any business & every user.",
 };
 

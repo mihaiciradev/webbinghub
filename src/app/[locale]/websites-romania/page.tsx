@@ -15,7 +15,7 @@ export async function generateMetadata({
   params: { locale: Locale };
 }): Promise<Metadata> {
   return {
-    title: "Creare site web în România — Agenție web design | WebbingHUB",
+    title: "Creare site web în România — Agenție web design",
     description:
       "Creare site de prezentare, magazin online și aplicații web personalizate pentru afaceri din România. Dezvoltare site web de la zero, fără șabloane. Cod și date 100% ale tale.",
     keywords: [

@@ -15,7 +15,7 @@ export async function generateMetadata({
   params: { locale: Locale };
 }): Promise<Metadata> {
   return {
-    title: "Creare site web Timișoara — Agenție web design | WebbingHUB",
+    title: "Creare site web Timișoara — Agenție web design",
     description:
       "Creare site de prezentare, magazin online și aplicații web pentru afaceri din Timișoara. Dezvoltare site web la comandă, fără șabloane. Cod și date 100% ale tale.",
     keywords: [
