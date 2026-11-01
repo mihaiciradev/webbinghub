@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
-import { pageAlternates } from "@/i18n/utils";
+import { pageAlternates, brandedTitle } from "@/i18n/utils";
 import Link from "next/link";
 import Script from "next/script";
 import styles from "./page.module.css";
@@ -15,7 +15,7 @@ export async function generateMetadata({
   params: { locale: Locale };
 }): Promise<Metadata> {
   return {
-    title: "Creare site web în România — Agenție web design",
+    title: brandedTitle("Creare site web în România — Agenție web design"),
     description:
       "Creare site de prezentare, magazin online și aplicații web personalizate pentru afaceri din România. Dezvoltare site web de la zero, fără șabloane. Cod și date 100% ale tale.",
     keywords: [

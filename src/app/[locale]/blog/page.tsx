@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
-import { getTranslations, localizedHref, pageAlternates } from "@/i18n/utils";
+import { getTranslations, localizedHref, pageAlternates, brandedTitle } from "@/i18n/utils";
 import styles from "@/app/blog/page.module.css";
 
 const BASE = "https://webbinghub.io";
@@ -13,7 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { meta } = getTranslations(locale).pages.blog;
   return {
-    title: meta.title,
+    title: brandedTitle(meta.title),
     description: meta.description,
     alternates: pageAlternates(locale, "/blog"),
     openGraph: {

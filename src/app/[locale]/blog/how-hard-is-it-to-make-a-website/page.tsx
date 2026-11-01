@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
-import { pageAlternates } from "@/i18n/utils";
+import { pageAlternates, brandedTitle } from "@/i18n/utils";
 import styles from "@/app/blog/how-hard-is-it-to-make-a-website/page.module.css";
 
 const BASE = "https://webbinghub.io";
@@ -14,7 +14,7 @@ export async function generateMetadata({
   params: { locale: Locale };
 }): Promise<Metadata> {
   return {
-    title: "How Hard Is It to Make a Website? A Practical Breakdown",
+    title: brandedTitle("How Hard Is It to Make a Website? A Practical Breakdown"),
     description:
       "How hard is building a website? It depends on what it needs to do. We break down scope, performance and customization so you can weigh your real options.",
     keywords: [

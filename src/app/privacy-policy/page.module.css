@@ -1,0 +1,81 @@
+.main {
+  padding: 7.5rem 1.5rem 5rem;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  color: var(--ink);
+  background: var(--white);
+}
+
+.inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.main h1 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
+}
+
+.updated {
+  color: var(--ink2);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+
+.main section {
+  margin-bottom: 2.2rem;
+}
+
+.main h2 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin-bottom: 0.7rem;
+}
+
+.main p,
+.main li {
+  font-size: 1.02rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--ink2);
+}
+
+.main p + p,
+.main ul {
+  margin-top: 0.75rem;
+}
+
+.main ul {
+  padding-left: 1.2rem;
+}
+
+.main li + li {
+  margin-top: 0.45rem;
+}
+
+.main a {
+  color: #6b5424;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.company {
+  list-style: none;
+  padding: 1.1rem 1.2rem;
+  margin-top: 0.9rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.company li {
+  color: var(--ink);
+  font-weight: 400;
+}
+
+.company li + li {
+  margin-top: 0.35rem;
+}

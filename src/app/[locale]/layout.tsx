@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { Cormorant, Jost } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/Header/header";
-import dynamic from "next/dynamic";
+import Footer from "@/components/Footer/Footer";
 import Cookies from "@/components/Cookies/Cookies";
 import AdsTag from "@/components/AdsTag/AdsTag";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -14,8 +14,6 @@ import { locales, type Locale } from "@/i18n/config";
 import { getTranslations } from "@/i18n/utils";
 import { TRAVEL_POPUP } from "@/config/TRAVEL_POPUP";
 import TravelPopup from "@/components/TravelPopup/TravelPopup";
-
-const Footer = dynamic(() => import("@/components/Footer/Footer"), { ssr: false });
 
 /* ─── Fonts ───────────────────────────────────── */
 const geistSans = localFont({ src: "../fonts/GeistVF.woff", variable: "--font-geist-sans", weight: "100 900" });
@@ -110,9 +108,13 @@ export default function LocaleLayout({
             "@type": "LocalBusiness",
             "@id": "https://webbinghub.io#business",
             "name": "WebbingHUB",
+            "legalName": "WEBBINGHUB S.R.L.",
+            "vatID": "RO49317150",
             "description": "Custom website development agency serving businesses across Europe",
             "url": "https://webbinghub.io",
             "image": "https://webbinghub.io/full_logo_gold.svg",
+            "email": "support@webbinghub.io",
+            "telephone": "+40776394784",
             "areaServed": [
               {
                 "@type": "Country",
@@ -129,8 +131,9 @@ export default function LocaleLayout({
             ],
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "Str. Gheorghe Lazăr, nr. 34",
               "addressCountry": "RO",
-              "addressLocality": "Timisoara",
+              "addressLocality": "Timișoara",
               "addressRegion": "Timiș"
             },
             "priceRange": "$$",

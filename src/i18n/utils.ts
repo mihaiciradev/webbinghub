@@ -13,6 +13,17 @@ export function localizedHref(locale: Locale, path: string) {
 }
 
 /**
+ * Document title with the brand once.
+ * Absolute, so a layout template cannot append "| WebbingHUB" again.
+ * A title that already leads with "WebbingHUB |" is left as it is.
+ */
+export function brandedTitle(title: string): { absolute: string } {
+  const base = title.replace(/\s*\|\s*WebbingHUB\s*$/i, "").trim();
+  if (/^WebbingHUB\s*\|/.test(base)) return { absolute: base };
+  return { absolute: `${base} | WebbingHUB` };
+}
+
+/**
  * canonical + hreflang for a page. `path` has no locale prefix ("" for home).
  * Single-language pages point only at their own URL.
  */

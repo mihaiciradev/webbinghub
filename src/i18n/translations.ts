@@ -79,6 +79,12 @@ export type Translations = {
       message: string;
       button: string;
     };
+    faq: {
+      label: string;
+      heading: string;
+      headingEm: string;
+      items: { q: string; a: string }[];
+    };
   };
   pages: {
     about: {
@@ -284,6 +290,33 @@ const en: Translations = {
       message:   'Message us',
       button:    'Start a conversation →',
     },
+    faq: {
+      label:     'Questions',
+      heading:   'Before we',
+      headingEm: 'start.',
+      items: [
+        {
+          q: 'What does WebbingHUB build?',
+          a: 'WebbingHUB builds custom websites, internal tools & portals, online stores, and API integrations — all from scratch, zero templates, for businesses across Europe.',
+        },
+        {
+          q: 'Do I own my website after WebbingHUB builds it?',
+          a: 'Yes — 100%. Zero lock-in. You own the code, the hosting, and everything. No monthly dependency on WebbingHUB to keep your website running.',
+        },
+        {
+          q: 'How does WebbingHUB price its work?',
+          a: "WebbingHUB works on fixed pricing — you know exactly what you're getting, when, and for how much before any work begins. No surprises.",
+        },
+        {
+          q: 'Where is WebbingHUB based and who do you serve?',
+          a: 'WebbingHUB is based in Timișoara, Romania, and serves clients across Europe — from travel agencies in Paris to service businesses in Romania and beyond.',
+        },
+        {
+          q: 'Does WebbingHUB provide support after launch?',
+          a: 'Yes. WebbingHUB stays close after launch — providing maintenance, updates, and improvements as your business grows.',
+        },
+      ],
+    },
   },
   pages: {
     about: {
@@ -390,11 +423,11 @@ const en: Translations = {
   },
   cookies: {
     title:       'We use cookies',
-    text:        "This site uses analytics cookies to understand how it's used and to improve your experience. You can accept or decline.",
+    text:        'If you accept, this page loads a Google Ads tag. If you decline, that tag stays off. Your choice is stored in a cookie.',
     accept:      'Accept',
     decline:     'Decline',
-    ariaAccept:  'Accept analytics cookies',
-    ariaDecline: 'Decline analytics cookies',
+    ariaAccept:  'Accept and load the Google Ads tag',
+    ariaDecline: 'Decline the Google Ads tag',
   },
   emailForm: {
     send:      'Send',
@@ -524,6 +557,33 @@ const ro: Translations = {
       message:   'Trimite-ne un mesaj',
       button:    'Începe o conversație →',
     },
+    faq: {
+      label:     'Întrebări',
+      heading:   'Înainte să',
+      headingEm: 'începem.',
+      items: [
+        {
+          q: 'Ce construiește WebbingHUB?',
+          a: 'WebbingHUB construiește website-uri personalizate, instrumente interne și portaluri, magazine online și integrări API, toate de la zero, fără șabloane, pentru afaceri din Europa.',
+        },
+        {
+          q: 'Îmi aparține website-ul după ce îl construiește WebbingHUB?',
+          a: 'Da, în totalitate. Fără dependență. Codul, găzduirea și tot restul sunt ale tale. Nu depinzi lunar de WebbingHUB ca website-ul să rămână online.',
+        },
+        {
+          q: 'Cum își stabilește WebbingHUB prețurile?',
+          a: 'WebbingHUB lucrează cu preț fix: știi exact ce primești, când și pentru cât, înainte să înceapă lucrul. Fără surprize.',
+        },
+        {
+          q: 'Unde este WebbingHUB și cui se adresează?',
+          a: 'WebbingHUB are sediul în Timișoara, România, și lucrează cu clienți din Europa, de la agenții de turism din Paris până la afaceri de servicii din România.',
+        },
+        {
+          q: 'Oferă WebbingHUB suport după lansare?',
+          a: 'Da. WebbingHUB rămâne aproape după lansare, cu mentenanță, actualizări și îmbunătățiri pe măsură ce afacerea crește.',
+        },
+      ],
+    },
   },
   pages: {
     about: {
@@ -630,11 +690,11 @@ const ro: Translations = {
   },
   cookies: {
     title:       'Folosim cookie-uri',
-    text:        'Acest site folosește cookie-uri de analiză ca să înțelegem cum este folosit și să îți îmbunătățim experiența. Poți accepta sau refuza.',
+    text:        'Dacă accepți, pagina încarcă o etichetă Google Ads. Dacă refuzi, eticheta nu se încarcă. Alegerea este păstrată într-un cookie.',
     accept:      'Accept',
     decline:     'Refuz',
-    ariaAccept:  'Accept cookie-urile de analiză',
-    ariaDecline: 'Refuz cookie-urile de analiză',
+    ariaAccept:  'Acceptă și încarcă eticheta Google Ads',
+    ariaDecline: 'Refuză eticheta Google Ads',
   },
   emailForm: {
     send:      'Trimite',

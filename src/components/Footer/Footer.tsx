@@ -106,6 +106,11 @@ export default function Footer({ locale, t }: FooterProps) {
         </div>
       </div>
 
+      <div className={styles.legal}>
+        <p>Societate: WEBBINGHUB S.R.L. · Cod de identificare: RO49317150 · Registrul comerțului: J2023004928352</p>
+        <p>Sediu social: Str. Gheorghe Lazăr, nr. 34, Timișoara · support@webbinghub.io · +40 776 394 784</p>
+      </div>
+
       <div className={styles.bottom}>
         <span>© 2026 WebbingHUB. {t.copy} · {t.location}</span>
         <span>webbinghub.io</span>

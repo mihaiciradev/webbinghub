@@ -165,7 +165,7 @@
 
 .colLinks a {
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.78);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -174,12 +174,23 @@
   color: var(--gold);
 }
 
+.legal {
+  margin: -0.4rem 0 1.4rem;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.legal p + p {
+  margin-top: 0.15rem;
+}
+
 .bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 @media (max-width: 960px) {

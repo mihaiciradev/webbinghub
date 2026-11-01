@@ -1,14 +1,13 @@
 import { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
-import { pageAlternates } from "@/i18n/utils";
+import { pageAlternates, brandedTitle } from "@/i18n/utils";
 import styles from "@/app/blog/page.module.css";
 
 const BASE = "https://webbinghub.io";
 const ARTICLE_SLUG = "maximize-website-visibility-google-search-console";
 
 export const metadata: Metadata = {
-  title:
-    "Maximize Your Website's Visibility: Google Search Console Guide",
+  title: brandedTitle("Maximize Your Website's Visibility: Google Search Console Guide"),
   description:
     "Learn how Google Search Console transforms search performance. Understand impressions, clicks, CTR, and turn traffic into business growth. A practical guide for website owners.",
   keywords: [

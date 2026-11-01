@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
-import { pageAlternates } from "@/i18n/utils";
+import { pageAlternates, brandedTitle } from "@/i18n/utils";
 import Link from "next/link";
 import Script from "next/script";
 import styles from "@/app/[locale]/websites-romania/page.module.css";
@@ -15,7 +15,7 @@ export async function generateMetadata({
   params: { locale: Locale };
 }): Promise<Metadata> {
   return {
-    title: "Creare site web Timișoara — Agenție web design",
+    title: brandedTitle("Creare site web Timișoara — Agenție web design"),
     description:
       "Creare site de prezentare, magazin online și aplicații web pentru afaceri din Timișoara. Dezvoltare site web la comandă, fără șabloane. Cod și date 100% ale tale.",
     keywords: [

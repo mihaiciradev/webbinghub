@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
-import { getTranslations, pageAlternates } from "@/i18n/utils";
+import { getTranslations, pageAlternates, brandedTitle } from "@/i18n/utils";
 import styles from "@/app/contact/page.module.css";
 import EmailUs from "@/components/EmailUs/EmailUs";
 import ContactLinks from "@/components/ContactLinks/ContactLinks";
@@ -15,7 +15,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { meta } = getTranslations(locale).pages.contact;
   return {
-    title: meta.title,
+    title: brandedTitle(meta.title),
     description: meta.description,
     alternates: pageAlternates(locale, "/contact"),
     openGraph: {

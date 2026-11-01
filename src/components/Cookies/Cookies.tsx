@@ -6,6 +6,7 @@ import type { Translations } from "@/i18n/translations";
 export default function Cookies({ t }: { t: Translations["cookies"] }) {
   return (
     <CookieConsent
+      cookieName="CookieConsent"
       buttonText={t.accept}
       declineButtonText={t.decline}
       enableDeclineButton

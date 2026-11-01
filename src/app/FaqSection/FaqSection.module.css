@@ -1,0 +1,62 @@
+.faq {
+  background: var(--white);
+  padding: 6.5rem 4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+}
+
+.heading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 2.5rem;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.list {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  padding: 1.35rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.item h3 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.45rem;
+}
+
+.item p {
+  font-size: 1.02rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--ink2);
+}
+
+@media (max-width: 960px) {
+  .faq { padding: 4rem 1.5rem; }
+}

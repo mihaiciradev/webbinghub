@@ -1,13 +1,8 @@
 import styles from "./HeroSection.module.css";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import type { Locale } from "@/i18n/config";
 import type { Translations } from "@/i18n/translations";
-
-const HeroLogo3D = dynamic(() => import("./HeroLogo3D"), {
-  ssr: false,
-  loading: () => <div className={styles.logoPlaceholder} />,
-});
+import HeroMark from "./HeroMark";
 
 interface HeroSectionProps {
   locale: Locale;
@@ -71,7 +66,7 @@ export default function HeroSection({ locale, t }: HeroSectionProps) {
         <span className={styles.decoW} aria-hidden="true">W</span>
 
         <div className={styles.logoWrap}>
-          <HeroLogo3D />
+          <HeroMark />
         </div>
 
         <p className={styles.tagline}>{t.tagline}</p>

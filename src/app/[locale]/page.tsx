@@ -9,9 +9,15 @@ import ServicesSection from "@/app/ServicesSection/ServicesSection";
 import ProcessSection from "@/app/ProcessSection/ProcessSection";
 import BrandsSection from "@/app/BrandsSection/BrandsSection";
 import TestimonialSection from "@/app/TestimonialSection/TestimonialSection";
+import FaqSection from "@/app/FaqSection/FaqSection";
 import CTASection from "@/app/CTASection/CTASection";
 
 const BASE = "https://webbinghub.io";
+
+const HOME_TITLE: Record<Locale, string> = {
+  en: "WebbingHUB | Custom Web Development Agency",
+  ro: "WebbingHUB | Agenție de Dezvoltare Web Personalizată",
+};
 
 export async function generateMetadata({
   params: { locale },
@@ -19,6 +25,8 @@ export async function generateMetadata({
   params: { locale: Locale };
 }): Promise<Metadata> {
   return {
+    // Absolute: the layout template must not append "| WebbingHUB" a second time.
+    title: { absolute: HOME_TITLE[locale] },
     alternates: pageAlternates(locale, ""),
   };
 }
@@ -30,6 +38,8 @@ const organizationSchema = {
   "@type": ["Organization", "ProfessionalService"],
   "@id": `${BASE}/#organization`,
   name: "WebbingHUB",
+  legalName: "WEBBINGHUB S.R.L.",
+  vatID: "RO49317150",
   url: BASE,
   logo: {
     "@type": "ImageObject",
@@ -43,6 +53,7 @@ const organizationSchema = {
   areaServed: { "@type": "Place", name: "Europe" },
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Str. Gheorghe Lazăr, nr. 34",
     addressLocality: "Timișoara",
     addressRegion: "Timiș",
     addressCountry: "RO",
@@ -54,7 +65,7 @@ const organizationSchema = {
       telephone: "+40776394784",
       contactType: "sales",
       areaServed: "EU",
-      availableLanguage: ["English", "Romanian", "French"],
+      availableLanguage: ["English", "Romanian"],
     },
   ],
   sameAs: [
@@ -121,52 +132,17 @@ const websiteSchema = {
   },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
+function faqSchema(items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
       "@type": "Question",
-      name: "What does WebbingHUB build?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "WebbingHUB builds custom websites, internal tools & portals, online stores, and API integrations — all from scratch, zero templates, for businesses across Europe.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do I own my website after WebbingHUB builds it?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes — 100%. Zero lock-in. You own the code, the hosting, and everything. No monthly dependency on WebbingHUB to keep your website running.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How does WebbingHUB price its work?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "WebbingHUB works on fixed pricing — you know exactly what you're getting, when, and for how much before any work begins. No surprises.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Where is WebbingHUB based and who do you serve?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "WebbingHUB is based in Timișoara, Romania, and serves clients across Europe — from travel agencies in Paris to service businesses in Romania and beyond.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Does WebbingHUB provide support after launch?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. WebbingHUB stays close after launch — providing maintenance, updates, and improvements as your business grows.",
-      },
-    },
-  ],
-};
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+}
 
 export default function HomePage({ params }: { params: { locale: Locale } }) {
   const { locale } = params;
@@ -184,7 +160,7 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(t.home.faq.items)) }}
       />
       <HeroSection locale={locale} t={t.hero} />
       <TrustBar t={t.trustBar} />
@@ -193,6 +169,7 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
       <ProcessSection t={t.home.process} />
       <BrandsSection t={t.home.brands} />
       <TestimonialSection t={t.home.testimonial} />
+      <FaqSection t={t.home.faq} />
       <CTASection t={t.home.cta} />
     </>
   );
