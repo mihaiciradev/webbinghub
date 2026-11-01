@@ -1,7 +1,6 @@
 import type { Locale } from './config';
 
 type Item = { title: string; desc: string };
-type Stat = { num: string; label: string };
 type Meta = { title: string; description: string; ogDescription: string };
 type BlogPostCard = { date: string; readTime: string; excerpt: string; tags: string[] };
 
@@ -31,15 +30,6 @@ export type Translations = {
     items: [string, string, string, string];
   };
   home: {
-    about: {
-      label: string;
-      heading: string;
-      headingEm: string;
-      p1: string;
-      quote: string;
-      p2: string;
-      stats: Stat[];
-    };
     services: {
       label: string;
       heading1: string;
@@ -64,10 +54,12 @@ export type Translations = {
       travel: { sub: string; desc: string; tags: string[]; link: string };
       apetit: { sub: string; desc: string; tags: string[]; link: string };
     };
-    testimonial: {
-      quote: string;
-      author: string;
-      numbers: Stat[];
+    proof: {
+      text: string;
+    };
+    founder: {
+      role: string;
+      linkedin: string;
     };
     cta: {
       heading1: string;
@@ -93,6 +85,10 @@ export type Translations = {
       heroTitle: string;
       heroTitleEm: string;
       heroSub: string;
+      name: string;
+      role: string;
+      sentence: string;
+      linkedin: string;
       storyLabel: string;
       storyTitle: string;
       storyTitleEm: string;
@@ -191,12 +187,12 @@ const en: Translations = {
     cta:        'Get in touch',
   },
   hero: {
-    eyebrow:   'Web Development Agency',
-    titleLine1: 'Your website should work',
-    titleEm:    'as hard as you do.',
-    body:       'We build custom websites and digital tools that help your business grow online. No templates, no guesswork. We pick the right solution for your goals, build it properly, and support it long after launch.',
+    eyebrow:   'Software studio',
+    titleLine1: 'Custom software that connects',
+    titleEm:    'your business.',
+    body:       'We build internal platforms, customer portals, and integrations that connect the systems a team already uses.',
     cta1:       'Start a conversation →',
-    cta2:       'What we build',
+    cta2:       'The work',
     badge1:     'Based in Romania',
     badge2:     'Clients across Europe',
     badge3:     '6+ years experience',
@@ -213,31 +209,17 @@ const en: Translations = {
     ],
   },
   home: {
-    about: {
-      label:     'About WebbingHUB',
-      heading:   'A small team.',
-      headingEm: 'A serious commitment.',
-      p1:        "WebbingHUB is a web development agency run by people who genuinely care about the quality of their work. We combine technical expertise with a real understanding of how businesses operate — so the websites we build aren't just beautiful, they're useful.",
-      quote:     "Every project gets the same attention — whether it's a hotel in Paris or a local business in Romania. No junior handoffs, no cut corners.",
-      p2:        'When you work with WebbingHUB, you talk directly with the people building your website. And when it launches, we stay close.',
-      stats: [
-        { num: 'Zero', label: 'Lock-In' },
-        { num: '6+',   label: 'Years of Expertise' },
-        { num: 'EU',   label: 'Clients Across Europe' },
-        { num: '100%', label: 'Owned by You' },
-      ],
-    },
     services: {
       label:     'What we build',
       heading1:  'Services designed',
       heading2:  'for',
       headingEm: 'real businesses.',
-      note:      "Every engagement is tailored. We don't sell packages — we solve problems.",
+      note:      'On a tailored project, you own the code and the result. Zero lock-in.',
       items: [
-        { title: 'Custom Websites',            desc: 'A website that truly represents your business — designed from scratch, fast on any device, and built to turn visitors into clients. No themes, no drag-and-drop shortcuts.' },
-        { title: 'Internal Tools & Portals',   desc: 'Custom dashboards and management systems that help your team work more efficiently — managing bookings, clients, or operations, we build the tool that fits the job.' },
-        { title: 'Online Stores',              desc: 'A store built for performance and sales — not just appearance. From product pages to checkout, every step is designed with conversion in mind.' },
-        { title: 'Integrations & Automations', desc: 'WhatsApp, booking engines, QR menus, payment providers, third-party APIs — we connect your website to the tools your business already runs on.' },
+        { title: 'Internal platforms and portals', desc: 'Platforms and portals for the team and for customers, connected to the systems the business already runs.' },
+        { title: 'Integrations and automations',   desc: 'Connections between the tools a team already uses: bookings, payments, WhatsApp, and other APIs.' },
+        { title: 'Online stores',                  desc: 'A store built for performance and sales, not just appearance. From product pages to checkout, every step is designed with conversion in mind.' },
+        { title: 'Custom websites',                desc: 'A website when the work needs one, designed from scratch and fast on any device. No themes, and no drag-and-drop shortcuts.' },
       ],
     },
     process: {
@@ -245,11 +227,11 @@ const en: Translations = {
       heading1:  'A process built',
       heading2:  'around',
       headingEm: 'clarity.',
-      intro:     "Before we write a single line of code, you know exactly what you're getting, when, and for how much. And after launch, we don't disappear — we stay close and keep your site running well.",
+      intro:     "Before we write a single line of code, you know exactly what you're getting, when, and for how much. After launch, we stay close and keep the work running.",
       steps: [
         { title: 'Discovery call',  desc: 'We listen first. We learn about your business, goals, and users before suggesting anything.' },
         { title: 'Scoped proposal', desc: 'A clear brief with deliverables, timeline, and a fixed price agreed before any work begins.' },
-        { title: 'Build & launch',  desc: 'We build, test, and deploy — keeping you informed at every stage, not just at the end.' },
+        { title: 'Build & launch',  desc: 'We build, test, and deploy, keeping you informed at every stage, not just at the end.' },
         { title: 'Ongoing support', desc: "Maintenance, updates, and improvements as your business grows. We're here after go-live." },
       ],
     },
@@ -260,25 +242,23 @@ const en: Translations = {
       live:      'Live now',
       travel: {
         sub:  'for hotels & travel agencies',
-        desc: 'A dedicated sub-brand focused on the travel and hospitality industry. Booking engines, agent management portals, WhatsApp integrations, and digital experiences built for hotels, resorts, and travel agencies.',
+        desc: 'TRAVEL is a product with its own terms, for hotels and travel agencies. It covers booking engines, agent portals, WhatsApp, and API integrations.',
         tags: ['Booking engines', 'Agent portals', 'WhatsApp', 'API integrations'],
         link: 'Visit travel.webbinghub.io →',
       },
       apetit: {
         sub:  'for restaurants & hospitality',
-        desc: 'Effortless digital experiences for hospitality. QR menus, instant reservations, real-time ordering, and guest management—designed for restaurants, cafés, and hotels.',
+        desc: 'Effortless digital experiences for hospitality. QR menus, instant reservations, real-time ordering, and guest management, designed for restaurants, cafés, and hotels.',
         tags: ['QR menus', 'Reservations', 'Real-time ordering', 'Guest management'],
         link: 'Visit apetit.webbinghub.io →',
       },
     },
-    testimonial: {
-      quote:  '“No templates, no compromises. We own our site, control our data, and compete on our own terms. That makes a real difference when you’re trying to stand out.”',
-      author: 'Business Owners & Teams Across Europe',
-      numbers: [
-        { num: 'Zero', label: 'Lock-in, ever' },
-        { num: '6+',   label: 'Years of experience' },
-        { num: 'EU',   label: 'Clients across Europe' },
-      ],
+    proof: {
+      text: 'Integration platform for a large tour-operator agency in Europe. WebbingHUB built that platform. The client is not named.',
+    },
+    founder: {
+      role:     'founder and CTO',
+      linkedin: 'LinkedIn',
     },
     cta: {
       heading1:  "Let's talk about",
@@ -297,23 +277,23 @@ const en: Translations = {
       items: [
         {
           q: 'What does WebbingHUB build?',
-          a: 'WebbingHUB builds custom websites, internal tools & portals, online stores, and API integrations — all from scratch, zero templates, for businesses across Europe.',
+          a: 'WebbingHUB builds internal platforms, customer portals, and integrations that connect the systems a team already uses. Online stores and custom websites are part of the work when a project needs them.',
         },
         {
-          q: 'Do I own my website after WebbingHUB builds it?',
-          a: 'Yes — 100%. Zero lock-in. You own the code, the hosting, and everything. No monthly dependency on WebbingHUB to keep your website running.',
+          q: 'Do I own the work after WebbingHUB builds it?',
+          a: 'On a tailored project, yes. You own the code and the result. Zero lock-in, and no monthly dependency on WebbingHUB to keep it running.',
         },
         {
           q: 'How does WebbingHUB price its work?',
-          a: "WebbingHUB works on fixed pricing — you know exactly what you're getting, when, and for how much before any work begins. No surprises.",
+          a: "WebbingHUB works on fixed pricing. You know exactly what you're getting, when, and for how much before any work begins. No surprises.",
         },
         {
           q: 'Where is WebbingHUB based and who do you serve?',
-          a: 'WebbingHUB is based in Timișoara, Romania, and serves clients across Europe — from travel agencies in Paris to service businesses in Romania and beyond.',
+          a: 'WebbingHUB is based in Timișoara, Romania, and serves clients across Europe, from travel agencies in Paris to service businesses in Romania and beyond.',
         },
         {
           q: 'Does WebbingHUB provide support after launch?',
-          a: 'Yes. WebbingHUB stays close after launch — providing maintenance, updates, and improvements as your business grows.',
+          a: 'Yes. WebbingHUB stays close after launch, with maintenance, updates, and improvements as your business grows.',
         },
       ],
     },
@@ -321,38 +301,42 @@ const en: Translations = {
   pages: {
     about: {
       meta: {
-        title:         'About WebbingHUB — A Small Team, A Serious Commitment',
-        description:   'WebbingHUB builds custom websites from scratch for businesses across Europe. You talk to the people who write the code. No templates, no handoffs, no lock-in.',
-        ogDescription: 'Meet the people who build your site. We write every line ourselves.',
+        title:         'Mihai Cîra, founder and CTO',
+        description:   'Mihai Cîra is founder and CTO. WebbingHUB builds internal platforms, customer portals, and integrations that connect the systems a team already uses.',
+        ogDescription: 'Mihai Cîra is founder and CTO of WebbingHUB.',
       },
       eyebrow:      'About WebbingHUB',
-      heroTitle:    'A small team.',
-      heroTitleEm:  'A serious commitment.',
-      heroSub:      'We turned a hobby into our work. We build websites that earn their place, and we care about every pixel.',
-      storyLabel:   'Our story',
-      storyTitle:   'We build every site',
-      storyTitleEm: 'by hand.',
-      storyP1:      'started as a hobby and became our work. We build custom websites, and we know how to do them well.',
-      storyQuote:   '“We write every line of code ourselves. You get a site built for your business, not a theme with your logo dropped on top.”',
-      storyP2:      'You talk to the people who build your website, not an account manager who passes your notes along. We do honest work and we do it properly.',
+      heroTitle:    'Mihai Cîra',
+      heroTitleEm:  'founder and CTO',
+      heroSub:      'Mihai Cîra is founder and CTO. He leads the work and brings in specialists for the parts of a project that need them, so the people on it match the work.',
+      name:         'Mihai Cîra',
+      role:         'founder and CTO',
+      sentence:     'Mihai Cîra is founder and CTO. He leads the work and brings in specialists for the parts of a project that need them, so the people on it match the work.',
+      linkedin:     'LinkedIn',
+      storyLabel:   'The work',
+      storyTitle:   'Platforms, portals,',
+      storyTitleEm: 'and integrations.',
+      storyP1:      'builds internal platforms, customer portals, and integrations that connect the systems a team already uses.',
+      storyQuote:   'On a tailored project, you own the code and the result. Zero lock-in.',
+      storyP2:      'You talk to the person leading the work. Specialists join for the parts of a project that need them.',
       valuesLabel:   'What drives us',
-      valuesTitle:   'Websites that earn their keep.',
-      valuesTitleEm: 'Built around your business.',
+      valuesTitle:   'Software that connects the work.',
+      valuesTitleEm: 'Built around the business.',
       values: [
-        { title: 'Tailored solutions',   desc: 'We start every website from an empty editor. No theme, no shortcut. We design it around your business and the people who use it.' },
-        { title: 'Ongoing support',      desc: 'We stay on after launch to maintain and improve the site as your business grows.' },
-        { title: 'Direct communication', desc: 'You talk to the people doing the work, which means quicker decisions and a site that matches what you asked for.' },
+        { title: 'Tailored projects',    desc: 'You own the code and the result. We shape the work around the business and the people who use it.' },
+        { title: 'Ongoing support',      desc: 'We stay on after launch to maintain and improve the work as the business grows.' },
+        { title: 'Direct communication', desc: 'You talk to the person doing the work, which means quicker decisions and a result that matches what you asked for.' },
       ],
       processLabel:   'How we work',
-      processTitle:   'From concept to launch —',
+      processTitle:   'From concept to launch',
       processTitleEm: 'and beyond.',
       processIntro:   'You stay informed and in control at every stage. Clear milestones, no surprises.',
       process: [
         { title: 'Discover', desc: 'We listen first and learn your business and goals before we suggest anything.' },
         { title: 'Plan',     desc: 'You get a proposal with the deliverables, timeline, and fixed price, agreed before we write any code.' },
         { title: 'Build',    desc: 'We design and build from scratch, and you see progress throughout, not only at the end.' },
-        { title: 'Launch',   desc: 'We deploy, test, and hand over a site that works on day one.' },
-        { title: 'Support',  desc: 'We maintain, update, and improve the site as your business grows.' },
+        { title: 'Launch',   desc: 'We deploy, test, and hand over work that runs on day one.' },
+        { title: 'Support',  desc: 'We maintain, update, and improve the work as your business grows.' },
       ],
       ctaTitle:     'Ready when',
       ctaTitleEm:   'you are.',
@@ -361,9 +345,9 @@ const en: Translations = {
     },
     contact: {
       meta: {
-        title:         "Contact WebbingHUB — Let's Have a Chat",
-        description:   'No pressure, no pitch. Talk to WebbingHUB, a web development agency based in Romania, serving clients across Europe.',
-        ogDescription: 'No pressure, no pitch. An honest conversation about your website.',
+        title:         "Contact WebbingHUB: Let's Have a Chat",
+        description:   'No pressure, no pitch. Talk to WebbingHUB about internal platforms, portals, and integrations. Based in Romania, with clients across Europe.',
+        ogDescription: 'No pressure, no pitch. An honest conversation about the work.',
       },
       eyebrow:   'Get in touch',
       title:     "Let's have",
@@ -378,7 +362,7 @@ const en: Translations = {
     },
     blog: {
       meta: {
-        title:         'Blog — Web Development Insights by WebbingHUB',
+        title:         'Blog: Web Development Insights by WebbingHUB',
         description:   'Practical articles on web development, website costs, and growth, written by the WebbingHUB team for business owners across Europe.',
         ogDescription: 'Practical articles on web development for business owners.',
       },
@@ -408,7 +392,7 @@ const en: Translations = {
     },
   },
   footer: {
-    tagline:        'Crafting websites that work.',
+    tagline:        'Custom software that connects your business.',
     navTitle:       'Navigation',
     subBrandsTitle: 'Sub-brands',
     copy:           'All rights reserved.',
@@ -431,7 +415,7 @@ const en: Translations = {
   },
   emailForm: {
     send:      'Send',
-    success:   'Thanks — we’ll reply within 24h.',
+    success:   "Thanks. We'll reply within 24h.",
     error:     'Something went wrong. Please try again.',
     limit:     'You’ve reached the sending limit. Reach us anytime at hello@webbinghub.io.',
     consent:   'I consent to WebbingHUB using my email to contact me.',
@@ -458,12 +442,12 @@ const ro: Translations = {
     cta:        'Contactează-ne',
   },
   hero: {
-    eyebrow:    'Agenție de dezvoltare web',
-    titleLine1: 'Website-ul tău ar trebui să muncească',
-    titleEm:    'la fel de mult ca tine.',
-    body:       'Site de prezentare, magazin online sau o aplicație web la comandă: construim de la zero ce are nevoie afacerea ta, fără șabloane și fără abonamente care te țin captiv. Site-ul rămâne al tău, cu tot cu cod, și îl susținem mult după lansare.',
+    eyebrow:    'Studio de software',
+    titleLine1: 'Software la comandă care',
+    titleEm:    'leagă afacerea.',
+    body:       'Construim platforme interne, portaluri pentru clienți și integrări care leagă sistemele pe care o echipă le folosește deja.',
     cta1:       'Începe o conversație →',
-    cta2:       'Ce construim',
+    cta2:       'Lucrul',
     badge1:     'Bazați în România',
     badge2:     'Clienți în toată Europa',
     badge3:     '6+ ani de experiență',
@@ -480,31 +464,17 @@ const ro: Translations = {
     ],
   },
   home: {
-    about: {
-      label:     'Despre WebbingHUB',
-      heading:   'O echipă mică.',
-      headingEm: 'Un angajament serios.',
-      p1:        'WebbingHUB este o agenție de dezvoltare web condusă de oameni cărora le pasă cu adevărat de calitatea muncii lor. Îmbinăm experiența tehnică cu o înțelegere reală a felului în care funcționează o afacere, așa că website-urile pe care le construim nu sunt doar frumoase, ci și utile.',
-      quote:     'Fiecare proiect primește aceeași atenție, fie că e un hotel din Paris sau o afacere locală din România. Fără proiecte pasate juniorilor, fără scurtături.',
-      p2:        'Când lucrezi cu WebbingHUB, vorbești direct cu oamenii care îți construiesc website-ul. Iar după lansare, rămânem aproape.',
-      stats: [
-        { num: 'Zero', label: 'Dependență' },
-        { num: '6+',   label: 'Ani de experiență' },
-        { num: 'UE',   label: 'Clienți în toată Europa' },
-        { num: '100%', label: 'Al tău' },
-      ],
-    },
     services: {
       label:     'Ce construim',
       heading1:  'Servicii gândite',
       heading2:  'pentru',
       headingEm: 'afaceri reale.',
-      note:      'Fiecare colaborare e croită pe măsură. Nu vindem pachete, rezolvăm probleme.',
+      note:      'Într-un proiect croit pe măsură, deții codul și rezultatul. Fără dependență.',
       items: [
-        { title: 'Website-uri personalizate',         desc: 'Un website care îți reprezintă cu adevărat afacerea: proiectat de la zero, rapid pe orice dispozitiv și construit să transforme vizitatorii în clienți. Fără teme, fără scurtături drag-and-drop.' },
-        { title: 'Instrumente interne și portaluri',  desc: 'Dashboard-uri și sisteme de management la comandă care îți ajută echipa să lucreze mai eficient. Fie că e vorba de rezervări, clienți sau operațiuni, construim instrumentul potrivit.' },
-        { title: 'Magazine online',                   desc: 'Un magazin construit pentru performanță și vânzări, nu doar pentru aspect. De la pagina de produs până la finalizarea comenzii, fiecare pas e gândit pentru conversie.' },
-        { title: 'Integrări și automatizări',         desc: 'WhatsApp, motoare de rezervări, meniuri QR, procesatori de plăți, API-uri externe: conectăm website-ul la instrumentele pe care afacerea ta le folosește deja.' },
+        { title: 'Platforme interne și portaluri', desc: 'Platforme și portaluri pentru echipă și pentru clienți, legate de sistemele pe care afacerea le folosește deja.' },
+        { title: 'Integrări și automatizări',      desc: 'Legături între instrumentele pe care o echipă le folosește deja: rezervări, plăți, WhatsApp și alte API-uri.' },
+        { title: 'Magazine online',                desc: 'Un magazin construit pentru performanță și vânzări, nu doar pentru aspect. De la pagina de produs până la finalizarea comenzii, fiecare pas e gândit pentru conversie.' },
+        { title: 'Website-uri personalizate',      desc: 'Un website atunci când lucrul are nevoie de el, proiectat de la zero și rapid pe orice dispozitiv. Fără teme și fără scurtături drag-and-drop.' },
       ],
     },
     process: {
@@ -512,7 +482,7 @@ const ro: Translations = {
       heading1:  'Un proces construit',
       heading2:  'în jurul',
       headingEm: 'clarității.',
-      intro:     'Înainte să scriem o singură linie de cod, știi exact ce primești, când și cu cât. Iar după lansare nu dispărem: rămânem aproape și ne asigurăm că site-ul funcționează bine.',
+      intro:     'Înainte să scriem o singură linie de cod, știi exact ce primești, când și cu cât. Iar după lansare nu dispărem: rămânem aproape și ne asigurăm că lucrul funcționează bine.',
       steps: [
         { title: 'Discuția inițială',     desc: 'Mai întâi ascultăm. Îți cunoaștem afacerea, obiectivele și utilizatorii înainte să propunem ceva.' },
         { title: 'Propunere clară',       desc: 'Un brief clar, cu livrabile, termene și un preț fix, stabilite înainte să începem lucrul.' },
@@ -527,7 +497,7 @@ const ro: Translations = {
       live:      'Activ acum',
       travel: {
         sub:  'pentru hoteluri și agenții de turism',
-        desc: 'Un sub-brand dedicat industriei de turism și ospitalitate. Motoare de rezervări, portaluri pentru agenți, integrări WhatsApp și experiențe digitale pentru hoteluri, resorturi și agenții de turism.',
+        desc: 'TRAVEL este un produs cu termenii lui, pentru hoteluri și agenții de turism. Acoperă motoare de rezervări, portaluri pentru agenți, WhatsApp și integrări API.',
         tags: ['Motoare de rezervări', 'Portaluri pentru agenți', 'WhatsApp', 'Integrări API'],
         link: 'Vizitează travel.webbinghub.io →',
       },
@@ -538,14 +508,12 @@ const ro: Translations = {
         link: 'Vizitează apetit.webbinghub.io →',
       },
     },
-    testimonial: {
-      quote:  '„Fără șabloane, fără compromisuri. Site-ul e al nostru, datele sunt ale noastre și concurăm în propriii termeni. Asta contează enorm când încerci să ieși în evidență.”',
-      author: 'Antreprenori și echipe din toată Europa',
-      numbers: [
-        { num: 'Zero', label: 'Dependență, niciodată' },
-        { num: '6+',   label: 'Ani de experiență' },
-        { num: 'UE',   label: 'Clienți în toată Europa' },
-      ],
+    proof: {
+      text: 'Platformă de integrare pentru o agenție mare de tour-operatori din Europa. WebbingHUB a construit platforma. Clientul nu este numit.',
+    },
+    founder: {
+      role:     'fondator și CTO',
+      linkedin: 'LinkedIn',
     },
     cta: {
       heading1:  'Hai să vorbim despre',
@@ -564,11 +532,11 @@ const ro: Translations = {
       items: [
         {
           q: 'Ce construiește WebbingHUB?',
-          a: 'WebbingHUB construiește website-uri personalizate, instrumente interne și portaluri, magazine online și integrări API, toate de la zero, fără șabloane, pentru afaceri din Europa.',
+          a: 'WebbingHUB construiește platforme interne, portaluri pentru clienți și integrări care leagă sistemele pe care o echipă le folosește deja. Magazinele online și website-urile personalizate fac parte din lucru când un proiect are nevoie de ele.',
         },
         {
-          q: 'Îmi aparține website-ul după ce îl construiește WebbingHUB?',
-          a: 'Da, în totalitate. Fără dependență. Codul, găzduirea și tot restul sunt ale tale. Nu depinzi lunar de WebbingHUB ca website-ul să rămână online.',
+          q: 'Îmi aparține lucrul după ce îl construiește WebbingHUB?',
+          a: 'Într-un proiect croit pe măsură, da. Deții codul și rezultatul. Fără dependență, și fără o plată lunară către WebbingHUB ca să rămână în funcțiune.',
         },
         {
           q: 'Cum își stabilește WebbingHUB prețurile?',
@@ -588,38 +556,42 @@ const ro: Translations = {
   pages: {
     about: {
       meta: {
-        title:         'Despre WebbingHUB — O echipă mică, un angajament serios',
-        description:   'WebbingHUB construiește website-uri personalizate de la zero pentru afaceri din toată Europa. Vorbești cu oamenii care scriu codul. Fără șabloane, fără intermediari.',
-        ogDescription: 'Cunoaște oamenii care îți construiesc site-ul. Scriem fiecare linie de cod noi înșine.',
+        title:         'Mihai Cîra, fondator și CTO',
+        description:   'Mihai Cîra is founder and CTO. WebbingHUB construiește platforme interne, portaluri pentru clienți și integrări care leagă sistemele pe care o echipă le folosește deja.',
+        ogDescription: 'Mihai Cîra is founder and CTO of WebbingHUB.',
       },
       eyebrow:      'Despre WebbingHUB',
-      heroTitle:    'O echipă mică.',
-      heroTitleEm:  'Un angajament serios.',
-      heroSub:      'Născut dintr-un hobby transformat în profesie — construim website-uri care vorbesc de la sine, și o spunem cu fiecare pixel.',
-      storyLabel:   'Povestea noastră',
-      storyTitle:   'Pasiune & expertiză,',
-      storyTitleEm: 'reunite.',
-      storyP1:      'a pornit ca un hobby și a devenit meseria noastră. Construim website-uri personalizate și știm să le facem bine.',
-      storyQuote:   '„Scriem fiecare linie de cod noi înșine. Primești un site construit pentru afacerea ta, nu o temă cu logo-ul tău pus deasupra.”',
-      storyP2:      'Vorbești cu oamenii care îți construiesc website-ul, nu cu un account manager care doar transmite mesajele mai departe. Facem o muncă cinstită și o facem cum trebuie.',
+      heroTitle:    'Mihai Cîra',
+      heroTitleEm:  'fondator și CTO',
+      heroSub:      'Mihai Cîra is founder and CTO. He leads the work and brings in specialists for the parts of a project that need them, so the people on it match the work.',
+      name:         'Mihai Cîra',
+      role:         'fondator și CTO',
+      sentence:     'Mihai Cîra is founder and CTO. He leads the work and brings in specialists for the parts of a project that need them, so the people on it match the work.',
+      linkedin:     'LinkedIn',
+      storyLabel:   'Lucrul',
+      storyTitle:   'Platforme, portaluri',
+      storyTitleEm: 'și integrări.',
+      storyP1:      'construiește platforme interne, portaluri pentru clienți și integrări care leagă sistemele pe care o echipă le folosește deja.',
+      storyQuote:   'Într-un proiect croit pe măsură, deții codul și rezultatul. Fără dependență.',
+      storyP2:      'Vorbești cu persoana care conduce lucrul. Specialiștii intră pentru părțile din proiect care au nevoie de ei.',
       valuesLabel:   'Ce ne motivează',
-      valuesTitle:   'Website-uri care își merită locul.',
-      valuesTitleEm: 'Construite în jurul afacerii tale.',
+      valuesTitle:   'Software care leagă lucrul.',
+      valuesTitleEm: 'Construit în jurul afacerii.',
       values: [
-        { title: 'Soluții pe măsură',  desc: 'Începem fiecare website de la un editor gol. Fără teme, fără scurtături. Îl proiectăm în jurul afacerii tale și al oamenilor care îl folosesc.' },
-        { title: 'Suport continuu',    desc: 'Rămânem alături și după lansare, ca să întreținem și să îmbunătățim site-ul pe măsură ce afacerea ta crește.' },
-        { title: 'Comunicare directă', desc: 'Vorbești cu oamenii care fac munca, așa că deciziile se iau mai repede, iar site-ul iese exact cum l-ai cerut.' },
+        { title: 'Proiecte pe măsură',  desc: 'Deții codul și rezultatul. Modelăm lucrul în jurul afacerii și al oamenilor care îl folosesc.' },
+        { title: 'Suport continuu',    desc: 'Rămânem alături și după lansare, ca să întreținem și să îmbunătățim lucrul pe măsură ce afacerea crește.' },
+        { title: 'Comunicare directă', desc: 'Vorbești cu persoana care face munca, așa că deciziile se iau mai repede, iar rezultatul iese cum l-ai cerut.' },
       ],
       processLabel:   'Cum lucrăm',
-      processTitle:   'De la concept la lansare —',
+      processTitle:   'De la concept la lansare',
       processTitleEm: 'și mai departe.',
       processIntro:   'Ești informat și ai control la fiecare etapă. Repere clare, fără surprize.',
       process: [
         { title: 'Descoperire',  desc: 'Mai întâi ascultăm și îți înțelegem afacerea și obiectivele, înainte să propunem ceva.' },
         { title: 'Planificare',  desc: 'Primești o propunere cu livrabilele, termenele și prețul fix, stabilite înainte să scriem cod.' },
         { title: 'Dezvoltare',   desc: 'Proiectăm și construim de la zero, iar tu vezi progresul pe tot parcursul, nu doar la final.' },
-        { title: 'Lansare',      desc: 'Publicăm, testăm și îți predăm un site care funcționează din prima zi.' },
-        { title: 'Suport',       desc: 'Întreținem, actualizăm și îmbunătățim site-ul pe măsură ce afacerea ta crește.' },
+        { title: 'Lansare',      desc: 'Publicăm, testăm și îți predăm lucrul, funcțional din prima zi.' },
+        { title: 'Suport',       desc: 'Întreținem, actualizăm și îmbunătățim lucrul pe măsură ce afacerea ta crește.' },
       ],
       ctaTitle:     'Partenerul tău în',
       ctaTitleEm:   'creștere digitală.',
@@ -628,15 +600,15 @@ const ro: Translations = {
     },
     contact: {
       meta: {
-        title:         'Contact WebbingHUB — Hai să discutăm',
-        description:   'Fără presiune, fără discurs de vânzări. Vorbește cu WebbingHUB, agenție de dezvoltare web din România, cu clienți în toată Europa.',
-        ogDescription: 'Fără presiune, fără discurs de vânzări. O discuție sinceră despre website-ul tău.',
+        title:         'Contact WebbingHUB: Hai să discutăm',
+        description:   'Fără presiune, fără discurs de vânzări. Vorbește cu WebbingHUB despre platforme interne, portaluri și integrări. Din România, cu clienți în toată Europa.',
+        ogDescription: 'Fără presiune, fără discurs de vânzări. O discuție sinceră despre lucru.',
       },
       eyebrow:    'Contactează-ne',
       title:      'Hai să',
       titleEm:    'discutăm.',
       desc:       'Poate ai nevoie de un website, poate nu. Poate trebuie să fie complex, poate nu. Hai să discutăm și să decidem împreună ce ți se potrivește cel mai bine.',
-      formTitle:  'Lasă-ne emailul — îți răspundem în 24h.',
+      formTitle:  'Lasă-ne emailul. Îți răspundem în 24h.',
       formLabel:  'Adresa ta de email',
       linkedin:   'WebbingHUB pe LinkedIn',
       emailLabel: 'Email',
@@ -645,7 +617,7 @@ const ro: Translations = {
     },
     blog: {
       meta: {
-        title:         'Blog — Articole despre dezvoltare web de la WebbingHUB',
+        title:         'Blog: Articole despre dezvoltare web de la WebbingHUB',
         description:   'Articole practice despre dezvoltare web, costuri și creștere online, scrise de echipa WebbingHUB pentru antreprenori.',
         ogDescription: 'Articole practice despre dezvoltare web pentru antreprenori.',
       },
@@ -675,7 +647,7 @@ const ro: Translations = {
     },
   },
   footer: {
-    tagline:        'Construim website-uri care funcționează.',
+    tagline:        'Software la comandă care leagă afacerea.',
     navTitle:       'Navigație',
     subBrandsTitle: 'Sub-branduri',
     copy:           'Toate drepturile rezervate.',

@@ -3,7 +3,7 @@ import { getLogoDataUri, getMascotDataUri, getCormorantFont } from "@/lib/og";
 import { OgLayout } from "@/lib/OgLayout";
 
 export const runtime = "nodejs";
-export const alt = "WebbingHUB — Custom Web Development Agency";
+export const alt = "WebbingHUB: custom software that connects your business";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -18,10 +18,10 @@ export default async function Image() {
     <OgLayout
       logoSrc={logoSrc}
       mascotSrc={mascotSrc}
-      tag="Web Development Agency"
-      headline="Your website should work"
-      headlineEm="as hard as you do."
-      subtitle="Custom-built websites, tools & stores for businesses across Europe. Zero lock-in."
+      tag="Software studio"
+      headline="Custom software that connects"
+      headlineEm="your business."
+      subtitle="Internal platforms, customer portals, and integrations. You own the code and the result."
     />,
     {
       ...size,

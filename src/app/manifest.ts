@@ -2,10 +2,10 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "WebbingHUB — Custom Web Development",
+    name: "WebbingHUB: custom software",
     short_name: "WebbingHUB",
     description:
-      "Custom websites, internal tools, and digital solutions built from scratch. No templates, zero lock-in.",
+      "Internal platforms, customer portals, and integrations. You own the code and the result.",
     start_url: "/en/",
     scope: "/",
     background_color: "#faf8f5",

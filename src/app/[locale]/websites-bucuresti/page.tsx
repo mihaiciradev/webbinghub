@@ -15,7 +15,7 @@ export async function generateMetadata({
   params: { locale: Locale };
 }): Promise<Metadata> {
   return {
-    title: brandedTitle("Creare site web București — Agenție web design"),
+    title: brandedTitle("Creare site web București: Agenție web design"),
     description:
       "Creare site de prezentare, magazin online și aplicații web pentru afaceri din București. Dezvoltare site web la comandă, fără șabloane. Cod și date 100% ale tale.",
     keywords: [
@@ -29,7 +29,7 @@ export async function generateMetadata({
     ],
     alternates: pageAlternates(locale, "/websites-bucuresti"),
     openGraph: {
-      title: "Creare site web București — Agenție web design",
+      title: "Creare site web București: Agenție web design",
       description:
         "Site de prezentare, magazin online și aplicații web pentru afaceri din București. Fără șabloane.",
       url: `${BASE}/${locale}/websites-bucuresti`,
@@ -114,7 +114,7 @@ export default function BucurestiPage({
           </h1>
           <p className={styles.lead}>
             Construim site-uri de prezentare, magazine online și aplicații web
-            pentru afaceri din București — de la zero, adaptate exact la cum
+            pentru afaceri din București, de la zero, adaptate exact la cum
             lucrezi. Fără șabloane, fără abonamente care te țin captiv. Codul și
             datele rămân ale tale.
           </p>
@@ -150,7 +150,7 @@ export default function BucurestiPage({
                 Magazin online &amp; e-commerce
               </p>
               <p className={styles.cardText}>
-                Creare magazin online cu plăți, gestiune produse și livrare —
+                Creare magazin online cu plăți, gestiune produse și livrare,
                 pregătit pentru vânzări în București și în toată țara.
               </p>
             </div>
@@ -181,7 +181,7 @@ export default function BucurestiPage({
             Cu un builder plătești lunar și rămâi blocat în limitele lui:
             template-uri pe care le recunoști pe alte zeci de site-uri, viteză
             pe care n-o controlezi și un site pe care nu-l poți muta. Noi
-            construim de la zero, deci primești exact ce-ți trebuie — și rămâne
+            construim de la zero, deci primești exact ce-ți trebuie, și rămâne
             al tău, cu tot cu cod.
           </p>
           <p className={styles.prose}>
@@ -196,7 +196,7 @@ export default function BucurestiPage({
           <div className={styles.formBox}>
             <p className={styles.formTitle}>Hai să-ți facem o ofertă</p>
             <p className={styles.formSub}>
-              Lasă-ne emailul și îți răspundem în 24h. Fără discurs de vânzări —
+              Lasă-ne emailul și îți răspundem în 24h. Fără discurs de vânzări,
               vorbim despre ce ai nevoie și dacă te putem ajuta.
             </p>
             <EmailUs label="Adresa ta de email" />

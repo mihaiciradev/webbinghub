@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         url: `/og-blog-search-console.png`,
         width: 1200,
         height: 630,
-        alt: "Google Search Console Guide — Maximize Website Visibility",
+        alt: "Google Search Console Guide, Maximize Website Visibility",
         type: "image/png",
       },
     ],
@@ -239,7 +239,7 @@ export default function BlogArticle({
               An impression means someone saw your website link in a Google
               search result (or in Google Discover). If you appear in position 5
               for "custom website for restaurants" and 200 people search for
-              that, you get 200 impressions — even if none of them click.
+              that, you get 200 impressions, even if none of them click.
             </p>
 
             <p>
@@ -276,7 +276,7 @@ export default function BlogArticle({
             <div className={styles.highlight}>
               <strong>Real Example:</strong> A restaurant website appears in
               1,000 Google searches per month for "Italian restaurant in [city]"
-              (1,000 impressions) but only gets 40 clicks. That's a 4% CTR —
+              (1,000 impressions) but only gets 40 clicks. That's a 4% CTR,
               which means 96% of people searching chose a competitor instead.
               This tells you your search listing isn't attractive enough, even
               though you rank.
@@ -294,12 +294,12 @@ export default function BlogArticle({
             </p>
             <ul>
               <li>
-                <strong>Domain property</strong> (recommended) — tracks all
+                <strong>Domain property</strong> (recommended), tracks all
                 versions of your site (www, non-www, http, https, subdomains) in
                 one place
               </li>
               <li>
-                <strong>URL prefix property</strong> — tracks only the exact URL
+                <strong>URL prefix property</strong>, tracks only the exact URL
                 you specify
               </li>
             </ul>
@@ -392,7 +392,7 @@ export default function BlogArticle({
             </div>
 
             <p>
-              Search Console is like a dashboard for your car — it tells you if
+              Search Console is like a dashboard for your car, it tells you if
               the engine is running efficiently. But if the engine itself was
               built poorly, no dashboard can fix it.
             </p>
@@ -419,7 +419,7 @@ export default function BlogArticle({
             </ul>
 
             <p>
-              Most DIY or low-cost websites fail on one or more of these — which
+              Most DIY or low-cost websites fail on one or more of these, which
               means Search Console data shows the problem, but you can't fix it
               without rebuilding parts of the site.
             </p>
@@ -435,8 +435,8 @@ export default function BlogArticle({
             </p>
 
             <p>
-              But if you're <strong>building a new website</strong> — or
-              rebuilding an old one — there's a smarter approach:{" "}
+              But if you're <strong>building a new website</strong>, or
+              rebuilding an old one, there's a smarter approach:{" "}
               <strong>build it right from day one</strong>, optimized for search
               from the ground up.
             </p>
@@ -453,7 +453,7 @@ export default function BlogArticle({
                 Then Search Console becomes a tool for growth, not firefighting.
               </p>
               <p className={styles.inlineCtaSub}>
-                We also help you understand the data — and take action on it —
+                We also help you understand the data, and take action on it,
                 so your website actually becomes a channel that brings in leads
                 and sales.
               </p>
@@ -481,7 +481,7 @@ export default function BlogArticle({
               </li>
               <li>
                 Most websites underperform because they were built without
-                search in mind — Search Console shows the problem, but doesn't
+                search in mind, Search Console shows the problem, but doesn't
                 fix it
               </li>
               <li>
@@ -499,7 +499,7 @@ export default function BlogArticle({
             <p>
               <strong>Ready to build a website that actually performs?</strong>{" "}
               WebbingHUB specializes in custom websites built for search
-              visibility and user experience — from the architecture to the
+              visibility and user experience, from the architecture to the
               content. We don't just launch and hope. We build right, monitor
               results, and help you grow.{" "}
               <a href="mailto:hello@webbinghub.io">Get in touch</a> to see how

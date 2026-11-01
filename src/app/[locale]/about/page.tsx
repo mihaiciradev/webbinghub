@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import { getTranslations, pageAlternates, brandedTitle } from "@/i18n/utils";
@@ -20,7 +21,6 @@ export async function generateMetadata({
       title: meta.title,
       description: meta.ogDescription,
       url: `${BASE}/${locale}/about`,
-      images: [{ url: "/og-about.png", width: 1200, height: 630, alt: "About WebbingHUB" }],
     },
   };
 }
@@ -30,7 +30,7 @@ const aboutSchema = {
   "@type": "AboutPage",
   "@id": `${BASE}/en/about#webpage`,
   name: "About WebbingHUB",
-  description: "WebbingHUB builds custom websites from scratch. You talk to the people who write the code. No templates.",
+  description: "Mihai Cîra is founder and CTO. WebbingHUB builds internal platforms, customer portals, and integrations.",
   url: `${BASE}/en/about`,
   isPartOf: { "@id": `${BASE}/#website` },
   about: { "@id": `${BASE}/#organization` },
@@ -53,10 +53,24 @@ export default function AboutPage({ params }: { params: { locale: Locale } }) {
     <main className={styles.main}>
       <section className={styles.hero}>
         <p className={styles.eyebrow}>{t.eyebrow}</p>
-        <h1 className={styles.heroTitle}>
-          {t.heroTitle}<br /><em>{t.heroTitleEm}</em>
-        </h1>
-        <p className={styles.heroSub}>{t.heroSub}</p>
+        <div className={styles.founder}>
+          <Image
+            src="/mihai-cira.webp"
+            alt="Mihai Cîra, founder and CTO of WebbingHUB"
+            width={280}
+            height={340}
+            className={styles.portrait}
+            priority
+          />
+          <div>
+            <h1 className={styles.heroTitle}>{t.name}</h1>
+            <p className={styles.role}>{t.role}</p>
+            <p className={styles.heroSub}>{t.sentence}</p>
+            <a className={styles.linkedin} href="https://www.linkedin.com/in/mihaicira/" target="_blank" rel="noopener noreferrer">
+              {t.linkedin}
+            </a>
+          </div>
+        </div>
       </section>
 
       <section className={styles.story}>

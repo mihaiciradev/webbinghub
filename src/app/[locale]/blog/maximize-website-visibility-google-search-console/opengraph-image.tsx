@@ -3,7 +3,7 @@ import { getLogoDataUri, getMascotDataUri, getCormorantFont } from "@/lib/og";
 import { OgLayout } from "@/lib/OgLayout";
 
 export const runtime = "nodejs";
-export const alt = "Maximize Your Website's Visibility: Google Search Console Guide — WebbingHUB";
+export const alt = "Maximize Your Website's Visibility: Google Search Console Guide, WebbingHUB";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

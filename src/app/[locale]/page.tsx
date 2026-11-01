@@ -3,20 +3,18 @@ import type { Locale } from "@/i18n/config";
 import { locales } from "@/i18n/config";
 import { getTranslations, pageAlternates } from "@/i18n/utils";
 import HeroSection from "@/app/HeroSection/HeroSection";
-import TrustBar from "@/app/TrustBar/TrustBar";
-import AboutSection from "@/app/AboutSection/AboutSection";
 import ServicesSection from "@/app/ServicesSection/ServicesSection";
+import ProofSection from "@/app/ProofSection/ProofSection";
 import ProcessSection from "@/app/ProcessSection/ProcessSection";
 import BrandsSection from "@/app/BrandsSection/BrandsSection";
-import TestimonialSection from "@/app/TestimonialSection/TestimonialSection";
 import FaqSection from "@/app/FaqSection/FaqSection";
 import CTASection from "@/app/CTASection/CTASection";
 
 const BASE = "https://webbinghub.io";
 
 const HOME_TITLE: Record<Locale, string> = {
-  en: "WebbingHUB | Custom Web Development Agency",
-  ro: "WebbingHUB | Agenție de Dezvoltare Web Personalizată",
+  en: "WebbingHUB | Custom Software That Connects Your Business",
+  ro: "WebbingHUB | Software la comandă care leagă afacerea",
 };
 
 export async function generateMetadata({
@@ -48,7 +46,7 @@ const organizationSchema = {
     height: 512,
   },
   description:
-    "Custom-built websites, internal tools, and digital solutions for businesses across Europe. No templates — fully owned by you.",
+    "Internal platforms, customer portals, and integrations that connect the systems a team already uses. The client owns the code and the result.",
   foundingDate: "2019",
   areaServed: { "@type": "Place", name: "Europe" },
   address: {
@@ -74,40 +72,38 @@ const organizationSchema = {
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Web Development Services",
+    name: "Software",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Custom Websites",
-          description: "Bespoke websites designed and built from scratch.",
+          name: "Internal platforms and portals",
+          description: "Platforms and portals connected to the systems a team already uses.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Internal Tools & Portals",
-          description: "Custom dashboards and management systems.",
+          name: "Integrations and automations",
+          description: "Connections between bookings, payments, WhatsApp, and other APIs.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Online Stores",
-          description:
-            "E-commerce stores built for performance and conversion.",
+          name: "Online stores",
+          description: "Stores built for performance and conversion.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Integrations & Automations",
-          description:
-            "API integrations, WhatsApp, booking engines, payment providers.",
+          name: "Custom websites",
+          description: "Websites designed from scratch when a project needs one.",
         },
       },
     ],
@@ -163,12 +159,10 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(t.home.faq.items)) }}
       />
       <HeroSection locale={locale} t={t.hero} />
-      <TrustBar t={t.trustBar} />
-      <AboutSection t={t.home.about} />
       <ServicesSection t={t.home.services} />
-      <ProcessSection t={t.home.process} />
+      <ProofSection locale={locale} proof={t.home.proof} founder={t.home.founder} />
       <BrandsSection t={t.home.brands} />
-      <TestimonialSection t={t.home.testimonial} />
+      <ProcessSection t={t.home.process} />
       <FaqSection t={t.home.faq} />
       <CTASection t={t.home.cta} />
     </>

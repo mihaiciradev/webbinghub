@@ -47,7 +47,7 @@ export async function generateMetadata({
       siteName: "WebbingHUB",
       title: "How Hard Is It to Make a Website? A Practical Breakdown",
       description:
-        "Understand what determines website complexity — scope, performance, customization, maintenance — and how to evaluate your real options.",
+        "Understand what determines website complexity, scope, performance, customization, maintenance, and how to evaluate your real options.",
       images: [
         {
           url: "/og-blog-website-difficulty.png",
@@ -85,7 +85,7 @@ const jsonLd = {
   headline:
     "How Hard Is It to Make a Website? A Practical Breakdown for Business Owners",
   description:
-    "How difficult is building a website? Entirely depends on what you need it to do. We break down the real factors that determine complexity — from scope to performance to customization — and help you understand your actual options.",
+    "How difficult is building a website? Entirely depends on what you need it to do. We break down the real factors that determine complexity, from scope to performance to customization, and help you understand your actual options.",
   image: {
     "@type": "ImageObject",
     url: `${BASE}/og-blog-website-difficulty.png`,
@@ -179,7 +179,7 @@ export default function BlogPostPage({
             <p className={styles.lead}>
               Building a website can be as simple or as complex as your goals
               and technical skills allow. Here&apos;s an honest breakdown of
-              what it actually takes — and when it makes sense to bring in
+              what it actually takes, and when it makes sense to bring in
               professionals.
             </p>
           </header>
@@ -200,7 +200,7 @@ export default function BlogPostPage({
             </p>
 
             <p>
-              Let's break down what actually determines difficulty — so you can
+              Let's break down what actually determines difficulty, so you can
               make an informed decision about your own situation.
             </p>
 
@@ -229,10 +229,10 @@ export default function BlogPostPage({
 
             <p>
               <strong>Real example:</strong> A local plumber needs a site with
-              service descriptions, a contact form, and some photos. That's 4–5
+              service descriptions, a contact form, and some photos. That's 4-5
               hours of work in a builder. An e-commerce brand selling to 20+
               countries with localized pricing, tax compliance, and shipping
-              integrations? 4–6 months of professional development.
+              integrations? 4-6 months of professional development.
             </p>
 
             <h3>2. Performance Requirements</h3>
@@ -240,8 +240,8 @@ export default function BlogPostPage({
             <p>
               A static website can be slow and nobody cares much. But a slow
               e-commerce site loses sales directly. Studies show users abandon
-              sites that take more than 3 seconds to load — and that's just the
-              baseline. A well-performing site can convert 10–15% better than a
+              sites that take more than 3 seconds to load, and that's just the
+              baseline. A well-performing site can convert 10-15% better than a
               slow one.
             </p>
 
@@ -344,7 +344,7 @@ export default function BlogPostPage({
               <li>✅ Hosting, security, updates handled automatically</li>
               <li>✅ Lower upfront cost</li>
               <li>✅ Good templates to work from</li>
-              <li>❌ Limited customization — you adapt to their platform</li>
+              <li>❌ Limited customization, you adapt to their platform</li>
               <li>❌ Harder to move your site later (vendor lock-in)</li>
               <li>❌ Limited integrations with outside tools</li>
               <li>❌ Can be slower than custom-built sites</li>
@@ -359,10 +359,10 @@ export default function BlogPostPage({
             </p>
 
             <ul>
-              <li>✅ Build exactly what you need — no compromises</li>
+              <li>✅ Build exactly what you need, no compromises</li>
               <li>✅ Better performance (when done right)</li>
               <li>✅ Easier to integrate with custom tools and workflows</li>
-              <li>✅ You own the code — no vendor lock-in</li>
+              <li>✅ You own the code, no vendor lock-in</li>
               <li>✅ Scales to complexity without hitting walls</li>
               <li>❌ Takes longer to build (weeks to months)</li>
               <li>❌ Higher upfront cost</li>
@@ -447,7 +447,7 @@ export default function BlogPostPage({
             <h2>The Real Cost of Getting It Wrong</h2>
 
             <p>
-              Picking the wrong approach isn't just annoying — it has real
+              Picking the wrong approach isn't just annoying, it has real
               business costs:
             </p>
 
@@ -457,7 +457,7 @@ export default function BlogPostPage({
                 because you outgrew it
               </li>
               <li>
-                Launch without performance optimization and lose 15–20% of
+                Launch without performance optimization and lose 15-20% of
                 potential conversions to abandonment
               </li>
               <li>
@@ -500,7 +500,7 @@ export default function BlogPostPage({
 
             <p>
               The businesses that win are the ones that made a conscious choice
-              based on their actual needs — not just went with what was cheapest
+              based on their actual needs, not just went with what was cheapest
               or what someone told them to do.
             </p>
 
@@ -510,7 +510,7 @@ export default function BlogPostPage({
               </p>
               <p className={styles.inlineCtaSub}>
                 If you're thinking about building a website and want honest
-                advice on the best approach for your specific situation — no
+                advice on the best approach for your specific situation, no
                 pressure to hire us, just clarity on what makes sense.
               </p>
               <Link href={`/${locale}/contact`} className={styles.ctaButton}>

@@ -15,7 +15,7 @@ export async function generateMetadata({
   params: { locale: Locale };
 }): Promise<Metadata> {
   return {
-    title: brandedTitle("Creare site web în România — Agenție web design"),
+    title: brandedTitle("Creare site web în România: Agenție web design"),
     description:
       "Creare site de prezentare, magazin online și aplicații web personalizate pentru afaceri din România. Dezvoltare site web de la zero, fără șabloane. Cod și date 100% ale tale.",
     keywords: [
@@ -115,7 +115,7 @@ export default function RomaniaPage({
           </h1>
           <p className={styles.lead}>
             Construim site-uri de prezentare, magazine online și aplicații web
-            de la zero — adaptate exact la cum lucrează afacerea ta. Fără
+            de la zero, adaptate exact la cum lucrează afacerea ta. Fără
             șabloane, fără abonamente care te țin captiv. Codul și datele rămân
             ale tale.
           </p>
@@ -151,7 +151,7 @@ export default function RomaniaPage({
                 Magazin online &amp; e-commerce
               </p>
               <p className={styles.cardText}>
-                Creare magazin online cu plăți, gestiune produse și livrare —
+                Creare magazin online cu plăți, gestiune produse și livrare,
                 pregătit pentru vânzări în România și în toată Europa.
               </p>
             </div>
@@ -182,7 +182,7 @@ export default function RomaniaPage({
             Cu un builder plătești lunar și rămâi blocat în limitele lui:
             template-uri pe care le recunoști pe alte zeci de site-uri, viteză
             pe care n-o controlezi și un site pe care nu-l poți muta. Noi
-            construim de la zero, deci primești exact ce-ți trebuie — și rămâne
+            construim de la zero, deci primești exact ce-ți trebuie, și rămâne
             al tău, cu tot cu cod.
           </p>
           <p className={styles.prose}>
@@ -221,7 +221,7 @@ export default function RomaniaPage({
           <div className={styles.formBox}>
             <p className={styles.formTitle}>Hai să-ți facem o ofertă</p>
             <p className={styles.formSub}>
-              Lasă-ne emailul și îți răspundem în 24h. Fără discurs de vânzări —
+              Lasă-ne emailul și îți răspundem în 24h. Fără discurs de vânzări,
               vorbim despre ce ai nevoie și dacă te putem ajuta.
             </p>
             <EmailUs label="Adresa ta de email" />

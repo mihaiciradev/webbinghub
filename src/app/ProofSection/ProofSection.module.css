@@ -1,0 +1,31 @@
+.proof {
+  background: var(--paper);
+  padding: 4.5rem 4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.text {
+  max-width: 720px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.line {
+  margin-top: 1.4rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink2);
+}
+
+.line a {
+  color: #6b5424;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 960px) {
+  .proof { padding: 3rem 1.5rem; }
+}

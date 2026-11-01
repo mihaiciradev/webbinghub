@@ -38,13 +38,13 @@ export async function generateMetadata({
   const BASE = "https://webbinghub.io";
 
   const descriptions: Record<Locale, string> = {
-    en: "Custom-built websites, internal tools & online stores for businesses across Europe. No templates — built from scratch, fully owned by you. Based in Romania.",
-    ro: "Website-uri personalizate, instrumente interne și magazine online pentru afaceri din Europa. Fără șabloane — construit de la zero, al tău în totalitate.",
+    en: "Internal platforms, customer portals, and integrations that connect the systems a team already uses. Based in Romania.",
+    ro: "Platforme interne, portaluri pentru clienți și integrări care leagă sistemele pe care o echipă le folosește deja. Din România.",
   };
 
   const titles: Record<Locale, string> = {
-    en: "WebbingHUB | Custom Web Development Agency",
-    ro: "WebbingHUB | Agenție de Dezvoltare Web Personalizată",
+    en: "WebbingHUB | Custom Software That Connects Your Business",
+    ro: "WebbingHUB | Software la comandă care leagă afacerea",
   };
 
   return {
@@ -55,10 +55,9 @@ export async function generateMetadata({
     },
     description: descriptions[locale],
     keywords: [
-      "web development agency", "custom website", "website design Romania",
-      "web development Europe", "custom web development", "no templates",
-      "WebbingHUB", "website for business", "online store development",
-      "internal tools development", "travel website", "hotel website",
+      "internal platforms", "customer portals", "software integrations",
+      "custom software", "WebbingHUB", "online store development",
+      "website design Romania", "web development Europe",
     ],
     authors: [{ name: "WebbingHUB", url: BASE }],
     creator: "WebbingHUB",
@@ -71,7 +70,6 @@ export async function generateMetadata({
       siteName: "WebbingHUB",
       type: "website",
       locale: locale === "ro" ? "ro_RO" : "en_US",
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WebbingHUB — Custom Web Development Agency" }],
     },
     twitter: {
       card: "summary_large_image",
@@ -79,7 +77,6 @@ export async function generateMetadata({
       description: descriptions[locale],
       creator: "@webbinghub",
       site: "@webbinghub",
-      images: [{ url: "/og-image.png", alt: "WebbingHUB — Custom Web Development Agency" }],
     },
     icons: {
       icon: "/favicon.ico",
@@ -110,7 +107,7 @@ export default function LocaleLayout({
             "name": "WebbingHUB",
             "legalName": "WEBBINGHUB S.R.L.",
             "vatID": "RO49317150",
-            "description": "Custom website development agency serving businesses across Europe",
+            "description": "Internal platforms, customer portals, and integrations that connect the systems a team already uses",
             "url": "https://webbinghub.io",
             "image": "https://webbinghub.io/full_logo_gold.svg",
             "email": "support@webbinghub.io",
@@ -138,11 +135,10 @@ export default function LocaleLayout({
             },
             "priceRange": "$$",
             "serviceType": [
-              "Website Development",
-              "Custom Websites",
-              "E-commerce Development",
-              "Web Design",
-              "Internal Tools"
+              "Internal platforms and portals",
+              "Integrations and automations",
+              "Online stores",
+              "Custom websites"
             ]
           }
         `}</Script>

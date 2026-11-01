@@ -3,7 +3,7 @@ import { getLogoDataUri, getMascotDataUri, getCormorantFont } from "@/lib/og";
 import { OgLayout } from "@/lib/OgLayout";
 
 export const runtime = "nodejs";
-export const alt = "About WebbingHUB — A Small Team, A Serious Commitment";
+export const alt = "Mihai Cîra, founder and CTO of WebbingHUB";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -19,9 +19,9 @@ export default async function Image() {
       logoSrc={logoSrc}
       mascotSrc={mascotSrc}
       tag="About WebbingHUB"
-      headline="A small team."
-      headlineEm="A serious commitment."
-      subtitle="Meet the people building your next website. No junior handoffs — you talk directly to us."
+      headline="Mihai Cîra"
+      headlineEm="founder and CTO"
+      subtitle="He leads the work and brings in specialists for the parts of a project that need them."
     />,
     {
       ...size,

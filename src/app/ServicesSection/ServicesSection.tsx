@@ -28,7 +28,7 @@ const LinkIcon = () => (
   </svg>
 );
 
-const ICONS = [<GlobeIcon key="globe" />, <ToolIcon key="tool" />, <StoreIcon key="store" />, <LinkIcon key="link" />];
+const ICONS = [<ToolIcon key="tool" />, <LinkIcon key="link" />, <StoreIcon key="store" />, <GlobeIcon key="globe" />];
 
 export default function ServicesSection({ t }: { t: Translations["home"]["services"] }) {
   return (
