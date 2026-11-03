@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { DURATION } from "@/lib/brand-video/timeline";
 import { usePlayback } from "@/components/brand-video/playback";
 import HookScene from "@/components/brand-video/scenes/HookScene";
+import DiscoveryScene from "@/components/brand-video/scenes/DiscoveryScene";
 import ConnectionScene from "@/components/brand-video/scenes/ConnectionScene";
 import CapabilitiesScene from "@/components/brand-video/scenes/CapabilitiesScene";
 import EngineeringScene from "@/components/brand-video/scenes/EngineeringScene";
@@ -122,6 +123,7 @@ export default function VideoStage() {
             <div className="bv-glow" />
             <div className="bv-grid" />
             <HookScene />
+            <DiscoveryScene />
             <ConnectionScene />
             <CapabilitiesScene />
             <EngineeringScene />

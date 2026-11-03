@@ -5,28 +5,33 @@ import { Reveal, Track } from "@/components/brand-video/Track";
 
 const shell = kf([
   { t: 0, opacity: 0, transform: "translateY(36px)" },
-  { t: 15.9, opacity: 0, transform: "translateY(36px)", ease: EASE_MOVE },
-  { t: 16.6, opacity: 1, transform: "translateY(0px)" },
-  { t: 21.7, opacity: 1, transform: "translateY(0px)", ease: EASE_WIPE },
-  { t: 22.25, opacity: 0, transform: "translateY(-24px)" },
+  { t: 54.25, opacity: 0, transform: "translateY(36px)", ease: EASE_MOVE },
+  { t: 55, opacity: 1, transform: "translateY(0px)" },
+  { t: 65.15, opacity: 1, transform: "translateY(0px)" },
 ]);
 
 const headline = kf([
   { t: 0, opacity: 0, transform: "translateY(115%)" },
-  { t: 16.15, opacity: 0, transform: "translateY(115%)", ease: EASE_IN },
-  { t: 16.8, opacity: 1, transform: "translateY(0%)" },
-  { t: 21.65, opacity: 1, transform: "translateY(0%)", ease: EASE_WIPE },
-  { t: 22.2, opacity: 0, transform: "translateY(-40%)" },
+  { t: 54.1, opacity: 0, transform: "translateY(115%)", ease: EASE_IN },
+  { t: 54.75, opacity: 1, transform: "translateY(0%)" },
+  { t: 58.95, opacity: 1, transform: "translateY(0%)", ease: EASE_WIPE },
+  { t: 59.45, opacity: 0, transform: "translateY(-40%)" },
+]);
+
+const headlineB = kf([
+  { t: 0, opacity: 0, transform: "translateY(115%)" },
+  { t: 59.25, opacity: 0, transform: "translateY(115%)", ease: EASE_IN },
+  { t: 59.9, opacity: 1, transform: "translateY(0%)" },
+  { t: 65.15, opacity: 1, transform: "translateY(0%)" },
 ]);
 
 function step(index: number) {
-  const start = 16.7 + index * 0.22;
+  const start = 54.7 + index * 0.28;
   return kf([
     { t: 0, opacity: 0, transform: "translateY(18px)" },
     { t: start, opacity: 0, transform: "translateY(18px)", ease: EASE_IN },
-    { t: start + 0.45, opacity: 1, transform: "translateY(0px)" },
-    { t: 21.7, opacity: 1, transform: "translateY(0px)", ease: EASE_WIPE },
-    { t: 22.2, opacity: 0, transform: "translateY(-12px)" },
+    { t: start + 0.5, opacity: 1, transform: "translateY(0px)" },
+    { t: 65.15, opacity: 1, transform: "translateY(0px)" },
   ]);
 }
 
@@ -37,18 +42,27 @@ const DEPTH_FRAMES = DEPTH.map((_, i) => step(i + 3));
 
 const tick = kf([
   { t: 0, opacity: 0, transform: "scale(0.7)" },
-  { t: 20.3, opacity: 0, transform: "scale(0.7)", ease: EASE_IN },
-  { t: 20.8, opacity: 1, transform: "scale(1)" },
-  { t: 21.7, opacity: 1, transform: "scale(1)" },
-  { t: 22.15, opacity: 0, transform: "scale(1)" },
+  { t: 61.5, opacity: 0, transform: "scale(0.7)", ease: EASE_IN },
+  { t: 62.05, opacity: 1, transform: "scale(1)" },
+  { t: 65.15, opacity: 1, transform: "scale(1)" },
+]);
+
+const glide = kf([
+  { t: 0, opacity: 1, transform: "translate3d(0px, 0px, 0) scale(1)" },
+  { t: 64.15, opacity: 1, transform: "translate3d(0px, 0px, 0) scale(1)", ease: EASE_MOVE },
+  { t: 64.5, opacity: 1, transform: "translate3d(-36px, 0px, 0) scale(0.94)" },
+  { t: 65.15, opacity: 0, transform: "translate3d(-300px, 0px, 0) scale(0.86)" },
 ]);
 
 export default function EngineeringScene() {
   return (
-    <div className="bv-scene bv-engineering">
+    <Track className="bv-scene bv-engineering" frames={glide}>
       <div className="bv-top-copy bv-top-copy-left">
         <h2 className="bv-headline bv-headline-md">
-          <Reveal frames={headline}>Engineering beyond the interface.</Reveal>
+          <Reveal frames={headline}>More than a beautiful interface.</Reveal>
+        </h2>
+        <h2 className="bv-headline bv-headline-md bv-headline-swap">
+          <Reveal frames={headlineB}>Reliable engineering underneath.</Reveal>
         </h2>
       </div>
       <Track className="bv-arch" frames={shell}>
@@ -75,6 +89,6 @@ export default function EngineeringScene() {
           Flow resolved
         </Track>
       </Track>
-    </div>
+    </Track>
   );
 }

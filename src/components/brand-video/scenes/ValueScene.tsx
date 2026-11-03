@@ -5,50 +5,58 @@ import { Reveal, Track } from "@/components/brand-video/Track";
 
 const line1 = kf([
   { t: 0, opacity: 0, transform: "translateY(115%)" },
-  { t: 22.05, opacity: 0, transform: "translateY(115%)", ease: EASE_IN },
-  { t: 22.7, opacity: 1, transform: "translateY(0%)" },
-  { t: 25.7, opacity: 1, transform: "translateY(0%)", ease: EASE_WIPE },
-  { t: 26.25, opacity: 0, transform: "translateY(-30%)" },
+  { t: 64.45, opacity: 0, transform: "translateY(115%)", ease: EASE_IN },
+  { t: 65.1, opacity: 1, transform: "translateY(0%)" },
+  { t: 71.5, opacity: 1, transform: "translateY(0%)", ease: EASE_WIPE },
+  { t: 72.05, opacity: 0, transform: "translateY(-30%)" },
 ]);
 
 const line2 = kf([
   { t: 0, opacity: 0, transform: "translateY(14px)" },
-  { t: 22.55, opacity: 0, transform: "translateY(14px)", ease: EASE_IN },
-  { t: 23.15, opacity: 1, transform: "translateY(0px)" },
-  { t: 25.7, opacity: 1, transform: "translateY(0px)", ease: EASE_WIPE },
-  { t: 26.25, opacity: 0, transform: "translateY(-16px)" },
+  { t: 65.7, opacity: 0, transform: "translateY(14px)", ease: EASE_IN },
+  { t: 66.3, opacity: 1, transform: "translateY(0px)" },
+  { t: 71.5, opacity: 1, transform: "translateY(0px)", ease: EASE_WIPE },
+  { t: 72.05, opacity: 0, transform: "translateY(-16px)" },
 ]);
 
 function chip(index: number) {
-  const start = 23.15 + index * 0.16;
+  const start = 66.35 + index * 0.22;
   return kf([
     { t: 0, opacity: 0, transform: "translateY(16px)" },
     { t: start, opacity: 0, transform: "translateY(16px)", ease: EASE_IN },
-    { t: start + 0.45, opacity: 1, transform: "translateY(0px)" },
-    { t: 25.75, opacity: 1, transform: "translateY(0px)", ease: EASE_WIPE },
-    { t: 26.3, opacity: 0, transform: "translateY(-18px)" },
+    { t: start + 0.55, opacity: 1, transform: "translateY(0px)" },
+    { t: 71.5, opacity: 1, transform: "translateY(0px)", ease: EASE_WIPE },
+    { t: 72.05, opacity: 0, transform: "translateY(-18px)" },
   ]);
 }
 
 const link = kf([
   { t: 0, opacity: 1, transform: "scaleX(0)" },
-  { t: 23.2, opacity: 1, transform: "scaleX(0)", ease: EASE_MOVE },
-  { t: 24.1, opacity: 1, transform: "scaleX(1)" },
-  { t: 25.8, opacity: 1, transform: "scaleX(1)", ease: EASE_WIPE },
-  { t: 26.25, opacity: 0, transform: "scaleX(1)" },
+  { t: 66.55, opacity: 1, transform: "scaleX(0)", ease: EASE_MOVE },
+  { t: 67.45, opacity: 1, transform: "scaleX(1)" },
+  { t: 71.5, opacity: 1, transform: "scaleX(1)", ease: EASE_WIPE },
+  { t: 72.05, opacity: 0, transform: "scaleX(1)" },
 ]);
 
-const LABELS = ["Platforms", "Integrations", "Automation"];
+const LABELS = ["Platforms", "Portals", "Integrations"];
 const LABEL_FRAMES = LABELS.map((_, i) => chip(i));
+
+const glide = kf([
+  { t: 0, opacity: 0, transform: "translate3d(280px, 0px, 0) scale(1.07)" },
+  { t: 64.2, opacity: 0, transform: "translate3d(320px, 0px, 0) scale(1.07)", ease: EASE_MOVE },
+  { t: 65.1, opacity: 1, transform: "translate3d(0px, 0px, 0) scale(1)" },
+  { t: 71.55, opacity: 1, transform: "translate3d(0px, 0px, 0) scale(1)", ease: EASE_WIPE },
+  { t: 72.1, opacity: 0, transform: "translate3d(0px, -12px, 0) scale(0.99)" },
+]);
 
 export default function ValueScene() {
   return (
-    <div className="bv-scene bv-value">
+    <Track className="bv-scene bv-value" frames={glide}>
       <h2 className="bv-headline bv-headline-xl">
-        <Reveal frames={line1}>Your workflow. Your software.</Reveal>
+        <Reveal frames={line1}>Technology that works for your business.</Reveal>
       </h2>
       <Track className="bv-secondary bv-secondary-lg" frames={line2}>
-        From business problem to working solution.
+        Less friction. Better workflows. Room to grow.
       </Track>
       <div className="bv-values">
         <Track className="bv-value-line" frames={link} />
@@ -58,6 +66,6 @@ export default function ValueScene() {
           </Track>
         ))}
       </div>
-    </div>
+    </Track>
   );
 }

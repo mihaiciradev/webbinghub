@@ -1,7 +1,7 @@
 "use client";
 
 import { EASE_IN, EASE_MOVE, EASE_WIPE, kf } from "@/lib/brand-video/timeline";
-import { Track } from "@/components/brand-video/Track";
+import { Reveal, Track } from "@/components/brand-video/Track";
 
 function panel(show: number, hide: number, enterX: number, exitX: number, scaleFrom = 0.98) {
   const hiddenIn = `translate(${enterX}px, 28px) scale(${scaleFrom})`;
@@ -17,21 +17,34 @@ function panel(show: number, hide: number, enterX: number, exitX: number, scaleF
 }
 
 const panels = [
-  panel(8.85, 11.25, 70, -90),
-  panel(11.05, 13.55, 90, -80),
-  panel(13.3, 16.15, 0, 0, 0.94),
+  panel(35.7, 41.6, 70, -90),
+  panel(41.35, 47.15, 90, -80),
+  panel(46.9, 53.55, 0, 0, 0.94),
 ];
+
+const title = kf([
+  { t: 0, opacity: 0, transform: "translateY(115%)" },
+  { t: 35.85, opacity: 0, transform: "translateY(115%)", ease: EASE_IN },
+  { t: 36.6, opacity: 1, transform: "translateY(0%)" },
+  { t: 53.4, opacity: 1, transform: "translateY(0%)", ease: EASE_WIPE },
+  { t: 54.1, opacity: 0, transform: "translateY(-30%)" },
+]);
 
 const accent = kf([
   { t: 0, transform: "scaleX(0)" },
-  { t: 9.4, transform: "scaleX(0)", ease: EASE_IN },
-  { t: 10.2, transform: "scaleX(1)" },
-  { t: 16.2, transform: "scaleX(1)" },
+  { t: 48.2, transform: "scaleX(0)", ease: EASE_IN },
+  { t: 49.4, transform: "scaleX(1)" },
+  { t: 53.6, transform: "scaleX(1)" },
 ]);
 
 export default function CapabilitiesScene() {
   return (
     <div className="bv-scene bv-capabilities">
+      <div className="bv-top-copy">
+        <h2 className="bv-headline bv-headline-md">
+          <Reveal frames={title}>Software built for real business needs.</Reveal>
+        </h2>
+      </div>
       <Track className="bv-panel" frames={panels[0]}>
         <header className="bv-panel-head">
           <span>Internal platforms</span>

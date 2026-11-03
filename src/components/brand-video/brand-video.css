@@ -71,6 +71,7 @@ nextjs-portal { display: none !important; }
   position: absolute;
   inset: 0;
   pointer-events: none;
+  transform-origin: 960px 500px;
 }
 
 .bv-wires {
@@ -96,6 +97,7 @@ nextjs-portal { display: none !important; }
 .bv-hub {
   position: absolute;
   z-index: 2;
+  box-sizing: border-box;
   width: 250px;
   height: 118px;
   display: flex;
@@ -163,13 +165,16 @@ nextjs-portal { display: none !important; }
 
 .bv-packet {
   position: absolute;
-  z-index: 2;
+  left: 0;
+  top: 0;
+  z-index: 1;
   width: 8px;
   height: 8px;
-  margin-left: -4px;
-  margin-top: -4px;
+  margin: 0;
   border-radius: 50%;
   background: #e4d0a7;
+  box-shadow: 0 0 8px rgba(228, 208, 167, 0.85);
+  offset-anchor: center;
   offset-rotate: 0deg;
   opacity: 0;
 }
@@ -217,6 +222,105 @@ nextjs-portal { display: none !important; }
 
 .bv-secondary-lg { font-size: 36px; }
 
+.bv-support-slot { position: relative; min-height: 58px; }
+.bv-support-next { position: absolute; left: 0; right: 0; top: 0; margin-top: 18px; }
+
+.bv-manual {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.bv-task {
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #1a1918;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: #d6d3d1;
+}
+
+.bv-phases {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 672px;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+}
+
+.bv-phase {
+  min-width: 148px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(184, 151, 90, 0.45);
+  background: #111110;
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d4b47a;
+  text-align: center;
+  opacity: 0;
+}
+
+.bv-map {
+  position: absolute;
+  inset: 0;
+  transform-origin: 960px 560px;
+}
+
+.bv-role,
+.bv-stage-card {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: #1a1918;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+}
+
+.bv-role { width: 240px; height: 78px; }
+.bv-stage-card { width: 210px; height: 92px; border-color: rgba(184, 151, 90, 0.35); }
+
+.bv-role-title {
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.bv-flag {
+  position: absolute;
+  left: 16px;
+  bottom: -16px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: #111110;
+  opacity: 0;
+}
+
+.bv-flag-warn { color: #e7e5e4; border: 1px solid rgba(255, 255, 255, 0.28); }
+.bv-flag-gold { color: #d4b47a; border: 1px solid rgba(184, 151, 90, 0.7); }
+
+.bv-headline-swap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
 .bv-verb {
   position: absolute;
   z-index: 4;
@@ -234,7 +338,7 @@ nextjs-portal { display: none !important; }
 .bv-panel {
   position: absolute;
   left: 250px;
-  top: 168px;
+  top: 210px;
   width: 1420px;
   min-height: 520px;
   padding: 36px 40px 32px;
@@ -567,29 +671,30 @@ nextjs-portal { display: none !important; }
 
 .bv-subs {
   position: absolute;
-  left: 160px;
-  right: 160px;
-  bottom: 42px;
+  left: 140px;
+  right: 140px;
+  bottom: 36px;
   z-index: 30;
-  height: 120px;
+  height: 156px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  pointer-events: none;
 }
 
 .bv-sub {
   position: absolute;
   left: 50%;
   bottom: 0;
-  width: max-content;
-  max-width: 1480px;
+  width: 1280px;
+  max-width: 1280px;
   margin: 0;
   transform: translateX(-50%);
   padding: 16px 28px;
   border-radius: 14px;
   background: rgba(17, 17, 16, 0.82);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 500;
   line-height: 1.35;
   text-align: center;

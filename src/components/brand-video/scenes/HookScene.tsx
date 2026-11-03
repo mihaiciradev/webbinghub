@@ -6,56 +6,66 @@ import { useTrack } from "@/components/brand-video/playback";
 import { Reveal, Track } from "@/components/brand-video/Track";
 import { BROKEN_LINES, NODES } from "./systemLayout";
 
-function move(x0: number, y0: number, x1: number, y1: number, enter: number) {
-  const scatter = `translate(${x0}px, ${y0}px)`;
-  const aligned = `translate(${x1}px, ${y1}px)`;
-  const exit = `translate(${x1}px, ${y1 - 28}px)`;
+const ENTERS = [0.5, 1.35, 2.15, 2.95, 3.7];
+
+function arrive(x: number, y: number, enter: number) {
+  const at = `translate(${x}px, ${y}px)`;
   return kf([
-    { t: 0, opacity: 0, transform: scatter },
-    { t: enter, opacity: 0, transform: scatter, ease: EASE_IN },
-    { t: enter + 0.55, opacity: 1, transform: scatter },
-    { t: 4, opacity: 1, transform: scatter, ease: EASE_MOVE },
-    { t: 5.1, opacity: 1, transform: aligned },
-    { t: 8.85, opacity: 1, transform: aligned, ease: EASE_WIPE },
-    { t: 9.35, opacity: 0, transform: exit },
+    { t: 0, opacity: 0, transform: at },
+    { t: enter, opacity: 0, transform: at, ease: EASE_IN },
+    { t: enter + 0.85, opacity: 1, transform: at },
+    { t: 9.2, opacity: 1, transform: at },
   ]);
 }
 
 const broken = kf([
   { t: 0, opacity: 0, strokeDashoffset: 1 },
-  { t: 0.85, opacity: 0, strokeDashoffset: 1, ease: EASE_MOVE },
-  { t: 2.5, opacity: 0.8, strokeDashoffset: 0.42 },
-  { t: 3.9, opacity: 0.8, strokeDashoffset: 0.42, ease: EASE_WIPE },
-  { t: 4.55, opacity: 0, strokeDashoffset: 0.42 },
+  { t: 1.4, opacity: 0, strokeDashoffset: 1, ease: EASE_MOVE },
+  { t: 4.6, opacity: 0.8, strokeDashoffset: 0.4 },
+  { t: 9.15, opacity: 0.8, strokeDashoffset: 0.4 },
 ]);
 
 const headline = kf([
   { t: 0, opacity: 0, transform: "translateY(115%)" },
-  { t: 0.75, opacity: 0, transform: "translateY(115%)", ease: EASE_IN },
-  { t: 1.4, opacity: 1, transform: "translateY(0%)" },
-  { t: 3.5, opacity: 1, transform: "translateY(0%)", ease: EASE_WIPE },
-  { t: 4.05, opacity: 0, transform: "translateY(-50%)" },
+  { t: 1.1, opacity: 0, transform: "translateY(115%)", ease: EASE_IN },
+  { t: 1.9, opacity: 1, transform: "translateY(0%)" },
+  { t: 9.2, opacity: 1, transform: "translateY(0%)" },
 ]);
 
 const sub = kf([
   { t: 0, opacity: 0, transform: "translateY(16px)" },
-  { t: 1.35, opacity: 0, transform: "translateY(16px)", ease: EASE_IN },
-  { t: 1.95, opacity: 1, transform: "translateY(0px)" },
-  { t: 3.5, opacity: 1, transform: "translateY(0px)", ease: EASE_WIPE },
-  { t: 4.05, opacity: 0, transform: "translateY(-12px)" },
+  { t: 2.3, opacity: 0, transform: "translateY(16px)", ease: EASE_IN },
+  { t: 3.1, opacity: 1, transform: "translateY(0px)" },
+  { t: 9.2, opacity: 1, transform: "translateY(0px)" },
 ]);
 
-const mark = kf([
-  { t: 0, opacity: 0, transform: "scale(0.6)" },
-  { t: 6.15, opacity: 0, transform: "scale(0.6)", ease: EASE_IN },
-  { t: 6.55, opacity: 1, transform: "scale(1)" },
-  { t: 8.85, opacity: 1, transform: "scale(1)" },
-  { t: 9.2, opacity: 0, transform: "scale(1)" },
+function pulse(start: number) {
+  return kf([
+    { t: 0, opacity: 0.88 },
+    { t: start, opacity: 0.88, ease: EASE_IN },
+    { t: start + 0.3, opacity: 1 },
+    { t: start + 1.05, opacity: 1, ease: EASE_WIPE },
+    { t: start + 1.35, opacity: 0.88 },
+    { t: 9.2, opacity: 0.88 },
+  ]);
+}
+
+const manual = kf([
+  { t: 0, opacity: 0, transform: "translateY(14px)" },
+  { t: 5.15, opacity: 0, transform: "translateY(14px)", ease: EASE_IN },
+  { t: 5.8, opacity: 1, transform: "translateY(0px)" },
+  { t: 9.2, opacity: 1, transform: "translateY(0px)" },
 ]);
 
-const NODE_FRAMES = NODES.map((node) =>
-  move(node.scatter[0], node.scatter[1], node.aligned[0], node.aligned[1], node.enter),
-);
+const NODE_FRAMES = NODES.map((node, i) => arrive(node.scatter[0], node.scatter[1], ENTERS[i]));
+const PULSES = [pulse(6.1), pulse(7), pulse(7.9)];
+
+const glide = kf([
+  { t: 0, opacity: 1, transform: "translate3d(0px, 0px, 0) scale(1)" },
+  { t: 8.15, opacity: 1, transform: "translate3d(0px, 0px, 0) scale(1)", ease: EASE_MOVE },
+  { t: 8.5, opacity: 1, transform: "translate3d(-40px, 0px, 0) scale(0.93)" },
+  { t: 9.15, opacity: 0, transform: "translate3d(-320px, 0px, 0) scale(0.86)" },
+]);
 
 function BrokenPath({ d }: { d: string }) {
   const ref = useRef<SVGPathElement>(null);
@@ -65,7 +75,7 @@ function BrokenPath({ d }: { d: string }) {
 
 export default function HookScene() {
   return (
-    <div className="bv-scene bv-hook">
+    <Track className="bv-scene bv-hook" frames={glide}>
       <svg className="bv-wires" viewBox="0 0 1920 1080" aria-hidden="true">
         {BROKEN_LINES.map((d) => (
           <BrokenPath key={d} d={d} />
@@ -80,23 +90,22 @@ export default function HookScene() {
         >
           <span className="bv-node-kicker">{node.hint}</span>
           <span className="bv-node-title">{node.label}</span>
-          <Track className="bv-check" frames={mark} aria-hidden="true">
-            <svg viewBox="0 0 16 16" width="16" height="16">
-              <circle cx="8" cy="8" r="7" />
-              <path d="M4.5 8.2 L7 10.5 L11.5 5.5" />
-            </svg>
-          </Track>
         </Track>
       ))}
 
       <div className="bv-center-copy">
-        <h2 className="bv-headline">
-          <Reveal frames={headline}>Disconnected systems.</Reveal>
+        <h2 className="bv-headline bv-headline-md">
+          <Reveal frames={headline}>Business gets complicated.</Reveal>
         </h2>
         <Track className="bv-secondary" frames={sub}>
-          Complex workflows. Manual work.
+          Disconnected systems. Repetitive tasks. Information scattered everywhere.
+        </Track>
+        <Track className="bv-manual" frames={manual}>
+          {["Copy into a sheet", "Email the update", "Enter it again"].map((step, i) => (
+            <Track key={step} className="bv-task" frames={PULSES[i]}>{step}</Track>
+          ))}
         </Track>
       </div>
-    </div>
+    </Track>
   );
 }
