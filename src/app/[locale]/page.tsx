@@ -7,6 +7,7 @@ import ServicesSection from "@/app/ServicesSection/ServicesSection";
 import ProofSection from "@/app/ProofSection/ProofSection";
 import ProcessSection from "@/app/ProcessSection/ProcessSection";
 import BrandsSection from "@/app/BrandsSection/BrandsSection";
+import FilmSection from "@/app/FilmSection/FilmSection";
 import FaqSection from "@/app/FaqSection/FaqSection";
 import CTASection from "@/app/CTASection/CTASection";
 
@@ -128,6 +129,17 @@ const websiteSchema = {
   },
 };
 
+const filmSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "How the work begins",
+  description: "Before any code, we sit down with the people who do the work.",
+  thumbnailUrl: "https://i.ytimg.com/vi/gpa2P94G59Q/hqdefault.jpg",
+  uploadDate: "2026-11-03",
+  embedUrl: "https://www.youtube-nocookie.com/embed/gpa2P94G59Q",
+  contentUrl: "https://www.youtube.com/watch?v=gpa2P94G59Q",
+};
+
 function faqSchema(items: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
@@ -156,12 +168,17 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(filmSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(t.home.faq.items)) }}
       />
       <HeroSection locale={locale} t={t.hero} />
       <ServicesSection t={t.home.services} />
       <ProofSection locale={locale} proof={t.home.proof} founder={t.home.founder} />
       <BrandsSection t={t.home.brands} />
+      <FilmSection t={t.home.film} />
       <ProcessSection t={t.home.process} />
       <FaqSection t={t.home.faq} />
       <CTASection t={t.home.cta} />

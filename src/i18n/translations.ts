@@ -61,6 +61,12 @@ export type Translations = {
       role: string;
       linkedin: string;
     };
+    film: {
+      label: string;
+      heading: string;
+      text: string;
+      play: string;
+    };
     cta: {
       heading1: string;
       heading2: string;
@@ -259,6 +265,12 @@ const en: Translations = {
     founder: {
       role:     'founder and CTO',
       linkedin: 'LinkedIn',
+    },
+    film: {
+      label:   'A short film',
+      heading: 'How the work begins.',
+      text:    'Before any code, we sit down with the people who do the work.',
+      play:    'Play the film',
     },
     cta: {
       heading1:  "Let's talk about",
@@ -514,6 +526,12 @@ const ro: Translations = {
     founder: {
       role:     'fondator și CTO',
       linkedin: 'LinkedIn',
+    },
+    film: {
+      label:   'Un scurt film',
+      heading: 'Cum începe lucrul.',
+      text:    'Înainte de orice cod, stăm de vorbă cu oamenii care fac lucrul.',
+      play:    'Redă filmul',
     },
     cta: {
       heading1:  'Hai să vorbim despre',

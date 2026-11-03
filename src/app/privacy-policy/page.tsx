@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
     <main className={styles.main}>
       <div className={styles.inner}>
         <h1>Privacy Policy</h1>
-        <p className={styles.updated}>Last updated: 1 November 2026</p>
+        <p className={styles.updated}>Last updated: 3 November 2026</p>
 
         <section>
           <h2>1. Who we are</h2>
@@ -101,6 +101,12 @@ export default function PrivacyPolicy() {
               <strong>Google Ads cookies.</strong> Set by Google&apos;s tag
               after you accept. They are not set if you decline or if you have
               not chosen yet.
+            </li>
+            <li>
+              <strong>YouTube, only if you press play.</strong> The film on the
+              homepage is not loaded until you choose to play it. The player
+              then comes from youtube-nocookie.com, and YouTube may set its own
+              cookies from that moment.
             </li>
           </ul>
           <p>

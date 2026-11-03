@@ -17,6 +17,9 @@ export default function TravelPopup({ t }: TravelPopupProps) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    // #direct is for people sent here for WebbingHUB itself.
+    if (window.location.hash.replace(/^#/, "").toLowerCase() === "direct") return;
+
     // Only ask once per browser session
     try {
       if (sessionStorage.getItem(SEEN_KEY)) return;
