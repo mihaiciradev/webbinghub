@@ -15,7 +15,7 @@ const BASE = "https://webbinghub.io";
 
 const HOME_TITLE: Record<Locale, string> = {
   en: "WebbingHUB | Custom Software That Connects Your Business",
-  ro: "WebbingHUB | Software la comandă care leagă afacerea",
+  ro: "WebbingHUB | Software la comandă care conectează sistemele afacerii",
 };
 
 export async function generateMetadata({

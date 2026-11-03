@@ -39,12 +39,12 @@ export async function generateMetadata({
 
   const descriptions: Record<Locale, string> = {
     en: "Internal platforms, customer portals, and integrations that connect the systems a team already uses. Based in Romania.",
-    ro: "Platforme interne, portaluri pentru clienți și integrări care leagă sistemele pe care o echipă le folosește deja. Din România.",
+    ro: "Platforme interne, portaluri pentru clienți și integrări care conectează sistemele pe care o echipă le folosește deja. Din România.",
   };
 
   const titles: Record<Locale, string> = {
     en: "WebbingHUB | Custom Software That Connects Your Business",
-    ro: "WebbingHUB | Software la comandă care leagă afacerea",
+    ro: "WebbingHUB | Software la comandă care conectează sistemele afacerii",
   };
 
   return {
