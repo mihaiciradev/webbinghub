@@ -46,6 +46,11 @@ const blogSchema = {
 // Posts are written in English; titles stay in the article's language
 const POSTS = [
   {
+    slug: "hotel-price-changed-before-booking",
+    title: "The hotel price changed before booking. What should your booking engine do?",
+    dateTime: "2026-11-05",
+  },
+  {
     slug: "maximize-website-visibility-google-search-console",
     title: "Maximize Your Website's Visibility: Google Search Console Guide",
     dateTime: "2026-05-26",

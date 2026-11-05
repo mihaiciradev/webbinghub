@@ -385,6 +385,12 @@ const en: Translations = {
       articleCount: (n) => `${n} article${n !== 1 ? 's' : ''}`,
       inEnglish: null,
       posts: {
+        'hotel-price-changed-before-booking': {
+          date: '5 November 2026',
+          readTime: '7 min read',
+          excerpt: 'A hotel price can change between search and booking. How a booking engine should recheck the offer, compare the terms, and recover when the outcome is unclear.',
+          tags: ['Hotel APIs', 'Booking engines', 'Rate validation'],
+        },
         'maximize-website-visibility-google-search-console': {
           date: 'May 2026',
           readTime: '8 min read',
@@ -646,6 +652,12 @@ const ro: Translations = {
       articleCount: (n) => (n === 1 ? '1 articol' : `${n} articole`),
       inEnglish:   'Articol în limba engleză',
       posts: {
+        'hotel-price-changed-before-booking': {
+          date: '5 noiembrie 2026',
+          readTime: '7 min de citit',
+          excerpt: 'Tariful unui hotel se poate schimba între căutare și rezervare. Cum ar trebui un motor de rezervări să verifice oferta, să compare condițiile și să recupereze când rezultatul nu e clar.',
+          tags: ['API-uri hoteliere', 'Motoare de rezervări', 'Validarea tarifelor'],
+        },
         'maximize-website-visibility-google-search-console': {
           date: 'Mai 2026',
           readTime: '8 min de citit',
