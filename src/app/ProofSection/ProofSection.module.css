@@ -5,12 +5,22 @@
 }
 
 .text {
-  max-width: 720px;
+  max-width: 40rem;
+  margin: 0;
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.45;
   color: var(--ink);
+}
+
+.paragraph {
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.paragraph + .paragraph {
+  margin-top: 0.9rem;
 }
 
 .line {
@@ -18,12 +28,6 @@
   font-size: 1rem;
   font-weight: 400;
   color: var(--ink2);
-}
-
-.line a {
-  color: #6b5424;
-  text-decoration: underline;
-  text-underline-offset: 2px;
 }
 
 @media (max-width: 960px) {

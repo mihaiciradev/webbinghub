@@ -7,6 +7,7 @@ interface ContactLinksProps {
   emailLabel: string;
   phoneLabel: string;
   whatsappLabel?: string;
+  youtubeLabel: string;
   styles: {
     contactRow: string;
     contactIcon: string;
@@ -17,6 +18,7 @@ export default function ContactLinks({
   emailLabel,
   phoneLabel,
   whatsappLabel,
+  youtubeLabel,
   styles: s,
 }: ContactLinksProps) {
   return (
@@ -113,6 +115,36 @@ export default function ContactLinks({
           </div>
         </Link>
       )}
+
+      <Link
+        href="https://www.youtube.com/@WEBBINGHUB"
+        onClick={trackContactConversion}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={s.contactRow}
+      >
+        <span className={s.contactIcon}>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#b8975a"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M22.5 7.2a2.7 2.7 0 0 0-1.9-1.9C18.9 4.8 12 4.8 12 4.8s-6.9 0-8.6.5A2.7 2.7 0 0 0 1.5 7.2 28 28 0 0 0 1 12a28 28 0 0 0 .5 4.8 2.7 2.7 0 0 0 1.9 1.9c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.7 2.7 0 0 0 1.9-1.9A28 28 0 0 0 23 12a28 28 0 0 0-.5-4.8z" />
+            <polygon points="10 15.2 15.2 12 10 8.8" />
+          </svg>
+        </span>
+        <div>
+          <p style={{ marginBottom: "0.25rem", fontWeight: 500 }}>
+            {youtubeLabel}
+          </p>
+          <p style={{ marginTop: "0.25rem", opacity: 0.7 }}>@WEBBINGHUB</p>
+        </div>
+      </Link>
     </>
   );
 }

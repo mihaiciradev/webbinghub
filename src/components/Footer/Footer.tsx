@@ -51,6 +51,16 @@ export default function Footer({ locale, t }: FooterProps) {
               WhatsApp
             </a>
           </p>
+          <p className={styles.contact}>
+            <a
+              href="https://www.youtube.com/@WEBBINGHUB"
+              onClick={trackContactConversion}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              YouTube
+            </a>
+          </p>
 
           <FooterEmail label={t.emailPrompt} />
         </div>

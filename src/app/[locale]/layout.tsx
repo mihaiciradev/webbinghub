@@ -12,8 +12,6 @@ import Script from "next/script";
 import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
 import { locales, type Locale } from "@/i18n/config";
 import { getTranslations } from "@/i18n/utils";
-import { TRAVEL_POPUP } from "@/config/TRAVEL_POPUP";
-import TravelPopup from "@/components/TravelPopup/TravelPopup";
 
 /* ─── Fonts ───────────────────────────────────── */
 const geistSans = localFont({ src: "../fonts/GeistVF.woff", variable: "--font-geist-sans", weight: "100 900" });
@@ -152,7 +150,6 @@ export default function LocaleLayout({
         <Header locale={locale} t={t.nav} />
         {children}
         <Footer locale={locale} t={t.footer} />
-        {TRAVEL_POPUP && <TravelPopup t={t.travelPopup} />}
       </body>
     </html>
   );

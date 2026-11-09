@@ -1,10 +1,18 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Modal, Fade } from "@mui/material";
 import styles from "./TravelPopup.module.css";
 import { TRAVEL_SITE_URL } from "@/config/TRAVEL_POPUP";
+import { locales } from "@/i18n/config";
 import type { Translations } from "@/i18n/translations";
+
+/** Locale root only: /en, /ro. Any extra path segment is a different page. */
+function isLocaleHome(pathname: string) {
+  const path = pathname.replace(/\/+$/, "") || "/";
+  return locales.some((locale) => path === `/${locale}`);
+}
 
 const SEEN_KEY = "travelPopupSeen";
 const OPEN_DELAY_MS = 700;
@@ -14,9 +22,15 @@ interface TravelPopupProps {
 }
 
 export default function TravelPopup({ t }: TravelPopupProps) {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    if (!isLocaleHome(pathname)) {
+      setOpen(false);
+      return;
+    }
+
     // #direct is for people sent here for WebbingHUB itself.
     if (window.location.hash.replace(/^#/, "").toLowerCase() === "direct") return;
 
@@ -28,7 +42,7 @@ export default function TravelPopup({ t }: TravelPopupProps) {
     }
     const timer = setTimeout(() => setOpen(true), OPEN_DELAY_MS);
     return () => clearTimeout(timer);
-  }, []);
+  }, [pathname]);
 
   const handleClose = () => {
     setOpen(false);

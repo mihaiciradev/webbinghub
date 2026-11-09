@@ -10,6 +10,8 @@ import BrandsSection from "@/app/BrandsSection/BrandsSection";
 import FilmSection from "@/app/FilmSection/FilmSection";
 import FaqSection from "@/app/FaqSection/FaqSection";
 import CTASection from "@/app/CTASection/CTASection";
+import TravelPopup from "@/components/TravelPopup/TravelPopup";
+import { TRAVEL_POPUP } from "@/config/TRAVEL_POPUP";
 
 const BASE = "https://webbinghub.io";
 
@@ -176,12 +178,13 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
       />
       <HeroSection locale={locale} t={t.hero} />
       <ServicesSection t={t.home.services} />
-      <ProofSection locale={locale} proof={t.home.proof} founder={t.home.founder} />
+      <ProofSection proof={t.home.proof} />
       <BrandsSection t={t.home.brands} />
       <FilmSection t={t.home.film} />
       <ProcessSection t={t.home.process} />
       <FaqSection t={t.home.faq} />
       <CTASection t={t.home.cta} />
+      {TRAVEL_POPUP && <TravelPopup t={t.travelPopup} />}
     </>
   );
 }

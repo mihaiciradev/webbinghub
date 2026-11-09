@@ -77,6 +77,7 @@ export default function ContactPage({ params }: { params: { locale: Locale } }) 
               emailLabel={t.emailLabel}
               phoneLabel={t.phoneLabel}
               whatsappLabel={t.whatsappLabel}
+              youtubeLabel={t.youtubeLabel}
               styles={{
                 contactRow: styles.contactRow,
                 contactIcon: styles.contactIcon,

@@ -55,11 +55,10 @@ export type Translations = {
       apetit: { sub: string; desc: string; tags: string[]; link: string };
     };
     proof: {
-      text: string;
-    };
-    founder: {
+      paragraphs: [string, string];
+      name: string;
       role: string;
-      linkedin: string;
+      company: string;
     };
     film: {
       label: string;
@@ -75,6 +74,7 @@ export type Translations = {
       email: string;
       call: string;
       message: string;
+      youtube: string;
       button: string;
     };
     faq: {
@@ -127,6 +127,7 @@ export type Translations = {
       emailLabel: string;
       phoneLabel: string;
       whatsappLabel: string;
+      youtubeLabel: string;
     };
     blog: {
       meta: Meta;
@@ -260,11 +261,13 @@ const en: Translations = {
       },
     },
     proof: {
-      text: 'Integration platform for a large tour-operator agency in Europe. WebbingHUB built that platform. The client is not named.',
-    },
-    founder: {
-      role:     'founder and CTO',
-      linkedin: 'LinkedIn',
+      paragraphs: [
+        "I'm glad I worked with WebbingHUB. They understood what I needed from the start and took the technical work off my hands.",
+        'Since the new site, Ciuson is much easier to find on Google and gets hundreds of visits a month. They were available, careful with the details, and stayed with it until it was right. I recommend them.',
+      ],
+      name: 'Cristi Pasca',
+      role: 'founder',
+      company: 'Ciuson',
     },
     film: {
       label:   'A short film',
@@ -280,6 +283,7 @@ const en: Translations = {
       email:     'Email us',
       call:      'Call us',
       message:   'Message us',
+      youtube:   'YouTube',
       button:    'Start a conversation →',
     },
     faq: {
@@ -371,6 +375,7 @@ const en: Translations = {
       emailLabel: 'Email',
       phoneLabel: 'Phone',
       whatsappLabel: 'WhatsApp',
+      youtubeLabel: 'YouTube',
     },
     blog: {
       meta: {
@@ -533,11 +538,13 @@ const ro: Translations = {
       },
     },
     proof: {
-      text: 'Platformă de integrare pentru o agenție turoperatoare mare din Europa. WebbingHUB a construit platforma. Clientul nu este numit.',
-    },
-    founder: {
-      role:     'fondator și CTO',
-      linkedin: 'LinkedIn',
+      paragraphs: [
+        'Sunt foarte mulțumit de colaborarea cu WebbingHUB. Au înțeles de la început ce aveam nevoie și s-au ocupat de tot, fără să fie nevoie să-mi bat eu capul cu partea tehnică.',
+        'De când avem noul site, suntem mult mai vizibili pe Google și am ajuns să avem sute de accesări lunar. Am apreciat că au fost mereu disponibili, atenți la detalii și că s-au implicat să iasă totul cât mai bine. Recomand cu încredere!',
+      ],
+      name: 'Cristi Pasca',
+      role: 'fondator',
+      company: 'Ciuson',
     },
     film: {
       label:   'Un scurt film',
@@ -553,6 +560,7 @@ const ro: Translations = {
       email:     'Scrie-ne',
       call:      'Sună-ne',
       message:   'Trimite-ne un mesaj',
+      youtube:   'YouTube',
       button:    'Începe o conversație →',
     },
     faq: {
@@ -644,6 +652,7 @@ const ro: Translations = {
       emailLabel: 'Email',
       phoneLabel: 'Telefon',
       whatsappLabel: 'WhatsApp',
+      youtubeLabel: 'YouTube',
     },
     blog: {
       meta: {
