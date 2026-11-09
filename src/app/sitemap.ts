@@ -8,6 +8,7 @@ const PAGES = [
   { path: "/about",                                                        priority: 0.8, freq: "monthly" },
   { path: "/contact",                                                      priority: 0.9, freq: "monthly" },
   { path: "/blog",                                                         priority: 0.7, freq: "weekly"  },
+  { path: "/blog/native-connectors-vs-ipaas-vs-custom-integration",       priority: 0.7, freq: "monthly" },
   { path: "/blog/hotel-price-changed-before-booking",                    priority: 0.7, freq: "monthly" },
   { path: "/blog/how-hard-is-it-to-make-a-website",                       priority: 0.7, freq: "monthly" },
   { path: "/blog/maximize-website-visibility-google-search-console",       priority: 0.8, freq: "monthly" },

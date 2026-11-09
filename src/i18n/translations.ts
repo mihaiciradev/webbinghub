@@ -385,6 +385,12 @@ const en: Translations = {
       articleCount: (n) => `${n} article${n !== 1 ? 's' : ''}`,
       inEnglish: null,
       posts: {
+        'native-connectors-vs-ipaas-vs-custom-integration': {
+          date: '9 November 2026',
+          readTime: '9 min read',
+          excerpt: 'A quote accepted in the CRM still has to become a job and a finance record. How to choose between a native connector, an iPaaS flow and a custom integration.',
+          tags: ['System integration', 'iPaaS', 'CRM and ERP'],
+        },
         'hotel-price-changed-before-booking': {
           date: '5 November 2026',
           readTime: '7 min read',
@@ -652,6 +658,12 @@ const ro: Translations = {
       articleCount: (n) => (n === 1 ? '1 articol' : `${n} articole`),
       inEnglish:   'Articol în limba engleză',
       posts: {
+        'native-connectors-vs-ipaas-vs-custom-integration': {
+          date: '9 noiembrie 2026',
+          readTime: '9 min de citit',
+          excerpt: 'O ofertă acceptată în CRM trebuie să ajungă și în ERP, și la financiar. Cum alegi între conectorul din aplicație, o platformă iPaaS și o integrare făcută pe măsură.',
+          tags: ['Integrare de sisteme', 'iPaaS', 'CRM și ERP'],
+        },
         'hotel-price-changed-before-booking': {
           date: '5 noiembrie 2026',
           readTime: '7 min de citit',

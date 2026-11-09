@@ -46,6 +46,11 @@ const blogSchema = {
 // Posts are written in English; titles stay in the article's language
 const POSTS = [
   {
+    slug: "native-connectors-vs-ipaas-vs-custom-integration",
+    title: "Native Connectors vs iPaaS vs Custom Integration: Which Should You Choose?",
+    dateTime: "2026-11-09",
+  },
+  {
     slug: "hotel-price-changed-before-booking",
     title: "The hotel price changed before booking. What should your booking engine do?",
     dateTime: "2026-11-05",

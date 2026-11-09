@@ -25,7 +25,7 @@ export async function getCormorantFont(): Promise<ArrayBuffer | null> {
       { headers: { "User-Agent": "Mozilla/5.0 (compatible; Next.js/og)" } }
     ).then((r) => r.text());
 
-    const match = css.match(/src:\s*url\(([^)]+\.woff2)\)/);
+    const match = css.match(/src:\s*url\(([^)]+\.(?:woff2|ttf))\)/);
     if (!match) return null;
 
     return fetch(match[1]).then((r) => r.arrayBuffer());
