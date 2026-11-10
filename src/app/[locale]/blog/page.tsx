@@ -52,7 +52,7 @@ const POSTS = [
   },
   {
     slug: "hotel-price-changed-before-booking",
-    title: "The hotel price changed before booking. What should your booking engine do?",
+    title: "The hotel price changed. What the booking engine does before and after the booking.",
     dateTime: "2026-11-05",
   },
   {

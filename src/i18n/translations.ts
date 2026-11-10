@@ -398,9 +398,9 @@ const en: Translations = {
         },
         'hotel-price-changed-before-booking': {
           date: '5 November 2026',
-          readTime: '7 min read',
-          excerpt: 'A hotel price can change between search and booking. How a booking engine should recheck the offer, compare the terms, and recover when the outcome is unclear.',
-          tags: ['Hotel APIs', 'Booking engines', 'Rate validation'],
+          readTime: '8 min read',
+          excerpt: 'At booking, WebbingHUB Travel confirms the rate and looks for an equivalent one that costs less. After confirmation it watches for a drop until free cancellation ends. The agent decides whether to switch.',
+          tags: ['Hotel booking', 'Equivalent rates', 'Price changes'],
         },
         'maximize-website-visibility-google-search-console': {
           date: 'May 2026',
@@ -675,9 +675,9 @@ const ro: Translations = {
         },
         'hotel-price-changed-before-booking': {
           date: '5 noiembrie 2026',
-          readTime: '7 min de citit',
-          excerpt: 'Tariful unui hotel se poate schimba între căutare și rezervare. Cum ar trebui un motor de rezervări să verifice oferta, să compare condițiile și să recupereze când rezultatul nu e clar.',
-          tags: ['API-uri hoteliere', 'Motoare de rezervări', 'Validarea tarifelor'],
+          readTime: '8 min de citit',
+          excerpt: 'La rezervare, WebbingHUB Travel confirmă tariful și caută unul echivalent, mai ieftin. După confirmare urmărește prețul până se termină anularea gratuită. Agentul decide dacă schimbă.',
+          tags: ['Rezervări hoteliere', 'Tarife echivalente', 'Schimbări de preț'],
         },
         'maximize-website-visibility-google-search-console': {
           date: 'Mai 2026',

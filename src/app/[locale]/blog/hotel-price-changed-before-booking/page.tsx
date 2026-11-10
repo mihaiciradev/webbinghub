@@ -8,10 +8,13 @@ const BASE = "https://webbinghub.io";
 const POST_PATH = "/blog/hotel-price-changed-before-booking";
 const POST_URL = `${BASE}/en${POST_PATH}`;
 const PUBLISHED = "2026-11-05";
+const MODIFIED = "2026-11-10";
 
-const SEO_TITLE = "Hotel Price Changes Before Booking: Rechecks and Recovery";
+const SEO_TITLE = "Hotel Price Changes Before and After Booking";
 const DESCRIPTION =
-  "Why hotel rates change between search and booking, and how booking engines should recheck prices, compare terms and recover safely.";
+  "How WebbingHUB Travel handles a hotel price change: an equivalent cheaper rate when the agent books, then a watch for a drop until free cancellation ends.";
+const H1 =
+  "The hotel price changed. What the booking engine does before and after the booking.";
 
 export async function generateMetadata({
   params: { locale },
@@ -22,11 +25,11 @@ export async function generateMetadata({
     title: brandedTitle(SEO_TITLE),
     description: DESCRIPTION,
     keywords: [
-      "hotel API price recheck",
-      "hotel booking price mismatch",
-      "hotel supplier rate changes",
-      "hotel API rate validation",
-      "hotel room mapping",
+      "hotel price change",
+      "equivalent hotel rate",
+      "hotel price drop after booking",
+      "free cancellation price watch",
+      "booking engine price check",
     ],
     authors: [{ name: "WebbingHUB", url: BASE }],
     creator: "WebbingHUB",
@@ -52,9 +55,9 @@ export async function generateMetadata({
       description: DESCRIPTION,
       authors: ["WebbingHUB"],
       publishedTime: `${PUBLISHED}T00:00:00Z`,
-      modifiedTime: `${PUBLISHED}T00:00:00Z`,
+      modifiedTime: `${MODIFIED}T00:00:00Z`,
       section: "Travel Technology",
-      tags: ["hotel APIs", "booking engines", "rate validation", "supplier integrations"],
+      tags: ["hotel booking", "equivalent rates", "price drop", "free cancellation"],
     },
     twitter: {
       card: "summary_large_image",
@@ -69,12 +72,12 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "@id": `${POST_URL}#article`,
-  headline: "The Hotel Price Changed Before Booking. What Should Your Booking Engine Do?",
+  headline: H1,
   description: DESCRIPTION,
   datePublished: `${PUBLISHED}T00:00:00Z`,
-  dateModified: `${PUBLISHED}T00:00:00Z`,
-  wordCount: 980,
-  timeRequired: "PT7M",
+  dateModified: `${MODIFIED}T00:00:00Z`,
+  wordCount: 1480,
+  timeRequired: "PT8M",
   inLanguage: "en",
   author: {
     "@type": "Organization",
@@ -102,7 +105,7 @@ const jsonLd = {
   isPartOf: { "@id": `${BASE}/en/blog#webpage` },
   articleSection: "Travel Technology",
   keywords:
-    "hotel API price recheck, hotel booking price mismatch, hotel supplier rate changes, hotel API rate validation, hotel room mapping",
+    "hotel price change, equivalent hotel rate, hotel price drop after booking, free cancellation price watch, booking engine price check",
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -111,7 +114,7 @@ const jsonLd = {
       {
         "@type": "ListItem",
         position: 3,
-        name: "The hotel price changed before booking",
+        name: "The hotel price changed",
         item: POST_URL,
       },
     ],
@@ -147,201 +150,139 @@ export default function BlogPostPage({
                 5 November 2026
               </time>
               <span className={styles.metaDot}>·</span>
-              <span className={styles.metaRead}>7 min read</span>
+              <time dateTime={MODIFIED} className={styles.metaDate}>
+                Updated 10 November 2026
+              </time>
+              <span className={styles.metaDot}>·</span>
+              <span className={styles.metaRead}>8 min read</span>
             </div>
-            <h1 className={styles.title}>
-              The hotel price changed before booking. What should your booking engine do?
-            </h1>
+            <h1 className={styles.title}>{H1}</h1>
             <p className={styles.lead}>
-              A reliable hotel API price recheck is not simply a second request for a number. It protects the meaning of the offer the customer accepted: room, occupancy, board basis, cancellation policy, taxes, currency, payment terms, and availability.
+              In WebbingHUB Travel, a hotel price is handled at two moments. When an agent presses Book, the page confirms that rate and looks for an equivalent one that costs less. After the booking is confirmed, it keeps looking until the stay can no longer be cancelled for free.
             </p>
           </header>
 
           <div className={styles.body}>
             <p>
-              An agent finds a hotel, shares a quotation, and gets approval from the traveler. Ten minutes later, the booking request comes back with a different amount, or an error. Which price is correct? More importantly, what should the booking engine do next?
+              This is how this booking engine works. An agent can see the comparison, and the agent decides. The app does not switch a rate on its own, and it does not cancel a booking on its own.
             </p>
 
-            <p>
-              In{" "}
-              <a href="https://amadeus.com/en/newsroom/press-releases/travel-agents-embrace-ai-rate-parity" target="_blank" rel="noopener noreferrer">
-                Amadeus&apos; September 2026 research
-              </a>{" "}
-              of more than 750 travel sellers, 94% rated rate parity highly important; 63% said they <em>would</em> book away from a property when they perceived inconsistent pricing. Those are reported opinions about parity, <strong>not</strong> measured losses from search-to-book repricing. But they underscore how seriously travel sellers take pricing consistency.
-            </p>
-
-            <h2>A search result is not a confirmed reservation</h2>
-            <p>The same hotel offer passes through several different moments:</p>
-            <ol>
-              <li><strong>Search:</strong> A supplier returns a rate and availability at a particular moment.</li>
-              <li><strong>Quote:</strong> The agency presents an offer, often after applying its own commercial rules.</li>
-              <li><strong>Validate:</strong> The selected supplier rate is checked again when the customer is ready to proceed, where the supplier workflow requires it.</li>
-              <li><strong>Book:</strong> A reservation request is submitted and its actual status is established.</li>
-            </ol>
-            <p>
-              Between these moments, inventory can move, a token can expire, or commercial terms can change. The platform should distinguish <em>an offer shown to a customer</em> from <em>an offer currently acceptable for booking</em>.
-            </p>
-            <p>A useful internal offer record holds more than <code>totalPrice</code>:</p>
-
-            <div className={styles.tableWrap}>
-              <table className={styles.table}>
-                <thead>
-                  <tr>
-                    <th scope="col">Field</th>
-                    <th scope="col">Why it matters</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Supplier and original rate identifiers</td>
-                    <td>Reconnects the offer to its source and booking conditions</td>
-                  </tr>
-                  <tr>
-                    <td>Hotel, room, occupancy and dates</td>
-                    <td>Prevents comparisons between non-equivalent stays</td>
-                  </tr>
-                  <tr>
-                    <td>Meal plan and cancellation terms</td>
-                    <td>Can change the value of a superficially cheaper rate</td>
-                  </tr>
-                  <tr>
-                    <td>Currency, taxes and fees</td>
-                    <td>Determines what is included, excluded or payable at property</td>
-                  </tr>
-                  <tr>
-                    <td>Booking token or link and retrieval time</td>
-                    <td>Helps enforce the supplier&apos;s lifecycle</td>
-                  </tr>
-                  <tr>
-                    <td>Current validation and booking state</td>
-                    <td>Prevents expired offers being treated as confirmed products</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <figure className={styles.diagram} aria-labelledby="offer-diagram-title" aria-describedby="offer-diagram-desc">
-              <h3 id="offer-diagram-title" className={styles.diagramTitle}>One Offer, Four Validation Points</h3>
-              <ol className={styles.flow}>
+            <figure className={styles.diagram} aria-labelledby="price-diagram-title" aria-describedby="price-diagram-desc">
+              <h3 id="price-diagram-title" className={styles.diagramTitle}>Two moments for the same stay</h3>
+              <ol className={styles.moments}>
                 <li>
-                  <strong>Search</strong>
-                  <p>A rate and availability, at one moment.</p>
+                  <span className={styles.momentWhen}>At booking</span>
+                  <strong>A better equivalent price</strong>
+                  <p>The chosen rate is confirmed with its supplier. Other suppliers are asked about the same hotel. Only the same kind of room, the same board, the same refundability, and cancellation terms at least as good.</p>
+                  <p>If one is cheaper, the agent sees it and chooses. The app does not switch by itself.</p>
                 </li>
                 <li>
-                  <strong>Quote</strong>
-                  <p>The offer the agency actually presents.</p>
-                </li>
-                <li>
-                  <strong>Validate</strong>
-                  <p>The supplier&apos;s own price check, when its rules require one.</p>
-                </li>
-                <li>
-                  <strong>Book</strong>
-                  <p>A reservation whose status is known.</p>
+                  <span className={styles.momentWhen}>After confirmation</span>
+                  <strong>A price-drop watch</strong>
+                  <p>While the booking can still be cancelled for free, the app keeps looking for the same stay at a lower price. Automatic checks search the simulators. A drop has to be strictly equivalent, and it has to beat the saving the agency set.</p>
+                  <p>Watching stops when the free-cancellation window ends. After that, a switch would cost a penalty.</p>
                 </li>
               </ol>
-              <div className={styles.branch}>
-                <p className={styles.branchLabel}>Off the main path</p>
-                <ul className={styles.branchList}>
-                  <li>
-                    <strong>Changed terms</strong>
-                    Show what changed. Ask for a decision before substituting a different offer.
-                  </li>
-                  <li>
-                    <strong>Uncertain booking</strong>
-                    A timeout is not a failure. Retrieve the attempt before sending another reservation.
-                  </li>
-                </ul>
-              </div>
-              <p id="offer-diagram-desc" className={styles.diagramDesc}>
-                Search, quotation, supplier-specific price validation, and booking are four checks of one offer. Changed terms, and a booking whose outcome is not yet known, leave that path and are handled on their own.
+              <p id="price-diagram-desc" className={styles.diagramDesc}>
+                At booking, the agent can move to a cheaper equivalent rate after it has been price-checked. After confirmation, the app watches for a drop until free cancellation ends. Both choices stay with the agent.
               </p>
             </figure>
 
-            <h2>Why two prices may not describe the same offer</h2>
+            <h2>A better price when the agent presses Book</h2>
             <p>
-              Suppose two suppliers return the same property and dates. One advertises a lower total, but the other includes breakfast and free cancellation. A basic sorting algorithm declares a winner; the customer may not agree.
+              When an agent presses Book on a rate, the booking page confirms the price with that rate&apos;s supplier. At the same time it asks the other suppliers about the same hotel.
             </p>
             <p>
-              Hotel matching and room equivalence are separate problems. Mapping two supplier hotel records to one property does not prove their room categories, occupancy conditions or board plans match. A defensible comparison can say “not comparable” rather than inventing equivalence.
+              It looks only for an equivalent rate. The room has to be the same kind: a double is never compared with a suite. The board has to be the same. The refundability has to be the same, and the cancellation terms have to be at least as good. A lower number with breakfast removed, or with a tighter cancellation rule, is a different offer.
             </p>
             <p>
-              Taxes make the comparison harder.{" "}
-              <a href="https://www.hedna.org/insights/hedna-pulse/taxes-fees/" target="_blank" rel="noopener noreferrer">
-                HEDNA&apos;s August 2026 briefing
-              </a>{" "}
-              explores how tax type, jurisdiction, amount and remittance details can lose meaning between hotel and distribution systems. An integration should preserve that information, not flatten every charge into an unexplained total.
+              If one equivalent rate is cheaper, a green note appears under the confirmed price. The amounts below are an example of what that note can show.
+            </p>
+            <p className={styles.example}>
+              <span className={styles.exampleLabel}>Example of the note</span>
+              LiteAPI has the same room, also room only and refundable, for €18 less (€212.40 instead of €230.90).
             </p>
             <p>
-              A simple rule helps: <strong>compare the complete commercial offer, not just the number in the price column.</strong>
+              The agent can open a side-by-side view of what is identical and what differs: the room wording, the free-cancellation deadline, and the supplier. The choice on that view is <strong>Switch to this offer</strong> or <strong>Keep the current one</strong>.
+            </p>
+            <p>
+              Switching confirms the new rate with its own supplier before the guest details step. Nothing is booked on a price that has not been checked. The app never switches by itself.
             </p>
 
-            <h2>A hotel API price recheck must follow the supplier&apos;s rules</h2>
-            <p>There is no universal “call <code>/recheck</code> before every booking” standard. Each supplier defines what makes an offer bookable.</p>
+            <h2>Which suppliers are asked</h2>
             <p>
-              For example,{" "}
-              <a href="https://developer.hotelbeds.com/documentation/hotels/booking-api/workflow/" target="_blank" rel="noopener noreferrer">
-                Hotelbeds&apos; Booking API workflow
-              </a>{" "}
-              distinguishes <code>RECHECK</code> rates, which require CheckRate before booking, from <code>BOOKABLE</code> rates that can proceed directly under the documented workflow. That distinction belongs in the integration contract, not in a generic frontend assumption.
+              The simulators are always included in that search. Hotelbeds and LiteAPI are not. Those two suppliers are queried only when someone deliberately runs a live check. In the app, that means presenter mode with the switch on Live. An automatic check, or a visit that is not that live check, does not call them. Each search of Hotelbeds or LiteAPI is counted on the API usage page.
             </p>
             <p>
+              When nothing better turns up, the page says the search happened. One such line is &ldquo;Checked 3 other suppliers: this is still the best price.&rdquo;
+            </p>
+
+            <h2>After confirmation, a watch for a lower price</h2>
+            <p>
+              Once a booking is confirmed, and for as long as it can still be cancelled for free, the app keeps looking for the same stay at a lower price, at the supplier on the booking and at the others.
+            </p>
+            <p>
+              The automatic checks follow the schedule set in Admin, under Suppliers &amp; checks. They search the simulators for each watched booking. A rate counts only when it is strictly equivalent, in the same sense as at booking, and only when the saving beats a threshold the agency sets. By default that threshold is €15 and 5% of the price.
+            </p>
+            <p>
+              Hotelbeds and LiteAPI are never part of those automatic checks. That protects their limits. A booking held with one of them shows a <strong>Check for a lower price now</strong> button. The button is available for the same deliberate live check, presenter mode with Live on. Before it runs, it says that this will be one counted search per real supplier.
+            </p>
+            <p>
+              Each booking shows a small <strong>Price watch</strong> line: when it was last checked, the best equivalent price found, and when watching will stop. Watching always stops at the end of the free-cancellation window, because after that a switch would cost a penalty.
+            </p>
+
+            <h2>How the agency sees a drop</h2>
+            <p>A drop appears in three places.</p>
+            <ul>
+              <li>A badge on the bookings list. One example of the badge is &ldquo;€42 cheaper.&rdquo;</li>
+              <li>An entry on the alert bell, and an alert email when email is set up.</li>
+              <li>A Price drop card on the booking page.</li>
+            </ul>
+            <p>The card sets the current booking next to the new offer. It shows:</p>
+            <ul>
+              <li>the two offers side by side</li>
+              <li>the saving after any difference in taxes</li>
+              <li>that the current booking can still be cancelled free until a given date and time, in the hotel&apos;s local time</li>
+              <li>the exact steps a switch would take</li>
+            </ul>
+            <p>
+              The figures use selling prices for the client and supplier costs for the agency. The agent can see the client&apos;s saving and how the agency&apos;s margin changes, and can pass the saving on or keep part of it, following the margin rules.
+            </p>
+
+            <h2>A guided switch, with the original room still held</h2>
+            <p>
+              Choosing Switch starts a guided rebook. The agent confirms every step. The order is fixed so the client is never left without a room.
+            </p>
+            <ol>
+              <li>The new rate is price-checked.</li>
+              <li>The new booking is made with the same travellers.</li>
+              <li>Only after the new supplier confirms is the agent asked to cancel the original booking. The free-cancellation status is checked again just before that.</li>
+            </ol>
+            <p>
+              If the new booking fails, nothing is cancelled and the original stands. If the cancellation fails, the app says so clearly and lists both bookings, so the agent can finish by hand. It never cancels anything automatically.
+            </p>
+            <p>
+              Both bookings keep a timeline entry linking them. An example of that entry, including an example booking id, is &ldquo;Rebooked to WH-1102 for €42 less.&rdquo; New confirmation and voucher documents are ready for the new booking, and the agent is reminded to send them to the client.
+            </p>
+
+            <h2>What still has to be true of the offer</h2>
+            <p>
+              A search result is not a confirmed reservation. The figure on the results page is an offer at one moment. The booking page is where that rate&apos;s supplier confirms the price.
+            </p>
+            <p>
+              Compare the whole offer, not just the number. A cheaper rate with a worse board, or with weaker cancellation, is not the same offer. The checks above leave that rate out.
+            </p>
+            <p>
+              A timeout is not proof the booking failed.{" "}
               <a href="https://developers.expediagroup.com/rapid/lodging/reference/error-responses" target="_blank" rel="noopener noreferrer">
-                Expedia Rapid&apos;s error and recovery documentation
+                Expedia&apos;s Rapid documentation
               </a>{" "}
-              describes price mismatches and expired booking links separately. In a price-mismatch recovery, a fresh Price Check may be necessary to obtain the current booking link. Merely changing the displayed amount is not enough.
-            </p>
-            <p>
-              A supplier adapter should therefore own supplier-specific rules for token expiry, price validation, availability failures, booking submissions and retrieval. The business layer can then expose consistent states to the sales team without pretending every API behaves identically.
-            </p>
-
-            <h2>When the rate changes, show what changed</h2>
-            <p>Consider this <strong>illustrative</strong> scenario:</p>
-            <p>
-              An agency quotes a three-night, breakfast-inclusive, refundable room. During validation, it finds a slightly cheaper room-only, non-refundable rate. If the interface updates only the total, the customer may unknowingly accept a worse product.
-            </p>
-            <p>A safe flow checks:</p>
-            <ul>
-              <li>Has the amount changed, and by how much?</li>
-              <li>Has cancellation flexibility changed?</li>
-              <li>Is breakfast or another service still included?</li>
-              <li>Are taxes, property-payable fees and payment timing unchanged?</li>
-              <li>Is the original room still available?</li>
-              <li>Does the customer&apos;s approval still cover the new terms?</li>
-            </ul>
-            <p>
-              If a material term changes, the system should request an explicit decision or offer an alternative, not silently substitute it. The agency also needs a written policy for who may absorb a small rate increase and what requires customer reapproval.
-            </p>
-
-            <h2>A booking timeout is a different problem from a price mismatch</h2>
-            <p>This is the dangerous edge case. A booking request times out. The user sees no confirmation. Does that mean the reservation failed?</p>
-            <p>
-              <strong>Not necessarily.</strong> Expedia&apos;s documentation explains that a timeout or 5xx response can occur <em>after</em> a reservation was created and advises checking the booking via the supplier&apos;s retrieval process. Sending another booking request blindly can create duplicate financial exposure where the supplier&apos;s contract does not guarantee safe idempotent retries.
-            </p>
-            <p>Treat the outcomes separately:</p>
-            <ul>
-              <li><strong>Offer rejected or price changed:</strong> validate the new offer and request approval where necessary.</li>
-              <li><strong>Room unavailable:</strong> show an accurate unavailability state and alternatives.</li>
-              <li><strong>Booking status unknown:</strong> retrieve and reconcile the existing attempt before considering a new reservation.</li>
-              <li><strong>Booking confirmed:</strong> store the supplier confirmation and advance the customer workflow.</li>
-            </ul>
-            <p>In other words, a price-recheck engine and a reservation-recovery engine solve related, but different, problems.</p>
-
-            <h2>Measure where pricing trust breaks</h2>
-            <p>
-              A team can improve only what it can locate. Track search-to-validation mismatch rates, validation-to-booking mismatches, expired-token errors, unresolved booking attempts, average recovery time and the share of revised offers that customers accept.
-            </p>
-            <p>
-              Break results down by supplier and operation. A single overall error rate can hide one problematic rate type or one slow supplier. Also preserve a trace of what the customer originally accepted, using privacy-conscious logging and redaction.
+              describes a timeout or a 5xx response that can occur after a reservation was created, and it advises retrieving that attempt before sending another booking. That is a supplier&apos;s booking status, separate from the price comparison in WebbingHUB Travel.
             </p>
 
             <h2>The practical takeaway</h2>
-            <p>The cheapest hotel result is not necessarily the best offer. A successful API response is not necessarily a confirmed booking. And a second price request does not guarantee commercial certainty forever.</p>
             <p>
-              <strong>Reliable hotel booking software manages the entire offer lifecycle:</strong> source, comparison, validation, consent, reservation and recovery.
-            </p>
-            <p>
-              If your team regularly investigates rate mismatches by hand, start by mapping the search-to-booking flow, identifying the supplier-specific validation requirements and examining the exceptions that customer support handles today. That often reveals the engineering work that matters most.
+              The rate the agent first clicked is checked with its supplier before anyone is booked. A cheaper price is shown only when the room, the board, and the cancellation still match. After confirmation, the watch ends when free cancellation ends. The agent confirms each step of a switch, and the original booking stays until the new supplier has confirmed.
             </p>
             <p>
               For teams working on booking systems and supplier connections,{" "}
@@ -351,31 +292,13 @@ export default function BlogPostPage({
               focuses on the integration layer and the operational realities behind hotel distribution.
             </p>
 
-            <h3>Sources and further reading</h3>
+            <h3>Source</h3>
             <ul className={styles.sources}>
-              <li>
-                <a href="https://amadeus.com/en/newsroom/press-releases/travel-agents-embrace-ai-rate-parity" target="_blank" rel="noopener noreferrer">
-                  Amadeus, Global travel sellers and rate parity (29 September 2026)
-                </a>
-                <span className={styles.sourceNote}>Survey attitudes, not measured booking-loss outcomes.</span>
-              </li>
-              <li>
-                <a href="https://developer.hotelbeds.com/documentation/hotels/booking-api/workflow/" target="_blank" rel="noopener noreferrer">
-                  Hotelbeds, Booking API workflow
-                </a>
-                <span className={styles.sourceNote}>Supplier-specific recheck logic.</span>
-              </li>
               <li>
                 <a href="https://developers.expediagroup.com/rapid/lodging/reference/error-responses" target="_blank" rel="noopener noreferrer">
                   Expedia Group, Rapid API common error responses
                 </a>
-                <span className={styles.sourceNote}>Price mismatches, links, booking status and recovery.</span>
-              </li>
-              <li>
-                <a href="https://www.hedna.org/insights/hedna-pulse/taxes-fees/" target="_blank" rel="noopener noreferrer">
-                  HEDNA, Taxes, Fees &amp; the Distribution Gap (August 2026)
-                </a>
-                <span className={styles.sourceNote}>Tax and fee data across distribution systems.</span>
+                <span className={styles.sourceNote}>A timeout or 5xx can follow a reservation that already exists. Retrieve it before booking again. This describes the supplier, not WebbingHUB Travel.</span>
               </li>
             </ul>
           </div>
