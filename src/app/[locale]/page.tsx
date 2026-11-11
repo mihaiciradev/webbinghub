@@ -89,6 +89,14 @@ const organizationSchema = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
+          name: "AI assistants",
+          description: "An assistant on the systems the business already runs.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
           name: "Integrations and automations",
           description: "Connections between bookings, payments, WhatsApp, and other APIs.",
         },

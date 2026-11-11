@@ -218,15 +218,16 @@ const en: Translations = {
   home: {
     services: {
       label:     'What we build',
-      heading1:  'Services designed',
-      heading2:  'for',
-      headingEm: 'real businesses.',
+      heading1:  'Five kinds',
+      heading2:  'of',
+      headingEm: 'work.',
       note:      'On a tailored project, you own the code and the result. Zero lock-in.',
       items: [
-        { title: 'Internal platforms and portals', desc: 'Platforms and portals for the team and for customers, connected to the systems the business already runs.' },
-        { title: 'Integrations and automations',   desc: 'Connections between the tools a team already uses: bookings, payments, WhatsApp, and other APIs.' },
-        { title: 'Online stores',                  desc: 'A store built for performance and sales, not just appearance. From product pages to checkout, every step is designed with conversion in mind.' },
-        { title: 'Custom websites',                desc: 'A website when the work needs one, designed from scratch and fast on any device. No themes, and no drag-and-drop shortcuts.' },
+        { title: 'Internal platforms and portals', desc: 'The screen the team and the customers use, tied to the systems the business already runs.' },
+        { title: 'AI assistants',                  desc: 'A customer asking the company\'s data, or someone on the team getting through the work. The assistant sits on the systems the business already runs.' },
+        { title: 'Integrations and automations',   desc: 'Bookings, payments, WhatsApp, and the other tools, passing work between them.' },
+        { title: 'Online stores',                  desc: 'From the product page to checkout, built to sell, not only to look finished.' },
+        { title: 'Custom websites',                desc: 'A site when the project needs one. Written for that business. No theme.' },
       ],
     },
     process: {
@@ -293,7 +294,7 @@ const en: Translations = {
       items: [
         {
           q: 'What does WebbingHUB build?',
-          a: 'WebbingHUB builds internal platforms, customer portals, and integrations that connect the systems a team already uses. Online stores and custom websites are part of the work when a project needs them.',
+          a: 'WebbingHUB builds internal platforms, customer portals, and integrations that connect the systems a team already uses, and AI assistants that sit on those systems. Online stores and custom websites are part of the work when a project needs them.',
         },
         {
           q: 'Do I own the work after WebbingHUB builds it?',
@@ -495,15 +496,16 @@ const ro: Translations = {
   home: {
     services: {
       label:     'Ce construim',
-      heading1:  'Servicii gândite',
-      heading2:  'pentru',
-      headingEm: 'afaceri reale.',
+      heading1:  'Cinci feluri',
+      heading2:  'de',
+      headingEm: 'lucru.',
       note:      'La un proiect făcut pentru tine, codul și rezultatul sunt ale tale. Nu rămâi legat de noi.',
       items: [
-        { title: 'Platforme interne și portaluri', desc: 'Platforme și portaluri pentru echipă și pentru clienți, legate de sistemele pe care afacerea le folosește deja.' },
-        { title: 'Integrări și automatizări',      desc: 'Legături între instrumentele pe care o echipă le folosește deja: rezervări, plăți, WhatsApp și alte API-uri.' },
-        { title: 'Magazine online',                desc: 'Un magazin construit pentru performanță și vânzări, nu doar pentru aspect. De la pagina de produs până la finalizarea comenzii, fiecare pas e gândit pentru conversie.' },
-        { title: 'Website-uri personalizate',      desc: 'Un website atunci când proiectul are nevoie de unul, făcut de la zero și rapid pe orice dispozitiv. Fără teme și fără scurtături de tip drag-and-drop.' },
+        { title: 'Platforme interne și portaluri', desc: 'Ecranul pe care lucrează echipa și clienții, legat de sistemele pe care afacerea le folosește deja.' },
+        { title: 'Asistenți AI',                  desc: 'Un client care întreabă datele firmei, sau cineva din echipă care își face treaba mai ușor. Asistentul stă pe sistemele pe care afacerea le folosește deja.' },
+        { title: 'Integrări și automatizări',      desc: 'Rezervări, plăți, WhatsApp și celelalte unelte, care își pasează lucrul între ele.' },
+        { title: 'Magazine online',                desc: 'De la pagina de produs până la plată, făcut să vândă, nu doar să arate gata.' },
+        { title: 'Website-uri',                    desc: 'Un site când proiectul are nevoie de unul. Scris pentru afacerea aceea. Fără temă.' },
       ],
     },
     process: {
@@ -570,7 +572,7 @@ const ro: Translations = {
       items: [
         {
           q: 'Ce construiește WebbingHUB?',
-          a: 'WebbingHUB construiește platforme interne, portaluri pentru clienți și integrări care conectează sistemele pe care o echipă le folosește deja. Magazinele online și website-urile personalizate intră în proiect când e nevoie de ele.',
+          a: 'WebbingHUB construiește platforme interne, portaluri pentru clienți și integrări care conectează sistemele pe care o echipă le folosește deja, și asistenți AI care stau pe sistemele acelea. Magazinele online și website-urile personalizate intră în proiect când e nevoie de ele.',
         },
         {
           q: 'După ce e gata, codul și rezultatul sunt ale mele?',

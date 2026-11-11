@@ -134,6 +134,7 @@ export default function LocaleLayout({
             "priceRange": "$$",
             "serviceType": [
               "Internal platforms and portals",
+              "AI assistants",
               "Integrations and automations",
               "Online stores",
               "Custom websites"
