@@ -36,7 +36,7 @@ export type Translations = {
       heading2: string;
       headingEm: string;
       note: string;
-      items: [Item, Item, Item, Item];
+      items: [Item, Item, Item, Item, Item];
     };
     process: {
       label: string;
