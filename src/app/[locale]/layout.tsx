@@ -10,8 +10,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
-import { locales, type Locale } from "@/i18n/config";
-import { getTranslations } from "@/i18n/utils";
+import { blogLocales, type BlogLocale, type Locale } from "@/i18n/config";
+import { getTranslations, marketingLocale, ogLocaleTag } from "@/i18n/utils";
 
 /* ─── Fonts ───────────────────────────────────── */
 const geistSans = localFont({ src: "../fonts/GeistVF.woff", variable: "--font-geist-sans", weight: "100 900" });
@@ -21,18 +21,19 @@ const poppins = localFont({ src: "../fonts/Poppins.woff", variable: "--font-popp
 const cormorant = Cormorant({ subsets: ["latin"], variable: "--font-cormorant", weight: ["400", "500", "600"], style: ["normal", "italic"], display: "swap" });
 const jost = Jost({ subsets: ["latin"], variable: "--font-jost", weight: ["300", "400", "500", "600"], display: "swap" });
 
-// Only the locales we serve; anything else is a 404 (middleware redirects old ones)
+// en and ro for the site, plus es so /es/blog can render. Other /es paths redirect.
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return blogLocales.map((locale) => ({ locale }));
 }
 
 export async function generateMetadata({
   params: { locale },
 }: {
-  params: { locale: Locale };
+  params: { locale: BlogLocale };
 }): Promise<Metadata> {
+  const copyLocale: Locale = marketingLocale(locale);
   const BASE = "https://webbinghub.io";
 
   const descriptions: Record<Locale, string> = {
@@ -48,10 +49,10 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(BASE),
     title: {
-      default: titles[locale],
+      default: titles[copyLocale],
       template: "%s | WebbingHUB",
     },
-    description: descriptions[locale],
+    description: descriptions[copyLocale],
     keywords: [
       "internal platforms", "customer portals", "software integrations",
       "custom software", "WebbingHUB", "online store development",
@@ -62,17 +63,17 @@ export async function generateMetadata({
     publisher: "WebbingHUB",
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     openGraph: {
-      title: titles[locale],
-      description: descriptions[locale],
+      title: titles[copyLocale],
+      description: descriptions[copyLocale],
       url: `${BASE}/${locale}`,
       siteName: "WebbingHUB",
       type: "website",
-      locale: locale === "ro" ? "ro_RO" : "en_US",
+      locale: ogLocaleTag(locale),
     },
     twitter: {
       card: "summary_large_image",
-      title: titles[locale],
-      description: descriptions[locale],
+      title: titles[copyLocale],
+      description: descriptions[copyLocale],
       creator: "@webbinghub",
       site: "@webbinghub",
     },
@@ -89,7 +90,7 @@ export default function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: Locale };
+  params: { locale: BlogLocale };
 }) {
   const { locale } = params;
   const t = getTranslations(locale);

@@ -27,8 +27,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   return {
     // Absolute: the layout template must not append "| WebbingHUB" a second time.
-    title: { absolute: HOME_TITLE[locale] },
-    alternates: pageAlternates(locale, ""),
+    title: { absolute: HOME_TITLE[locale === "ro" ? "ro" : "en"] },
+    alternates: pageAlternates(locale === "ro" ? "ro" : "en", ""),
   };
 }
 

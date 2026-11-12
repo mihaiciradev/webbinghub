@@ -1,8 +1,10 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import type { Locale } from "@/i18n/config";
-import { pageAlternates, brandedTitle } from "@/i18n/utils";
+import type { BlogLocale } from "@/i18n/config";
+import { articleLocale, articleUrl } from "@/i18n/article";
+import { pageAlternates, brandedTitle, ogLocaleTag } from "@/i18n/utils";
 import styles from "@/app/blog/how-hard-is-it-to-make-a-website/page.module.css";
+import { HardTranslation, hardSeo } from "./translation";
 
 const BASE = "https://webbinghub.io";
 const POST_PATH = "/blog/how-hard-is-it-to-make-a-website";
@@ -11,12 +13,16 @@ const POST_URL = `${BASE}/en${POST_PATH}`;
 export async function generateMetadata({
   params: { locale },
 }: {
-  params: { locale: Locale };
+  params: { locale: BlogLocale };
 }): Promise<Metadata> {
+  const loc = articleLocale(locale);
+  const translated = hardSeo(loc);
+  const title = translated?.seoTitle ?? "How Hard Is It to Make a Website? A Practical Breakdown";
+  const description = translated?.description ?? "How hard is building a website? It depends on what it needs to do. We break down scope, performance and customization so you can weigh your real options.";
+  const url = articleUrl(loc, POST_PATH);
   return {
-    title: brandedTitle("How Hard Is It to Make a Website? A Practical Breakdown"),
-    description:
-      "How hard is building a website? It depends on what it needs to do. We break down scope, performance and customization so you can weigh your real options.",
+    title: brandedTitle(title),
+    description,
     keywords: [
       "how to make a website",
       "website difficulty",
@@ -39,23 +45,14 @@ export async function generateMetadata({
         "max-video-preview": -1,
       },
     },
-    alternates: pageAlternates(locale, POST_PATH),
+    alternates: pageAlternates(loc, POST_PATH),
     openGraph: {
       type: "article",
-      locale: "en_US",
-      url: POST_URL,
+      locale: ogLocaleTag(loc),
+      url,
       siteName: "WebbingHUB",
-      title: "How Hard Is It to Make a Website? A Practical Breakdown",
-      description:
-        "Understand what determines website complexity, scope, performance, customization, maintenance, and how to evaluate your real options.",
-      images: [
-        {
-          url: "/og-blog-website-difficulty.png",
-          width: 1200,
-          height: 630,
-          alt: "How hard is it to make a website?",
-        },
-      ],
+      title,
+      description,
       authors: ["WebbingHUB"],
       publishedTime: "2024-11-01T00:00:00Z",
       modifiedTime: "2026-05-26T00:00:00Z",
@@ -69,10 +66,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: "How Hard Is It to Make a Website? A Practical Breakdown",
-      description:
-        "Understand what really determines website complexity and your actual options.",
-      images: ["/og-blog-website-difficulty.png"],
+      title,
+      description,
       creator: "@webbinghub",
     },
   };
@@ -147,9 +142,10 @@ const jsonLd = {
 export default function BlogPostPage({
   params,
 }: {
-  params: { locale: Locale };
+  params: { locale: BlogLocale };
 }) {
   const { locale } = params;
+  if (locale === "ro" || locale === "es") return <HardTranslation locale={locale} />;
 
   return (
     <>

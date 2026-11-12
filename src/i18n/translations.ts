@@ -2,7 +2,7 @@ import type { Locale } from './config';
 
 type Item = { title: string; desc: string };
 type Meta = { title: string; description: string; ogDescription: string };
-type BlogPostCard = { date: string; readTime: string; excerpt: string; tags: string[] };
+type BlogPostCard = { title: string; date: string; readTime: string; excerpt: string; tags: string[] };
 
 export type Translations = {
   nav: {
@@ -392,30 +392,35 @@ const en: Translations = {
       inEnglish: null,
       posts: {
         'hotel-supplier-api-failure-booking-platform': {
+          title: 'One Hotel Supplier Timed Out. Why Did Your Entire Booking Platform Stop?',
           date: '11 November 2026',
           readTime: '8 min read',
           excerpt: 'One hotel supplier stalls, and the whole search fails with it. How to return the results you do have, and how to recover a booking whose response never came back, without sending the reservation again.',
           tags: ['Hotel APIs', 'Supplier integrations', 'Booking architecture'],
         },
         'native-connectors-vs-ipaas-vs-custom-integration': {
+          title: 'Native Connectors vs iPaaS vs Custom Integration: Which Should You Choose?',
           date: '9 November 2026',
           readTime: '9 min read',
           excerpt: 'A quote accepted in the CRM still has to become a job and a finance record. How to choose between a native connector, an iPaaS flow and a custom integration.',
           tags: ['System integration', 'iPaaS', 'CRM and ERP'],
         },
         'hotel-price-changed-before-booking': {
+          title: 'The hotel price changed. What the booking engine does before and after the booking.',
           date: '5 November 2026',
           readTime: '8 min read',
           excerpt: 'At booking, WebbingHUB Travel confirms the rate and looks for an equivalent one that costs less. After confirmation it watches for a drop until free cancellation ends. The agent decides whether to switch.',
           tags: ['Hotel booking', 'Equivalent rates', 'Price changes'],
         },
         'maximize-website-visibility-google-search-console': {
+          title: "Maximize Your Website's Visibility: Google Search Console Guide",
           date: 'May 2026',
           readTime: '8 min read',
           excerpt: 'Google Search Console shows how your site performs in search. We explain impressions, clicks, and CTR, and how to turn that traffic into customers.',
           tags: ['SEO', 'Google Search Console', 'Website Visibility'],
         },
         'how-hard-is-it-to-make-a-website': {
+          title: 'How hard is it to make a website? A Practical Breakdown',
           date: 'November 2024',
           readTime: '8 min read',
           excerpt: 'Building a website is as hard as what you need it to do. We explain the factors that set the complexity: scope, performance, and customization.',
@@ -673,33 +678,38 @@ const ro: Translations = {
       heroTitleEm: 'ce învățăm.',
       heroSub:     'Webul se mișcă repede. Scriem despre ce construim și despre ce ar trebui să știe un antreprenor înainte să decidă cum apare online. Fără texte de umplutură.',
       articleCount: (n) => (n === 1 ? '1 articol' : `${n} articole`),
-      inEnglish:   'Articol în limba engleză',
+      inEnglish:   null,
       posts: {
         'hotel-supplier-api-failure-booking-platform': {
+          title: 'Un furnizor de hoteluri nu a răspuns. De ce s-a oprit toată platforma de rezervări?',
           date: '11 noiembrie 2026',
           readTime: '8 min de citit',
           excerpt: 'Un furnizor de hoteluri nu răspunde, iar căutarea cade cu totul. Cum returnezi rezultatele care au venit și cum recuperezi o rezervare al cărei răspuns s-a pierdut, fără să trimiți cererea încă o dată.',
           tags: ['API-uri hoteliere', 'Integrări cu furnizori', 'Arhitectură de rezervări'],
         },
         'native-connectors-vs-ipaas-vs-custom-integration': {
+          title: 'Conector nativ, iPaaS sau integrare pe măsură: ce alegi?',
           date: '9 noiembrie 2026',
           readTime: '9 min de citit',
           excerpt: 'O ofertă acceptată în CRM trebuie să ajungă și în ERP, și la financiar. Cum alegi între conectorul din aplicație, o platformă iPaaS și o integrare făcută pe măsură.',
           tags: ['Integrare de sisteme', 'iPaaS', 'CRM și ERP'],
         },
         'hotel-price-changed-before-booking': {
+          title: 'Prețul hotelului s-a schimbat. Ce face motorul de rezervări înainte și după rezervare.',
           date: '5 noiembrie 2026',
           readTime: '8 min de citit',
           excerpt: 'La rezervare, WebbingHUB Travel confirmă tariful și caută unul echivalent, mai ieftin. După confirmare urmărește prețul până se termină anularea gratuită. Agentul decide dacă schimbă.',
           tags: ['Rezervări hoteliere', 'Tarife echivalente', 'Schimbări de preț'],
         },
         'maximize-website-visibility-google-search-console': {
+          title: 'Vizibilitate mai bună în Google: ghid practic de Search Console',
           date: 'Mai 2026',
           readTime: '8 min de citit',
           excerpt: 'Google Search Console îți arată cum se descurcă site-ul tău în căutări. Explicăm afișările, clicurile și CTR-ul și cum transformi acel trafic în clienți.',
           tags: ['SEO', 'Google Search Console', 'Vizibilitate online'],
         },
         'how-hard-is-it-to-make-a-website': {
+          title: 'Cât de greu este să faci un website? O privire practică',
           date: 'Noiembrie 2024',
           readTime: '8 min de citit',
           excerpt: 'Un website e atât de greu de făcut pe cât trebuie să facă. Explicăm ce îi dă complexitatea: dimensiunea, performanța și personalizarea.',

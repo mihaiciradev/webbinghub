@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { locales, defaultLocale, retiredLocales, singleLocalePages, type Locale } from '@/i18n/config';
+import { locales, defaultLocale, retiredLocales, singleLocalePages, isBlogPath, type Locale } from '@/i18n/config';
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -15,11 +15,21 @@ export function middleware(request: NextRequest) {
   }
 
   const [, first = '', ...rest] = pathname.split('/');
+  const restPath = rest.length ? `/${rest.join('/')}` : '';
   const hasLocale = (locales as readonly string[]).includes(first);
   const isRetired = (retiredLocales as readonly string[]).includes(first);
 
+  // Spanish exists only for the blog. Other /es URLs redirect like a retired locale.
+  if (first === 'es') {
+    if (isBlogPath(restPath)) return NextResponse.next();
+    const target = singleLocalePages[restPath] ?? defaultLocale;
+    const url = request.nextUrl.clone();
+    url.pathname = `/${target}${restPath}`;
+    return NextResponse.redirect(url, 308);
+  }
+
   // Path without any locale prefix ("" for home)
-  const path = hasLocale || isRetired ? (rest.length ? `/${rest.join('/')}` : '') : pathname === '/' ? '' : pathname;
+  const path = hasLocale || isRetired ? restPath : pathname === '/' ? '' : pathname;
 
   // Where this page lives: its only language, else the requested one, else default
   const target: Locale = singleLocalePages[path] ?? (hasLocale ? (first as Locale) : defaultLocale);

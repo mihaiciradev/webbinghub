@@ -1,9 +1,11 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import type { Locale } from "@/i18n/config";
-import { pageAlternates, brandedTitle } from "@/i18n/utils";
+import type { BlogLocale } from "@/i18n/config";
+import { articleLocale, articleUrl } from "@/i18n/article";
+import { pageAlternates, brandedTitle, ogLocaleTag } from "@/i18n/utils";
 import styles from "@/app/blog/hotel-supplier-api-failure-booking-platform/page.module.css";
+import { SupplierTranslation, supplierSeo } from "./translation";
 
 const BASE = "https://webbinghub.io";
 const POST_PATH = "/blog/hotel-supplier-api-failure-booking-platform";
@@ -18,11 +20,16 @@ const H1 = "One Hotel Supplier Timed Out. Why Did Your Entire Booking Platform S
 export async function generateMetadata({
   params: { locale },
 }: {
-  params: { locale: Locale };
+  params: { locale: BlogLocale };
 }): Promise<Metadata> {
+  const loc = articleLocale(locale);
+  const translated = supplierSeo(loc);
+  const title = translated?.seoTitle ?? SEO_TITLE;
+  const description = translated?.description ?? DESCRIPTION;
+  const url = articleUrl(loc, POST_PATH);
   return {
-    title: brandedTitle(SEO_TITLE),
-    description: DESCRIPTION,
+    title: brandedTitle(title),
+    description,
     keywords: [
       "hotel supplier API integration",
       "hotel booking API timeout",
@@ -44,14 +51,14 @@ export async function generateMetadata({
         "max-video-preview": -1,
       },
     },
-    alternates: pageAlternates(locale, POST_PATH),
+    alternates: pageAlternates(loc, POST_PATH),
     openGraph: {
       type: "article",
-      locale: "en_US",
-      url: POST_URL,
+      locale: ogLocaleTag(loc),
+      url,
       siteName: "WebbingHUB",
-      title: SEO_TITLE,
-      description: DESCRIPTION,
+      title,
+      description,
       authors: ["WebbingHUB"],
       publishedTime: `${PUBLISHED}T00:00:00Z`,
       section: "Travel Technology",
@@ -59,8 +66,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: SEO_TITLE,
-      description: DESCRIPTION,
+      title,
+      description,
       creator: "@webbinghub",
     },
   };
@@ -130,9 +137,10 @@ function Cell({ label, children }: { label: string; children: ReactNode }) {
 export default function BlogPostPage({
   params,
 }: {
-  params: { locale: Locale };
+  params: { locale: BlogLocale };
 }) {
   const { locale } = params;
+  if (locale === "ro" || locale === "es") return <SupplierTranslation locale={locale} />;
 
   return (
     <>

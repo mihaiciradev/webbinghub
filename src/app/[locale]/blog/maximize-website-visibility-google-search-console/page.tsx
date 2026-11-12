@@ -1,15 +1,29 @@
 import { Metadata } from "next";
-import type { Locale } from "@/i18n/config";
-import { pageAlternates, brandedTitle } from "@/i18n/utils";
+import type { BlogLocale } from "@/i18n/config";
+import { articleLocale, articleUrl } from "@/i18n/article";
+import { pageAlternates, brandedTitle, ogLocaleTag } from "@/i18n/utils";
 import styles from "@/app/blog/page.module.css";
+import { GscTranslation, gscSeo } from "./translation";
 
 const BASE = "https://webbinghub.io";
 const ARTICLE_SLUG = "maximize-website-visibility-google-search-console";
+const EN_TITLE = "Maximize Your Website's Visibility: Google Search Console Guide";
+const EN_DESCRIPTION =
+  "Learn how Google Search Console transforms search performance. Understand impressions, clicks, CTR, and turn traffic into business growth. A practical guide for website owners.";
 
-export const metadata: Metadata = {
-  title: brandedTitle("Maximize Your Website's Visibility: Google Search Console Guide"),
-  description:
-    "Learn how Google Search Console transforms search performance. Understand impressions, clicks, CTR, and turn traffic into business growth. A practical guide for website owners.",
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: BlogLocale };
+}): Promise<Metadata> {
+  const loc = articleLocale(locale);
+  const translated = gscSeo(loc);
+  const title = translated?.seoTitle ?? EN_TITLE;
+  const description = translated?.description ?? EN_DESCRIPTION;
+  const url = articleUrl(loc, `/blog/${ARTICLE_SLUG}`);
+  return {
+  title: brandedTitle(title),
+  description,
   keywords: [
     "Google Search Console",
     "website visibility",
@@ -34,24 +48,14 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  alternates: pageAlternates("en", `/blog/${ARTICLE_SLUG}`),
+  alternates: pageAlternates(loc, `/blog/${ARTICLE_SLUG}`),
   openGraph: {
     type: "article",
-    locale: "en_US",
-    url: `${BASE}/en/blog/${ARTICLE_SLUG}`,
+    locale: ogLocaleTag(loc),
+    url,
     siteName: "WebbingHUB",
-    title: "Maximize Your Website's Visibility: Google Search Console Guide",
-    description:
-      "Learn how Google Search Console transforms search performance. Understand impressions, clicks, CTR, and turn traffic into business growth.",
-    images: [
-      {
-        url: `/og-blog-search-console.png`,
-        width: 1200,
-        height: 630,
-        alt: "Google Search Console Guide, Maximize Website Visibility",
-        type: "image/png",
-      },
-    ],
+    title,
+    description,
     authors: ["WebbingHUB"],
     publishedTime: new Date("2026-05-26").toISOString(),
     modifiedTime: new Date("2026-05-26").toISOString(),
@@ -65,13 +69,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maximize Your Website's Visibility: Google Search Console Guide",
-    description:
-      "Learn how to use Google Search Console to understand your search performance and drive real business growth.",
+    title,
+    description,
     creator: "@webbinghub",
-    images: [`/og-blog-search-console.png`],
   },
-};
+  };
+}
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -144,8 +147,11 @@ const articleSchema = {
 export default function BlogArticle({
   params,
 }: {
-  params: { locale: Locale };
+  params: { locale: BlogLocale };
 }) {
+  if (params.locale === "ro" || params.locale === "es") {
+    return <GscTranslation locale={params.locale} />;
+  }
   return (
     <>
       <script

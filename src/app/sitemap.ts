@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { locales, singleLocalePages } from "@/i18n/config";
+import { locales, blogLocales, singleLocalePages, isBlogPath } from "@/i18n/config";
 import { BASE_URL as BASE, pageAlternates } from "@/i18n/utils";
 
 // Static pages with their SEO priority and change frequency
@@ -25,7 +25,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const { path, priority, freq } of PAGES) {
     // One entry per language the page actually exists in
-    const pageLocales = singleLocalePages[path] ? [singleLocalePages[path]] : locales;
+    const pageLocales = singleLocalePages[path]
+      ? [singleLocalePages[path]]
+      : isBlogPath(path) ? blogLocales : locales;
     for (const locale of pageLocales) {
       entries.push({
         url: `${BASE}/${locale}${path}`,

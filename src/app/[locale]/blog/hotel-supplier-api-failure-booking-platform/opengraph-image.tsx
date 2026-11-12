@@ -1,33 +1,32 @@
-import { ImageResponse } from "next/og";
-import { getLogoDataUri, getMascotDataUri, getCormorantFont } from "@/lib/og";
-import { OgLayout } from "@/lib/OgLayout";
+import { blogOgContentType, blogOgImage, blogOgSize } from "@/lib/blog-og";
 
 export const runtime = "nodejs";
-export const alt = "One hotel supplier timed out. Search can still return. WebbingHUB";
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+export const alt = "WebbingHUB Blog";
+export const size = blogOgSize;
+export const contentType = blogOgContentType;
 
-export default async function Image() {
-  const [logoSrc, mascotSrc, fontData] = await Promise.all([
-    Promise.resolve(getLogoDataUri()),
-    Promise.resolve(getMascotDataUri()),
-    getCormorantFont(),
-  ]);
+const text = {
+  en: {
+    tag: "WebbingHUB Blog",
+    headline: "One supplier timed out.",
+    headlineEm: "Search can still return.",
+    subtitle: "Timeouts, retries, and recovering a booking whose response was lost.",
+  },
+  ro: {
+    tag: "WebbingHUB Blog",
+    headline: "Un furnizor a dat timeout.",
+    headlineEm: "Căutarea poate continua.",
+    subtitle: "Timeout-uri, retry-uri și recuperarea unei rezervări al cărei răspuns s-a pierdut.",
+  },
+  es: {
+    tag: "WebbingHUB Blog",
+    headline: "Un proveedor hizo timeout.",
+    headlineEm: "La búsqueda puede seguir.",
+    subtitle: "Timeouts, reintentos y cómo recuperar una reserva cuya respuesta se perdió.",
+  },
+} as const;
 
-  return new ImageResponse(
-    <OgLayout
-      logoSrc={logoSrc}
-      mascotSrc={mascotSrc}
-      tag="WebbingHUB Blog"
-      headline="One supplier timed out."
-      headlineEm="Search can still return."
-      subtitle="Timeouts, retries, and recovering a booking whose response was lost."
-    />,
-    {
-      ...size,
-      fonts: fontData
-        ? [{ name: "Cormorant", data: fontData, weight: 600 }]
-        : [],
-    }
-  );
+export default function Image({ params }: { params: { locale: string } }) {
+  const locale = params.locale === "ro" || params.locale === "es" ? params.locale : "en";
+  return blogOgImage(text[locale]);
 }

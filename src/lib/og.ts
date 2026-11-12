@@ -17,13 +17,17 @@ export function getMascotDataUri(): string {
  * Fetches Cormorant Garamond 600 from Google Fonts for use as a custom font
  * in ImageResponse / Satori. Falls back gracefully if the network is unavailable.
  */
-export async function getCormorantFont(): Promise<ArrayBuffer | null> {
+export async function getCormorantFont(text?: string): Promise<ArrayBuffer | null> {
   try {
-    // Ask the CSS API for the woff2 URL then fetch the binary
-    const css = await fetch(
-      "https://fonts.googleapis.com/css2?family=Cormorant:wght@600&display=swap",
-      { headers: { "User-Agent": "Mozilla/5.0 (compatible; Next.js/og)" } }
-    ).then((r) => r.text());
+    // Ask the CSS API for the woff2 URL then fetch the binary.
+    // `text` subsets the file so Romanian and Spanish glyphs are included.
+    const family = "https://fonts.googleapis.com/css2?family=Cormorant:wght@600";
+    const href = text
+      ? `${family}&text=${encodeURIComponent(text)}`
+      : `${family}&display=swap`;
+    const css = await fetch(href, {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; Next.js/og)" },
+    }).then((r) => r.text());
 
     const match = css.match(/src:\s*url\(([^)]+\.(?:woff2|ttf))\)/);
     if (!match) return null;

@@ -1,9 +1,11 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import type { Locale } from "@/i18n/config";
-import { pageAlternates, brandedTitle } from "@/i18n/utils";
+import type { BlogLocale } from "@/i18n/config";
+import { articleLocale, articleUrl } from "@/i18n/article";
+import { pageAlternates, brandedTitle, ogLocaleTag } from "@/i18n/utils";
 import styles from "@/app/blog/native-connectors-vs-ipaas-vs-custom-integration/page.module.css";
+import { NativeTranslation, nativeSeo } from "./translation";
 
 const BASE = "https://webbinghub.io";
 const POST_PATH = "/blog/native-connectors-vs-ipaas-vs-custom-integration";
@@ -18,11 +20,16 @@ const DESCRIPTION =
 export async function generateMetadata({
   params: { locale },
 }: {
-  params: { locale: Locale };
+  params: { locale: BlogLocale };
 }): Promise<Metadata> {
+  const loc = articleLocale(locale);
+  const translated = nativeSeo(loc);
+  const title = translated?.seoTitle ?? SEO_TITLE;
+  const description = translated?.description ?? DESCRIPTION;
+  const url = articleUrl(loc, POST_PATH);
   return {
-    title: brandedTitle(SEO_TITLE),
-    description: DESCRIPTION,
+    title: brandedTitle(title),
+    description,
     keywords: [
       "iPaaS vs custom integration",
       "native connectors vs iPaaS vs custom integration",
@@ -45,14 +52,14 @@ export async function generateMetadata({
         "max-video-preview": -1,
       },
     },
-    alternates: pageAlternates(locale, POST_PATH),
+    alternates: pageAlternates(loc, POST_PATH),
     openGraph: {
       type: "article",
-      locale: "en_US",
-      url: POST_URL,
+      locale: ogLocaleTag(loc),
+      url,
       siteName: "WebbingHUB",
-      title: SEO_TITLE,
-      description: DESCRIPTION,
+      title,
+      description,
       authors: ["WebbingHUB"],
       publishedTime: `${PUBLISHED}T00:00:00Z`,
       modifiedTime: `${PUBLISHED}T00:00:00Z`,
@@ -61,8 +68,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: SEO_TITLE,
-      description: DESCRIPTION,
+      title,
+      description,
       creator: "@webbinghub",
     },
   };
@@ -133,9 +140,10 @@ function Cell({ label, children }: { label: string; children: ReactNode }) {
 export default function BlogPostPage({
   params,
 }: {
-  params: { locale: Locale };
+  params: { locale: BlogLocale };
 }) {
   const { locale } = params;
+  if (locale === "ro" || locale === "es") return <NativeTranslation locale={locale} />;
 
   return (
     <>

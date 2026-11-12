@@ -1,8 +1,10 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import type { Locale } from "@/i18n/config";
-import { pageAlternates, brandedTitle } from "@/i18n/utils";
+import type { BlogLocale } from "@/i18n/config";
+import { articleLocale, articleUrl } from "@/i18n/article";
+import { pageAlternates, brandedTitle, ogLocaleTag } from "@/i18n/utils";
 import styles from "@/app/blog/hotel-price-changed-before-booking/page.module.css";
+import { PriceTranslation, priceSeo } from "./translation";
 
 const BASE = "https://webbinghub.io";
 const POST_PATH = "/blog/hotel-price-changed-before-booking";
@@ -19,11 +21,16 @@ const H1 =
 export async function generateMetadata({
   params: { locale },
 }: {
-  params: { locale: Locale };
+  params: { locale: BlogLocale };
 }): Promise<Metadata> {
+  const loc = articleLocale(locale);
+  const translated = priceSeo(loc);
+  const title = translated?.seoTitle ?? SEO_TITLE;
+  const description = translated?.description ?? DESCRIPTION;
+  const url = articleUrl(loc, POST_PATH);
   return {
-    title: brandedTitle(SEO_TITLE),
-    description: DESCRIPTION,
+    title: brandedTitle(title),
+    description,
     keywords: [
       "hotel price change",
       "equivalent hotel rate",
@@ -45,14 +52,14 @@ export async function generateMetadata({
         "max-video-preview": -1,
       },
     },
-    alternates: pageAlternates(locale, POST_PATH),
+    alternates: pageAlternates(loc, POST_PATH),
     openGraph: {
       type: "article",
-      locale: "en_US",
-      url: POST_URL,
+      locale: ogLocaleTag(loc),
+      url,
       siteName: "WebbingHUB",
-      title: SEO_TITLE,
-      description: DESCRIPTION,
+      title,
+      description,
       authors: ["WebbingHUB"],
       publishedTime: `${PUBLISHED}T00:00:00Z`,
       modifiedTime: `${MODIFIED}T00:00:00Z`,
@@ -61,8 +68,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: SEO_TITLE,
-      description: DESCRIPTION,
+      title,
+      description,
       creator: "@webbinghub",
     },
   };
@@ -124,9 +131,10 @@ const jsonLd = {
 export default function BlogPostPage({
   params,
 }: {
-  params: { locale: Locale };
+  params: { locale: BlogLocale };
 }) {
   const { locale } = params;
+  if (locale === "ro" || locale === "es") return <PriceTranslation locale={locale} />;
 
   return (
     <>

@@ -3,18 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Footer.module.css";
 import fullLogoGold from "@/new/full_logo_gold.svg";
-import type { Locale } from "@/i18n/config";
+import type { BlogLocale } from "@/i18n/config";
 import type { Translations } from "@/i18n/translations";
 import { trackContactConversion } from "@/lib/gtag";
-import { localizedHref } from "@/i18n/utils";
+import { localizedHref, marketingLocale } from "@/i18n/utils";
 import FooterEmail from "./FooterEmail";
 
 interface FooterProps {
-  locale: Locale;
+  locale: BlogLocale;
   t: Translations["footer"];
 }
 
 export default function Footer({ locale, t }: FooterProps) {
+  const site = marketingLocale(locale);
   return (
     <footer className={styles.footer}>
       <div className={styles.grid}>
@@ -70,22 +71,22 @@ export default function Footer({ locale, t }: FooterProps) {
           <p className={styles.colTitle}>{t.navTitle}</p>
           <ul className={styles.colLinks}>
             <li>
-              <Link href={`/${locale}`}>{t.home}</Link>
+              <Link href={`/${site}`}>{t.home}</Link>
             </li>
             <li>
-              <Link href={`/${locale}/#services`}>{t.services}</Link>
+              <Link href={`/${site}/#services`}>{t.services}</Link>
             </li>
             <li>
-              <Link href={`/${locale}/#process`}>{t.howItWorks}</Link>
+              <Link href={`/${site}/#process`}>{t.howItWorks}</Link>
             </li>
             <li>
-              <Link href={`/${locale}/about`}>{t.about}</Link>
+              <Link href={`/${site}/about`}>{t.about}</Link>
             </li>
             <li>
               <Link href={`/${locale}/blog`}>{t.blog}</Link>
             </li>
             <li>
-              <Link href={localizedHref(locale, "/privacy-policy")}>{t.privacy}</Link>
+              <Link href={localizedHref(site, "/privacy-policy")}>{t.privacy}</Link>
             </li>
           </ul>
         </div>

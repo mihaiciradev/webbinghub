@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import type { Locale } from "@/i18n/config";
-import { getTranslations, localizedHref, pageAlternates, brandedTitle } from "@/i18n/utils";
+import type { BlogLocale } from "@/i18n/config";
+import { getTranslations, localizedHref, pageAlternates, brandedTitle, marketingLocale, ogLocaleTag } from "@/i18n/utils";
 import styles from "@/app/blog/page.module.css";
 
 const BASE = "https://webbinghub.io";
@@ -9,7 +9,7 @@ const BASE = "https://webbinghub.io";
 export async function generateMetadata({
   params: { locale },
 }: {
-  params: { locale: Locale };
+  params: { locale: BlogLocale };
 }): Promise<Metadata> {
   const { meta } = getTranslations(locale).pages.blog;
   return {
@@ -20,61 +20,41 @@ export async function generateMetadata({
       title: meta.title,
       description: meta.ogDescription,
       url: `${BASE}/${locale}/blog`,
+      locale: ogLocaleTag(locale),
       type: "website",
-      images: [{ url: "/og-blog.png", width: 1200, height: 630, alt: "WebbingHUB Blog" }],
     },
   };
 }
 
-const blogSchema = {
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  "@id": `${BASE}/en/blog#blog`,
-  name: "WebbingHUB Blog",
-  description: "Practical articles on web development and growth.",
-  url: `${BASE}/en/blog`,
-  publisher: { "@id": `${BASE}/#organization` },
-  breadcrumb: {
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/en` },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE}/en/blog` },
-    ],
-  },
-};
-
-// Posts are written in English; titles stay in the article's language
 const POSTS = [
-  {
-    slug: "hotel-supplier-api-failure-booking-platform",
-    title: "One Hotel Supplier Timed Out. Why Did Your Entire Booking Platform Stop?",
-    dateTime: "2026-11-11",
-  },
-  {
-    slug: "native-connectors-vs-ipaas-vs-custom-integration",
-    title: "Native Connectors vs iPaaS vs Custom Integration: Which Should You Choose?",
-    dateTime: "2026-11-09",
-  },
-  {
-    slug: "hotel-price-changed-before-booking",
-    title: "The hotel price changed. What the booking engine does before and after the booking.",
-    dateTime: "2026-11-05",
-  },
-  {
-    slug: "maximize-website-visibility-google-search-console",
-    title: "Maximize Your Website's Visibility: Google Search Console Guide",
-    dateTime: "2026-05-26",
-  },
-  {
-    slug: "how-hard-is-it-to-make-a-website",
-    title: "How hard is it to make a website? A Practical Breakdown",
-    dateTime: "2024-11-01",
-  },
+  { slug: "hotel-supplier-api-failure-booking-platform", dateTime: "2026-11-11" },
+  { slug: "native-connectors-vs-ipaas-vs-custom-integration", dateTime: "2026-11-09" },
+  { slug: "hotel-price-changed-before-booking", dateTime: "2026-11-05" },
+  { slug: "maximize-website-visibility-google-search-console", dateTime: "2026-05-26" },
+  { slug: "how-hard-is-it-to-make-a-website", dateTime: "2024-11-01" },
 ];
 
-export default function BlogPage({ params }: { params: { locale: Locale } }) {
+export default function BlogPage({ params }: { params: { locale: BlogLocale } }) {
   const { locale } = params;
   const t = getTranslations(locale).pages.blog;
+  const home = marketingLocale(locale);
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${BASE}/${locale}/blog#blog`,
+    name: "WebbingHUB Blog",
+    description: t.meta.description,
+    url: `${BASE}/${locale}/blog`,
+    inLanguage: locale,
+    publisher: { "@id": `${BASE}/#organization` },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: home === "ro" ? "Acasă" : "Home", item: `${BASE}/${home}` },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE}/${locale}/blog` },
+      ],
+    },
+  };
 
   return (
     <>
@@ -96,21 +76,14 @@ export default function BlogPage({ params }: { params: { locale: Locale } }) {
             <Link
               key={post.slug}
               href={localizedHref(locale, `/blog/${post.slug}`)}
-              hrefLang="en"
               className={styles.postCard}
             >
               <div className={styles.postMeta}>
                 <time className={styles.postDate} dateTime={post.dateTime}>{card.date}</time>
                 <span className={styles.postDot}>·</span>
                 <span className={styles.postRead}>{card.readTime}</span>
-                {t.inEnglish && (
-                  <>
-                    <span className={styles.postDot}>·</span>
-                    <span className={styles.postRead}>{t.inEnglish}</span>
-                  </>
-                )}
               </div>
-              <h2 className={styles.postTitle} lang="en">{post.title}</h2>
+              <h2 className={styles.postTitle}>{card.title}</h2>
               <p className={styles.postExcerpt}>{card.excerpt}</p>
               <div className={styles.postFooter}>
                 <div className={styles.postTags}>
@@ -125,7 +98,7 @@ export default function BlogPage({ params }: { params: { locale: Locale } }) {
 
       <section className={styles.cta}>
         <p className={styles.ctaText}>{t.ctaText}</p>
-        <Link href={`/${locale}/contact`} className={styles.ctaLink}>{t.ctaLink}</Link>
+        <Link href={`/${home}/contact`} className={styles.ctaLink}>{t.ctaLink}</Link>
       </section>
     </main>
     </>
