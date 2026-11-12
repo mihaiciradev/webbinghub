@@ -46,6 +46,11 @@ const blogSchema = {
 // Posts are written in English; titles stay in the article's language
 const POSTS = [
   {
+    slug: "hotel-supplier-api-failure-booking-platform",
+    title: "One Hotel Supplier Timed Out. Why Did Your Entire Booking Platform Stop?",
+    dateTime: "2026-11-11",
+  },
+  {
     slug: "native-connectors-vs-ipaas-vs-custom-integration",
     title: "Native Connectors vs iPaaS vs Custom Integration: Which Should You Choose?",
     dateTime: "2026-11-09",

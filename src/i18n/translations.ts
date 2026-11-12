@@ -391,6 +391,12 @@ const en: Translations = {
       articleCount: (n) => `${n} article${n !== 1 ? 's' : ''}`,
       inEnglish: null,
       posts: {
+        'hotel-supplier-api-failure-booking-platform': {
+          date: '11 November 2026',
+          readTime: '8 min read',
+          excerpt: 'One hotel supplier stalls, and the whole search fails with it. How to return the results you do have, and how to recover a booking whose response never came back, without sending the reservation again.',
+          tags: ['Hotel APIs', 'Supplier integrations', 'Booking architecture'],
+        },
         'native-connectors-vs-ipaas-vs-custom-integration': {
           date: '9 November 2026',
           readTime: '9 min read',
@@ -669,6 +675,12 @@ const ro: Translations = {
       articleCount: (n) => (n === 1 ? '1 articol' : `${n} articole`),
       inEnglish:   'Articol în limba engleză',
       posts: {
+        'hotel-supplier-api-failure-booking-platform': {
+          date: '11 noiembrie 2026',
+          readTime: '8 min de citit',
+          excerpt: 'Un furnizor de hoteluri nu răspunde, iar căutarea cade cu totul. Cum returnezi rezultatele care au venit și cum recuperezi o rezervare al cărei răspuns s-a pierdut, fără să trimiți cererea încă o dată.',
+          tags: ['API-uri hoteliere', 'Integrări cu furnizori', 'Arhitectură de rezervări'],
+        },
         'native-connectors-vs-ipaas-vs-custom-integration': {
           date: '9 noiembrie 2026',
           readTime: '9 min de citit',

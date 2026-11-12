@@ -277,7 +277,11 @@ export default function BlogPostPage({
               <a href="https://developers.expediagroup.com/rapid/lodging/reference/error-responses" target="_blank" rel="noopener noreferrer">
                 Expedia&apos;s Rapid documentation
               </a>{" "}
-              describes a timeout or a 5xx response that can occur after a reservation was created, and it advises retrieving that attempt before sending another booking. That is a supplier&apos;s booking status, separate from the price comparison in WebbingHUB Travel.
+              describes a timeout or a 5xx response that can occur after a reservation was created, and it advises retrieving that attempt before sending another booking. That is a supplier&apos;s booking status, separate from the price comparison in WebbingHUB Travel. A longer piece on{" "}
+              <Link href={`/${locale}/blog/hotel-supplier-api-failure-booking-platform`}>
+                supplier timeouts and recovery
+              </Link>{" "}
+              is published separately.
             </p>
 
             <h2>The practical takeaway</h2>

@@ -13,6 +13,7 @@ export const retiredLocales = ['fr', 'es', 'de'] as const;
 // Pages that exist in one language only (path without locale prefix → its language).
 // Other prefixes redirect to it, and it gets no hreflang alternates.
 export const singleLocalePages: Record<string, Locale> = {
+  '/blog/hotel-supplier-api-failure-booking-platform': 'en',
   '/blog/native-connectors-vs-ipaas-vs-custom-integration': 'en',
   '/blog/hotel-price-changed-before-booking': 'en',
   '/blog/how-hard-is-it-to-make-a-website': 'en',
