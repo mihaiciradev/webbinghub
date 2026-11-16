@@ -145,7 +145,7 @@ const filmSchema = {
   name: "How the work begins",
   description: "Before any code, we sit down with the people who do the work.",
   thumbnailUrl: "https://i.ytimg.com/vi/gpa2P94G59Q/hqdefault.jpg",
-  uploadDate: "2026-11-03",
+  uploadDate: "2026-11-03T00:00:00+02:00",
   embedUrl: "https://www.youtube-nocookie.com/embed/gpa2P94G59Q",
   contentUrl: "https://www.youtube.com/watch?v=gpa2P94G59Q",
 };
