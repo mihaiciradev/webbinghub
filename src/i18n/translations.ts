@@ -391,6 +391,13 @@ const en: Translations = {
       articleCount: (n) => `${n} article${n !== 1 ? 's' : ''}`,
       inEnglish: null,
       posts: {
+        'hotel-reporting-pms-vs-bi-vs-custom-integration': {
+          title: 'Hotel Reporting Software: PMS vs Power BI vs Custom Integration',
+          date: '17 November 2026',
+          readTime: '9 min read',
+          excerpt: 'PMS reports, a BI tool and a custom integration solve different parts of hotel reporting. When the numbers disagree, another dashboard is not the first fix.',
+          tags: ['Hotel reporting', 'PMS', 'Data integration'],
+        },
         'hotel-supplier-api-failure-booking-platform': {
           title: 'One Hotel Supplier Timed Out. Why Did Your Entire Booking Platform Stop?',
           date: '11 November 2026',
@@ -680,6 +687,13 @@ const ro: Translations = {
       articleCount: (n) => (n === 1 ? '1 articol' : `${n} articole`),
       inEnglish:   null,
       posts: {
+        'hotel-reporting-pms-vs-bi-vs-custom-integration': {
+          title: 'Software de raportare hotelieră: PMS, Power BI sau integrare pe măsură',
+          date: '17 noiembrie 2026',
+          readTime: '9 min de citit',
+          excerpt: 'Rapoartele din PMS, un instrument BI și o integrare pe măsură rezolvă părți diferite din raportarea hotelieră. Când cifrele nu se potrivesc, un dashboard nou nu e primul pas.',
+          tags: ['Raportare hotelieră', 'PMS', 'Integrare de date'],
+        },
         'hotel-supplier-api-failure-booking-platform': {
           title: 'Un furnizor de hoteluri nu a răspuns. De ce s-a oprit toată platforma de rezervări?',
           date: '11 noiembrie 2026',

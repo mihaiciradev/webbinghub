@@ -16,6 +16,14 @@ export const esBlog: Translations['pages']['blog'] = {
   articleCount: (n) => (n === 1 ? '1 artículo' : `${n} artículos`),
   inEnglish: null,
   posts: {
+    'hotel-reporting-pms-vs-bi-vs-custom-integration': {
+      title: 'Software de informes hoteleros: PMS, Power BI o integración a medida',
+      date: '17 de noviembre de 2026',
+      readTime: '9 min de lectura',
+      excerpt:
+        'Los informes del PMS, una herramienta de BI y una integración a medida resuelven partes distintas del reporting hotelero. Si las cifras no coinciden, otro panel no es el primer arreglo.',
+      tags: ['Reporting hotelero', 'PMS', 'Integración de datos'],
+    },
     'hotel-supplier-api-failure-booking-platform': {
       title: 'Un proveedor de hoteles no respondió. ¿Por qué se detuvo toda la plataforma de reservas?',
       date: '11 de noviembre de 2026',
