@@ -105,7 +105,7 @@ export function ClaudeTranslation({ locale }: { locale: "ro" | "es" }) {
     description: c.description,
     datePublished: `${PUBLISHED}T00:00:00Z`,
     dateModified: `${PUBLISHED}T00:00:00Z`,
-    wordCount: 960,
+    wordCount: ro ? 1070 : 1052,
     timeRequired: "PT5M",
     section: c.section,
     keywords: c.keywords,
@@ -317,20 +317,42 @@ export function ClaudeTranslation({ locale }: { locale: "ro" | "es" }) {
                 ? "Omnibeds by WebbingHUB (prezentat acum pe site-ul nostru ca TRAVEL by WebbingHUB) "
                 : "Omnibeds by WebbingHUB (presentado ahora en nuestro sitio como TRAVEL by WebbingHUB) "}
               {ro
-                ? "este software-ul B2B al WebbingHUB pentru agenții de turism, nu o agenție de turism și nu un revânzător de camere. Agențiile își folosesc propriile contracte cu furnizorii. Omnibeds caută la furnizorii conectați, mapează hotelurile duplicate, compară tarife, pregătește oferte cu mai multe opțiuni, reverifică prețul înainte de rezervare, rezervă și anulează și ține o evidență ușoară a rezervărilor și a clienților. Nu include, în mod nativ, contabilitate, facturare, plăți, CRM sau un site pentru clienți. O legătură cu back office-ul este un modul opțional, contra cost, când celălalt sistem este compatibil."
-                : "es el software B2B de WebbingHUB para agencias de viajes, no una agencia de viajes y no un revendedor de habitaciones. Las agencias usan sus propios contratos con proveedores. Omnibeds busca en los proveedores conectados, mapea hoteles duplicados, compara tarifas, prepara cotizaciones con varias opciones, vuelve a comprobar el precio antes de reservar, reserva y cancela, y guarda un registro ligero de reservas y clientes. No incluye de forma nativa contabilidad, facturación, pagos, CRM ni una web para los clientes. Un enlace con el back office es un complemento opcional de pago cuando el otro sistema es compatible."}
+                ? "este software-ul B2B al WebbingHUB pentru agenții de turism, nu o agenție de turism și nu un revânzător de camere. Agențiile își folosesc propriile contracte cu furnizorii. Omnibeds caută la furnizorii conectați, mapează hotelurile duplicate, compară tarife, pregătește oferte cu mai multe opțiuni, reverifică prețul înainte de rezervare, rezervă și anulează și ține o evidență ușoară a rezervărilor și a clienților. Este o platformă de rezervări extensibilă, construită în jurul felului în care lucrează o agenție. Când afacerea are nevoie de un alt modul sau de o altă integrare, se poate dezvolta pentru cerința respectivă."
+                : "es el software B2B de WebbingHUB para agencias de viajes, no una agencia de viajes y no un revendedor de habitaciones. Las agencias usan sus propios contratos con proveedores. Omnibeds busca en los proveedores conectados, mapea hoteles duplicados, compara tarifas, prepara cotizaciones con varias opciones, vuelve a comprobar el precio antes de reservar, reserva y cancela, y guarda un registro ligero de reservas y clientes. Es una plataforma de reservas extensible, construida en torno a cómo opera una agencia. Cuando el negocio necesita otro módulo u otra integración, se puede desarrollar para ese requisito."}
             </p>
 
-            <h2>{ro ? "Responsabilitatea tot trebuie să aibă un loc" : "La responsabilidad sigue teniendo que vivir en algún sitio"}</h2>
+            <h2>{ro ? "Întrebarea reală nu e dacă AI-ul poate rezerva un hotel" : "La pregunta real no es si la IA puede reservar un hotel"}</h2>
             <p>
               {ro
-                ? "Asistenții conectați pot deja căuta inventar hotelier, iar unii pot și rezerva. Testul care contează sunt furnizorii proprii ai agenției, oferta pe care a acceptat-o clientul și rezervarea al cărei răspuns a venit neclar."
-                : "Los asistentes conectados ya pueden buscar inventario hotelero, y algunos pueden reservar. La prueba que importa son los proveedores de la propia agencia, la cotización que aceptó el cliente y la reserva cuya respuesta volvió poco clara."}
+                ? "Poate. Iar capacitățile lui se vor îmbunătăți în continuare."
+                : "Puede. Y sus capacidades van a seguir mejorando."}
             </p>
             <p>
               {ro
-                ? "Concluzia acestui articol: „Interfața poate fi o conversație. Responsabilitatea pentru o rezervare tot trebuie să stea undeva.”"
-                : "La conclusión de este artículo: «La interfaz puede ser conversacional. La responsabilidad de una reserva sigue teniendo que vivir en algún sitio.»"}
+                ? "Dar o agenție de turism nu face bani doar pentru că generează o recomandare de hotel. Trebuie să transforme o ofertă într-o rezervare confirmată, să gestioneze relațiile cu furnizorii, să își protejeze marjele și să se ocupe de client când se schimbă ceva."
+                : "Pero una agencia de viajes no gana dinero solo por generar una recomendación de hotel. Tiene que convertir una oferta en una reserva confirmada, gestionar sus relaciones con los proveedores, proteger sus márgenes y atender al cliente cuando algo cambia."}
+            </p>
+            <p>
+              {ro
+                ? "Asta e diferența dintre a demonstra o capacitate și a conduce o afacere pe baza ei."
+                : "Esa es la diferencia entre demostrar una capacidad y llevar el negocio sobre ella."}
+            </p>
+            <p>
+              {ro
+                ? "O platformă de rezervări dedicată nu e valoroasă pentru că are mai multe butoane decât Claude. E valoroasă pentru că fluxurile, integrările și controalele sunt gândite în jurul felului în care lucrează, de fapt, agenția."
+                : "Una plataforma de reservas dedicada no es valiosa porque tenga más botones que Claude. Es valiosa porque sus flujos, sus integraciones y sus controles están diseñados en torno a cómo opera de verdad la agencia."}
+            </p>
+            <p>
+              {ro
+                ? "Iar AI-ul nu trebuie să concureze cu asta. Poate deveni o parte puternică din ea."
+                : "Y la IA no tiene que competir con eso. Puede convertirse en una parte poderosa de eso."}
+            </p>
+            <p>
+              <strong>
+                {ro
+                  ? "Oportunitatea pentru agențiile de turism nu e să aleagă între AI și software-ul de rezervări. E să combine flexibilitatea AI-ului cu o infrastructură pe care o pot controla și extinde și pe care se pot baza."
+                  : "La oportunidad para las agencias de viajes no es elegir entre la IA y el software de reservas. Es combinar la flexibilidad de la IA con una infraestructura que puedan controlar, extender y de la que puedan depender."}
+              </strong>
             </p>
             <p>
               {ro ? "Agențiile care rezervă prin mai mulți furnizori pot " : "Las agencias que reservan a través de más de un proveedor pueden "}

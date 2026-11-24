@@ -99,7 +99,7 @@ export default function BlogPostPage({
     description: DESCRIPTION,
     datePublished: `${PUBLISHED}T00:00:00Z`,
     dateModified: `${REVIEWED}T00:00:00Z`,
-    wordCount: 930,
+    wordCount: 1009,
     timeRequired: "PT5M",
     section: "Travel technology",
     keywords: KEYWORDS.join(", "),
@@ -272,15 +272,23 @@ export default function BlogPostPage({
 
             <h2>Where a dedicated product fits</h2>
             <p>
-              Omnibeds by WebbingHUB (currently presented on our site as TRAVEL by WebbingHUB) is WebbingHUB&apos;s B2B software for travel agencies, not a travel agency and not a room reseller. Agencies use their own supplier contracts. Omnibeds searches across connected suppliers, maps duplicate hotels, compares rates, prepares multi-option quotes, rechecks the price before booking, books and cancels, and keeps a light record of bookings and clients. It does not include native accounting, invoicing, payments, CRM, or a customer-facing website. A back-office link is an optional paid add-on when the other system is compatible.
+              Omnibeds by WebbingHUB (currently presented on our site as TRAVEL by WebbingHUB) is WebbingHUB&apos;s B2B software for travel agencies, not a travel agency and not a room reseller. Agencies use their own supplier contracts. Omnibeds searches across connected suppliers, maps duplicate hotels, compares rates, prepares multi-option quotes, rechecks the price before booking, books and cancels, and keeps a light record of bookings and clients. It is an extensible booking platform, built around how an agency operates. When the business needs another module or another integration, that can be developed for the requirement.
             </p>
 
-            <h2>The responsibility still has to live somewhere</h2>
+            <h2>The real question isn&apos;t whether AI can book a hotel</h2>
+            <p>It can. And its capabilities will continue improving.</p>
             <p>
-              Connected assistants can already search hotel inventory, and some of them can book. The test that matters is the agency&apos;s own suppliers, the quote the customer accepted, and the booking whose answer came back unclear.
+              But a travel agency doesn&apos;t make money simply by generating a hotel recommendation. It needs to turn an offer into a confirmed reservation, manage its supplier relationships, protect its margins, and serve the customer when something changes.
             </p>
+            <p>That&apos;s the difference between demonstrating a capability and running a business on it.</p>
             <p>
-              The conclusion of this article: “The interface can be conversational. The responsibility for a booking still has to live somewhere.”
+              A dedicated booking platform isn&apos;t valuable because it has more buttons than Claude. It&apos;s valuable because its workflows, integrations, and controls are designed around how the agency actually operates.
+            </p>
+            <p>And AI doesn&apos;t have to compete with that. It can become a powerful part of it.</p>
+            <p>
+              <strong>
+                The opportunity for travel agencies isn&apos;t to choose between AI and booking software. It&apos;s to combine AI&apos;s flexibility with infrastructure they can control, extend, and depend on.
+              </strong>
             </p>
             <p>
               Agencies that book through more than one supplier can{" "}
