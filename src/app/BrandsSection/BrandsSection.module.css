@@ -259,56 +259,67 @@
 .travel:hover .browser { box-shadow: 0 36px 90px -30px rgba(28, 25, 23, 0.55); }
 .travel:hover .img { transform: scale(1.025); }
 
-/* ── APETIT + ALVIREYA ────────────────────────── */
+/* ── APETIT + ALVIREYA: a matched pair ─────── */
 .pair {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 2rem;
-  align-items: start;
+  align-items: stretch;
 }
 
-.cardText { padding: 2.2rem 2.4rem 2.4rem; }
-
-.apetit {
-  margin-top: 5rem;
-  background: var(--white);
-  border: 1px solid var(--line);
-  overflow: hidden;
-  transition: box-shadow 0.35s, border-color 0.35s;
-}
-.apetit:hover {
-  border-color: var(--gold-border);
-  box-shadow: 0 24px 60px -30px rgba(28, 25, 23, 0.3);
-}
-.apetitShot {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background: #1d3527;
-}
-.apetit .tagline { font-size: clamp(1.6rem, 2.2vw, 2rem); }
-.apetit:hover .imgCover { transform: scale(1.04); }
-
+/* Same frame, same height; text fills the rest and the CTA sits on the bottom line */
+.apetit,
 .alvireya {
-  background: var(--ink);
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  color: var(--white);
 }
+.cardText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2.2rem 2.4rem 2.4rem;
+}
+.cardText .cta {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.apetitShot,
 .alvireyaShot {
   position: relative;
   aspect-ratio: 16 / 10;
   margin: 0.9rem 0.9rem 0;
   border-radius: 6px;
   overflow: hidden;
-  background: #f4eee3;
 }
+
+.apetit .tagline,
+.alvireya .tagline { font-size: clamp(1.7rem, 2.4vw, 2.2rem); }
+
+.apetit {
+  background: var(--white);
+  border: 1px solid var(--line);
+  transition: box-shadow 0.35s, border-color 0.35s;
+}
+.apetit:hover {
+  border-color: var(--gold-border);
+  box-shadow: 0 24px 60px -30px rgba(28, 25, 23, 0.3);
+}
+.apetitShot { background: #1d3527; }
+.apetit:hover .imgCover { transform: scale(1.04); }
+
+.alvireya {
+  background: var(--ink);
+  color: var(--white);
+}
+.alvireyaShot { background: #f4eee3; }
 .alvireya:hover .imgCover { transform: scale(1.035) translateY(-0.6%); }
 .alvireya .meta { border-bottom-color: rgba(255, 255, 255, 0.12); }
 .alvireya .name { color: var(--white); letter-spacing: 0.32em; font-weight: 500; }
 .alvireya .kind { color: var(--gold-l); }
 .alvireya .tagline {
   font-style: italic;
-  font-size: clamp(1.9rem, 3vw, 2.7rem);
   color: var(--white);
 }
 .alvireya .body { color: rgba(255, 255, 255, 0.72); }
@@ -350,7 +361,6 @@
 /* ── Responsive ───────────────────────────────── */
 @media (max-width: 1200px) {
   .travel { gap: 3rem; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .pair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .cardText { padding: 2rem; }
 }
 
@@ -379,8 +389,8 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  .apetit { margin-top: 0; }
   .cardText { padding: 1.8rem 1.5rem 2rem; }
+  .apetitShot,
   .alvireyaShot { margin: 0.6rem 0.6rem 0; aspect-ratio: 4 / 3; }
   .alvireyaShot .imgCover { object-position: 18% 50%; }
 
