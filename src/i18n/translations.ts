@@ -268,21 +268,22 @@ const en: Translations = {
       items: [
         {
           paragraphs: [
-            "I'm glad I worked with WebbingHUB. They understood what I needed from the start and took the technical work off my hands.",
-            'Since the new site, Ciuson is much easier to find on Google and gets hundreds of visits a month. They were available, careful with the details, and stayed with it until it was right. I recommend them.',
-          ],
-          name: 'Cristi Pasca',
-          role: 'Founder & Entrepreneur',
-          company: 'Ciuson',
-          companyHref: 'https://ciuson.ro/en',
-        },
-        {
-          paragraphs: [
             'Travel tech is full of difficult problems, and they all were approached methodically. We could fully count on him - autonomous, consistent and transparent, which made remote collaboration easy and built a lot of trust.',
           ],
           name: 'Andrew',
           role: 'CTO',
           company: 'Nautil & Entrepreneur',
+        },
+        {
+          paragraphs: [
+            'Working with WebbingHUB was a great decision for our business. They understood our goals from the beginning and translated them into a solution that helps us reach more potential customers.',
+            'Since launching, our online visibility has improved, and we now attract hundreds of website visits every month. Beyond the technical work, what stood out was their attention to detail, responsiveness, and genuine commitment to getting results.',
+            "I'd confidently recommend WebbingHUB to any business looking to strengthen its online presence and grow.",
+          ],
+          name: 'Cristi Pasca',
+          role: 'Founder & Entrepreneur',
+          company: 'Ciuson',
+          companyHref: 'https://ciuson.ro/en',
         },
       ],
     },
@@ -584,21 +585,22 @@ const ro: Translations = {
       items: [
         {
           paragraphs: [
-            'Sunt foarte mulțumit de colaborarea cu WebbingHUB. Au înțeles de la început ce aveam nevoie și s-au ocupat de tot, fără să fie nevoie să-mi bat eu capul cu partea tehnică.',
-            'De când avem noul site, suntem mult mai vizibili pe Google și am ajuns să avem sute de accesări lunar. Am apreciat că au fost mereu disponibili, atenți la detalii și că s-au implicat să iasă totul cât mai bine. Recomand cu încredere!',
-          ],
-          name: 'Cristi Pasca',
-          role: 'Fondator și antreprenor',
-          company: 'Ciuson',
-          companyHref: 'https://ciuson.ro/en',
-        },
-        {
-          paragraphs: [
             'Travel tech-ul e plin de probleme dificile, și toate au fost abordate metodic. Ne-am putut baza pe el pe deplin: autonom, consecvent și transparent, ceea ce a făcut colaborarea la distanță ușoară și a construit multă încredere.',
           ],
           name: 'Andrew',
           role: 'CTO',
           company: 'Nautil și antreprenor',
+        },
+        {
+          paragraphs: [
+            'Colaborarea cu WebbingHUB a fost o decizie bună pentru afacerea noastră. Ne-au înțeles obiectivele de la început și le-au transpus într-o soluție care ne ajută să ajungem la mai mulți potențiali clienți.',
+            'De la lansare, vizibilitatea noastră online a crescut și atragem sute de vizite pe site în fiecare lună. Dincolo de partea tehnică, au contat atenția la detalii, promptitudinea și implicarea reală ca să iasă rezultate.',
+            'Recomand WebbingHUB cu încredere oricărei afaceri care vrea să-și întărească prezența online și să crească.',
+          ],
+          name: 'Cristi Pasca',
+          role: 'Fondator și antreprenor',
+          company: 'Ciuson',
+          companyHref: 'https://ciuson.ro/en',
         },
       ],
     },
