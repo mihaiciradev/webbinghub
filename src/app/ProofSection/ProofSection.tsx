@@ -8,16 +8,33 @@ export default function ProofSection({
 }) {
   return (
     <section className={styles.proof}>
-      <blockquote className={styles.text}>
-        {proof.paragraphs.map((paragraph) => (
-          <p key={paragraph} className={styles.paragraph}>
-            {paragraph}
+      {proof.items.map((item) => (
+        <div key={item.name} className={styles.item}>
+          <blockquote className={styles.text}>
+            {item.paragraphs.map((paragraph) => (
+              <p key={paragraph} className={styles.paragraph}>
+                {paragraph}
+              </p>
+            ))}
+          </blockquote>
+          <p className={styles.line}>
+            {item.name}, {item.role},{" "}
+            {item.companyHref ? (
+              <a
+                className={styles.company}
+                href={item.companyHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.company}
+              </a>
+            ) : (
+              item.company
+            )}
+            .
           </p>
-        ))}
-      </blockquote>
-      <p className={styles.line}>
-        {proof.name}, {proof.role}, {proof.company}.
-      </p>
+        </div>
+      ))}
     </section>
   );
 }

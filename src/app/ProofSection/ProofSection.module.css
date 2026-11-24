@@ -2,6 +2,10 @@
   background: var(--paper);
   padding: 4.5rem 4rem;
   border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
+  align-items: start;
 }
 
 .text {
@@ -30,6 +34,20 @@
   color: var(--ink2);
 }
 
+.company {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 @media (max-width: 960px) {
-  .proof { padding: 3rem 1.5rem; }
+  .proof {
+    padding: 3rem 1.5rem;
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
+  .item + .item {
+    margin-top: 3.2rem;
+  }
 }

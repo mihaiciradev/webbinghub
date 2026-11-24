@@ -55,10 +55,13 @@ export type Translations = {
       apetit: { sub: string; desc: string; tags: string[]; link: string };
     };
     proof: {
-      paragraphs: [string, string];
-      name: string;
-      role: string;
-      company: string;
+      items: Array<{
+        paragraphs: string[];
+        name: string;
+        role: string;
+        company: string;
+        companyHref?: string;
+      }>;
     };
     film: {
       label: string;
@@ -262,13 +265,26 @@ const en: Translations = {
       },
     },
     proof: {
-      paragraphs: [
-        "I'm glad I worked with WebbingHUB. They understood what I needed from the start and took the technical work off my hands.",
-        'Since the new site, Ciuson is much easier to find on Google and gets hundreds of visits a month. They were available, careful with the details, and stayed with it until it was right. I recommend them.',
+      items: [
+        {
+          paragraphs: [
+            "I'm glad I worked with WebbingHUB. They understood what I needed from the start and took the technical work off my hands.",
+            'Since the new site, Ciuson is much easier to find on Google and gets hundreds of visits a month. They were available, careful with the details, and stayed with it until it was right. I recommend them.',
+          ],
+          name: 'Cristi Pasca',
+          role: 'Founder & Entrepreneur',
+          company: 'Ciuson',
+          companyHref: 'https://ciuson.ro/en',
+        },
+        {
+          paragraphs: [
+            'Travel tech is full of difficult problems, and they all were approached methodically. We could fully count on him - autonomous, consistent and transparent, which made remote collaboration easy and built a lot of trust.',
+          ],
+          name: 'Andrew',
+          role: 'CTO',
+          company: 'Nautil & Entrepreneur',
+        },
       ],
-      name: 'Cristi Pasca',
-      role: 'founder',
-      company: 'Ciuson',
     },
     film: {
       label:   'A short film',
@@ -558,13 +574,26 @@ const ro: Translations = {
       },
     },
     proof: {
-      paragraphs: [
-        'Sunt foarte mulțumit de colaborarea cu WebbingHUB. Au înțeles de la început ce aveam nevoie și s-au ocupat de tot, fără să fie nevoie să-mi bat eu capul cu partea tehnică.',
-        'De când avem noul site, suntem mult mai vizibili pe Google și am ajuns să avem sute de accesări lunar. Am apreciat că au fost mereu disponibili, atenți la detalii și că s-au implicat să iasă totul cât mai bine. Recomand cu încredere!',
+      items: [
+        {
+          paragraphs: [
+            'Sunt foarte mulțumit de colaborarea cu WebbingHUB. Au înțeles de la început ce aveam nevoie și s-au ocupat de tot, fără să fie nevoie să-mi bat eu capul cu partea tehnică.',
+            'De când avem noul site, suntem mult mai vizibili pe Google și am ajuns să avem sute de accesări lunar. Am apreciat că au fost mereu disponibili, atenți la detalii și că s-au implicat să iasă totul cât mai bine. Recomand cu încredere!',
+          ],
+          name: 'Cristi Pasca',
+          role: 'Fondator și antreprenor',
+          company: 'Ciuson',
+          companyHref: 'https://ciuson.ro/en',
+        },
+        {
+          paragraphs: [
+            'Travel tech-ul e plin de probleme dificile, și toate au fost abordate metodic. Ne-am putut baza pe el pe deplin: autonom, consecvent și transparent, ceea ce a făcut colaborarea la distanță ușoară și a construit multă încredere.',
+          ],
+          name: 'Andrew',
+          role: 'CTO',
+          company: 'Nautil și antreprenor',
+        },
       ],
-      name: 'Cristi Pasca',
-      role: 'fondator',
-      company: 'Ciuson',
     },
     film: {
       label:   'Un scurt film',
