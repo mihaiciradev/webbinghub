@@ -407,6 +407,13 @@ const en: Translations = {
       articleCount: (n) => `${n} article${n !== 1 ? 's' : ''}`,
       inEnglish: null,
       posts: {
+        'can-claude-replace-travel-agency-software': {
+          title: 'Can Claude Replace Travel Agency Software?',
+          date: '24 November 2026',
+          readTime: '5 min read',
+          excerpt: 'Claude can search hotels, and some connectors can book. For an agency with several suppliers, the useful question is whose rates, quotes and booking records the tool actually uses.',
+          tags: ['AI travel', 'Agency software', 'Hotel booking'],
+        },
         'hotel-reporting-pms-vs-bi-vs-custom-integration': {
           title: 'Hotel Reporting Software: PMS vs Power BI vs Custom Integration',
           date: '17 November 2026',
@@ -716,6 +723,13 @@ const ro: Translations = {
       articleCount: (n) => (n === 1 ? '1 articol' : `${n} articole`),
       inEnglish:   null,
       posts: {
+        'can-claude-replace-travel-agency-software': {
+          title: 'Poate Claude să înlocuiască software-ul unei agenții de turism?',
+          date: '24 noiembrie 2026',
+          readTime: '5 min de citit',
+          excerpt: 'Claude poate căuta hoteluri, iar unii conectori pot și rezerva. Pentru o agenție cu mai mulți furnizori, întrebarea utilă este ale cui tarife, oferte și evidențe folosește unealta.',
+          tags: ['AI în turism', 'Software de agenție', 'Rezervări hoteliere'],
+        },
         'hotel-reporting-pms-vs-bi-vs-custom-integration': {
           title: 'Software de raportare hotelieră: PMS, Power BI sau integrare pe măsură',
           date: '17 noiembrie 2026',

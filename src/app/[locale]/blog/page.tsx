@@ -27,6 +27,7 @@ export async function generateMetadata({
 }
 
 const POSTS = [
+  { slug: "can-claude-replace-travel-agency-software", dateTime: "2026-11-24" },
   { slug: "hotel-reporting-pms-vs-bi-vs-custom-integration", dateTime: "2026-11-17" },
   { slug: "hotel-supplier-api-failure-booking-platform", dateTime: "2026-11-11" },
   { slug: "native-connectors-vs-ipaas-vs-custom-integration", dateTime: "2026-11-09" },

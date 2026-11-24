@@ -16,6 +16,14 @@ export const esBlog: Translations['pages']['blog'] = {
   articleCount: (n) => (n === 1 ? '1 artículo' : `${n} artículos`),
   inEnglish: null,
   posts: {
+    'can-claude-replace-travel-agency-software': {
+      title: '¿Puede Claude sustituir el software de una agencia de viajes?',
+      date: '24 de noviembre de 2026',
+      readTime: '5 min de lectura',
+      excerpt:
+        'Claude puede buscar hoteles, y algunos conectores también reservan. Para una agencia con varios proveedores, la pregunta útil es de quién son las tarifas, las cotizaciones y los registros que usa la herramienta.',
+      tags: ['IA en viajes', 'Software de agencia', 'Reservas de hotel'],
+    },
     'hotel-reporting-pms-vs-bi-vs-custom-integration': {
       title: 'Software de informes hoteleros: PMS, Power BI o integración a medida',
       date: '17 de noviembre de 2026',

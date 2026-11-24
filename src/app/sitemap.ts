@@ -8,6 +8,7 @@ const PAGES = [
   { path: "/about",                                                        priority: 0.8, freq: "monthly" },
   { path: "/contact",                                                      priority: 0.9, freq: "monthly" },
   { path: "/blog",                                                         priority: 0.7, freq: "weekly"  },
+  { path: "/blog/can-claude-replace-travel-agency-software",              priority: 0.7, freq: "monthly" },
   { path: "/blog/hotel-reporting-pms-vs-bi-vs-custom-integration",        priority: 0.7, freq: "monthly" },
   { path: "/blog/hotel-supplier-api-failure-booking-platform",             priority: 0.7, freq: "monthly" },
   { path: "/blog/native-connectors-vs-ipaas-vs-custom-integration",       priority: 0.7, freq: "monthly" },
