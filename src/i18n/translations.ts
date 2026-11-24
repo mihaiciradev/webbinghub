@@ -2,6 +2,7 @@ import type { Locale } from './config';
 
 type Item = { title: string; desc: string };
 type Meta = { title: string; description: string; ogDescription: string };
+type WorkItem = { kind: string; tagline: string; body: string; cta: string; ctaAria: string; imageAlt: string };
 type BlogPostCard = { title: string; date: string; readTime: string; excerpt: string; tags: string[] };
 
 export type Translations = {
@@ -50,9 +51,11 @@ export type Translations = {
       label: string;
       heading: string;
       headingEm: string;
-      live: string;
-      travel: { sub: string; desc: string; tags: string[]; link: string };
-      apetit: { sub: string; desc: string; tags: string[]; link: string };
+      intro: string;
+      travel: WorkItem & { steps: string[]; note: string };
+      apetit: WorkItem;
+      alvireya: WorkItem & { note: string };
+      closing: { text: string; link: string };
     };
     proof: {
       items: Array<{
@@ -247,21 +250,46 @@ const en: Translations = {
       ],
     },
     brands: {
-      label:     'Our specialisations',
-      heading:   'Industry-focused',
-      headingEm: 'solutions.',
-      live:      'Live now',
+      label:     'What we have built',
+      heading:   'Different challenges.',
+      headingEm: 'Purpose-built solutions.',
+      intro:     'Two products we build and maintain for specific industries, and one concept that shows how far a customer-facing site can go.',
       travel: {
-        sub:  'for hotels & travel agencies',
-        desc: 'TRAVEL is a product with its own terms, for hotels and travel agencies. It covers booking engines, agent portals, WhatsApp, and API integrations.',
-        tags: ['Booking engines', 'Agent portals', 'WhatsApp', 'API integrations'],
-        link: 'Visit travel.webbinghub.io →',
+        kind:     'Product · Hotel distribution',
+        tagline:  'One platform. Multiple hotel suppliers.',
+        body:     'Search contracted suppliers in one place, compare hotel rates, prepare customer quotations, and manage bookings through a structured workflow. Built for agencies that need more control over their hotel distribution.',
+        steps: [
+          'One search across your hotel suppliers',
+          'Duplicate hotels merged, rates compared',
+          'Quotes with several options for the customer',
+          'Price rechecked before the booking is made',
+          'Bookings, confirmations and vouchers in one back office',
+        ],
+        note:     'Your supplier contracts and net rates stay yours.',
+        cta:      'Explore TRAVEL',
+        ctaAria:  'Explore TRAVEL by WebbingHUB on travel.webbinghub.io (opens in a new tab)',
+        imageAlt: 'The travel.webbinghub.io homepage: “All your suppliers. One search.”',
       },
       apetit: {
-        sub:  'for restaurants & hospitality',
-        desc: 'Effortless digital experiences for hospitality. QR menus, instant reservations, real-time ordering, and guest management, designed for restaurants, cafés, and hotels.',
-        tags: ['QR menus', 'Reservations', 'Real-time ordering', 'Guest management'],
-        link: 'Visit apetit.webbinghub.io →',
+        kind:     'Product · Hospitality',
+        tagline:  'Orders, tables and reservations in one place.',
+        body:     'Guests scan the QR code on the table to read the menu, order, or call a waiter, without installing an app. Orders reach the kitchen screen, reservations are confirmed by email, and staff see every table from one dashboard.',
+        cta:      'Explore APETIT',
+        ctaAria:  'Explore APETIT by WebbingHUB on apetit.webbinghub.io (opens in a new tab)',
+        imageAlt: 'APETIT in use: the kitchen screen with two confirmed table orders, and a guest’s phone after adding a pizza from the menu',
+      },
+      alvireya: {
+        kind:     'Concept · Design and frontend',
+        tagline:  'A glimpse into the future of travel websites.',
+        body:     'An interactive travel concept exploring how design, intelligent experiences, and connected workflows can transform a travel agency’s digital presence.',
+        note:     'ALVIREYA is a fictional agency. The trip planner and the booking flow are demos, and nothing gets booked.',
+        cta:      'Experience ALVIREYA',
+        ctaAria:  'Experience the ALVIREYA concept on alvireya.webbinghub.io (opens in a new tab)',
+        imageAlt: 'The ALVIREYA concept homepage: a 3D plane flying past an aircraft window over a coastline',
+      },
+      closing: {
+        text: 'Have a different challenge?',
+        link: 'Let’s build something for it.',
       },
     },
     proof: {
@@ -564,21 +592,46 @@ const ro: Translations = {
       ],
     },
     brands: {
-      label:     'Specializările noastre',
-      heading:   'Soluții dedicate',
-      headingEm: 'pe industrii.',
-      live:      'Activ acum',
+      label:     'Ce am construit',
+      heading:   'Probleme diferite.',
+      headingEm: 'Soluții gândite pentru fiecare.',
+      intro:     'Două produse pe care le dezvoltăm și le întreținem pentru industrii anume, și un concept care arată cât de departe poate merge un site pentru clienți.',
       travel: {
-        sub:  'pentru hoteluri și agenții de turism',
-        desc: 'TRAVEL este un produs separat, cu propriile condiții, pentru hoteluri și agenții de turism. Acoperă motoare de rezervări, portaluri pentru agenți, WhatsApp și integrări API.',
-        tags: ['Motoare de rezervări', 'Portaluri pentru agenți', 'WhatsApp', 'Integrări API'],
-        link: 'Vizitează travel.webbinghub.io →',
+        kind:     'Produs · Distribuție hotelieră',
+        tagline:  'O singură platformă. Mai mulți furnizori de hoteluri.',
+        body:     'Cauți dintr-un singur loc la furnizorii cu care ai contract, compari tarifele hotelurilor, pregătești oferte pentru clienți și gestionezi rezervările într-un flux clar. Făcut pentru agențiile care vor mai mult control asupra distribuției hoteliere.',
+        steps: [
+          'O singură căutare la toți furnizorii de hoteluri',
+          'Hotelurile duplicate unite, tarifele comparate',
+          'Oferte cu mai multe variante pentru client',
+          'Prețul reverificat înainte de rezervare',
+          'Rezervări, confirmări și vouchere într-un singur back office',
+        ],
+        note:     'Contractele cu furnizorii și tarifele nete rămân ale tale.',
+        cta:      'Descoperă TRAVEL',
+        ctaAria:  'Descoperă TRAVEL by WebbingHUB pe travel.webbinghub.io (se deschide într-un tab nou)',
+        imageAlt: 'Pagina principală travel.webbinghub.io: „All your suppliers. One search.”',
       },
       apetit: {
-        sub:  'pentru restaurante și ospitalitate',
-        desc: 'Experiențe digitale simple pentru ospitalitate: meniuri QR, rezervări instant, comenzi în timp real și gestionarea oaspeților, pentru restaurante, cafenele și hoteluri.',
-        tags: ['Meniuri QR', 'Rezervări', 'Comenzi în timp real', 'Gestionarea oaspeților'],
-        link: 'Vizitează apetit.webbinghub.io →',
+        kind:     'Produs · Ospitalitate',
+        tagline:  'Comenzi, mese și rezervări în același loc.',
+        body:     'Clienții scanează codul QR de pe masă, citesc meniul, comandă sau cheamă ospătarul, fără să instaleze vreo aplicație. Comenzile ajung pe ecranul din bucătărie, rezervările se confirmă pe email, iar personalul vede toate mesele dintr-un singur panou.',
+        cta:      'Descoperă APETIT',
+        ctaAria:  'Descoperă APETIT by WebbingHUB pe apetit.webbinghub.io (se deschide într-un tab nou)',
+        imageAlt: 'APETIT în folosință: ecranul din bucătărie cu două comenzi confirmate de la mese și telefonul unui client după ce a adăugat o pizza din meniu',
+      },
+      alvireya: {
+        kind:     'Concept · Design și frontend',
+        tagline:  'O privire spre viitorul site-urilor de turism.',
+        body:     'Un concept interactiv care arată cum designul, experiențele inteligente și fluxurile conectate pot schimba felul în care o agenție de turism se prezintă online.',
+        note:     'ALVIREYA e o agenție inventată. Planificatorul de călătorii și rezervarea sunt demonstrații, nu se rezervă nimic.',
+        cta:      'Încearcă ALVIREYA',
+        ctaAria:  'Încearcă conceptul ALVIREYA pe alvireya.webbinghub.io (se deschide într-un tab nou)',
+        imageAlt: 'Pagina principală a conceptului ALVIREYA: un avion 3D care trece pe lângă hublou, deasupra unei coaste',
+      },
+      closing: {
+        text: 'Ai o altă provocare?',
+        link: 'Hai să construim ceva pentru ea.',
       },
     },
     proof: {

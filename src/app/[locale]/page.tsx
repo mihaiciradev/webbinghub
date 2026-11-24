@@ -187,7 +187,7 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
       <HeroSection locale={locale} t={t.hero} />
       <ServicesSection t={t.home.services} />
       <ProofSection proof={t.home.proof} />
-      <BrandsSection t={t.home.brands} />
+      <BrandsSection locale={locale} t={t.home.brands} />
       <FilmSection t={t.home.film} />
       <ProcessSection t={t.home.process} />
       <FaqSection t={t.home.faq} />
