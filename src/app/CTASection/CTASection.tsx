@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "./CTASection.module.css";
+import CTAMark from "./CTAMark";
 import { trackContactConversion } from "@/lib/gtag";
 import type { Translations } from "@/i18n/translations";
 
@@ -9,6 +10,7 @@ export default function CTASection({ t }: { t: Translations["home"]["cta"] }) {
     <section className={styles.cta} id="contact">
       <div className={styles.inner}>
         <div className="reveal">
+          <CTAMark />
           <h2 className={styles.heading}>
             {t.heading1}
             <br />

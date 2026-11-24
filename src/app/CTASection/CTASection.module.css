@@ -94,7 +94,46 @@
   transform: translateY(-2px);
 }
 
+/* ── The mascot ─────────────────────────────────── */
+/* Fixed box so nothing shifts when the 3D scene replaces the flat mark */
+.mark {
+  position: relative;
+  width: clamp(220px, 24vw, 320px);
+  aspect-ratio: 1;
+  margin: -1.5rem 0 1.5rem -1.5rem;
+}
+.markGlow {
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184, 151, 90, 0.22) 0%, rgba(184, 151, 90, 0) 68%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+.markStill {
+  position: absolute;
+  inset: 10%;
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  transition: opacity 0.6s ease;
+}
+.mark :global(.cta-mark-canvas) {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.markReady .markStill { opacity: 0; }
+.markReady :global(.cta-mark-canvas) { opacity: 1; }
+
 @media (max-width: 960px) {
   .cta { padding: 5rem 1.5rem; }
   .inner { grid-template-columns: 1fr; gap: 3rem; }
+  .mark { width: 180px; margin: -1rem 0 1rem -0.75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .markStill,
+  .mark :global(.cta-mark-canvas) { transition: none; }
 }
